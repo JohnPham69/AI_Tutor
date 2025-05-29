@@ -24,6 +24,8 @@ def QuizMaker():
                 border-bottom: 1px solid #ddd;
                 text-align: center;
             }
+
+                
             </style>
     """, unsafe_allow_html=True)
 
@@ -42,28 +44,34 @@ def QuizMaker():
         for msg in st.session_state.messages:
             with st.chat_message(msg["role"]):
                 st.markdown(msg["content"])
-
-    # React to user input
-    if prompt := st.chat_input("Type your message here"):
-        # Display user message in chat message container
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        user_api = controller.get('user_api')  # Get the API key from the cookie
-        # Generate and display assistant response
-        with st.chat_message("assistant"):
-            with st.spinner("AI is thinking..."):                
-                ai_response = genRes(prompt, st.session_state.messages, user_api)
-                # Ensure ai_response is not None before attempting to markdown.
-                # genRes is expected to return a string, even for errors.
+    with st.container():
+        col1, col2, col3 = st.columns([1,1,3])
+        with col1:
+            st.selectbox("Subject?", ("Geography: 2 lessons", "History: 2 lessons"), label_visibility="collapsed")
+        with col2:
+            st.selectbox("Lesson?", ("1", "2"), label_visibility="collapsed")
+        with col3:
+            # React to user input
+            if prompt := st.chat_input("Type your message here"):
+                # Display user message in chat message container
+                with st.chat_message("user"):
+                    st.markdown(prompt)
+                # Add user message to chat history
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                user_api = controller.get('user_api')  # Get the API key from the cookie
+                # Generate and display assistant response
+                with st.chat_message("assistant"):
+                    with st.spinner("AI is thinking..."):                
+                        ai_response = genRes(prompt, st.session_state.messages, user_api)
+                        # Ensure ai_response is not None before attempting to markdown.
+                        # genRes is expected to return a string, even for errors.
+                        if ai_response is not None:
+                            st.markdown(ai_response)
+                        else:
+                            st.markdown("Error: No response from AI.")
+                # Add assistant response to chat history
                 if ai_response is not None:
-                    st.markdown(ai_response)
-                else:
-                    st.markdown("Error: No response from AI.")
-        # Add assistant response to chat history
-        if ai_response is not None:
-            st.session_state.messages.append({"role": "assistant", "content": ai_response})
+                    st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
 # Routing
 match page:
@@ -170,6 +178,3 @@ match page:
                 st.success("API key saved successfully!")
             else:
                 st.warning("Please enter an API key.")
-
-    case "Theme":
-        st.title("This is the Theme page.")
