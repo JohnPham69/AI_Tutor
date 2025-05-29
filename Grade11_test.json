@@ -1,0 +1,30 @@
+{
+  "subjects": [
+    {
+      "name": "Geography",
+      "link": [
+        {
+          "name": "Continents and Oceans",
+          "link": "lessons/geography/continents-and-oceans.md"
+        },
+        {
+          "name": "Climate Zones",
+          "link": "lessons/geography/climate-zones.md"
+        }
+      ]
+    },
+    {
+      "name": "History",
+      "link": [
+        {
+          "name": "Ancient Civilizations",
+          "link": "lessons/history/ancient-civilizations.md"
+        },
+        {
+          "name": "World War II",
+          "link": "lessons/history/world-war-2.md"
+        }
+      ]
+    }
+  ]
+}
