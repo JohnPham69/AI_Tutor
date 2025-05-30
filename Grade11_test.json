@@ -2,6 +2,7 @@
   "subjects": [
     {
       "name": "Geography",
+      "less_no": 2,
       "link": [
         {
           "name": "Continents and Oceans",
@@ -15,6 +16,7 @@
     },
     {
       "name": "History",
+      "less_no": 2,
       "link": [
         {
           "name": "Ancient Civilizations",
