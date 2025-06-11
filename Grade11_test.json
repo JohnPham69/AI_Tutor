@@ -2,7 +2,7 @@
   "subjects": [
     {
       "name": "Geography",
-      "less_no": 2,
+      "less_no": 4,
       "link": [
         {
           "name": "Continents and Oceans",
@@ -13,6 +13,16 @@
           "name": "Climate Zones",
           "ID": 2,
           "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/geography/climate-zones.md"
+        },
+        {
+          "name": "Vi tri dia ly, dieu kien tu nhien, dan cu va xa hoi Nhat Ban",
+          "ID": 3,
+          "link": "hehe"
+        },
+        {
+          "name": "Kinh te Nhat Ban",
+          "ID": 4,
+          "link": "hehe"
         }
       ]
     },
