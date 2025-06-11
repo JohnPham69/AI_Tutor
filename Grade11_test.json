@@ -1,7 +1,59 @@
 {
   "grade": [
     {
+      "number": 6,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": []
+        }
+      ]
+    },
+    {
       "number": 7,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": []
+        }
+      ]
+    },
+    {
+      "number": 10,
       "textbook_set": [
         {
           "name": "Cánh diều",
@@ -77,6 +129,19 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": []
         }
       ]
     }
