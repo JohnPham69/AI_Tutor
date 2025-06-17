@@ -5,7 +5,12 @@ from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
 
 # Make a cookie controller
-controller = CookieController()
+@st.cache_resource
+def get_cookie_controller():
+    return CookieController()
+
+controller = get_cookie_controller()
+
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
