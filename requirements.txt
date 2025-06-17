@@ -2,3 +2,5 @@ google-genai
 streamlit
 markitdown[all]
 st_clickable_images
+gspread
+oauth2client
