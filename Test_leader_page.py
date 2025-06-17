@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
 
 # Call set_page_config as the first Streamlit command
 """Displays the leaderboard page."""
