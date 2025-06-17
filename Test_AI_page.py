@@ -1,35 +1,17 @@
 import streamlit as st
 from StAI import genRes
 from streamlit_cookies_controller import CookieController
+from markitdown import MarkItDown
+from app_translations import get_translator # Import the translator
 
 # Make a cookie controller
 controller = CookieController()
-
-# Custom CSS
-st.markdown("""
-    <style>
-        /* Sticky Title under navbar */
-        .sticky-title {
-            position: fixed;
-            top: 6.5vh;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            z-index: 1001;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-        </style>
-""", unsafe_allow_html=True)
-
-# Title
-st.markdown('<div class="sticky-title">Quiz Maker AI</div>', unsafe_allow_html=True)
+_ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
@@ -40,6 +22,7 @@ else:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
+
 # React to user input
 if prompt := st.chat_input("Type your message here"):
     # Display user message in chat message container
@@ -48,23 +31,32 @@ if prompt := st.chat_input("Type your message here"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     user_api = controller.get('user_api')  # Get the API key from the cookie
+    user_model = controller.get('user_model') # Get the model name from the cookie
 
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
-    selected_lesson_from_tester = st.session_state.get('sb_lesson_tester')
+    # sb_lesson_tester is now a list of lesson ID strings, or an empty list
+    raw_selected_lessons_from_tester = st.session_state.get('sb_lesson_tester', [])
+
+    # Pass the list of selected lessons directly (can be empty)
+    selected_lessons_for_ai = raw_selected_lessons_from_tester
+    
+    # Retrieve content from uploaded files, if any
+    uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
     # Generate and display assistant response
     with st.chat_message("assistant"):
-        with st.spinner("AI is thinking..."):                
+        with st.spinner("AI is thinking..."):
             ai_response = genRes(
-                prompt, 
+                prompt,  # The user's direct chat input
                 st.session_state.messages, 
-                user_api, 
+                user_api,
+                user_model, # Pass the user_model
                 selected_subject_from_tester, # Pass selected subject
-                selected_lesson_from_tester   # Pass selected lesson
+                selected_lessons_for_ai,      # Pass list of selected lessons (can be empty)
+                uploaded_file_text=uploaded_content_for_prompt # Pass content from uploaded files
             )
             # Ensure ai_response is not None before attempting to markdown.
-            # genRes is expected to return a string, even for errors.
             if ai_response is not None:
                 st.markdown(ai_response)
             else:

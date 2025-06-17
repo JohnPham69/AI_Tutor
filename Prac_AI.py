@@ -135,26 +135,26 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         model_name = "gemini-1.5-flash-latest"
 
         prompt_text = f"""
-Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
-Nhiệm vụ của bạn là so sánh "Câu trả lời của người dùng" với "Câu trả lời đúng" trong bối cảnh của "Câu hỏi" được đưa ra.
-Hãy xác định xem "Câu trả lời của người dùng" có về cơ bản là đúng hay không, ngay cả khi cách diễn đạt, từ đồng nghĩa, hoặc cấu trúc câu có chút khác biệt so với "Câu trả lời đúng".
+            Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
+            Nhiệm vụ của bạn là so sánh "Câu trả lời của người dùng" với "Câu trả lời đúng" trong bối cảnh của "Câu hỏi" được đưa ra.
+            Hãy xác định xem "Câu trả lời của người dùng" có về cơ bản là đúng hay không, ngay cả khi cách diễn đạt, từ đồng nghĩa, hoặc cấu trúc câu có chút khác biệt so với "Câu trả lời đúng".
 
-Ví dụ:
-Câu hỏi: "Thủ đô của Pháp là gì?"
-Câu trả lời đúng: "Paris"
-Câu trả lời của người dùng: "Là Paris đó bạn" -> Kết quả nên là CORRECT
-Câu trả lời của người dùng: "Paris chính là thủ đô" -> Kết quả nên là CORRECT
-Câu trả lời của người dùng: "Berlin" -> Kết quả nên là INCORRECT
+            Ví dụ:
+            Câu hỏi: "Thủ đô của Pháp là gì?"
+            Câu trả lời đúng: "Paris"
+            Câu trả lời của người dùng: "Là Paris đó bạn" -> Kết quả nên là CORRECT
+            Câu trả lời của người dùng: "Paris chính là thủ đô" -> Kết quả nên là CORRECT
+            Câu trả lời của người dùng: "Berlin" -> Kết quả nên là INCORRECT
 
-Chỉ trả lời bằng một từ duy nhất: "CORRECT" nếu câu trả lời của người dùng về cơ bản là đúng, hoặc "INCORRECT" nếu không.
-Không cung cấp bất kỳ giải thích nào, chỉ một từ duy nhất.
+            Chỉ trả lời bằng một từ duy nhất: "CORRECT" nếu câu trả lời của người dùng về cơ bản là đúng, hoặc "INCORRECT" nếu không.
+            Không cung cấp bất kỳ giải thích nào, chỉ một từ duy nhất.
 
-Câu hỏi: "{question_context}"
-Câu trả lời đúng: "{correct_answer}"
-Câu trả lời của người dùng: "{user_answer}"
+            Câu hỏi: "{question_context}"
+            Câu trả lời đúng: "{correct_answer}"
+            Câu trả lời của người dùng: "{user_answer}"
 
-Đánh giá của bạn (CORRECT hoặc INCORRECT):
-"""
+            Đánh giá của bạn (CORRECT hoặc INCORRECT):
+            """
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
