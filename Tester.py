@@ -42,7 +42,33 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
         st.session_state.changeLang = True # Set the flag indicating a language change occurred
 
 subject_lesson_data = load_subject_lesson_data()
+
+PAGES = {
+    "Tutor AI": chat_page,
+    "Practice / Quiz": practice,
+    "Leaderboard": leaderboard_page,
+}
+
+pg_selection = st.navigation(list(PAGES.values())) # Convert .values() to a list
+if pg_selection: # Check if a page was selected (pg_selection is the Page object)
+    pg_selection.run()
+
+# "Save results" button logic after pg.run() to know the current page
 with st.sidebar:
+    st.subheader(_("Save your own results!"))
+    if st.button(_("Save results")):
+        # Check if a quiz is active (state from Test_practice_page.py)
+        quiz_is_active = st.session_state.get("quiz_step") in ["questioning", "grading_feedback"]
+
+        if quiz_is_active:
+            st.warning(_("You must finish the quiz."))
+        elif pg_selection.title == leaderboard_page.title: # Check if current page is leaderboard
+            st.info(_("Nothing to save."))
+        else:
+            st.success(_("Results saved."))
+
+with st.sidebar:
+    st.markdown("---")
     # API key
     st.subheader(_('Config'))
 
@@ -207,6 +233,26 @@ with st.sidebar:
         disabled=not bool(actual_lesson_ids_for_multiselect)
     )
 
+    # Initialize or update selected_lesson_contexts based on sb_lesson_tester
+    if 'selected_lesson_contexts' not in st.session_state:
+        st.session_state.selected_lesson_contexts = []
+
+    new_selected_lesson_contexts = []
+    if current_subject_info and 'sb_lesson_tester' in st.session_state:
+        selected_ids_from_multiselect = st.session_state.sb_lesson_tester # List of selected ID strings
+        all_lessons_for_current_subject = current_subject_info.get("link", [])
+        for lesson_id_str_selected in selected_ids_from_multiselect:
+            lesson_detail_found = next(
+                (l_info for l_info in all_lessons_for_current_subject if str(l_info.get("ID")) == lesson_id_str_selected),
+                None
+            )
+            if lesson_detail_found and lesson_detail_found.get("link"): # Ensure 'link' (URL) exists
+                new_selected_lesson_contexts.append({
+                    "id": str(lesson_detail_found.get("ID")),
+                    "name": lesson_detail_found.get("name", f"Lesson {lesson_detail_found.get('ID')}"), # Fallback name
+                    "url": lesson_detail_found.get("link") # This is the .md URL
+                })
+    st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
     # File Uploader for Context
     st.subheader(_("Upload Files for Context"))
     if 'uploaded_file_content' not in st.session_state:
@@ -275,6 +321,3 @@ with st.sidebar:
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
-
-pg = st.navigation([chat_page, practice, leaderboard_page]) # Added leaderboard_page to navigation
-pg.run()

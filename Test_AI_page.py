@@ -40,11 +40,10 @@ if prompt := st.chat_input("Type your message here"):
 
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
-    # sb_lesson_tester is now a list of lesson ID strings, or an empty list
-    raw_selected_lessons_from_tester = st.session_state.get('sb_lesson_tester', [])
-
-    # Pass the list of selected lessons directly (can be empty)
-    selected_lessons_for_ai = raw_selected_lessons_from_tester
+    
+    # Get the detailed lesson contexts (list of dicts with id, name, url)
+    # This is populated by Tester.py
+    selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
     
     # Retrieve content from uploaded files, if any
     uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
@@ -58,7 +57,7 @@ if prompt := st.chat_input("Type your message here"):
                 user_api,
                 user_model, # Pass the user_model
                 selected_subject_from_tester, # Pass selected subject
-                selected_lessons_for_ai,      # Pass list of selected lessons (can be empty)
+                selected_lesson_data_list=selected_lesson_details_for_ai, # Pass the detailed list
                 uploaded_file_text=uploaded_content_for_prompt # Pass content from uploaded files
             )
             # Ensure ai_response is not None before attempting to markdown.

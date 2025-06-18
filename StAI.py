@@ -127,7 +127,7 @@ KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc c�
     return ans.replace("\n", "\n\n")
 
 
-def genRes(text_input, chat_history, user_api, user_model=None, selected_subject_name=None, selected_lesson_ids=None, uploaded_file_text: str = None):
+def genRes(text_input, chat_history, user_api, user_model=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None):
     try:
         if not user_api:
             return "API key not configured, please set it in the Config page."
@@ -180,32 +180,29 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
         lesson_material_fetched_parts = []
         lesson_ids_for_prompt_display = []
 
-        if selected_subject_name and selected_lesson_ids and isinstance(selected_lesson_ids, list):
-            for lesson_id_str_loop_var in selected_lesson_ids:
-                if not lesson_id_str_loop_var: # Skip if an ID is empty or None in the list
+        if selected_lesson_data_list and isinstance(selected_lesson_data_list, list):
+            for lesson_data in selected_lesson_data_list:
+                if not lesson_data or not isinstance(lesson_data, dict) or not lesson_data.get('url'):
+                    print(f"Warning: Invalid lesson_data entry in genRes: {lesson_data}")
                     continue
-                try:
-                    main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/Grade11_test.json"
-                    response = requests.get(main_json_url)
-                    response.raise_for_status()
-                    subjects_data = response.json()
-                    subject_found = next((s for s in subjects_data.get("subjects", []) if s.get("name") == selected_subject_name), None)
+                
+                lesson_url = lesson_data['url']
+                # Use .get with a fallback for id and name, though they should exist from Tester.py
+                lesson_id = lesson_data.get('id', 'UnknownID') 
+                lesson_name = lesson_data.get('name', f'Lesson {lesson_id}')
 
-                    if subject_found:
-                        lesson_id_int = int(lesson_id_str_loop_var)
-                        lesson_found = next((l_info for l_info in subject_found.get("link", []) if l_info.get("ID") == lesson_id_int), None)
-                        if lesson_found and lesson_found.get("link"):
-                            lesson_response = requests.get(lesson_found["link"])
-                            lesson_response.raise_for_status()
-                            lesson_content = lesson_response.text
-                            lesson_material_fetched_parts.append(f"Content for Lesson ID {lesson_id_str_loop_var}:\n{lesson_content}")
-                            lesson_ids_for_prompt_display.append(str(lesson_id_str_loop_var))
+                try:
+                    lesson_response = requests.get(lesson_url)
+                    lesson_response.raise_for_status() # Will raise an HTTPError for bad responses (4XX or 5XX)
+                    lesson_content = lesson_response.text
+                    # Using lesson_name and lesson_id for more descriptive context part
+                    lesson_material_fetched_parts.append(f"Content for Lesson '{lesson_name}' (ID {lesson_id}):\n{lesson_content}")
+                    lesson_ids_for_prompt_display.append(f"{lesson_name} (ID {lesson_id})")
                 except requests.exceptions.RequestException as req_err:
-                    print(f"Warning: Failed to fetch lesson data for lesson ID {lesson_id_str_loop_var} in genRes: {req_err}")
-                except (json.JSONDecodeError, ValueError) as parse_err:
-                    print(f"Warning: Error processing lesson data for lesson ID {lesson_id_str_loop_var} in genRes: {parse_err}")
+                    print(f"Warning: Failed to fetch lesson content from {lesson_url} (ID {lesson_id}, Name: {lesson_name}) in genRes: {req_err}")
                 except Exception as e:
-                    print(f"Warning: An unexpected error occurred while fetching content for lesson ID {lesson_id_str_loop_var} in genRes: {e}")
+                    # Catch any other unexpected errors during the fetch/processing of a single lesson's content
+                    print(f"Warning: An unexpected error occurred while fetching/processing content for lesson ID {lesson_id} (Name: {lesson_name}, URL: {lesson_url}) in genRes: {e}")
 
         lesson_material_combined_content = ""
         if lesson_material_fetched_parts:
@@ -317,7 +314,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
         
         # Pass the output of the first LLM call to afterStepOne for potential refinement
         intermediate_result = afterStepOne(step_one_output_text, user_api, active_model_name)
-        
         return intermediate_result
 
     except Exception as e:
