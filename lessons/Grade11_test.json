@@ -131,7 +131,7 @@
             },
             {
               "name": "Biology",
-              "less_no": 14,
+              "less_no": 15,
               "link": [
                 {
                   "name": "KHAI QUAT VE TRAO DOI CHAT VA CHUYEN HOA NANG LUONG O SINH VAT",
@@ -202,6 +202,11 @@
                   "name": "KHAI QUAT VE SINH TRUONG VA PHAT TRIEN O SINH VAT",
                   "ID": 19,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L19.md"
+                },
+                {
+                  "name": "SINH TRUONG VA PHAT TRIEN O SINH VAT",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L20.md"
                 },
               ]
             }
