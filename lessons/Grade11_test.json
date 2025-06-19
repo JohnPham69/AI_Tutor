@@ -122,8 +122,13 @@
               "less_no": 1,
               "link": [
                 {
-                  "name": "Khai quat cam ung sinh vat",
+                  "name": "KHAI QUAT VE TRAO DOI CHAT VA CHUYEN HOA NANG LUONG O SINH VAT",
                   "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L1.md"
+                },
+                {
+                  "name": "Khai quat cam ung sinh vat",
+                  "ID": 14,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L14.md"
                 }
               ]
