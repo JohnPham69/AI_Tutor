@@ -80,16 +80,6 @@
               "less_no": 4,
               "link": [
                 {
-                  "name": "Continents and Oceans",
-                  "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/geography/continents-and-oceans.md"
-                },
-                {
-                  "name": "Climate Zones",
-                  "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/geography/climate-zones.md"
-                },
-                {
                   "name": "Vi tri dia ly, dieu kien tu nhien, dan cu va xa hoi Nhat Ban",
                   "ID": 22,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/geography/L22.md"
