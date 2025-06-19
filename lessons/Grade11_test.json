@@ -22,7 +22,29 @@
         },
         {
           "name": "Chân trời sáng tạo",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Science - Khoa hoc tu nhien",
+              "less_no": 3,
+              "link": [
+                {
+                  "name": "NGUYEN TU",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L2.md"
+                },
+                {
+                  "name": "NGUYEN TO HOA HOC",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L3.md"
+                },
+                {
+                  "name": "SO LUOC BANG TUAN HOAN CAC NGUYEN TO HOA HOC",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L4.md"
+                },
+              ]
+            }
+          ]
         }
       ]
     },
@@ -77,7 +99,7 @@
           "subjects": [
             {
               "name": "Geography",
-              "less_no": 4,
+              "less_no": 2,
               "link": [
                 {
                   "name": "Vi tri dia ly, dieu kien tu nhien, dan cu va xa hoi Nhat Ban",
@@ -109,7 +131,7 @@
             },
             {
               "name": "Biology",
-              "less_no": 1,
+              "less_no": 10,
               "link": [
                 {
                   "name": "KHAI QUAT VE TRAO DOI CHAT VA CHUYEN HOA NANG LUONG O SINH VAT",
