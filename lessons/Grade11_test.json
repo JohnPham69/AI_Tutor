@@ -166,7 +166,7 @@
             },
             {
               "name": "Biology",
-              "less_no": 15,
+              "less_no": 21,
               "link": [
                 {
                   "name": "KHAI QUAT VE TRAO DOI CHAT VA CHUYEN HOA NANG LUONG O SINH VAT",
@@ -242,6 +242,36 @@
                   "name": "SINH TRUONG VA PHAT TRIEN O SINH VAT",
                   "ID": 20,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L20.md"
+                },
+                {
+                  "name": "SINH TRUONG VA PHAT TRIEN O SINH VAT",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L21.md"
+                },
+                {
+                  "name": "KHAI QUAT VE SINH SAN O SINH VAT",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L23.md"
+                },
+                {
+                  "name": "SINH SAN O THUC VAT",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L24.md"
+                },
+                {
+                  "name": "SINH SAN O DONG VAT",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L26.md"
+                },
+                {
+                  "name": "CO THE SINH VAT LA MOT HE THONG MO VA TU DIEU CHINH",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L27.md"
+                },
+                {
+                  "name": "MOT SO NGANH NGHE LIEN QUAN DEN SINH HOC CO THE",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L28.md"
                 }
               ]
             }
