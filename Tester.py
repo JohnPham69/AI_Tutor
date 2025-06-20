@@ -27,7 +27,7 @@ leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # Ne
 @st.cache_data(ttl=3600) # Cache data for an hour
 def load_subject_lesson_data():
     try:
-        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/Grade11_test.json"
+        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
         response = requests.get(main_json_url)
         response.raise_for_status()
         return response.json()
