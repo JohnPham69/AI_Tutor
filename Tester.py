@@ -110,6 +110,7 @@ with st.sidebar:
             controller.set('user_id', StudentID)
         else: # Only API key is strictly required for this part
             st.warning(_("Please enter your API key!!!"))
+        st.write(controller.get('user_api'))  # For debugging, can be removed later
 
 
     # Chat Context Selection
