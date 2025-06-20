@@ -9,8 +9,11 @@ from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
 
 # Make a cookie controller
-controller = CookieController()
+# @st.cache_resource # Temporarily remove caching for debugging
+def get_cookie_controller_instance(): # Ensure a fresh instance
+    return CookieController()
 
+controller = get_cookie_controller_instance()
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -89,46 +92,59 @@ with st.sidebar:
             _("API Key"),
             placeholder=_("Enter your API key here"),
             label_visibility="collapsed",
-            type="password",  # Use 'password' type for sensitive input
+            type="password",
+            key="sidebar_api_key_input_tester" # Added key for stability
         )
 
     model_input = st.text_input(
         ("Model"),
         placeholder=_("Enter your model name here"),
         label_visibility="collapsed",
+        key="sidebar_model_input_tester" # Added key
         )
     
-    save_button = st.button(_("Save"))
+    save_button = st.button(_("Save"), key="sidebar_save_button_tester")
 
-    # Initialize session state for debugging cookie retrieval
-    if 'attempt_to_read_cookies_after_save' not in st.session_state:
-        st.session_state.attempt_to_read_cookies_after_save = False
-    if 'debug_retrieved_api_key' not in st.session_state:
-        st.session_state.debug_retrieved_api_key = None
+    # Session state for managing the cookie set/get flow for debugging
+    if 'trigger_cookie_read_tester' not in st.session_state:
+        st.session_state.trigger_cookie_read_tester = False
+    if 'saved_api_key_value_for_debug_tester' not in st.session_state:
+        st.session_state.saved_api_key_value_for_debug_tester = None
 
     if save_button:
         if api_key_input: # Model input is optional, API key is essential
-            st.success(_("Information saved successfully!"))
-            # Use unique keys for set operations
-            controller.set('user_api', api_key_input, key="cookie_setter_user_api")
-            controller.set('user_model', model_input, key="cookie_setter_user_model")
-            controller.set('user_nickname', nickname, key="cookie_setter_user_nickname")
-            controller.set('user_school', school, key="cookie_setter_user_school")
-            controller.set('user_class', studyClass, key="cookie_setter_user_class")
-            controller.set('user_id', StudentID, key="cookie_setter_user_id")
-            st.session_state.attempt_to_read_cookies_after_save = True
+            st.sidebar.success(_("Information saved! Attempting to set cookies..."))
+            # Simplify: Remove 'key' argument from controller.set for this test
+            controller.set('user_api', api_key_input)
+            controller.set('user_model', model_input)
+            controller.set('user_nickname', nickname)
+            controller.set('user_school', school)
+            controller.set('user_class', studyClass)
+            controller.set('user_id', StudentID)
+
+            st.session_state.saved_api_key_value_for_debug_tester = api_key_input # Store what we attempted to set
+            st.session_state.trigger_cookie_read_tester = True
             st.experimental_rerun() # Rerun to allow get operation on a fresh pass
         else: # Only API key is strictly required for this part
             st.warning(_("Please enter your API key!!!"))
 
-    if st.session_state.attempt_to_read_cookies_after_save:
-        st.session_state.debug_retrieved_api_key = controller.get('user_api', key="cookie_getter_tester_debug")
-        st.session_state.attempt_to_read_cookies_after_save = False # Reset flag
+    if st.session_state.trigger_cookie_read_tester:
+        st.sidebar.write("--- Cookie Read Attempt (Tester.py) ---")
+        # Simplify: Remove 'key' argument from controller.get for this test
+        retrieved_api_key_tester = controller.get('user_api')
 
-    if st.session_state.debug_retrieved_api_key:
-        st.sidebar.write(f"Debug (Tester.py): API Key from cookie: {st.session_state.debug_retrieved_api_key}")
+        st.sidebar.write(f"Value we tried to set: '{st.session_state.saved_api_key_value_for_debug_tester}'")
+        st.sidebar.write(f"Value retrieved by controller.get('user_api'): '{retrieved_api_key_tester}'")
 
-
+        if retrieved_api_key_tester:
+            st.sidebar.success(f"Successfully retrieved API key in Tester.py: '{retrieved_api_key_tester}'")
+        else:
+            st.sidebar.error("Failed to retrieve API key in Tester.py. controller.get() returned None.")
+            st.sidebar.markdown(
+                "**ACTION: Check Browser Developer Tools (F12 -> Application -> Cookies) for `user_api` cookie NOW.**"
+            )
+        st.session_state.trigger_cookie_read_tester = False # Reset flag
+        st.session_state.saved_api_key_value_for_debug_tester = None
 
     # Chat Context Selection
     st.subheader(_("Adjust Context"))

@@ -4,12 +4,12 @@ from streamlit_cookies_controller import CookieController
 from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
 
-# Make a cookie controller
-@st.cache_resource
-def get_cookie_controller():
+# Make a cookie controller instance
+# @st.cache_resource # Temporarily remove caching for debugging
+def get_cookie_controller_instance_ai_page(): # Ensure a fresh instance
     return CookieController()
 
-controller = get_cookie_controller()
+controller = get_cookie_controller_instance_ai_page()
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
@@ -35,11 +35,12 @@ if prompt := st.chat_input("Type your message here"):
         st.markdown(prompt)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    user_api = controller.get('user_api')  # Get the API key from the cookie
-    user_model = controller.get('user_model') # Get the model name from the cookie
+    # Simplify: Remove 'key' argument from controller.get for this test
+    user_api = controller.get('user_api')
+    user_model = controller.get('user_model')
 
-    st.warning(user_api) #Test API only
-    
+    st.warning(f"DEBUG (Test_AI_page.py): user_api from cookie = '{user_api}'") # More descriptive debug
+
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     
