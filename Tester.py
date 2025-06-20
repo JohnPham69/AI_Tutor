@@ -113,7 +113,7 @@ with st.sidebar:
 
     if save_button:
         if api_key_input: # Model input is optional, API key is essential
-            st.sidebar.success(_("Information saved! Attempting to set cookies..."))
+            st.sidebar.success(_("API key saved successfully!")) # Or a more general success message
             # Simplify: Remove 'key' argument from controller.set for this test
             controller.set('user_api', api_key_input)
             controller.set('user_model', model_input)
@@ -121,30 +121,19 @@ with st.sidebar:
             controller.set('user_school', school)
             controller.set('user_class', studyClass)
             controller.set('user_id', StudentID)
-
-            st.session_state.saved_api_key_value_for_debug_tester = api_key_input # Store what we attempted to set
             st.session_state.trigger_cookie_read_tester = True
-
+            
             st.rerun()
             st.experimental_rerun() # Rerun to allow get operation on a fresh pass
         else: # Only API key is strictly required for this part
             st.warning(_("Please enter your API key!!!"))
+        
 
     if st.session_state.trigger_cookie_read_tester:
-        st.sidebar.write("--- Cookie Read Attempt (Tester.py) ---")
         # Simplify: Remove 'key' argument from controller.get for this test
         retrieved_api_key_tester = controller.get('user_api')
-
-        st.sidebar.write(f"Value we tried to set: '{st.session_state.saved_api_key_value_for_debug_tester}'")
-        st.sidebar.write(f"Value retrieved by controller.get('user_api'): '{retrieved_api_key_tester}'")
-
-        if retrieved_api_key_tester:
-            st.sidebar.success(f"Successfully retrieved API key in Tester.py: '{retrieved_api_key_tester}'")
-        else:
-            st.sidebar.error("Failed to retrieve API key in Tester.py. controller.get() returned None.")
-            st.sidebar.markdown(
-                "**ACTION: Check Browser Developer Tools (F12 -> Application -> Cookies) for `user_api` cookie NOW.**"
-            )
+        # We can still check if it was retrieved, but no need to display debug messages.
+        # If needed, you could add a silent log here or a subtle indicator if retrieval failed.
         st.session_state.trigger_cookie_read_tester = False # Reset flag
         st.session_state.saved_api_key_value_for_debug_tester = None
 

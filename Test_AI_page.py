@@ -39,8 +39,6 @@ if prompt := st.chat_input("Type your message here"):
     user_api = controller.get('user_api')
     user_model = controller.get('user_model')
 
-    st.warning(f"DEBUG (Test_AI_page.py): user_api from cookie = '{user_api}'") # More descriptive debug
-
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     
