@@ -38,6 +38,8 @@ if prompt := st.chat_input("Type your message here"):
     user_api = controller.get('user_api')  # Get the API key from the cookie
     user_model = controller.get('user_model') # Get the model name from the cookie
 
+    st.warning(user_api) #Test API only
+    
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     
