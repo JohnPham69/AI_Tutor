@@ -99,18 +99,35 @@ with st.sidebar:
         )
     
     save_button = st.button(_("Save"))
+
+    # Initialize session state for debugging cookie retrieval
+    if 'attempt_to_read_cookies_after_save' not in st.session_state:
+        st.session_state.attempt_to_read_cookies_after_save = False
+    if 'debug_retrieved_api_key' not in st.session_state:
+        st.session_state.debug_retrieved_api_key = None
+
     if save_button:
         if api_key_input: # Model input is optional, API key is essential
             st.success(_("Information saved successfully!"))
-            controller.set('user_api', api_key_input)  # Save the API key in a cookie
-            controller.set('user_model', model_input)
-            controller.set('user_nickname', nickname)
-            controller.set('user_school', school)
-            controller.set('user_class', studyClass)
-            controller.set('user_id', StudentID)
+            # Use unique keys for set operations
+            controller.set('user_api', api_key_input, key="cookie_setter_user_api")
+            controller.set('user_model', model_input, key="cookie_setter_user_model")
+            controller.set('user_nickname', nickname, key="cookie_setter_user_nickname")
+            controller.set('user_school', school, key="cookie_setter_user_school")
+            controller.set('user_class', studyClass, key="cookie_setter_user_class")
+            controller.set('user_id', StudentID, key="cookie_setter_user_id")
+            st.session_state.attempt_to_read_cookies_after_save = True
+            st.experimental_rerun() # Rerun to allow get operation on a fresh pass
         else: # Only API key is strictly required for this part
             st.warning(_("Please enter your API key!!!"))
-        st.write(controller.get('user_api'))  # For debugging, can be removed later
+
+    if st.session_state.attempt_to_read_cookies_after_save:
+        st.session_state.debug_retrieved_api_key = controller.get('user_api', key="cookie_getter_tester_debug")
+        st.session_state.attempt_to_read_cookies_after_save = False # Reset flag
+
+    if st.session_state.debug_retrieved_api_key:
+        st.sidebar.write(f"Debug (Tester.py): API Key from cookie: {st.session_state.debug_retrieved_api_key}")
+
 
 
     # Chat Context Selection
