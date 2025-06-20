@@ -6,6 +6,7 @@ from random import randint
 import time
 import os
 from app_translations import get_translator # Import translator
+from StResult import AddNewResult
 
 # --- Constants ---
 QUIZ_STATE_INITIAL = "initial"
@@ -36,6 +37,7 @@ ensure_session()
 _ = get_translator() # Initialize translator for this page
 controller = CookieController()
 st.title(_("Practice Quiz Title"))
+
 
 # --- Reset function ---
 def reset_quiz_state(set_step_to_initial=True):
@@ -79,14 +81,47 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
 # --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     st.markdown(_("Configure Your Quiz"))
-    selected_subject = st.session_state.get("sb_subject_tester") # This is a string (subject name)
+    # Get current selections from session state (set by Tester.py sidebar widgets)
+    selected_grade_number = st.session_state.get('sb_grade_tester')
+    selected_textbook_set_name = st.session_state.get('sb_textbook_set_tester')
+    selected_subject_name = st.session_state.get("sb_subject_tester") # This is a string (subject name)
     # sb_lesson_tester from session_state is a list of selected lesson IDs (strings)
     raw_selected_lesson_ids_list = st.session_state.get("sb_lesson_tester", [])
 
-    selected_lesson_for_quiz = None
-    if raw_selected_lesson_ids_list: # Check if the list of selected lessons is not empty
-        selected_lesson_for_quiz = raw_selected_lesson_ids_list[0] # Use the first selected lesson for the quiz
+    selected_lesson_id_for_quiz = None
+    lesson_content_url_for_quiz = None
 
+    if raw_selected_lesson_ids_list: # A lesson ID is selected from the multiselect
+        selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0] # Use the first selected lesson ID for the quiz
+        
+        # Directly look up the URL using the full subject_lesson_data and current selections
+        # This avoids relying on selected_lesson_contexts which might be stale due to st.navigation
+        subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages')
+        if subject_data_from_session and selected_grade_number and \
+           selected_textbook_set_name and selected_subject_name and selected_lesson_id_for_quiz:
+            
+            current_grade_info = next((g for g in subject_data_from_session.get("grade", []) if g.get("number") == selected_grade_number), None)
+            if current_grade_info:
+                current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+                if current_textbook_set_info:
+                    current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
+                    if current_subject_info:
+                        lesson_detail_found = next(
+                            (l_info for l_info in current_subject_info.get("link", []) if str(l_info.get("ID")) == selected_lesson_id_for_quiz),
+                            None
+                        )
+                        if lesson_detail_found and lesson_detail_found.get("link"):
+                            lesson_content_url_for_quiz = lesson_detail_found.get("link")
+
+    # Inform user if subject/lesson is not selected for the quiz
+    if not selected_subject_name and not selected_lesson_id_for_quiz:
+        st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
+    elif selected_lesson_id_for_quiz and not lesson_content_url_for_quiz:
+        st.warning(_("A lesson (ID: {lesson_id}) was selected, but its content URL could not be found. The quiz may cover general topics for subject '{subject_name}'. Please check sidebar selections and data integrity.").format(lesson_id=selected_lesson_id_for_quiz, subject_name=selected_subject_name if selected_subject_name else _("N/A")))
+    elif not selected_lesson_id_for_quiz: # Subject is selected, but no specific lesson
+        st.info(_("No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.").format(subject_name=selected_subject_name))
+    elif not selected_subject_name: # Lesson selected but somehow no subject (should be rare with sidebar logic)
+        st.warning(_("A lesson is selected, but the subject is missing. Please check sidebar selections. The quiz may cover general knowledge topics."))
     num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
     num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 30, value=10, step=1)
 
@@ -99,7 +134,15 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
             st.error(_("API Key Missing Error Config"))
         else:
             with st.spinner(_("Creating Quiz Spinner")):
-                data = generate_quiz_data(num_q, user_api_key, selected_subject, selected_lesson_for_quiz)
+                # Pass subject_name and the direct lesson_content_url
+                data = generate_quiz_data(
+                    num_questions=num_q, 
+                    user_api=user_api_key, 
+                    subject_name=selected_subject_name, 
+                    lesson_id_str=selected_lesson_id_for_quiz # Pass lesson_id_str
+                )
+                
+                controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
             if data and len(data) == num_q:
                 st.session_state.generated_quiz_data = data
                 st.session_state.num_questions_to_ask = num_q
@@ -116,23 +159,67 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
 # --- QUESTIONING or FEEDBACK ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
     idx = st.session_state.current_question_idx
-    total = st.session_state.num_questions_to_ask
+    total_questions_in_quiz = st.session_state.num_questions_to_ask # Renamed for clarity
     data = st.session_state.generated_quiz_data
 
-    if not data or idx >= total or idx >= len(data):
+    if not data or idx >= total_questions_in_quiz or idx >= len(data): # Quiz completed
         st.balloons()
         st.success(_("Quiz Completed Message"))
-        correct = sum(1 for i in range(total) if st.session_state.feedback.get(i, {}).get("status") == FEEDBACK_STATUS_CORRECT)
-        st.markdown(_("Result Info").format(correct=correct, total=total))
-        if st.button(_("Do Another Quiz Button")):
-            reset_quiz_state()
-            st.rerun()
+        
+        num_correct_in_quiz = sum(1 for i in range(total_questions_in_quiz) if st.session_state.feedback.get(i, {}).get("status") == FEEDBACK_STATUS_CORRECT)
+        st.markdown(_("Result Info").format(correct=num_correct_in_quiz, total=total_questions_in_quiz))
+        
+        col1, col2 = st.columns(2)
+        with col1:   
+            if st.button(_("Add to Leaderboards")):
+                # Update cookies for practice quiz totals
+                # Get current cookie values or default to 0
+                quiz_total_q_cookie_val = controller.get('st_quiz_total_questions')
+                current_quiz_total_q = 0
+                if quiz_total_q_cookie_val is not None:
+                    try:
+                        current_quiz_total_q = int(quiz_total_q_cookie_val)
+                    except (ValueError, TypeError): # Handles non-string or non-integer string
+                        current_quiz_total_q = 0 # Default if conversion fails
+                current_quiz_total_q += total_questions_in_quiz
+                controller.set('st_quiz_total_questions', str(current_quiz_total_q))
+
+                quiz_correct_a_cookie_val = controller.get('st_quiz_correct_answers')
+                current_quiz_correct_a = 0
+                if quiz_correct_a_cookie_val is not None:
+                    try:
+                        current_quiz_correct_a = int(quiz_correct_a_cookie_val)
+                    except (ValueError, TypeError):
+                        current_quiz_correct_a = 0
+                current_quiz_correct_a += num_correct_in_quiz
+                controller.set('st_quiz_correct_answers', str(current_quiz_correct_a))
+                # Reset quiz state and rerun
+                reset_quiz_state()
+                st.rerun()
+        with col2:
+            subject_fin = controller.get('selected_subject_name')
+            st.write("Finished:",subject_fin)
+            total_questions_attempted = int(controller.get('st_quiz_total_questions')) + total_questions_in_quiz
+            total_correct_answers = int(controller.get('st_quiz_correct_answers')) + num_correct_in_quiz
+            st.write(_("Total Questions Attempted: {}").format(str(total_questions_attempted) if str(total_questions_attempted) else total_questions_in_quiz))
+            st.write(_("Total Correct Answers: {}").format(str(total_correct_answers) if str(total_correct_answers) else num_correct_in_quiz))
+            if st.button("Reset"):
+                nick = controller.get('user_nickname')
+                school = controller.get('user_school')
+                class_name = controller.get('user_class')
+                student_id = controller.get('user_id')                
+                AddNewResult(nick, school, class_name, student_id, total_questions_attempted, total_correct_answers, subject_fin)
+                controller.set('st_quiz_total_questions', '0')
+                controller.set('st_quiz_correct_answers', '0')
+                total_questions_in_quiz = 0
+                num_correct_in_quiz = 0
+                st.rerun()
     else:
         if st.session_state.quiz_step == QUIZ_STATE_QUESTIONING:
             # --- Countdown UI with HTML ---
             time_remaining_text = _("Time Remaining Label")
             # --- Display current question ---
-            st.markdown(_("Question Number Info").format(current_idx_plus_1=idx + 1, total_questions=total))
+            st.markdown(_("Question Number Info").format(current_idx_plus_1=idx + 1, total_questions=total_questions_in_quiz))
             current = data[idx]
             st.markdown(f"**{current['question']}**")
 

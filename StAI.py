@@ -5,8 +5,8 @@ import requests
 import json # Added for parsing JSON
 from google import genai
 from google.genai import types
-DEFAULT_MODEL_NAME = "gemini-2.0-flash"
-DEFAULT_MODEL_FLASH_LATEST = "gemini-2.0-flash"
+DEFAULT_MODEL_NAME = "gemini-2.5-flash"
+DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
 def analyze_user_intent(user_input_text, user_api, user_model=None):
     """
     Analyzes the user's input to determine if they want to stop or continue.

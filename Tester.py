@@ -27,21 +27,24 @@ leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # Ne
 @st.cache_data(ttl=3600) # Cache data for an hour
 def load_subject_lesson_data():
     try:
-        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/Grade11_test.json"
+        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/Grade11_test.json"
         response = requests.get(main_json_url)
         response.raise_for_status()
         return response.json()
     except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
         st.sidebar.error(f"{_('Failed to load lesson data: ')}{e}")
-        return {"subjects": []} # Return default structure on error
+        return {"grade": []} # Return default structure with "grade" key on error
 
 def set_language_and_trigger_rerun_flag(new_lang_code):
-    """Sets the language and flags that a rerun is needed if the language changes."""
+    # Ensure 'lang' is initialized before comparing
+    st.session_state.lang = st.session_state.get('lang', 'vi') # Default to 'vi' if not set
     if st.session_state.lang != new_lang_code:
         st.session_state.lang = new_lang_code
         st.session_state.changeLang = True # Set the flag indicating a language change occurred
 
 subject_lesson_data = load_subject_lesson_data()
+
+st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
 PAGES = {
     "Tutor AI": chat_page,
@@ -52,20 +55,6 @@ PAGES = {
 pg_selection = st.navigation(list(PAGES.values())) # Convert .values() to a list
 if pg_selection: # Check if a page was selected (pg_selection is the Page object)
     pg_selection.run()
-
-# "Save results" button logic after pg.run() to know the current page
-with st.sidebar:
-    st.subheader(_("Save your own results!"))
-    if st.button(_("Save results")):
-        # Check if a quiz is active (state from Test_practice_page.py)
-        quiz_is_active = st.session_state.get("quiz_step") in ["questioning", "grading_feedback"]
-
-        if quiz_is_active:
-            st.warning(_("You must finish the quiz."))
-        elif pg_selection.title == leaderboard_page.title: # Check if current page is leaderboard
-            st.info(_("Nothing to save."))
-        else:
-            st.success(_("Results saved."))
 
 with st.sidebar:
     st.markdown("---")
@@ -143,6 +132,26 @@ with st.sidebar:
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
 
+    # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
+    def grade_changed_callback():
+        st.session_state.user_interacted_grade = True
+
+    def textbook_set_changed_callback():
+        st.session_state.user_interacted_textbook_set = True
+
+    def subject_changed_callback():
+        st.session_state.user_interacted_subject = True
+
+    # Initialize interaction flags if they don't exist
+    if 'user_interacted_grade' not in st.session_state:
+        st.session_state.user_interacted_grade = False
+    if 'user_interacted_textbook_set' not in st.session_state:
+        st.session_state.user_interacted_textbook_set = False
+    if 'user_interacted_subject' not in st.session_state:
+        st.session_state.user_interacted_subject = False
+    if 'sb_grade_tester_initialized' not in st.session_state: # To handle first run logic
+        st.session_state.sb_grade_tester_initialized = False
+
 
     # --- Grade Selection ---
     grade_data = subject_lesson_data.get("grade", [])
@@ -150,11 +159,16 @@ with st.sidebar:
 
     if 'sb_grade_tester' not in st.session_state:
         st.session_state.sb_grade_tester = grade_numbers[0] if grade_numbers else None
+        # On first initialization, behave as if user selected it to trigger downstream updates
+        if not st.session_state.sb_grade_tester_initialized:
+             st.session_state.user_interacted_grade = True
+             st.session_state.sb_grade_tester_initialized = True
 
     selected_grade_number = st.selectbox(
         _("Grade?"),
         grade_numbers,
-        key='sb_grade_tester'
+        key='sb_grade_tester',
+        on_change=grade_changed_callback
     )
 
     # --- Textbook Set Selection ---
@@ -163,22 +177,25 @@ with st.sidebar:
     if current_grade_info:
         textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
 
-    if 'sb_textbook_set_tester' not in st.session_state:
+    # Initialize or reset textbook_set if grade was changed by user, or if it's the very first run for textbook_set
+    if 'sb_textbook_set_tester' not in st.session_state or st.session_state.user_interacted_grade:
         st.session_state.sb_textbook_set_tester = textbook_set_names[0] if textbook_set_names else None
-    
-    # If grade changes, reset textbook_set and subsequent selections if current textbook_set is not valid
-    if selected_grade_number and st.session_state.sb_textbook_set_tester not in textbook_set_names:
-        st.session_state.sb_textbook_set_tester = textbook_set_names[0] if textbook_set_names else None
-        # Also reset subject and lessons as they depend on textbook_set
-        st.session_state.sb_subject_tester = None
-        st.session_state.sb_lesson_tester = []
-
+        st.session_state.user_interacted_textbook_set = True # Signal for subject reset
+        st.session_state.sb_subject_tester = None # Cascade reset
+        st.session_state.sb_lesson_tester = []   # Cascade reset
+        st.session_state.user_interacted_grade = False # Consume the flag
+    # If current textbook selection is no longer valid for the current grade (e.g. data changed),
+    # Streamlit's selectbox will default to the first option if the key's value is not in options.
+    # We want to preserve the session state value unless explicitly changed by user interaction.
+    # The selectbox itself will handle displaying a valid option if the state value is out of bounds.
 
     selected_textbook_set_name = st.selectbox(
         _("Textbook Set?"),
         textbook_set_names,
         key='sb_textbook_set_tester',
-        disabled=not bool(textbook_set_names)
+        on_change=textbook_set_changed_callback,
+        disabled=not bool(textbook_set_names),
+
     )
 
     # --- Subject Selection (dependent on Grade and Textbook Set) ---
@@ -189,19 +206,19 @@ with st.sidebar:
         if current_textbook_set_info:
             subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
 
-    if 'sb_subject_tester' not in st.session_state:
-        st.session_state.sb_subject_tester = subject_names[0] if subject_names else None    
-    
-    # If textbook_set changes, reset subject and lessons if current subject is not valid
-    if selected_textbook_set_name and st.session_state.sb_subject_tester not in subject_names:
+    # Initialize or reset subject if textbook_set was changed by user
+    if 'sb_subject_tester' not in st.session_state or st.session_state.user_interacted_textbook_set:
         st.session_state.sb_subject_tester = subject_names[0] if subject_names else None
-        st.session_state.sb_lesson_tester = []
+        st.session_state.user_interacted_subject = True # Signal for lesson reset
+        st.session_state.sb_lesson_tester = []  # Cascade reset
+        st.session_state.user_interacted_textbook_set = False # Consume the flag
 
     selected_subject_name = st.selectbox(
         _("Subject?"),
         subject_names,
         key='sb_subject_tester',
-        disabled=not bool(subject_names)
+        on_change=subject_changed_callback,
+        disabled=not bool(subject_names),
     )
 
     # --- Lesson Selection (dependent on Grade, Textbook Set, and Subject) ---
@@ -216,16 +233,18 @@ with st.sidebar:
     if 'sb_lesson_tester' not in st.session_state or not isinstance(st.session_state.sb_lesson_tester, list):
         st.session_state.sb_lesson_tester = []
 
-    # If subject changes, filter/reset lesson selection
-    current_selection_from_state = st.session_state.get('sb_lesson_tester', [])
-    valid_selection_for_current_subject = [
-        lesson_id for lesson_id in current_selection_from_state if lesson_id in actual_lesson_ids_for_multiselect
-    ]
-    # Only update if the selection actually needs to change to avoid unnecessary reruns if the list of options changed but selection is still valid
-    if st.session_state.sb_lesson_tester != valid_selection_for_current_subject:
-        st.session_state.sb_lesson_tester = valid_selection_for_current_subject
-
-    st.multiselect(
+    # If subject was changed by user, clear lesson selection
+    if st.session_state.user_interacted_subject:
+        st.session_state.sb_lesson_tester = [] # Clear lessons
+        st.session_state.user_interacted_subject = False # Consume the flag
+    else:
+        # Filter current lesson selection against available options if subject didn't change by user action
+        # This handles cases where the list of lessons might change due to data updates.
+        current_selection_from_state = st.session_state.get('sb_lesson_tester', [])
+        valid_selection_for_current_subject = [lesson_id for lesson_id in current_selection_from_state if lesson_id in actual_lesson_ids_for_multiselect]
+        if st.session_state.sb_lesson_tester != valid_selection_for_current_subject: # Only update if necessary
+            st.session_state.sb_lesson_tester = valid_selection_for_current_subject
+    st.multiselect( # No on_change needed here as it's the last in this chain or its state is directly used
         _("Lesson(s)?"),
         options=actual_lesson_ids_for_multiselect,
         key='sb_lesson_tester', # Will store a list of selected lesson IDs

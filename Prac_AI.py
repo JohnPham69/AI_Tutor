@@ -20,12 +20,20 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         subjects_data = response.json()
 
         subject_found_data = None
-        for subj in subjects_data.get("subjects", []):
-            if subj.get("name") == subject_name:
-                subject_found_data = subj
-                break
-        
+        # Iterate through the correct structure: grade -> textbook_set -> subjects
+        for grade_entry in subjects_data.get("grade", []):
+            for textbook_set_entry in grade_entry.get("textbook_set", []):
+                for subj_entry in textbook_set_entry.get("subjects", []):
+                    if subj_entry.get("name") == subject_name:
+                        subject_found_data = subj_entry
+                        break # Found subject
+                if subject_found_data:
+                    break # Stop searching textbook_sets
+            if subject_found_data:
+                break # Stop searching grades
+
         if subject_found_data:
+            # The rest of the logic to find the lesson by ID and fetch its .md content
             lesson_id_int = int(lesson_id_str)
             lesson_info_found = None
             for lesson_info in subject_found_data.get("link", []):
@@ -38,7 +46,11 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
                 if lesson_link_url:
                     lesson_response = requests.get(lesson_link_url)
                     lesson_response.raise_for_status()
-                    return lesson_response.text
+                    fetched_content = lesson_response.text
+                    print("DEBUG: Fetched MD Content START-------------------------------------")
+                    print(fetched_content)
+                    print("DEBUG: Fetched MD Content END---------------------------------------")
+                    return fetched_content
         return ""
     except requests.exceptions.RequestException as req_err:
         print(f"Lỗi khi lấy dữ liệu bài học (QuizGenerator): {req_err}")
@@ -62,35 +74,35 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
 
     try:
         client = genai.Client(api_key=user_api) # type: ignore
-        model_name = "gemini-2.0-flash" # Chuẩn hóa tên model
+        model_name = "gemini-2.5-flash" # Chuẩn hóa tên model
 
         lesson_material = ""
         if subject_name and lesson_id_str:
             lesson_material = _fetch_lesson_content(subject_name, lesson_id_str)
 
         prompt_text = f"""
-Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
-Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi.
-{'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
+            Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
+            Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi.
+            {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
 
-Đối với mỗi câu hỏi, hãy cung cấp một câu trả lời chính xác và ngắn gọn.
-Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
-Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
+            Đối với mỗi câu hỏi, hãy cung cấp một câu trả lời chính xác và ngắn gọn.
+            Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
+            Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
 
-Ví dụ định dạng JSON cho 2 câu hỏi:
-[
-    {{
-        "question": "Ví dụ câu hỏi 1 là gì?",
-        "answer": "Đây là ví dụ câu trả lời 1."
-    }},
-    {{
-        "question": "Ví dụ câu hỏi 2 là gì?",
-        "answer": "Đây là ví dụ câu trả lời 2."
-    }}
-]
+            Ví dụ định dạng JSON cho 2 câu hỏi:
+            [
+                {{
+                    "question": "Ví dụ câu hỏi 1 là gì?",
+                    "answer": "Đây là ví dụ câu trả lời 1."
+                }},
+                {{
+                    "question": "Ví dụ câu hỏi 2 là gì?",
+                    "answer": "Đây là ví dụ câu trả lời 2."
+                }}
+            ]
 
-Hãy tạo {num_questions} câu hỏi và câu trả lời ngay bây giờ.
-"""
+            Hãy tạo {num_questions} câu hỏi và câu trả lời ngay bây giờ.
+            """
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
@@ -132,7 +144,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         return "ERROR"
     try:
         client = genai.Client(api_key=user_api) # type: ignore
-        model_name = "gemini-1.5-flash-latest"
+        model_name = "gemini-2.5-flash"
 
         prompt_text = f"""
             Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
