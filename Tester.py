@@ -124,6 +124,8 @@ with st.sidebar:
 
             st.session_state.saved_api_key_value_for_debug_tester = api_key_input # Store what we attempted to set
             st.session_state.trigger_cookie_read_tester = True
+
+            st.rerun()
             st.experimental_rerun() # Rerun to allow get operation on a fresh pass
         else: # Only API key is strictly required for this part
             st.warning(_("Please enter your API key!!!"))
