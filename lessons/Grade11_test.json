@@ -25,7 +25,7 @@
           "subjects": [
             {
               "name": "Science - Khoa hoc tu nhien",
-              "less_no": 8,
+              "less_no": 20,
               "link": [
                 {
                   "name": "NGUYEN TU",
@@ -76,6 +76,56 @@
                   "name": "TOC DO VA AN TOAN GIAO THONG",
                   "ID": 11,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L11.md"
+                },
+                {
+                  "name": "MO TA SONG AM",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L12.md"
+                },
+                {
+                  "name": "DO TO VA DO CAO CUA AM",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L13.md"
+                },
+                {
+                  "name": "PHAN XA AM",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L14.md"
+                },
+                {
+                  "name": "ANH SANG, TIA SANG",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L15.md"
+                },
+                {
+                  "name": "SU PHAN XA ANH SANG",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L16.md"
+                },
+                {
+                  "name": "ANH CUA VAT TAO BOI GUONG PHANG",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L17.md"
+                },
+                {
+                  "name": "NAM CHAM",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L18.md"
+                },
+                {
+                  "name": "TU TRUONG",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L19.md"
+                },
+                {
+                  "name": "TU TRUONG TRAI DAT - SU DUNG LA BAN",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L20.md"
+                },
+                {
+                  "name": "NAM CHAM DIEN",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L21.md"
                 }
               ]
             }
@@ -134,7 +184,7 @@
           "subjects": [
             {
               "name": "Geography",
-              "less_no": 2,
+              "less_no": 19,
               "link": [
                 {
                   "name": "SU KHAC BIET VE TRINH DO PHAT TRIEN KINH TE - XA HOI CUA CAC NHOM NUOC",
