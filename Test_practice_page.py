@@ -208,11 +208,15 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 school = controller.get('user_school')
                 class_name = controller.get('user_class')
                 student_id = controller.get('user_id')                
-                AddNewResult(nick, school, class_name, student_id, total_questions_attempted, total_correct_answers, subject_fin)
+                # Pass the results of the current quiz only. AddNewResult will handle accumulation.
+                AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin)
                 controller.set('st_quiz_total_questions', '0')
                 controller.set('st_quiz_correct_answers', '0')
-                total_questions_in_quiz = 0
+                current_quiz_total_q = 0
+                current_quiz_correct_a = 0
                 num_correct_in_quiz = 0
+                total_questions_in_quiz = 0
+                reset_quiz_state()
                 st.rerun()
     else:
         if st.session_state.quiz_step == QUIZ_STATE_QUESTIONING:

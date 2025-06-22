@@ -14,7 +14,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
     if not subject_name or not lesson_id_str:
         return ""
     try:
-        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/GTSL.json"
+        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
         response = requests.get(main_json_url)
         response.raise_for_status()
         subjects_data = response.json()

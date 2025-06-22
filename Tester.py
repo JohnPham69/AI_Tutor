@@ -38,6 +38,42 @@ def load_subject_lesson_data():
         st.sidebar.error(f"{_('Failed to load lesson data: ')}{e}")
         return {"grade": []} # Return default structure with "grade" key on error
 
+# Function to fetch and display lesson content (moved from Test_AI_page.py)
+def fetch_and_display_lessons():
+    # Ensure messages list exists in session_state, initialize if not.
+    # This is important because this function is now in Tester.py and might be called
+    # before Test_AI_page.py initializes st.session_state.messages.
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    selected_lesson_details = st.session_state.get('selected_lesson_contexts', [])
+    if not selected_lesson_details:
+        st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected from the sidebar.")})
+    else:
+        combined_lesson_content = []
+        for lesson_detail in selected_lesson_details:
+            lesson_id = lesson_detail.get('id', 'UnknownID')
+            lesson_name = lesson_detail.get('name', f'Lesson {lesson_id}')
+            lesson_url = lesson_detail.get('url')
+
+            if lesson_url:
+                try:
+                    response = requests.get(lesson_url)
+                    response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+                    content = response.text
+                    combined_lesson_content.append(f"### {_('Content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{content}")
+                except requests.exceptions.RequestException as e:
+                    combined_lesson_content.append(f"### {_('Failed to fetch content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{_('Error')}: {e}")
+            else:
+                 combined_lesson_content.append(f"### {_('Missing URL for Lesson')} '{lesson_name}' (ID {lesson_id})")
+
+        if combined_lesson_content:
+            full_content_message = "\n\n---\n\n".join(combined_lesson_content)
+            st.session_state.messages.append({"role": "assistant", "content": full_content_message})
+        else:
+            st.session_state.messages.append({"role": "assistant", "content": _("Could not retrieve content for any selected lesson.")})
+    st.rerun()
+
 def set_language_and_trigger_rerun_flag(new_lang_code):
     # Ensure 'lang' is initialized before comparing
     st.session_state.lang = st.session_state.get('lang', 'vi') # Default to 'vi' if not set
@@ -60,7 +96,6 @@ if pg_selection: # Check if a page was selected (pg_selection is the Page object
     pg_selection.run()
 
 with st.sidebar:
-    st.markdown("---")
     # API key
     st.subheader(_('Config'))
 
@@ -138,6 +173,7 @@ with st.sidebar:
         st.session_state.saved_api_key_value_for_debug_tester = None
 
     # Chat Context Selection
+    st.markdown("---")
     st.subheader(_("Adjust Context"))
     st.write(_("Select the language you desire."))
     with st.container():
@@ -276,6 +312,11 @@ with st.sidebar:
         placeholder=_("Choose lesson(s)") if actual_lesson_ids_for_multiselect else _("No lessons available"),
         disabled=not bool(actual_lesson_ids_for_multiselect)
     )
+
+    # "View Lesson" button and its subheader, now in Tester.py's sidebar
+    st.subheader(_("View lessons selected in the sidebar"))
+    if st.button(_("View Lesson Button")):
+        fetch_and_display_lessons()
 
     # Initialize or update selected_lesson_contexts based on sb_lesson_tester
     if 'selected_lesson_contexts' not in st.session_state:
