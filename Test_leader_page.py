@@ -7,26 +7,28 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Page title
 st.title("🏆 Leaderboard")
 
+# Check for secrets before attempting to connect
+if "gcp_service_account" not in st.secrets:
+    st.error("Lỗi cấu hình: Google Sheets credentials không được thiết lập trong Streamlit secrets.")
+    st.info("Để ứng dụng này hoạt động, bạn cần thêm thông tin xác thực vào Streamlit secrets. Vui lòng tham khảo tài liệu của Streamlit về 'Secrets management'.")
+    st.stop()
+
 # Google Sheets scope and credentials
 scope = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
-creds = ServiceAccountCredentials.from_json_keyfile_dict(
-    st.secrets["gcp_service_account"], scope
-)
-client = gspread.authorize(creds)
 
-# Open or create the spreadsheet
+# Open the spreadsheet and worksheet
 SHEET_NAME = "QuizMakerAIDB"
 WORKSHEET_NAME = "Students"
 try:
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["gcp_service_account"], scope)
+    client = gspread.authorize(creds)
     sheet = client.open_by_key("1xyKL_KQktxVjLfPh0eKCMc1ZyxMMdyiSZLk_p1nGafA").worksheet(WORKSHEET_NAME)
-except gspread.exceptions.SpreadsheetNotFound:
-    st.error(f"Spreadsheet '{SHEET_NAME}' not found. Make sure it's created and shared with your service account.")
-    st.stop()
-except gspread.exceptions.WorksheetNotFound:
-    st.error(f"Worksheet '{WORKSHEET_NAME}' not found in Spreadsheet '{SHEET_NAME}'.")
+except Exception as e:
+    st.error(f"Lỗi khi kết nối hoặc truy cập Google Sheets: {e}")
+    st.info("Vui lòng kiểm tra lại cấu hình secrets và đảm bảo service account email đã được chia sẻ quyền Editor trên Google Sheet.")
     st.stop()
 
 # Sample leaderboard data (kept empty as requested)

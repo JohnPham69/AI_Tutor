@@ -6,6 +6,12 @@ from oauth2client.service_account import ServiceAccountCredentials
 # It checks for an existing entry with the same Student ID and Subject.
 # If found, it updates the scores. Otherwise, it adds a new row.
 def AddNewResult(user_nickname: str, user_school: str, user_class: str, user_id: str, current_quiz_questions: int, current_quiz_correct: int, subject_name: str):
+    # Check for secrets before proceeding
+    if "gcp_service_account" not in st.secrets:
+        st.error("Lỗi cấu hình: Google Sheets credentials không được thiết lập trong Streamlit secrets.")
+        print("Error in AddNewResult: 'gcp_service_account' not found in st.secrets.")
+        return False
+
     try:
         # Google Sheets scope and credentials
         gs_scope = [
