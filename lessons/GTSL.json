@@ -302,7 +302,7 @@
             },
             {
               "name": "GDKTPL",
-              "less_no": 13,
+              "less_no": 21,
               "link": [
                 {
                   "name": "CANH TRANH TRONG KINH TE THI TRUONG",
@@ -320,57 +320,95 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L3.md"
                 },
                 {
-                  "name": "CHU NGHIA XA HOI TU NAM 1991 DEN NAY",
+                  "name": "THAT NGHIEP TRONG KINH TE THI TRUONG",
                   "ID": 4,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L4.md"
                 },
                 {
-                  "name": "QUA TRINH XAM LUOC VA CAI TRI CUA CHU NGHIA THUC DAN O DONG NAM A",
+                  "name": "THI TRUONG LAO DONG, VIEC LAM",
                   "ID": 5,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L5.md"
                 },
                 {
-                  "name": "HANH TRINH DI DEN DOC LAP DAN TOC O DONG NAM A",
+                  "name": "Y TUONG VA CO HOI KINH DOANH",
                   "ID": 6,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L6.md"
                 },
                 {
-                  "name": "CHIEN TRANH BAO VE TO QUOC TRONG LICH SU VIET NAM (TRUOC NAM 1945)",
+                  "name": "NANG LUC CAN THIET CUA NGUOI KINH DOANH",
                   "ID": 7,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L7.md"
                 },
                 {
-                  "name": "MOT SO CUOC KHOI NGHIA VA CHIEN TRANH GIAI PHONG TRONG LICH SU VIET NAM (TU THE KI III TCN DEN CUOI THE KI XIX)",
+                  "name": "DAO DUC KINH DOANH",
                   "ID": 8,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L8.md"
                 },
                 {
-                  "name": "CUOC CAI CACH CUA HO QUY LY VA TRIEU HO",
+                  "name": "VAN HOA TIEU DUNG",
                   "ID": 9,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L9.md"
                 },
                 {
-                  "name": "CUOC CAI CACH CUA LE THANH TONG (THE KI XV)",
+                  "name": "QUYEN BINH DANG CUA CONG DAN TRUOC PHAP LUAT",
                   "ID": 10,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L10.md"
                 },
                 {
-                  "name": "CUOC CAI CACH CUA MINH MANG (NUA DAU THE KI XIX)",
+                  "name": "BINH DANG GIOI",
                   "ID": 11,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L11.md"
                 },
                 {
-                  "name": "VI TRI VA TAM QUAN TRONG CUA BIEN DONG",
+                  "name": "BINH DANG GIUA CAC DAN TOC, TON GIAO",
                   "ID": 12,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L12.md"
                 },
                 {
-                  "name": "VIET NAM VA BIEN DONG",
+                  "name": "QUYEN VA NGHIA VU CONG DAN TRONG THAM GIA QUAN LI NHA NUOC VA XA HOI",
                   "ID": 13,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L13.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU CONG DAN VE BAU CU VA UNG CU",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L14.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU CONG DAN VE KHIEU NAI, TO CAO",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L15.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU CONG DAN VE BAO VE TO QUOC",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L16.md"
+                },
+                {
+                  "name": "QUYEN BAT KHA XAM PHAM THAN THE, DUOC PHAP LUAT BAO HO VE TINH MANG, SUC KHOE, DANH DU VA NHAN PHAM",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L17.md"
+                },
+                {
+                  "name": "QUYEN BAT KHA XAM PHAM VE CHO O",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L18.md"
+                },
+                {
+                  "name": "QUYEN DUOC BAO DAM AN TOAN VA BI MAT THU TIN, DIEN THOAI, DIEN TIN",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L19.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU CONG DAN VE TU DO NGON LUAN, BAO CHI VA TIEP CAN THONG TIN",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L20.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU CONG DAN VE TU DO TIN NGUONG VA TON GIAO",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L21.md"
                 }
-              ]
-            }
               ]
             }
           ]
