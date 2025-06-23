@@ -309,6 +309,112 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L21.md"
                 }
               ]
+            },
+            {
+              "name": "Dia ly",
+              "less_no": 20,
+              "link": [
+                {
+                  "name": "THIEN NHIEN CHAU AU",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L1.md"
+                },
+                {
+                  "name": "DAC DIEM DAN CU XA HOI CHAU AU",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L2.md"
+                },
+                {
+                  "name": "PHUONG THUC CON NGUOI KHAI THAC, SU DUNG VA BAO VE THIEN NHIEN CHAU AU",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L3.md"
+                },
+                {
+                  "name": "LIEN MINH CHAU AU",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L4.md"
+                },
+                {
+                  "name": "THIEN NHIEN CHAU A",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L5.md"
+                },
+                {
+                  "name": "DAC DIEM DAN CU, XA HOI CHAU A",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L6.md"
+                },
+                {
+                  "name": "BAN DO CHINH TRI CHAU A, CAC KHU VUC CHAU A",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L7.md"
+                },
+                {
+                  "name": "THIEN NHIEN CHAU PHI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L9.md"
+                },
+                {
+                  "name": "DAC DIEM DAN CU, XA HOI CHAU PHI",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L10.md"
+                },
+                {
+                  "name": "PHUONG THUC CON NGUOI KHAI THAC, SU DUNG VA BAO VE THIEN NHIEN CHAU PHI",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L11.md"
+                },
+                {
+                  "name": "PHAT KIEN RA CHAU MY, VI TRI DIA LI VA PHAM VI CHAU MY",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L13.md"
+                },
+                {
+                  "name": "THIEN NHIEN, DAN CU VA XA HOI BAC MY",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L14.md"
+                },
+                {
+                  "name": "PHUONG THUC CON NGUOI KHAI TAC TU NHIEN BEN VUNG, MOT SO TRUNG TAM KINH TE CUA BAC MY",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L15.md"
+                },
+                {
+                  "name": "THIEN NHIEN TRUNG VA NAM MY",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L16.md"
+                },
+                {
+                  "name": "DAC DIEM DAN CU TRUNG VA NAM MY, VAN DE DO THI HOA, VAN HOA MY LATINH",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L17.md"
+                },
+                {
+                  "name": "VAN DE KHAI THAC, SU DUNG VA BAO VE RUNG A-MA-DON",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L18.md"
+                },
+                {
+                  "name": "DAC DIEM DAN CU, XA HOI O-XTRAY-LI-A",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L20.md"
+                },
+                {
+                  "name": "PHUONG THUC CON NGUOI KHAI THAC, SU DUNG VA BAO VE THIEN NHIEN O O-XTRAY-LI-A",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L21.md"
+                },
+                {
+                  "name": "VI TRI DIA LI, LICH SU KHAM PHA VA NGHIEN CUU CHAU NAM CUC",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L22.md"
+                },
+                {
+                  "name": "THIEN NHIEN CHAU NAM CUC",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L23.md"
+                }
+              ]
             }
           ]
         }
