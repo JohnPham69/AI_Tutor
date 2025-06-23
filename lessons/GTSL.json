@@ -195,7 +195,7 @@
                 {
                   "name": "CUOC CAI CACH CUA HO QUY LY VA TRIEU HO",
                   "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/history/L2.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/history/L9.md"
                 },
                 {
                   "name": "CUOC CAI CACH CUA LE THANH TONG (THE KI XV)",
@@ -298,6 +298,79 @@
                   "ID": 20,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/biology/L20.md"
                 }
+              ]
+            },
+            {
+              "name": "GDKTPL",
+              "less_no": 13,
+              "link": [
+                {
+                  "name": "CANH TRANH TRONG KINH TE THI TRUONG",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L1.md"
+                },
+                {
+                  "name": "CUNG - CAU TRONG KINH TE THI TRUONG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L2.md"
+                },
+                {
+                  "name": "LAM PHAT TRONG KINH TE THI TRUONG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L3.md"
+                },
+                {
+                  "name": "CHU NGHIA XA HOI TU NAM 1991 DEN NAY",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L4.md"
+                },
+                {
+                  "name": "QUA TRINH XAM LUOC VA CAI TRI CUA CHU NGHIA THUC DAN O DONG NAM A",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L5.md"
+                },
+                {
+                  "name": "HANH TRINH DI DEN DOC LAP DAN TOC O DONG NAM A",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L6.md"
+                },
+                {
+                  "name": "CHIEN TRANH BAO VE TO QUOC TRONG LICH SU VIET NAM (TRUOC NAM 1945)",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L7.md"
+                },
+                {
+                  "name": "MOT SO CUOC KHOI NGHIA VA CHIEN TRANH GIAI PHONG TRONG LICH SU VIET NAM (TU THE KI III TCN DEN CUOI THE KI XIX)",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L8.md"
+                },
+                {
+                  "name": "CUOC CAI CACH CUA HO QUY LY VA TRIEU HO",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L9.md"
+                },
+                {
+                  "name": "CUOC CAI CACH CUA LE THANH TONG (THE KI XV)",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L10.md"
+                },
+                {
+                  "name": "CUOC CAI CACH CUA MINH MANG (NUA DAU THE KI XIX)",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L11.md"
+                },
+                {
+                  "name": "VI TRI VA TAM QUAN TRONG CUA BIEN DONG",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L12.md"
+                },
+                {
+                  "name": "VIET NAM VA BIEN DONG",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/economics_and_law/L13.md"
+                }
+              ]
+            }
               ]
             }
           ]
