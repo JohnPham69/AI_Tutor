@@ -25,7 +25,7 @@
           "subjects": [
             {
               "name": "Science - Khoa hoc tu nhien",
-              "less_no": 8,
+              "less_no": 35,
               "link": [
                 {
                   "name": "NGUYEN TU",
@@ -76,6 +76,26 @@
                   "name": "TOC DO VA AN TOAN GIAO THONG",
                   "ID": 11,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L11.md"
+                },
+                {
+                  "name": "MO TA SONG AM",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L12.md"
+                },
+                {
+                  "name": "DO TO VA DO CAO CUA AM",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L13.md"
+                },
+                {
+                  "name": "PHAN XA AM",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L14.md"
+                },
+                {
+                  "name": "ANH SANG, TIA SANG",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L15.md"
                 }
               ]
             }
