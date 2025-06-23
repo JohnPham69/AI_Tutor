@@ -198,6 +198,117 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L39.md"
                 }
               ]
+            },
+            {
+              "name": "Lich su",
+              "less_no": 21,
+              "link": [
+                {
+                  "name": "QUA TRINH HINH THANH VA PHAT TRIEN CHE DO PHONG KIEN O TAY AU",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L1.md"
+                },
+                {
+                  "name": "CAC QUOC PHAT KIEN DIA LY",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L2.md"
+                },
+                {
+                  "name": "SU HINH THANH QUAN HE SAN XUAT TU BAN CHU NGHIA O TAY AU TRUNG DAI",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L3.md"
+                },
+                {
+                  "name": "VAN HOA PHUC HUNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L4.md"
+                },
+                {
+                  "name": "PHONG TRAO CAI CACH TON GIAO",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L5.md"
+                },
+                {
+                  "name": "KHAI LUOC TIEN TRINH LICH SU TRUNG QUOC TU THE KI VII DEN GIUA THE KI XIX",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L6.md"
+                },
+                {
+                  "name": "CAC THANH TUU VAN HOA CHU YEU CUA TRUNG QUOC TU THE KI VII DEN GIUA THE KI XIX",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L7.md"
+                },
+                {
+                  "name": "VUONG TRIEU GUP-TA",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L8.md"
+                },
+                {
+                  "name": "VUONG TRIEU HOI GIAO DE-LI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L9.md"
+                },
+                {
+                  "name": "DE QUOC MO-GON",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L10.md"
+                },
+                {
+                  "name": "KHAI QUAT VE DONG NAM A TU NUA SAU THE KI X DEN NUA DAU THE KI XVI",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L11.md"
+                },
+                {
+                  "name": "VUONG QUOC CAM-PU-CHIA",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L12.md"
+                },
+                {
+                  "name": "VUONG QUOC LAO",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L13.md"
+                },
+                {
+                  "name": "CONG CUOC XAY DUNG VA BAO VE DAT NUOC THOI NGO - DINH - TIEN LE (938 - 1009)",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L14.md"
+                },
+                {
+                  "name": "CONG CUOC XAY DUNG VA BAO VE DAT NUOC THOI LY (1009 - 1226)",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L15.md"
+                },
+                {
+                  "name": "CONG CUOC XAY DUNG VA BAO VE DAT NUOC THOI TRAN (1226 - 1400)",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L16.md"
+                },
+                {
+                  "name": "BA LAN KHANG CHIEN CHONG QUAN XAM LUOC MONG - NGUYEN",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L17.md"
+                },
+                {
+                  "name": "NHA HO VA CUOC KHANG CHIEN CHONG QUAN XAM LUOC MINH (1400 - 1407)",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L18.md"
+                },
+                {
+                  "name": "KHOI NGHIA LAM SON (1418 - 1427)",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L19.md"
+                },
+                {
+                  "name": "DAI VIET THOI LE SO (1428 - 1527)",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L20.md"
+                },
+                {
+                  "name": "VUNG DAT PHIA NAM TU DAU THE KI X DEN DAU THE KI XVI",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/history/L21.md"
+                }
+              ]
             }
           ]
         }
