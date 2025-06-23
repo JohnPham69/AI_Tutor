@@ -25,7 +25,7 @@
           "subjects": [
             {
               "name": "Science - Khoa hoc tu nhien",
-              "less_no": 35,
+              "less_no": 34,
               "link": [
                 {
                   "name": "NGUYEN TU",
@@ -96,6 +96,106 @@
                   "name": "ANH SANG, TIA SANG",
                   "ID": 15,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L15.md"
+                },
+                {
+                  "name": "SU PHAN XA ANH SANG",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L16.md"
+                },
+                {
+                  "name": "ANH CUA VAT TAO BOI GUONG PHANG",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L17.md"
+                },
+                {
+                  "name": "NAM CHAM",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L18.md"
+                },
+                {
+                  "name": "TU TRUONG",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L19.md"
+                },
+                {
+                  "name": "TU TRUONG TRAI DAT - SU DUNG LA BAN",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L20.md"
+                },
+                {
+                  "name": "NAM CHAM DIEN",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L21.md"
+                },
+                {
+                  "name": "VAI TRO CUA TRAO DOI CHAT VA CHUYEN HOA NANG LUONG O SINH VAT",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L22.md"
+                },
+                {
+                  "name": "QUANG HOP O THUC VAT",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L23.md"
+                },
+                {
+                  "name": "HO HAP TE BAO",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L25.md"
+                },
+                {
+                  "name": "TRAO DOI KHI O SINH VAT",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L27.md"
+                },
+                {
+                  "name": "VAI TRO CUA NUOC VA CAC CHAT DINH DUONG DOI VOI CO THE SINH VAT",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L28.md"
+                },
+                {
+                  "name": "TRAO DOI NUOC VA CAC CHAT DINH DUONG O THUC VAT",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L29.md"
+                },
+                {
+                  "name": "TRAO DOI NUOC VA CAC CHAT DINH DUONG O DONG VAT",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L30.md"
+                },
+                {
+                  "name": "CAM UNG O SINH VAT",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L32.md"
+                },
+                {
+                  "name": "TAP TINH O DONG VAT",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L33.md"
+                },
+                {
+                  "name": "SINH TRUONG VA PHAT TRIEN O SINH VAT",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L34.md"
+                },
+                {
+                  "name": "CAC NHAN TO ANH HUONG DEN SINH TRUONG VA PHAT TRIEN CUA SINH VAT",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L35.md"
+                },
+                {
+                  "name": "SINH SAN O SINH VAT",
+                  "ID": 37,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L37.md"
+                },
+                {
+                  "name": "CAC YEU TO ANH HUONG DEN SINH SAN VA DIEU HOA, DIEU KHIEN SINH SAN O SINH VAT",
+                  "ID": 38,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L38.md"
+                },
+                {
+                  "name": "CHUNG MINH CO THE SINH VAT LA MOT THE THONG NHAT",
+                  "ID": 39,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/science/L39.md"
                 }
               ]
             }
