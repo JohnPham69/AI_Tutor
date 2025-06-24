@@ -415,6 +415,82 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/geography/L23.md"
                 }
               ]
+            },
+            {
+              "name": "Cong nghe",
+              "less_no": 14,
+              "link": [
+                {
+                  "name": "NGHE TRONG TROT O VIET NAM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L1.md"
+                },
+                {
+                  "name": "CAC PHUONG THUC TRONG TROT O VIET NAM",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L2.md"
+                },
+                {
+                  "name": "QUY TRINH TRONG TROT",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L3.md"
+                },
+                {
+                  "name": "NHAN GIONG CAY TRONG BANG PHUONG PHAP GIAM CANH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L4.md"
+                },
+                {
+                  "name": "TRONG VA CHAM SOC CAI XANH",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L5.md"
+                },
+                {
+                  "name": "RUNG O VIET NAM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L6.md"
+                },
+                {
+                  "name": "TRONG, CHAM SOC VA BAO VE RUNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L7.md"
+                },
+                {
+                  "name": "NGHE CHAN NUOI O VIET NAM",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L8.md"
+                },
+                {
+                  "name": "MOT SO PHUONG THUC CHAN NUOI O VIET NAM",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L9.md"
+                },
+                {
+                  "name": "KI THUAT NUOI DUONG VA CHAM SOC VAT NUOI",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L10.md"
+                },
+                {
+                  "name": "KI THUAT CHAN NUOI GA THIT THA VUON",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L11.md"
+                },
+                {
+                  "name": "NGANH THUY SAN O VIET NAM",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L12.md"
+                },
+                {
+                  "name": "QUY TRINH KI THUAT NUOI THUY SAN",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L13.md"
+                },
+                {
+                  "name": "BAO VE MOI TRUONG VA NGUON LOI THUY SAN",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L14.md"
+                }
+              ]
             }
           ]
         }
