@@ -106,7 +106,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
-            temperature=0.7, # Tăng một chút để có sự đa dạng hơn trong câu hỏi
+            temperature=0.35, # Tăng một chút để có sự đa dạng hơn trong câu hỏi
             response_mime_type="application/json", # Yêu cầu AI trả về JSON trực tiếp
         )
 
@@ -170,7 +170,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
-            temperature=0.1, # Cần sự nhất quán cao
+            temperature=0.35, # Cần sự nhất quán cao
             response_mime_type="text/plain",
         )
         
