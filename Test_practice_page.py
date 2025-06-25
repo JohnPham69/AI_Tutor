@@ -169,53 +169,35 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         num_correct_in_quiz = sum(1 for i in range(total_questions_in_quiz) if st.session_state.feedback.get(i, {}).get("status") == FEEDBACK_STATUS_CORRECT)
         st.markdown(_("Result Info").format(correct=num_correct_in_quiz, total=total_questions_in_quiz))
         
-        col1, col2 = st.columns(2)
-        with col1:   
-            if st.button(_("Add to Leaderboards")):
-                # Update cookies for practice quiz totals
-                # Get current cookie values or default to 0
-                quiz_total_q_cookie_val = controller.get('st_quiz_total_questions')
-                current_quiz_total_q = 0
-                if quiz_total_q_cookie_val is not None:
-                    try:
-                        current_quiz_total_q = int(quiz_total_q_cookie_val)
-                    except (ValueError, TypeError): # Handles non-string or non-integer string
-                        current_quiz_total_q = 0 # Default if conversion fails
-                current_quiz_total_q += total_questions_in_quiz
-                controller.set('st_quiz_total_questions', str(current_quiz_total_q))
+        # --- Logic to save results to the leaderboard ---
+        
+        # Get user info from cookies to see if we can save
+        nick = controller.get('user_nickname')
+        school = controller.get('user_school')
+        class_name = controller.get('user_class')
+        student_id = controller.get('user_id')
+        subject_fin = controller.get('selected_subject_name')
 
-                quiz_correct_a_cookie_val = controller.get('st_quiz_correct_answers')
-                current_quiz_correct_a = 0
-                if quiz_correct_a_cookie_val is not None:
-                    try:
-                        current_quiz_correct_a = int(quiz_correct_a_cookie_val)
-                    except (ValueError, TypeError):
-                        current_quiz_correct_a = 0
-                current_quiz_correct_a += num_correct_in_quiz
-                controller.set('st_quiz_correct_answers', str(current_quiz_correct_a))
-                # Reset quiz state and rerun
-                reset_quiz_state()
-                st.rerun()
+        # Check if all required user info is present before enabling the save button
+        can_save = all([nick, school, class_name, student_id, subject_fin])
+        
+        if not can_save:
+            st.warning(_("Save your own results!")) # Reusing a key that prompts user to save
+            st.caption("Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results.")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            # The "Add to Leaderboards" button now directly saves the result.
+            if st.button(_("Add to Leaderboards"), disabled=not can_save):
+                # Pass the results of the current quiz only. AddNewResult handles accumulation.
+                save_successful = AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin)
+                if save_successful:
+                    st.success(_("Results saved."))
+                    reset_quiz_state()
+                    st.rerun()
+                # AddNewResult shows its own error on failure.
         with col2:
-            subject_fin = controller.get('selected_subject_name')
-            st.write("Finished:",subject_fin)
-            total_questions_attempted = int(controller.get('st_quiz_total_questions')) + total_questions_in_quiz
-            total_correct_answers = int(controller.get('st_quiz_correct_answers')) + num_correct_in_quiz
-            st.write(_("Total Questions Attempted: {}").format(str(total_questions_attempted) if str(total_questions_attempted) else total_questions_in_quiz))
-            st.write(_("Total Correct Answers: {}").format(str(total_correct_answers) if str(total_correct_answers) else num_correct_in_quiz))
-            if st.button("Reset"):
-                nick = controller.get('user_nickname')
-                school = controller.get('user_school')
-                class_name = controller.get('user_class')
-                student_id = controller.get('user_id')                
-                # Pass the results of the current quiz only. AddNewResult will handle accumulation.
-                AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin)
-                controller.set('st_quiz_total_questions', '0')
-                controller.set('st_quiz_correct_answers', '0')
-                current_quiz_total_q = 0
-                current_quiz_correct_a = 0
-                num_correct_in_quiz = 0
-                total_questions_in_quiz = 0
+            if st.button(_("Go Back Button")):
                 reset_quiz_state()
                 st.rerun()
     else:

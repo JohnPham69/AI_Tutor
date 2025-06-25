@@ -72,6 +72,8 @@ TRANSLATIONS = {
         "Save your own results!": "Save your own results!",
         "Total Questions Attempted: {}": "Total Questions Attempted: {}",
         "Total Correct Answers: {}": "Total Correct Answers: {}",
+        "View Lesson Button": "View Lesson",
+        "View lessons selected in the sidebar": "View lessons selected below",
     },
     "vi": {
         "No lesson": "Không chọn bài học",
@@ -143,6 +145,8 @@ TRANSLATIONS = {
         "Save your own results!": "Lưu kết quả của riêng bạn!",
         "Total Questions Attempted: {}": "Tổng số câu đã thử: {}",
         "Total Correct Answers: {}": "Tổng số câu trả lời đúng: {}",
+        "View Lesson Button": "Xem bài học",
+        "View lessons selected in the sidebar": "Xem các bài học đã chọn bên dưới",
     }
 }
 
