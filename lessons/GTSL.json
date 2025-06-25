@@ -1065,6 +1065,103 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/chemistry/L19.md"
                 }
               ]
+            },
+            {
+              "name": "HDTNHN, ban 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "PHAN DAU HOAN THIEN BAN THAN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L1.md"
+                },
+                {
+                  "name": "TU TIN VA THICH UNG VOI SU THAY DOI",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L2.md"
+                },
+                {
+                  "name": "GOP PHAN XAY DUNG VA PHAT TRIEN NHA TRUONG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L3.md"
+                },
+                {
+                  "name": "THAM GIA TO CHUC CUOC SONG GIA DINH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L4.md"
+                },
+                {
+                  "name": "PHAN DAU HOAN THIEN BAN THAN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L5.md"
+                },
+                {
+                  "name": "THUC HIEN TRACH NHIEM VOI CONG DONG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L6.md"
+                },
+                {
+                  "name": "THONG TIN VE CAC NHOM NGHE CO BAN",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L7.md"
+                },
+                {
+                  "name": "HOC TAP VA REN LUYEN THEO DINH HUONG NGHE NGHIEP",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L8.md"
+                },
+                {
+                  "name": "BAO VE MOI TRUONG, CANH QUAN THIEN NHIEN, DANH LAM THANG CANH VA TAI NGUYEN O DIA PHUONG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B1/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTNHN, ban 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "TU TIN LA CHINH MINH",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L1.md"
+                },
+                {
+                  "name": "LAM CHU CAM XUC VA CAC MOI QUAN HE",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L2.md"
+                },
+                {
+                  "name": "THUC HIEN CAC HOAT DONG XAY DUNG VA PHAT TRIEN NHA TRUONG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L3.md"
+                },
+                {
+                  "name": "TO CHUC CUOC SONG GIA DINH VA TAI CHINH CA NHAN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L4.md"
+                },
+                {
+                  "name": "HOAT DONG PHAT TRIEN CONG DONG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L5.md"
+                },
+                {
+                  "name": "BAO VE MOI TRUONG VA BAO TON CANH QUAN THIEN NHIEN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L6.md"
+                },
+                {
+                  "name": "CO SO GIAO DUC VA XU HUONG PHAT TRIEN NGHE TRONG XA HOI",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L7.md"
+                },
+                {
+                  "name": "REN LUYEN BAN THAN THEO NHOM NGHE DINH LUA CHON",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
             }
           ]
         }
