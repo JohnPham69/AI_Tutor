@@ -491,6 +491,103 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/Home_EC/L14.md"
                 }
               ]
+            },
+            {
+              "name": "HDTNHN, ban 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "REN LUYEN THOI QUEN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L1.md"
+                },
+                {
+                  "name": "REN LUYEN SU KIEN TRI VA CHAM CHI",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L2.md"
+                },
+                {
+                  "name": "HOP TAC THUC HIEN NHIEM VU CHUNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L3.md"
+                },
+                {
+                  "name": "CHIA SE TRACH NHIEM TRONG GIA DINH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L4.md"
+                },
+                {
+                  "name": "CHI TIEU KE HOACH",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L5.md"
+                },
+                {
+                  "name": "SONG HOA HOP TRONG CONG DONG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L6.md"
+                },
+                {
+                  "name": "GOP PHAN GIAM THIEU HIEU UNG NHA KINH",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L7.md"
+                },
+                {
+                  "name": "TIM HIEU CAC NGHE O DIA PHUONG",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L8.md"
+                },
+                {
+                  "name": "TIM HIEU PHAM CHAT VA NANG LUC CAN CO O NGUOI LAO DONG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B1/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTNHN, ban 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "REN LUYEN MOT SO PHAM CHAT CA NHAN TRONG HOC TAP VA CUOC SONG",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L1.md"
+                },
+                {
+                  "name": "REN LUYEN KI NANG KIEM SOAT CAM XUC VA TU BAO VE",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L2.md"
+                },
+                {
+                  "name": "PHAT TRIEN MOI QUAN HE HOA DONG VA HOP TAC",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L3.md"
+                },
+                {
+                  "name": "CHAM SOC GIA DINH CUA EM",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L4.md"
+                },
+                {
+                  "name": "CHI TIEU HOP LI VA TIET KIEM TIEN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L5.md"
+                },
+                {
+                  "name": "THAM GIA CAC HOAT DONG VI CONG DONG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L6.md"
+                },
+                {
+                  "name": "BAO VE MOI TRUONG VA DANH LAM THANG CANH",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L7.md"
+                },
+                {
+                  "name": "TIM HIEU NGHE O DIA PHUONG",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
             }
           ]
         }
