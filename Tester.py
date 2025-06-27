@@ -61,7 +61,7 @@ def fetch_and_display_lessons():
                     response = requests.get(lesson_url)
                     response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
                     content = response.text
-                    combined_lesson_content.append(f"### {_('Content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{content}")
+                    combined_lesson_content.append(f"{content}")
                 except requests.exceptions.RequestException as e:
                     combined_lesson_content.append(f"### {_('Failed to fetch content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{_('Error')}: {e}")
             else:
