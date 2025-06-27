@@ -74,6 +74,7 @@ TRANSLATIONS = {
         "Total Correct Answers: {}": "Total Correct Answers: {}",
         "View Lesson Button": "View Lesson",
         "View lessons selected in the sidebar": "View lessons selected below",
+        "Select all lessons": "Select all lessons",
     },
     "vi": {
         "No lesson": "Không chọn bài học",
@@ -147,6 +148,7 @@ TRANSLATIONS = {
         "Total Correct Answers: {}": "Tổng số câu trả lời đúng: {}",
         "View Lesson Button": "Xem bài học",
         "View lessons selected in the sidebar": "Xem các bài học đã chọn bên dưới",
+        "Select all lessons": "Chọn tất cả bài học",
     }
 }
 

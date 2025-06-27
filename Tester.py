@@ -305,11 +305,38 @@ with st.sidebar:
         valid_selection_for_current_subject = [lesson_id for lesson_id in current_selection_from_state if lesson_id in actual_lesson_ids_for_multiselect]
         if st.session_state.sb_lesson_tester != valid_selection_for_current_subject: # Only update if necessary
             st.session_state.sb_lesson_tester = valid_selection_for_current_subject
-    st.multiselect( # No on_change needed here as it's the last in this chain or its state is directly used
+
+    # --- "Select All" Checkbox for Lessons ---
+    # The value of the checkbox is determined by whether all available lessons are currently selected.
+    # This makes the checkbox state reflect manual selections in the multiselect.
+    all_selected = (
+        len(st.session_state.get('sb_lesson_tester', [])) == len(actual_lesson_ids_for_multiselect)
+        and bool(actual_lesson_ids_for_multiselect)
+    )
+
+    def on_select_all_change():
+        """Callback to select or deselect all lessons."""
+        if st.session_state.select_all_lessons_cb:
+            st.session_state.sb_lesson_tester = actual_lesson_ids_for_multiselect
+        else:
+            # When unchecked, clear the selection.
+            st.session_state.sb_lesson_tester = []
+
+    
+
+    st.multiselect( # The multiselect's state is now managed by the checkbox callback and manual interaction
         _("Lesson(s)?"),
         options=actual_lesson_ids_for_multiselect,
         key='sb_lesson_tester', # Will store a list of selected lesson IDs
         placeholder=_("Choose lesson(s)") if actual_lesson_ids_for_multiselect else _("No lessons available"),
+        disabled=not bool(actual_lesson_ids_for_multiselect)
+    )
+
+    st.checkbox(
+        _("Select all lessons"),
+        value=all_selected,
+        key="select_all_lessons_cb",
+        on_change=on_select_all_change,
         disabled=not bool(actual_lesson_ids_for_multiselect)
     )
 
