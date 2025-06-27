@@ -16,8 +16,6 @@ def get_cookie_controller_instance(): # Ensure a fresh instance
     return st.session_state.ai_page_cookie_controller
 
 controller = get_cookie_controller_instance()
-
-controller = get_cookie_controller_instance()
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
