@@ -7,7 +7,9 @@ from app_translations import get_translator # Import the translator
 # Make a cookie controller instance
 # @st.cache_resource # Temporarily remove caching for debugging
 def get_cookie_controller_instance_ai_page(): # Ensure a fresh instance
-    return CookieController()
+    if 'ai_page_cookie_controller' not in st.session_state:
+        st.session_state.ai_page_cookie_controller = CookieController()
+    return st.session_state.ai_page_cookie_controller
 
 controller = get_cookie_controller_instance_ai_page()
 

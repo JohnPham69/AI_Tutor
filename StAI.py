@@ -29,7 +29,7 @@ Phản hồi của bạn chỉ nên là một từ: STOP, CONTINUE, hoặc START
         
         # Configuration for a more deterministic response
         generate_content_config = types.GenerateContentConfig(
-            temperature=0.35, 
+            temperature=0.1, 
             # top_p=0.95, # top_p is not available for gemini-1.5-flash
             response_mime_type="text/plain",
         )
@@ -69,7 +69,7 @@ Phản hồi của bạn chỉ phải là mã ngôn ngữ gồm hai chữ cái."
 
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
         generate_content_config = types.GenerateContentConfig(
-            temperature=0.35,
+            temperature=0.1,
             response_mime_type="text/plain",
         )
         ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
@@ -113,7 +113,7 @@ KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc c�
     ]
 
     generate_content_config = types.GenerateContentConfig(
-        temperature=0.35,
+        temperature=1,
         top_p=0.95,
         response_mime_type="text/plain",
     )
@@ -166,7 +166,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
                             )
                 
                 generate_content_config_general = types.GenerateContentConfig(
-                    temperature=0.35, top_p=0.95, response_mime_type="text/plain"
+                    temperature=0.7, top_p=0.95, response_mime_type="text/plain"
                 )
                 response_str = "".join(chunk.text for chunk in client.models.generate_content_stream(
                     model=active_model_name, contents=contents_for_general_qa, config=generate_content_config_general
@@ -297,7 +297,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
         contents_for_step1.append(types.Content(role="user", parts=[types.Part.from_text(text=current_user_message_for_step1)])) # type: ignore
 
         generate_content_config = types.GenerateContentConfig(
-            temperature=0.35,
+            temperature=1,
             # top_p=0.95, # top_p is not available for gemini-1.5-flash
             response_mime_type="text/plain", # Changed from application/json as the prompt now expects direct text output
         )
