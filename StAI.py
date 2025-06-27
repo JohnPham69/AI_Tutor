@@ -127,11 +127,11 @@ KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc c�
     return ans.replace("\n", "\n\n")
 
 
-def genRes(text_input, chat_history, user_api, user_model=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None):
+def genRes(text_input, chat_history, user_api, user_model=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
         if not user_api:
-            return "API key not configured, please set it in the Config page."
-
+            # Use the translator if provided, otherwise default to English string
+            return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input # Save for language detection before modification
 
@@ -318,4 +318,5 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
 
     except Exception as e:
         print(f"Error in genRes: {e}")
-        return "An error occurred while processing your request."
+        # Use the translator if provided, otherwise default to English string
+        return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."

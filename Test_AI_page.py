@@ -65,7 +65,8 @@ if prompt := st.chat_input("Type your message here"):
                 user_model, # Pass the user_model
                 selected_subject_from_tester, # Pass selected subject
                 selected_lesson_data_list=selected_lesson_details_for_ai, # Pass the detailed list
-                uploaded_file_text=uploaded_content_for_prompt # Pass content from uploaded files
+                uploaded_file_text=uploaded_content_for_prompt, # Pass content from uploaded files
+                translator=_ # Pass the translator function
             )
             # Ensure ai_response is not None before attempting to markdown.
             if ai_response is not None:

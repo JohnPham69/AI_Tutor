@@ -131,7 +131,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     if st.button(_("Create Quiz and Start Button")):
         user_api_key = controller.get("user_api")
         if not user_api_key:
-            st.error(_("API Key Missing Error Config"))
+            st.error(_("API key not configured, please set it in the Config page."))
         else:
             with st.spinner(_("Creating Quiz Spinner")):
                 # Pass subject_name and the direct lesson_content_url
@@ -183,7 +183,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         
         if not can_save:
             st.warning(_("Save your own results!")) # Reusing a key that prompts user to save
-            st.caption("Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results.")
+            st.caption(_("Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results."))
 
         col1, col2 = st.columns(2)
         with col1:
@@ -213,7 +213,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
 
             timeout = int(st.session_state.time_for_each)
             components.html(f"""
-                <p>{time_remaining_text} <span id="myButton" >Timer</span></p>
+                <p>{time_remaining_text} <span id="myButton" >{_("Timer")}</span></p>
                 
                 <script>
                     // Countdown timer function

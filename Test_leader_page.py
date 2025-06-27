@@ -3,9 +3,11 @@ import pandas as pd
 import numpy as np # Added for array_split
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from app_translations import get_translator # Import translator
+_ = get_translator() # Initialize translator for this page
 
 # Page title
-st.title("🏆 Leaderboard")
+st.title(_("Leaderboard"))
 
 # Check for secrets before attempting to connect
 if "gcp_service_account" not in st.secrets:
@@ -133,7 +135,7 @@ def highlight_user(row_series): # Parameter is a pandas Series
     return [''] * len(row_series)
 
 # Display leaderboard
-st.subheader("Top Performers")
+st.subheader(_("Top Performers"))
 
 if not df_leaderboard.empty:
     # Ensure 'Rank' column is treated as string for display due to medals
@@ -146,4 +148,4 @@ if not df_leaderboard.empty:
 
     st.dataframe(df_leaderboard.style.apply(highlight_user, axis=1), hide_index=True, use_container_width=True)
 else:
-    st.write("Leaderboard is currently empty or could not be loaded.")
+    st.write(_("Leaderboard is currently empty or could not be loaded."))
