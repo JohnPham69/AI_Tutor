@@ -284,22 +284,6 @@
               ]
             },
             {
-              "name": "History",
-              "less_no": 2,
-              "link": [
-                {
-                  "name": "Ancient Civilizations",
-                  "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/history/ancient-civilizations.md"
-                },
-                {
-                  "name": "World War II",
-                  "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/history/world-war-2.md"
-                }
-              ]
-            },
-            {
               "name": "Biology",
               "less_no": 21,
               "link": [
