@@ -1,11 +1,11 @@
 import streamlit as st
-from streamlit_cookies_controller import CookieController
 from Prac_AI import generate_quiz_data, evaluate_user_answer_clarity
 import streamlit.components.v1 as components
 from random import randint
 import time
 import os
 from app_translations import get_translator # Import translator
+from app_utils import get_cookie_controller # Import the singleton controller
 from StResult import AddNewResult
 
 # --- Constants ---
@@ -35,7 +35,7 @@ def ensure_session():
 
 ensure_session()
 _ = get_translator() # Initialize translator for this page
-controller = CookieController()
+controller = get_cookie_controller() # Use the cached singleton instance
 st.title(_("Practice Quiz Title"))
 
 
@@ -124,7 +124,9 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
         st.warning(_("A lesson is selected, but the subject is missing. Please check sidebar selections. The quiz may cover general knowledge topics."))
     num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
     num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 30, value=10, step=1)
-
+    type_of_question = st.selectbox(_("Type of Question Prompt"),
+                                    options=[ _("Mixed"), _("Multiple Choice"), _("Long / Short Answer")],
+                                    index=0)
     st.session_state.time_for_each = num_time * 60 / num_q
     st.markdown(_("Time Per Question Info").format(time_per_question=st.session_state.time_for_each))
 
@@ -139,9 +141,9 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     num_questions=num_q, 
                     user_api=user_api_key, 
                     subject_name=selected_subject_name, 
-                    lesson_id_str=selected_lesson_id_for_quiz # Pass lesson_id_str
+                    lesson_id_str=selected_lesson_id_for_quiz, # Pass lesson_id_str
+                    question_type=type_of_question,
                 )
-                
                 controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
             if data and len(data) == num_q:
                 st.session_state.generated_quiz_data = data

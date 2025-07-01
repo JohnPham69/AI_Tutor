@@ -161,9 +161,9 @@ TRANSLATIONS = {
         "Timer": "Đồng hồ",
         "Top Performers": "Những người xuất sắc nhất",
         "Leaderboard is currently empty or could not be loaded.": "Bảng xếp hạng hiện đang trống hoặc không thể tải.",
-        "Buy me a coffee?": "Ít thì 5 quả trứng! Nhiều thì 1 tên lửa",
+        "Buy me a coffee?": "Tặng tôi một ly cà phê?",
         "Here's my donation link: ABCDEFGHIJKLMNOPQRSTUVWXYZ": "Gửi vào STK: ABCDEFGHIJKLMNOPQRSTUVWXYZ", # Replace with actual link or QR code if needed
-        "Donate": "Donate cho tôi",
+        "Donate": "Donate",
     }
 }
 

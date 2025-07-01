@@ -47,9 +47,6 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
                     lesson_response = requests.get(lesson_link_url)
                     lesson_response.raise_for_status()
                     fetched_content = lesson_response.text
-                    print("DEBUG: Fetched MD Content START-------------------------------------")
-                    print(fetched_content)
-                    print("DEBUG: Fetched MD Content END---------------------------------------")
                     return fetched_content
         return ""
     except requests.exceptions.RequestException as req_err:
@@ -62,7 +59,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None):
+def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str = "Mixed"):
     """
     Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
     Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
@@ -80,23 +77,31 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         if subject_name and lesson_id_str:
             lesson_material = _fetch_lesson_content(subject_name, lesson_id_str)
 
+        if question_type == "Mixed":
+            question_type = "trắc nghiệm, tự luận, trả lời ngắn"
+        elif question_type == "Multiple Choice":
+            question_type = "trắc nghiệm 4 lựa chọn (A, B, C, D)"
+        else:
+            question_type = "tự luận, trả lời ngắn"
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
             Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi.
+            Dạng của tất cả các câu hỏi phải dưới dạng {question_type}.
             {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
 
             Đối với mỗi câu hỏi, hãy cung cấp một câu trả lời chính xác và ngắn gọn.
             Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
+            QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm), bạn PHẢI sử dụng ký tự `\\n` để biểu thị dấu xuống dòng. Không được có ký tự xuống dòng thực sự (raw newline characters) bên trong các chuỗi JSON.
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
 
-            Ví dụ định dạng JSON cho 2 câu hỏi:
+            Ví dụ về định dạng JSON bắt buộc cho 2 câu hỏi:
             [
                 {{
-                    "question": "Ví dụ câu hỏi 1 là gì?",
+                    "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?\\n\\nA. Lựa chọn A\\nB. Lựa chọn B\\nC. Lựa chọn C\\nD. Lựa chọn D",
                     "answer": "Đây là ví dụ câu trả lời 1."
                 }},
                 {{
-                    "question": "Ví dụ câu hỏi 2 là gì?",
+                    "question": "Ví dụ câu hỏi tự luận 2 là gì?",
                     "answer": "Đây là ví dụ câu trả lời 2."
                 }}
             ]
@@ -116,19 +121,30 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             contents=contents,
             config=config,
         ):
-            ans += chunk.text
+            if chunk.text:
+                ans += chunk.text
         
-        quiz_data_list = json.loads(ans)
+        # AI có thể trả về JSON được bao bọc trong markdown hoặc văn bản khác.
+        # Chúng ta cần trích xuất chuỗi JSON thô một cách an toàn.
+        json_str = ans
+        json_start = ans.find('[')
+        json_end = ans.rfind(']')
+        
+        if json_start != -1 and json_end != -1 and json_start < json_end:
+            json_str = ans[json_start:json_end+1]
+
+        quiz_data_list = json.loads(json_str)
         
         if isinstance(quiz_data_list, list) and all(isinstance(item, dict) and "question" in item and "answer" in item for item in quiz_data_list):
             return quiz_data_list[:num_questions] # Đảm bảo trả về đúng số lượng yêu cầu
         else:
-            print("Lỗi: AI không trả về định dạng JSON như mong đợi.")
+            print(f"Lỗi: AI không trả về định dạng JSON như mong đợi. Dữ liệu nhận được: {json_str}")
             return None
 
     except json.JSONDecodeError as json_err:
         print(f"Lỗi giải mã JSON từ AI: {json_err}")
-        print(f"Phản hồi nhận được từ AI: {ans if 'ans' in locals() else 'Không có phản hồi'}")
+        response_text = json_str if 'json_str' in locals() else (ans if 'ans' in locals() else 'Không có phản hồi')
+        print(f"Phản hồi nhận được từ AI (đã cố gắng xử lý): {response_text}")
         return None
     except Exception as e:
         print(f"Lỗi trong generate_quiz_data: {e}")
@@ -180,7 +196,8 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             contents=contents,
             config=config,
         ):
-            ans_stream += chunk.text
+            if chunk.text:
+                ans_stream += chunk.text
         evaluation_text = ans_stream.strip().upper()
 
         if evaluation_text in ["CORRECT", "INCORRECT"]:

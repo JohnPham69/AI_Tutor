@@ -1,17 +1,10 @@
 import streamlit as st
 from StAI import genRes
-from streamlit_cookies_controller import CookieController
 from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
+from app_utils import get_cookie_controller # Import the singleton controller
 
-# Make a cookie controller instance
-# @st.cache_resource # Temporarily remove caching for debugging
-def get_cookie_controller_instance_ai_page(): # Ensure a fresh instance
-    if 'ai_page_cookie_controller' not in st.session_state:
-        st.session_state.ai_page_cookie_controller = CookieController()
-    return st.session_state.ai_page_cookie_controller
-
-controller = get_cookie_controller_instance_ai_page()
+controller = get_cookie_controller() # Use the cached singleton instance
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
@@ -46,6 +39,7 @@ if prompt := st.chat_input("Type your message here"):
     user_model = controller.get('user_model')
 
     # Get selected subject and lesson from session_state (set by Tester.py's sidebar)
+    selected_grade_from_tester = st.session_state.get('sb_grade_tester')
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     
     # Get the detailed lesson contexts (list of dicts with id, name, url)
@@ -63,7 +57,8 @@ if prompt := st.chat_input("Type your message here"):
                 st.session_state.messages, 
                 user_api,
                 user_model, # Pass the user_model
-                selected_subject_from_tester, # Pass selected subject
+                selected_grade=selected_grade_from_tester,
+                selected_subject_name=selected_subject_from_tester, # Pass selected subject
                 selected_lesson_data_list=selected_lesson_details_for_ai, # Pass the detailed list
                 uploaded_file_text=uploaded_content_for_prompt, # Pass content from uploaded files
                 translator=_ # Pass the translator function

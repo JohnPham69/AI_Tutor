@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_cookies_controller import CookieController
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
 from markitdown import MarkItDown # For converting files to text
@@ -7,15 +6,10 @@ import tempfile # For temporary files
 import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
+from app_utils import get_cookie_controller # Import the singleton controller
+import streamlit.components.v1 as components
 
-# Make a cookie controller
-# @st.cache_resource # Temporarily remove caching for debugging
-def get_cookie_controller_instance(): # Ensure a fresh instance
-    if 'ai_page_cookie_controller' not in st.session_state:
-        st.session_state.ai_page_cookie_controller = CookieController()
-    return st.session_state.ai_page_cookie_controller
-
-controller = get_cookie_controller_instance()
+controller = get_cookie_controller() # Use the cached singleton instance
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -86,6 +80,14 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
 subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
+def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
+    htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
+                    for (i = 0; i < elements.length; ++i) { if (elements[i].innerText == |wgt_txt|) 
+                        { elements[i].style.fontSize='""" + wch_font_size + """';} } </script>  """
+
+    htmlstr = htmlstr.replace('|wgt_txt|', "'" + wgt_txt + "'")
+    components.html(f"{htmlstr}", height=0, width=0)
+
 PAGES = {
     "Tutor AI": chat_page,
     "Practice / Quiz": practice,
@@ -115,6 +117,13 @@ with st.sidebar:
         [alt=Logo] {
         height: 80px; /* Set logo height to approximately 100px */
         }
+        hr {
+            margin-top: 0px !important;
+            height: 10px !important;
+            background-color: #ddd !important;
+            border-radius: 20px !important;
+
+        }
     </style>
     """)
     # End Logo
@@ -137,18 +146,18 @@ with st.sidebar:
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
     st.markdown("---") # Separator line
-    st.subheader(_("Navigation")) # Sidebar title
-    st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
-    st.page_link("Test_practice_page.py", label=_("Practice / Quiz")) # Page link with icon
-    st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
+
+with st.sidebar:
+    st.page_link("Test_AI_page.py", label=_("Tutor AI"), icon="🤖") # Page link with icon
+    st.page_link("Test_practice_page.py", label=_("Practice / Quiz"), icon="📚") # Page link with icon
+    st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🏆") # New page link with icon
 
 pg_selection.run() # Run the selected page
 
 with st.sidebar:
     st.markdown("---") # Separator line
     # API key
-    st.subheader(_("Config"))
-    with st.expander(_('Expand')):
+    with st.expander(_('Config')):
         nickname = st.text_input(
             ("Nickname"),
             placeholder=_("Enter your nickname here"),
@@ -209,7 +218,6 @@ with st.sidebar:
                 st.session_state.trigger_cookie_read_tester = True
                 
                 st.rerun()
-                st.experimental_rerun() # Rerun to allow get operation on a fresh pass
             else: # Only API key is strictly required for this part
                 st.warning(_("Please enter your API key!!!"))
             
@@ -221,10 +229,8 @@ with st.sidebar:
             # If needed, you could add a silent log here or a subtle indicator if retrieval failed.
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
-
     # Chat Context Selection
-    st.subheader(_("Adjust Context"))
-    with st.expander(_("Expand")):
+    with st.expander(_("Adjust Context")):
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -459,12 +465,15 @@ with st.sidebar:
             st.session_state.uploaded_file_content = ""
             st.session_state.last_uploaded_file_names = []
             st.info(_("No file uploaded."))
+    
     st.markdown("---") # Separator line
     # Donate code here
-    st.header(_("Donate"))
-    st.subheader(_("Buy me a coffee?"))
+    st.header("Donate")
+    st.subheader(_("Buy me a coffee?") + "☕")
     st.write(_("Here's my donation link: ABCDEFGHIJKLMNOPQRSTUVWXYZ")) # Replace with actual link or QR code if needed
 
+    ChangeWidgetFontSize(_("Config"), '20px')
+    ChangeWidgetFontSize(_("Adjust Context"), '20px')
 # Perform rerun if a language change was flagged
 # This is done after all sidebar interactions for the current pass are complete
 if st.session_state.get('changeLang', False):

@@ -127,7 +127,7 @@ KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc c�
     return ans.replace("\n", "\n\n")
 
 
-def genRes(text_input, chat_history, user_api, user_model=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
+def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
         if not user_api:
             # Use the translator if provided, otherwise default to English string
@@ -210,10 +210,12 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_subject
 
 
         # Define the prompt content first
-        step_1_prompt_vi = """
-            Bạn là một AI Gia Sư Thông Thái, chuyên về môn học và bài học được cung cấp.
-            Vai trò của bạn là tương tác với người dùng dựa trên nội dung bài học.
+        step_1_prompt_vi = f"""
+            Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
+            Vai trò của bạn là tương tác với người dùng và chỉ trả lời các câu hỏi dựa trên nội dung bài học được cung cấp.
 
+            LƯU Ý CỰC KỲ QUAN TRỌNG: Bạn sẽ lịch sự từ chối trả lời bất kỳ câu hỏi nào không liên quan trực tiếp đến nội dung bài học đã được cung cấp. Nếu người dùng hỏi ngoài lề, hãy trả lời bằng một câu như: "Xin lỗi, tôi chỉ có thể thảo luận về các chủ đề trong bài học của chúng ta."
+            
             ƯU TIÊN HÀNH ĐỘNG:
             1.  NẾU người dùng đặt câu hỏi trực tiếp (ví dụ: "Cái gì là X?", "Giải thích Y?"), HÃY TRẢ LỜI câu hỏi đó một cách chi tiết, dựa trên tài liệu bài học được cung cấp. Sau khi trả lời, hãy hỏi xem người dùng có muốn tiếp tục với một câu hỏi ôn tập từ bài học không.
             2.  NẾU người dùng yêu cầu tóm tắt hoặc giải thích một phần nào đó của bài học, HÃY CUNG CẤP thông tin đó. Sau đó, hỏi xem người dùng có muốn tiếp tục với một câu hỏi ôn tập không.
