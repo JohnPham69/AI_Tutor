@@ -118,7 +118,7 @@ with st.sidebar:
         height: 80px; /* Set logo height to approximately 100px */
         }
         hr {
-            margin-top: 10px !important;
+            margin-top: 50px !important;
             height: 10px !important;
             background-color: #ddd !important;
             border-radius: 20px !important;
