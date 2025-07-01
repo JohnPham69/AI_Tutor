@@ -115,7 +115,8 @@ with st.sidebar:
     st.html("""
     <style>
         [alt=Logo] {
-        margin-top: 10px !important;
+        padding-top: 10px !important
+        margin-top: 80px !important;
         height: 80px; /* Set logo height to approximately 100px */
         }
         hr {
