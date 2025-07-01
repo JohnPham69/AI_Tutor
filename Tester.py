@@ -150,9 +150,9 @@ with st.sidebar:
     st.markdown("---") # Separator line
 
 with st.sidebar:
-    st.page_link("Test_AI_page.py", label=_("Tutor AI"), icon="🤖") # Page link with icon
-    st.page_link("Test_practice_page.py", label=_("Practice / Quiz"), icon="📚") # Page link with icon
-    st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🏆") # New page link with icon
+    st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
+    st.page_link("Test_practice_page.py", label=_("Practice / Quiz")) # Page link with icon
+    st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
 
 pg_selection.run() # Run the selected page
 
