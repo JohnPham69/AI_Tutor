@@ -7,47 +7,6 @@ from google import genai
 from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
-def analyze_user_intent(user_input_text, user_api, user_model=None):
-    """
-    Analyzes the user's input to determine if they want to stop or continue.
-    Returns "STOP", "CONTINUE", or "ERROR" if analysis fails.
-    """
-    try:
-        client = genai.Client(api_key=user_api) # type: ignore
-        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
-
-        prompt = f"""Phân tích tin nhắn của người dùng sau đây để xác định ý định chính của họ.
-Nếu người dùng rõ ràng hoặc ngầm chỉ ra rằng họ muốn dừng hoạt động, bài kiểm tra hoặc cuộc trò chuyện hiện tại, hãy phản hồi bằng một từ duy nhất: STOP
-Nếu người dùng muốn tiếp tục, đặt câu hỏi, cung cấp câu trả lời, yêu cầu giải thích, yêu cầu tóm tắt hoặc nếu ý định không rõ ràng, hãy phản hồi bằng một từ duy nhất: CONTINUE
-Nếu người dùng yêu cầu bắt đầu hoặc tiếp tục bài kiểm tra, hãy phản hồi bằng một từ duy nhất: START_QUIZ
-
-Tin nhắn của người dùng: "{user_input_text}"
-
-Phản hồi của bạn chỉ nên là một từ: STOP, CONTINUE, hoặc START_QUIZ."""
-
-        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
-        
-        # Configuration for a more deterministic response
-        generate_content_config = types.GenerateContentConfig(
-            temperature=0.1, 
-            # top_p=0.95, # top_p is not available for gemini-1.5-flash
-            response_mime_type="text/plain",
-        )
-
-        # Modified to use the streaming approach, mirroring the pattern from afterStepOne
-        # as per the request to resolve the AttributeError. (Note: Original comment, AttributeError might have been resolved differently or was context-specific)
-        ans = ""
-        for chunk in client.models.generate_content_stream(
-            model=model_to_use,
-            contents=contents,
-            config=generate_content_config,  # Pass the GenerateContentConfig object
-        ):
-            ans += chunk.text
-        intent_result = ans.strip().upper()
-        return intent_result if intent_result in ["STOP", "CONTINUE", "START_QUIZ"] else "CONTINUE" # Default to CONTINUE if unexpected
-    except Exception as e:
-        print(f"Error in analyze_user_intent: {e}")
-        return "ERROR" # Indicate an error occurred during analysis
 
 def detect_language(text_to_detect, user_api, user_model=None):
     """
@@ -60,12 +19,12 @@ def detect_language(text_to_detect, user_api, user_model=None):
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
 
         prompt = f"""Phát hiện ngôn ngữ chính của văn bản sau.
-Chỉ phản hồi bằng mã ngôn ngữ ISO 639-1 gồm hai chữ cái (ví dụ: "en" cho tiếng Anh, "vi" cho tiếng Việt).
-Nếu ngôn ngữ không rõ ràng, quá ngắn hoặc hỗn hợp, hãy mặc định là "vi".
+        Chỉ phản hồi bằng mã ngôn ngữ ISO 639-1 gồm hai chữ cái (ví dụ: "en" cho tiếng Anh, "vi" cho tiếng Việt).
+        Nếu ngôn ngữ không rõ ràng, quá ngắn hoặc hỗn hợp, hãy mặc định là "vi".
 
-Văn bản: "{text_to_detect}"
+        Văn bản: "{text_to_detect}"
 
-Phản hồi của bạn chỉ phải là mã ngôn ngữ gồm hai chữ cái."""
+        Phản hồi của bạn chỉ phải là mã ngôn ngữ gồm hai chữ cái."""
 
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
         generate_content_config = types.GenerateContentConfig(
@@ -90,22 +49,22 @@ def afterStepOne(plan_text, user_api, user_model=None):
 
     # Construct the prompt/content for after step one
     prompt_for_after_step_one = """
-Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
-Nhiệm vụ của bạn là:
-1. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
-2. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
-3. Nếu câu hỏi tốt, hãy giữ nguyên nó.
-4. Nếu câu hỏi chưa tốt (ví dụ: không rõ ràng, quá khó, quá dễ, không liên quan chặt chẽ đến ngữ cảnh bài học tiềm năng), hãy chỉnh sửa hoặc thay thế bằng một câu hỏi tốt hơn.
-5. Trả về kết quả là sự kết hợp của [Phần phản hồi gốc (nếu có)] + [Câu hỏi (giữ nguyên hoặc đã cải thiện)].
+        Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
+        Nhiệm vụ của bạn là:
+        1. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
+        2. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
+        3. Nếu câu hỏi tốt, hãy giữ nguyên nó.
+        4. Nếu câu hỏi chưa tốt (ví dụ: không rõ ràng, quá khó, quá dễ, không liên quan chặt chẽ đến ngữ cảnh bài học tiềm năng), hãy chỉnh sửa hoặc thay thế bằng một câu hỏi tốt hơn.
+        5. Trả về kết quả là sự kết hợp của [Phần phản hồi gốc (nếu có)] + [Câu hỏi (giữ nguyên hoặc đã cải thiện)].
 
-Ví dụ:
-- Đầu vào: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
-- Nếu "Mặt trời màu gì?" là câu hỏi tốt, bạn trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
-- Nếu "Mặt trời màu gì?" cần cải thiện, bạn có thể trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Hãy mô tả các lớp chính của Mặt Trời?"
+        Ví dụ:
+        - Đầu vào: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
+        - Nếu "Mặt trời màu gì?" là câu hỏi tốt, bạn trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
+        - Nếu "Mặt trời màu gì?" cần cải thiện, bạn có thể trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Hãy mô tả các lớp chính của Mặt Trời?"
 
-Toàn bộ đầu ra của bạn phải có giọng điệu thân thiện, dí dỏm.
-KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc của bạn. Chỉ trả về chuỗi văn bản cuối cùng.
-"""
+        Toàn bộ đầu ra của bạn phải có giọng điệu thân thiện, dí dỏm.
+        KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc của bạn. Chỉ trả về chuỗi văn bản cuối cùng.
+        """
     # Combine the instruction prompt with the text to be evaluated
     full_prompt_for_step_two = f"{prompt_for_after_step_one}\n\nHere is the text to evaluate:\n{plan_text}"
     contents = [
@@ -130,51 +89,9 @@ KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc c�
 def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
         if not user_api:
-            # Use the translator if provided, otherwise default to English string
             return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
-        original_user_text_input = text_input # Save for language detection before modification
-
-        # 1. Analyze user intent first
-        intent_analysis_result = analyze_user_intent(original_user_text_input, user_api, active_model_name)
-
-        if intent_analysis_result == "STOP":
-            # Check if it's a simple stop command or a stop with a new query
-            simple_stop_phrases = ["stop", "stop.", "please stop", "enough", "thats enough", "that's enough"]
-            normalized_text_input = text_input.strip().lower()
-            is_simple_stop = False
-            if normalized_text_input in simple_stop_phrases:
-                is_simple_stop = True
-            elif "stop" in normalized_text_input and len(normalized_text_input.split()) <= 3: # Heuristic for short stop commands
-                is_simple_stop = True
-
-            if is_simple_stop:
-                return "Ok, what do you want to talk about?"
-            else:
-                # User wants to stop the quiz and ask something else.
-                # The text_input (and chat_history) contains the new query.
-                client = genai.Client(api_key=user_api) # type: ignore
-                # Use active_model_name for consistency, or a specific one if desired for general QA
-
-                contents_for_general_qa = []
-                if chat_history: # chat_history includes the current user message
-                    for message in chat_history:
-                        role = "model" if message["role"] == "assistant" else message["role"]
-                        if role in ["user", "model"]:
-                            contents_for_general_qa.append(
-                                types.Content(role=role, parts=[types.Part.from_text(text=message["content"])]) # type: ignore
-                            )
-                
-                generate_content_config_general = types.GenerateContentConfig(
-                    temperature=0.7, top_p=0.95, response_mime_type="text/plain"
-                )
-                response_str = "".join(chunk.text for chunk in client.models.generate_content_stream(
-                    model=active_model_name, contents=contents_for_general_qa, config=generate_content_config_general
-                ))
-                return response_str # Potentially add .replace("\n", "\n\n") if desired
-        elif intent_analysis_result == "ERROR":
-            # You might want to log this error or handle it more gracefully
-            return "Sorry, I had a little trouble understanding that. Could you please rephrase?"
+        original_user_text_input = text_input
 
         # Fetch lesson material for multiple lessons
         lesson_material_fetched_parts = []
@@ -185,31 +102,26 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
                 if not lesson_data or not isinstance(lesson_data, dict) or not lesson_data.get('url'):
                     print(f"Warning: Invalid lesson_data entry in genRes: {lesson_data}")
                     continue
-                
+
                 lesson_url = lesson_data['url']
-                # Use .get with a fallback for id and name, though they should exist from Tester.py
-                lesson_id = lesson_data.get('id', 'UnknownID') 
+                lesson_id = lesson_data.get('id', 'UnknownID')
                 lesson_name = lesson_data.get('name', f'Lesson {lesson_id}')
 
                 try:
                     lesson_response = requests.get(lesson_url)
-                    lesson_response.raise_for_status() # Will raise an HTTPError for bad responses (4XX or 5XX)
+                    lesson_response.raise_for_status()
                     lesson_content = lesson_response.text
-                    # Using lesson_name and lesson_id for more descriptive context part
                     lesson_material_fetched_parts.append(f"Content for Lesson '{lesson_name}' (ID {lesson_id}):\n{lesson_content}")
                     lesson_ids_for_prompt_display.append(f"{lesson_name} (ID {lesson_id})")
                 except requests.exceptions.RequestException as req_err:
                     print(f"Warning: Failed to fetch lesson content from {lesson_url} (ID {lesson_id}, Name: {lesson_name}) in genRes: {req_err}")
                 except Exception as e:
-                    # Catch any other unexpected errors during the fetch/processing of a single lesson's content
                     print(f"Warning: An unexpected error occurred while fetching/processing content for lesson ID {lesson_id} (Name: {lesson_name}, URL: {lesson_url}) in genRes: {e}")
 
         lesson_material_combined_content = ""
         if lesson_material_fetched_parts:
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
-
-        # Define the prompt content first
         step_1_prompt_vi = f"""
             Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
             Vai trò của bạn là tương tác với người dùng và chỉ trả lời các câu hỏi dựa trên nội dung bài học được cung cấp.

@@ -11,7 +11,7 @@ TRANSLATIONS = {
         "Failed to load lesson data: ": "Failed to load lesson data: ",
         "Config": "Config",
         "API Key": "API Key",
-        "Enter your API key here": "Enter your Google Gemini API key",
+        "Enter your API key here": "Enter your API key here",
         "Save": "Save",
         "API key saved successfully!": "API key saved successfully!",
         "Please enter an API key!!!": "Please enter an API key!!!",
@@ -82,7 +82,7 @@ TRANSLATIONS = {
         "No lesson": "Không chọn bài học",
         "INCORRECT": "SAI",
         "ERROR": "LỖI",
-        "Tutor AI": "Gia sư AI",
+        "Tutor AI": "Hỏi đáp AI",
         "Practice / Quiz": "Luyện tập / Trắc nghiệm",
         "Failed to load lesson data: ": "Lỗi tải dữ liệu bài học: ",
         "Config": "Cấu hình",
@@ -164,6 +164,13 @@ TRANSLATIONS = {
         "Buy me a coffee?": "Tặng tôi một ly cà phê?",
         "Here's my donation link: ABCDEFGHIJKLMNOPQRSTUVWXYZ": "Gửi vào STK: ABCDEFGHIJKLMNOPQRSTUVWXYZ", # Replace with actual link or QR code if needed
         "Donate": "Donate",
+        "Type of Question Prompt": "Loại câu hỏi?",
+        "Multiple Choice": "Trắc nghiệm",
+        "Long / Short Answer": "Trả lời dài / ngắn",
+        "Mixed": "Trộn lẫn",
+        "Learning": "Học tập AI",
+        "Donation information:": "Thông tin ủng hộ:",
+        "PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)": "PHAM XUAN GIA KHANG - 44108557 - ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
     }
 }
 

@@ -21,6 +21,7 @@ _ = get_translator() # Get the translator instance
 chat_page = st.Page("./Test_AI_page.py", title = _("Tutor AI"), default = True)
 practice = st.Page("./Test_practice_page.py", title=_("Practice / Quiz"))
 leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # New page for leaderboard
+learning_page = st.Page("./Test_learn_page.py", title=_("Learning")) # New page for learning
 
 # Function to load subject/lesson data (can be a utility if used elsewhere)
 @st.cache_data(ttl=3600) # Cache data for an hour
@@ -88,10 +89,18 @@ def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = htmlstr.replace('|wgt_txt|', "'" + wgt_txt + "'")
     components.html(f"{htmlstr}", height=0, width=0)
 
+
+def changeAll():
+    ChangeWidgetFontSize(_("Config"), '20px')
+    ChangeWidgetFontSize(_("Adjust Context"), '20px')
+
+
 PAGES = {
     "Tutor AI": chat_page,
     "Practice / Quiz": practice,
     "Leaderboard": leaderboard_page,
+    "Learning": learning_page, # New page for learning
+    # Add more pages here as needed
 }
 
 pg_selection = st.navigation(list(PAGES.values()), position="hidden") # Convert .values() to a list
@@ -115,13 +124,10 @@ with st.sidebar:
     st.html("""
     <style>
         [alt=Logo] {
-        height: 85px; /* Set logo height to approximately 100px */
-        padding-top: 10px !important;
-        margin-top: 15px !important;
-        padding-bottom: 5px !important;
+        height: 80px; /* Set logo height to approximately 100px */
         }
         hr {
-            margin: 0px !important;
+            margin-top: 10px !important;
             height: 10px !important;
             background-color: #ddd !important;
             border-radius: 20px !important;
@@ -152,15 +158,17 @@ with st.sidebar:
 
 with st.sidebar:
     st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
+    st.page_link("Test_learn_page.py", label=_("Learning")) # New page link with icon
     st.page_link("Test_practice_page.py", label=_("Practice / Quiz")) # Page link with icon
     st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
-
+    
 pg_selection.run() # Run the selected page
 
 with st.sidebar:
     st.markdown("---") # Separator line
     # API key
     with st.expander(_('Config')):
+
         nickname = st.text_input(
             ("Nickname"),
             placeholder=_("Enter your nickname here"),
@@ -211,6 +219,7 @@ with st.sidebar:
         if save_button:
             if api_key_input: # Model input is optional, API key is essential
                 st.sidebar.success(_("API key saved successfully!")) # Or a more general success message
+                st.rerun() # Rerun to apply changes immediately
                 # Simplify: Remove 'key' argument from controller.set for this test
                 controller.set('user_api', api_key_input)
                 controller.set('user_model', model_input)
@@ -220,7 +229,7 @@ with st.sidebar:
                 controller.set('user_id', StudentID)
                 st.session_state.trigger_cookie_read_tester = True
                 
-                st.rerun()
+                changeAll()
             else: # Only API key is strictly required for this part
                 st.warning(_("Please enter your API key!!!"))
             
@@ -471,12 +480,12 @@ with st.sidebar:
     
     st.markdown("---") # Separator line
     # Donate code here
-    st.header("Donate")
-    st.subheader(_("Buy me a coffee?") + "☕")
-    st.write(_("Here's my donation link: ABCDEFGHIJKLMNOPQRSTUVWXYZ")) # Replace with actual link or QR code if needed
+    st.subheader(_("Buy me a coffee?") + "🥤")
+    st.subheader(_("Donation information:"))
+    st.write(_("PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)")) # Replace with actual link or QR code if needed
 
-    ChangeWidgetFontSize(_("Config"), '20px')
-    ChangeWidgetFontSize(_("Adjust Context"), '20px')
+    changeAll()
+
 # Perform rerun if a language change was flagged
 # This is done after all sidebar interactions for the current pass are complete
 if st.session_state.get('changeLang', False):
