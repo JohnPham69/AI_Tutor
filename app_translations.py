@@ -11,7 +11,7 @@ TRANSLATIONS = {
         "Failed to load lesson data: ": "Failed to load lesson data: ",
         "Config": "Config",
         "API Key": "API Key",
-        "Enter your API key here": "Enter your API key here",
+        "Enter your API key here": "Enter your Google Gemini API key",
         "Save": "Save",
         "API key saved successfully!": "API key saved successfully!",
         "Please enter an API key!!!": "Please enter an API key!!!",
