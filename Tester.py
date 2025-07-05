@@ -424,9 +424,11 @@ with st.sidebar:
         
     st.markdown("---") # Separator line
     # Donate code here
-    st.subheader(_("Buy me a coffee?") + "🥤")
-    st.subheader(_("Donation information:"))
-    st.write(_("PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)")) # Replace with actual link or QR code if needed
+    if st.session_state.lang == "vi":
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/2fc2d0296026ee476a2db1784c601dcb2e8f4284/img/donate_vi.jpg?raw=true")
+    else:
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/2fc2d0296026ee476a2db1784c601dcb2e8f4284/img/donate_en.jpg?raw=true")
+    st.write(("👉🏻") + _("PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)")) # Replace with actual link or QR code if needed
 
     changeAll()
 
