@@ -91,8 +91,8 @@ def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
 
 
 def changeAll():
-    ChangeWidgetFontSize(_("Config"), '80px')
-    ChangeWidgetFontSize(_("Adjust Context"), '80px')
+    ChangeWidgetFontSize(_("Config"), '20px')
+    ChangeWidgetFontSize(_("Adjust Context"), '20px')
 
 
 PAGES = {
