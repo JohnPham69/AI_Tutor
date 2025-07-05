@@ -91,7 +91,7 @@ TRANSLATIONS = {
         "Save": "Lưu",
         "API key saved successfully!": "Đã lưu API key thành công!",
         "Please enter an API key!!!": "Vui lòng nhập API key!!!",
-        "Adjust Context": "Chọn khối lớp và bài học",
+        "Adjust Context": "Khối lớp và bài học",
         "Grade?": "Khối lớp?",
         "Textbook Set?": "Bộ SGK?",
         "Subject?": "Môn học?",

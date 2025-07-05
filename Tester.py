@@ -154,96 +154,10 @@ with st.sidebar:
                 set_language_and_trigger_rerun_flag('vi')
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
-    st.markdown("---") # Separator line
-
-with st.sidebar:
-    st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
-    st.page_link("Test_learn_page.py", label=_("Learning")) # New page link with icon
-    st.page_link("Test_practice_page.py", label=_("Practice / Quiz")) # Page link with icon
-    st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
     
-pg_selection.run() # Run the selected page
-
-with st.sidebar:
     st.markdown("---") # Separator line
-    # API key
-    with st.expander(_('Config')):
 
-        nickname = st.text_input(
-            ("Nickname"),
-            placeholder=_("Enter your nickname here"),
-            label_visibility="collapsed",
-        )
-
-        school = st.text_input(
-            ("School"),
-            placeholder=_("Enter your school name here"),
-            label_visibility="collapsed",
-        )
-
-        studyClass = st.text_input(
-            ("Class"),
-            placeholder=_("Enter your class here"),
-            label_visibility="collapsed",
-        )
-
-        StudentID = st.text_input(
-            ("Student ID"),
-            placeholder=_("Enter your Student ID here"),
-            label_visibility="collapsed",
-        )
-
-        api_key_input = st.text_input(
-                _("API Key"),
-                placeholder=_("Enter your API key here"),
-                label_visibility="collapsed",
-                type="password",
-                key="sidebar_api_key_input_tester" # Added key for stability
-            )
-
-        model_input = st.text_input(
-            ("Model"),
-            placeholder=_("Enter your model name here"),
-            label_visibility="collapsed",
-            key="sidebar_model_input_tester" # Added key
-            )
-        
-        save_button = st.button(_("Save"), key="sidebar_save_button_tester")
-
-        # Session state for managing the cookie set/get flow for debugging
-        if 'trigger_cookie_read_tester' not in st.session_state:
-            st.session_state.trigger_cookie_read_tester = False
-        if 'saved_api_key_value_for_debug_tester' not in st.session_state:
-            st.session_state.saved_api_key_value_for_debug_tester = None
-
-        if save_button:
-            if api_key_input: # Model input is optional, API key is essential
-                st.sidebar.success(_("API key saved successfully!")) # Or a more general success message
-                
-                # Simplify: Remove 'key' argument from controller.set for this test
-                controller.set('user_api', api_key_input)
-                controller.set('user_model', model_input)
-                controller.set('user_nickname', nickname)
-                controller.set('user_school', school)
-                controller.set('user_class', studyClass)
-                controller.set('user_id', StudentID)
-                st.session_state.trigger_cookie_read_tester = True
-                
-                changeAll()
-                st.rerun() # Rerun to apply changes immediately
-            else: # Only API key is strictly required for this part
-                st.warning(_("Please enter your API key!!!"))
-            
-
-        if st.session_state.trigger_cookie_read_tester:
-            # Simplify: Remove 'key' argument from controller.get for this test
-            retrieved_api_key_tester = controller.get('user_api')
-            # We can still check if it was retrieved, but no need to display debug messages.
-            # If needed, you could add a silent log here or a subtle indicator if retrieval failed.
-            st.session_state.trigger_cookie_read_tester = False # Reset flag
-            st.session_state.saved_api_key_value_for_debug_tester = None
-    # Chat Context Selection
-    with st.expander(_("Adjust Context")):
+    with st.expander(_("Adjust Context") + "📖"):
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -416,6 +330,97 @@ with st.sidebar:
                         "url": lesson_detail_found.get("link") # This is the .md URL
                     })
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
+    
+    st.markdown("---") # Separator line
+
+with st.sidebar:
+    st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
+    st.page_link("Test_learn_page.py", label=_("Learning")) # New page link with icon
+    st.page_link("Test_practice_page.py", label=_("Practice / Quiz")) # Page link with icon
+    st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
+    
+pg_selection.run() # Run the selected page
+
+with st.sidebar:
+    st.markdown("---") # Separator line
+    # API key
+
+    with st.expander(_('Config') + "⚙️"):
+
+        nickname = st.text_input(
+            ("Nickname"),
+            placeholder=_("Enter your nickname here"),
+            label_visibility="collapsed",
+        )
+
+        school = st.text_input(
+            ("School"),
+            placeholder=_("Enter your school name here"),
+            label_visibility="collapsed",
+        )
+
+        studyClass = st.text_input(
+            ("Class"),
+            placeholder=_("Enter your class here"),
+            label_visibility="collapsed",
+        )
+
+        StudentID = st.text_input(
+            ("Student ID"),
+            placeholder=_("Enter your Student ID here"),
+            label_visibility="collapsed",
+        )
+
+        api_key_input = st.text_input(
+                _("API Key"),
+                placeholder=_("Enter your API key here"),
+                label_visibility="collapsed",
+                type="password",
+                key="sidebar_api_key_input_tester" # Added key for stability
+            )
+
+        model_input = st.text_input(
+            ("Model"),
+            placeholder=_("Enter your model name here"),
+            label_visibility="collapsed",
+            key="sidebar_model_input_tester" # Added key
+            )
+        
+        save_button = st.button(_("Save"), key="sidebar_save_button_tester")
+
+        # Session state for managing the cookie set/get flow for debugging
+        if 'trigger_cookie_read_tester' not in st.session_state:
+            st.session_state.trigger_cookie_read_tester = False
+        if 'saved_api_key_value_for_debug_tester' not in st.session_state:
+            st.session_state.saved_api_key_value_for_debug_tester = None
+
+        if save_button:
+            if api_key_input: # Model input is optional, API key is essential
+                st.sidebar.success(_("API key saved successfully!")) # Or a more general success message
+                
+                # Simplify: Remove 'key' argument from controller.set for this test
+                controller.set('user_api', api_key_input)
+                controller.set('user_model', model_input)
+                controller.set('user_nickname', nickname)
+                controller.set('user_school', school)
+                controller.set('user_class', studyClass)
+                controller.set('user_id', StudentID)
+                st.session_state.trigger_cookie_read_tester = True
+                
+                changeAll()
+                st.rerun() # Rerun to apply changes immediately
+            else: # Only API key is strictly required for this part
+                st.warning(_("Please enter your API key!!!"))
+            
+
+        if st.session_state.trigger_cookie_read_tester:
+            # Simplify: Remove 'key' argument from controller.get for this test
+            retrieved_api_key_tester = controller.get('user_api')
+            # We can still check if it was retrieved, but no need to display debug messages.
+            # If needed, you could add a silent log here or a subtle indicator if retrieval failed.
+            st.session_state.trigger_cookie_read_tester = False # Reset flag
+            st.session_state.saved_api_key_value_for_debug_tester = None
+    # Chat Context Selection
         
     st.markdown("---") # Separator line
     # Donate code here

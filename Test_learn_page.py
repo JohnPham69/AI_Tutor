@@ -6,6 +6,9 @@ from app_utils import get_cookie_controller # Import the singleton controller
 import tempfile
 import os
 
+# Global variable
+follow_up = [] # an array that stores follow_up quesiotns
+
 controller = get_cookie_controller() # Use the cached singleton instance
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
@@ -35,6 +38,17 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
+# Xử lý follow_up cho mỗi lần assistant trả lời
+def extract_response_and_followup(ai_response):
+    if "///Follow_up///" in ai_response:
+        response = ai_response.split("///Follow_up///")[0].strip()
+        follow_up_raw = ai_response.split("///Follow_up///")[1]
+        follow_up = [q.strip() for q in follow_up_raw.split("-") if q.strip()]
+    else:
+        response = ai_response.strip()
+        follow_up = []
+    return response, follow_up
+
 if prompt:
     # Handle file upload
     if prompt.get("files"):
@@ -93,17 +107,46 @@ if prompt:
                     translator=_
                 )
                 if ai_response is not None:
-                    st.markdown(ai_response)
+                    response, follow_up = extract_response_and_followup(ai_response)
+                    st.session_state["last_follow_up"] = follow_up  # Lưu follow_up vào session_state
+                    st.markdown(response)
+                    st.session_state.messages.append({"role": "assistant", "content": response})
                 else:
                     st.markdown("Error: No response from AI.")
-        if ai_response is not None:
-            st.session_state.messages.append({"role": "assistant", "content": ai_response})
+                    st.session_state["last_follow_up"] = []
+# Only show suggestion buttons if there are messages and there are follow up questions
+follow_up = st.session_state.get("last_follow_up", [])
+if st.session_state.messages and len(follow_up) != 0:
+    for idx, question in enumerate(follow_up):
+        if st.button(question, key=f"followup_{idx}"):
+            st.session_state.messages.append({"role": "user", "content": question})
 
-# Only show suggestion buttons if there are messages
-if st.session_state.messages:
-    if st.button("Sug A"):
-        st.session_state.messages.append({"role": "user", "content": "Sug A"})
-        st.rerun()
-    if st.button("Sug B"):
-        st.session_state.messages.append({"role": "user", "content": "Sug B"})
-        st.rerun()
+            user_api = controller.get('user_api')
+            user_model = controller.get('user_model')
+            selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+            selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+            selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+            uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
+
+            with st.chat_message("assistant"):
+                with st.spinner("AI is thinking..."):
+                    ai_response = genRes(
+                        question,
+                        st.session_state.messages,
+                        user_api,
+                        user_model,
+                        selected_grade=selected_grade_from_tester,
+                        selected_subject_name=selected_subject_from_tester,
+                        selected_lesson_data_list=selected_lesson_details_for_ai,
+                        uploaded_file_text=uploaded_content_for_prompt,
+                        translator=_
+                    )
+                    if ai_response is not None:
+                        response, follow_up = extract_response_and_followup(ai_response)
+                        st.session_state["last_follow_up"] = follow_up
+                        st.markdown(response)
+                        st.session_state.messages.append({"role": "assistant", "content": response})
+                    else:
+                        st.markdown("Error: No response from AI.")
+                        st.session_state["last_follow_up"] = []
+            st.rerun()

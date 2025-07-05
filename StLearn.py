@@ -79,28 +79,28 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         if lesson_material_fetched_parts:
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
-        # Define the prompt content for StLearn
-        step_1_prompt_vi = f"""
+        # Định nghĩa lại prompt cho StLearn
+        step_1_prompt_vi = """
             Bạn là một AI Trợ Lý Học Tập, chuyên trả lời các câu hỏi của người dùng dựa trên nội dung bài học được cung cấp.
 
             QUY TẮC:
-            - Bạn CHỈ trả lời các câu hỏi dựa trên tài liệu bài học đã được cung cấp. Nếu người dùng hỏi ngoài lề, hãy lịch sự từ chối và nhắc rằng bạn chỉ hỗ trợ các chủ đề trong bài học.
-            - KHÔNG đặt câu hỏi mới về bài học cho người dùng.
-            - Sau khi trả lời, hãy gợi ý nhẹ nhàng cho người dùng các hành động tiếp theo, ví dụ: "Bạn có muốn tôi tóm tắt nội dung bài học không?", "Bạn muốn tìm hiểu phần nào khác trong bài học?", hoặc "Bạn cần giải thích thêm về điểm nào không?".
-            - Nếu không có tài liệu bài học nào được cung cấp, hãy thông báo cho người dùng rằng bạn cần tài liệu để trả lời.
+            - Chỉ trả lời dựa trên tài liệu bài học đã cung cấp. Nếu người dùng hỏi ngoài lề, hãy lịch sự từ chối và nhắc rằng bạn chỉ hỗ trợ các chủ đề trong bài học.
+            - KHÔNG đặt câu hỏi mới cho người dùng.
+            - Sau khi trả lời, hãy gợi ý nhẹ nhàng các hành động tiếp theo cho người dùng dưới dạng các câu hỏi follow-up.
+            - Câu hỏi follow-up phải được đặt ở điểm nhìn của người dùng, 
+            Ví dụ: Nếu câu follow-up là: Bạn có cần tôi tóm tắt lại bài học không?
+            Thì đây là câu hỏi đang ở điểm nhìn của AI. 
+            Chỉnh lại câu hỏi trở thành: Tóm tắt lại bài học.
 
-            Định dạng phản hồi:
-            Hãy trả lời dưới dạng JSON với cấu trúc sau:
-            {{
-                "full response": "<Chỉ trả lời câu hỏi của người dùng dựa trên bài học, KHÔNG bao gồm các gợi ý tiếp theo, KHÔNG lặp lại các câu hỏi follow-up>",
-                "Follow up": [
-                    "<Gợi ý ít nhất MỘT và nhiều nhất BA câu hỏi follow-up cho người dùng để tiếp tục trò chuyện, mỗi câu là một phần tử trong mảng>"
-                ]
-            }}
+            Định dạng trả lời:
+            <phần trả lời chính>
+            ///Follow_up///
+            - câu hỏi 1
+            - câu hỏi 2
+            - câu hỏi 3
 
-            Lưu ý: Trong phần "full response" chỉ chứa phần trả lời chính, không bao gồm các gợi ý tiếp theo. Các câu hỏi gợi ý tiếp theo chỉ nằm trong mảng "Follow up".
-            Trả về đúng định dạng JSON như trên.
-            """
+            Lưu ý: Chỉ sử dụng đúng định dạng trên, không trả về bất kỳ thông tin nào khác.
+        """
         # Detect language of the user input
         detected_lang_code = detect_language(original_user_text_input, user_api, active_model_name)
         active_step_1_prompt = step_1_prompt_vi
@@ -157,6 +157,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             response_mime_type="text/plain",
         )
 
+        # Sau khi nhận kết quả từ model
         step_one_output_text = ""
         for chunk in client.models.generate_content_stream(
             model=active_model_name,
@@ -165,19 +166,8 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         ):
             step_one_output_text += chunk.text
 
-        # Parse the output as JSON and extract fields
-        import json
-        try:
-            response_json = json.loads(step_one_output_text)
-            full_response = response_json.get("full response", "")
-            follow_up = response_json.get("Follow up", [])
-            return {
-                "full_response": full_response,
-                "follow_up": follow_up
-            }
-        except Exception as parse_err:
-            print(f"Error parsing model output as JSON: {parse_err}")
-            return step_one_output_text
+        # Xử lý kết quả: chỉ lấy phần trước ///Follow_up///
+        return step_one_output_text
 
     except Exception as e:
         print(f"Error in genRes: {e}")
