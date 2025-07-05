@@ -151,7 +151,7 @@ TRANSLATIONS = {
         "View Lesson Button": "Xem bài học",
         "N/A": "Không áp dụng",
         "Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results.": "Vui lòng điền Biệt danh, Trường, Lớp và Mã số sinh viên của bạn vào thanh bên để lưu kết quả.",
-        "View lessons selected in the sidebar": "Xem các bài học đã chọn bên dưới",
+        "View lessons selected in the sidebar": "Xem các bài học đã chọn bên trên",
         "Select all lessons": "Chọn tất cả bài học",
         "API key not configured, please set it in the Config page.": "API key chưa được cấu hình, vui lòng cài đặt trong trang Cấu hình.",
         "An error occurred while processing your request.": "Đã xảy ra lỗi trong quá trình xử lý yêu cầu của bạn.",

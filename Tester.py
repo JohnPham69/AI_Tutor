@@ -219,7 +219,7 @@ with st.sidebar:
         if save_button:
             if api_key_input: # Model input is optional, API key is essential
                 st.sidebar.success(_("API key saved successfully!")) # Or a more general success message
-                st.rerun() # Rerun to apply changes immediately
+                
                 # Simplify: Remove 'key' argument from controller.set for this test
                 controller.set('user_api', api_key_input)
                 controller.set('user_model', model_input)
@@ -230,6 +230,7 @@ with st.sidebar:
                 st.session_state.trigger_cookie_read_tester = True
                 
                 changeAll()
+                st.rerun() # Rerun to apply changes immediately
             else: # Only API key is strictly required for this part
                 st.warning(_("Please enter your API key!!!"))
             
@@ -415,69 +416,7 @@ with st.sidebar:
                         "url": lesson_detail_found.get("link") # This is the .md URL
                     })
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
-        # File Uploader for Context
-        st.subheader(_("Upload Files for Context"))
-        if 'uploaded_file_content' not in st.session_state:
-            st.session_state.uploaded_file_content = ""
-        if 'last_uploaded_file_names' not in st.session_state: # To detect changes in selection
-            st.session_state.last_uploaded_file_names = []
-
-        uploaded_files_new = st.file_uploader(
-            _("Select file (e.g., .txt, .pptx, .pdf, .docx)"),
-            accept_multiple_files=False,
-            type=['txt', 'pptx', 'pdf', 'docx'], # MarkItDown will attempt to handle various types
-            key="file_uploader_widget"
-        )
-
-        if uploaded_files_new:        
-            processed_contents_current_upload = []
-
-            # Since accept_multiple_files=False, uploaded_files_new is a single file object
-            st.write(f"{_('Processing: ')}{uploaded_files_new.name} ({uploaded_files_new.size} bytes)")
-            try:
-                file_bytes = uploaded_files_new.getvalue()
-                file_extension = os.path.splitext(uploaded_files_new.name)[1].lower()
-
-                # Initialize MarkItDown instance based on file type
-                if file_extension == ".pdf":
-                    # For PDF, user might want to use Document Intelligence.
-                    # This requires an endpoint: md_converter = MarkItDown(docintel_endpoint="<YOUR_AZURE_DOCINTEL_ENDPOINT>")
-                    # Using default MarkItDown() for PDF if no endpoint is specified.
-                    md_converter = MarkItDown()
-                elif file_extension in [".xlsx", ".xls"]:
-                    md_converter = MarkItDown(enable_plugins=False) # As per your example
-                else:
-                    md_converter = MarkItDown() # General case for other file types
-
-                # MarkItDown works with file paths. Create a temporary file.
-                with tempfile.NamedTemporaryFile(delete=False, suffix=file_extension, mode='wb') as tmp_file:
-                    tmp_file.write(file_bytes)
-                    temp_file_path = tmp_file.name
-                
-                try:
-                    result = md_converter.convert(temp_file_path)
-                    processed_contents_current_upload.append(result.text_content)
-                except Exception as e:
-                    st.error(f"{_('MarkItDown error for ')}{uploaded_files_new.name}: {e}")
-                finally:
-                    os.unlink(temp_file_path) # Ensure temporary file is deleted
-
-            except Exception as e:
-                st.error(f"{_('Error reading/preparing ')}{uploaded_files_new.name}: {e}")
-            
-            if processed_contents_current_upload:
-                st.session_state.uploaded_file_content = "\n\n--- Uploaded File Content Separator ---\n\n".join(processed_contents_current_upload)
-                st.success(_("File processed and saved.")) # Adjusted message for single file
-            else:
-                st.session_state.uploaded_file_content = ""
-                if uploaded_files_new: # Check if a file was uploaded but processing failed
-                    st.warning(_("Could not retrieve file data."))
-            st.session_state.last_uploaded_file_names = [uploaded_files_new.name] if uploaded_files_new else []
-        elif not uploaded_files_new and st.session_state.last_uploaded_file_names: # Files were cleared
-            st.session_state.uploaded_file_content = ""
-            st.session_state.last_uploaded_file_names = []
-            st.info(_("No file uploaded."))
-    
+        
     st.markdown("---") # Separator line
     # Donate code here
     st.subheader(_("Buy me a coffee?") + "🥤")
