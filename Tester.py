@@ -160,7 +160,7 @@ with st.sidebar:
     
     st.markdown("---") # Separator line
 
-    with st.expander(_("Adjust Context") + "📖"):
+    with st.expander(("📚\t\t\t\t") + _("Adjust Context")):
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -348,7 +348,7 @@ with st.sidebar:
     st.markdown("---") # Separator line
     # API key
 
-    with st.expander(_('Config') + "⚙️"):
+    with st.expander(("⚙️\t") + _('Config')):
 
         nickname = st.text_input(
             ("Nickname"),
@@ -428,11 +428,14 @@ with st.sidebar:
     st.markdown("---") # Separator line
     # Donate code here
     if st.session_state.lang == "vi":
-        st.image("https://github.com/JohnPham69/AI_Tutor/blob/2fc2d0296026ee476a2db1784c601dcb2e8f4284/img/donate_vi.jpg?raw=true")
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
     else:
-        st.image("https://github.com/JohnPham69/AI_Tutor/blob/2fc2d0296026ee476a2db1784c601dcb2e8f4284/img/donate_en.jpg?raw=true")
-    st.write(("👉🏻") + _("PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)")) # Replace with actual link or QR code if needed
-
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_en.png?raw=true")
+    
+    st.write(("👇🏻") + _("Through")) # Replace with actual link or QR code if needed
+    st.write("PHAM XUAN GIA KHANG")
+    st.write("44108557")
+    st.write(_("ACB (Asia Commercial Joint Stock Bank)"))
     changeAll()
 
 # Perform rerun if a language change was flagged

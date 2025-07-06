@@ -15,7 +15,7 @@ TRANSLATIONS = {
         "Save": "Save",
         "API key saved successfully!": "API key saved successfully!",
         "Please enter an API key!!!": "Please enter an API key!!!",
-        "Adjust Context": "Choose your grade and lessons",
+        "Adjust Context": "Grade and lessons",
         "Grade?": "Grade?",
         "Textbook Set?": "Textbook Set?",
         "Subject?": "Subject?",
@@ -168,9 +168,10 @@ TRANSLATIONS = {
         "Multiple Choice": "Trắc nghiệm",
         "Long / Short Answer": "Trả lời dài / ngắn",
         "Mixed": "Trộn lẫn",
-        "Learning": "Học tập AI",
+        "Learning": "Học tập với AI",
         "Donation information:": "Thông tin ủng hộ:",
-        "PHAM XUAN GIA KHANG - 44108557 - ACB (Asia Commercial Joint Stock Bank)": "PHAM XUAN GIA KHANG - 44108557 - ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
+        "ACB (Asia Commercial Joint Stock Bank)": "ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
+        "Through": "Thông qua",
     }
 }
 
