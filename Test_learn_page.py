@@ -32,7 +32,7 @@ else:
 
 # Accept chat input and file
 prompt = st.chat_input(
-    "Type your message here " + "(/x to clear, attach TXT/PPTX/PDF/DOCX if needed)",
+    _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
     accept_file=True,
     file_type=['txt', 'pptx', 'pdf', 'docx'],
 )

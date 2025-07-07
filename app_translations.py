@@ -172,6 +172,8 @@ TRANSLATIONS = {
         "Donation information:": "Thông tin ủng hộ:",
         "ACB (Asia Commercial Joint Stock Bank)": "ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
         "Through": "Thông qua",
+        "Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)": "Nhập tin nhắn của bạn ở đây (/x để xóa, đính kèm TXT/PPTX/PDF/DOCX nếu cần)",
+        "<p style='text-align:center; color:grey;'>No messages yet. Start a conversation!</p>": "<p style='text-align:center; color:grey;'>Chưa có tin nhắn. Hãy bắt đầu cuộc trò chuyện!</p>",
     }
 }
 

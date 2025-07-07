@@ -18,7 +18,7 @@ if "uploaded_file_content" not in st.session_state:
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
-    st.markdown("<p style='text-align:center; color:grey;'>No messages yet. Start a conversation!</p>", unsafe_allow_html=True)
+    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet. Start a conversation!</p>"), unsafe_allow_html=True)
 else:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
@@ -26,7 +26,7 @@ else:
 
 # Accept chat input and file
 prompt = st.chat_input(
-    "Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)",
+    _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
     accept_file=True,
     file_type=['txt', 'pptx', 'pdf', 'docx'],
 )
