@@ -21,7 +21,7 @@ _ = get_translator() # Get the translator instance
 chat_page = st.Page("./Test_AI_page.py", title = _("Tutor AI"), default = True)
 practice = st.Page("./Test_practice_page.py", title=_("Practice / Quiz"))
 leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # New page for leaderboard
-learning_page = st.Page("./Test_learn_page.py", title=_("Learning")) # New page for learning
+learning_page = st.Page("./Test_learn_page.py", title=_("Learning with AI")) # New page for learning
 
 # Function to load subject/lesson data (can be a utility if used elsewhere)
 @st.cache_data(ttl=3600) # Cache data for an hour
