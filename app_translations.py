@@ -168,7 +168,7 @@ TRANSLATIONS = {
         "Multiple Choice": "Trắc nghiệm",
         "Long / Short Answer": "Trả lời dài / ngắn",
         "Mixed": "Trộn lẫn",
-        "Learning": "Học tập với AI",
+        "Learning with AI": "Học tập với AI",
         "Donation information:": "Thông tin ủng hộ:",
         "ACB (Asia Commercial Joint Stock Bank)": "ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
         "Through": "Thông qua",
