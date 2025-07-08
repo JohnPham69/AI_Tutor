@@ -200,7 +200,7 @@ with st.sidebar:
             grade_numbers,
             key='sb_grade_tester',
             on_change=grade_changed_callback,
-            placeholder = "Grade"
+            placeholder = "Grade",
         )
 
         # --- Textbook Set Selection ---
