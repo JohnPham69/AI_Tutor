@@ -280,19 +280,18 @@ with st.sidebar:
         )
 
         def on_select_all_change():
-            """Callback to select or deselect all lessons."""
+            """Callback to select or deselect all lessons by label."""
             if st.session_state.select_all_lessons_cb:
-                st.session_state.sb_lesson_tester = actual_lesson_ids_for_multiselect
+                st.session_state.sb_lesson_tester_labels = lesson_labels
             else:
-                # When unchecked, clear the selection.
-                st.session_state.sb_lesson_tester = []
+                st.session_state.sb_lesson_tester_labels = []
 
         st.checkbox(
             _("Select all lessons"),
             value=all_selected,
             key="select_all_lessons_cb",
             on_change=on_select_all_change,
-            disabled=not bool(actual_lesson_ids_for_multiselect)
+            disabled=not bool(lesson_labels)
         )
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
