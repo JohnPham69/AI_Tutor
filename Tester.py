@@ -200,7 +200,6 @@ with st.sidebar:
             grade_numbers,
             key='sb_grade_tester',
             on_change=grade_changed_callback,
-            placeholder = "Grade",
         )
 
         # --- Textbook Set Selection ---
@@ -228,7 +227,6 @@ with st.sidebar:
             key='sb_textbook_set_tester',
             on_change=textbook_set_changed_callback,
             disabled=not bool(textbook_set_names),
-
         )
 
         # --- Subject Selection (dependent on Grade and Textbook Set) ---
