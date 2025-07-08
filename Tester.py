@@ -252,7 +252,7 @@ with st.sidebar:
             current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
             if current_subject_info:
                 actual_lesson_ids_for_multiselect = [str(l["ID"]) for l in current_subject_info.get("link", []) if "ID" in l]
-                lesson_label_to_value = {_("Lesson:") + " " + f"{lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
+                lesson_label_to_value = {_("Lesson") + " " + f"{lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
         lesson_labels = list(lesson_label_to_value.keys())
 
         if 'sb_lesson_tester_labels' not in st.session_state:
