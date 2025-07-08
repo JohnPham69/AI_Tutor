@@ -19,7 +19,7 @@ _ = get_translator() # Get the translator instance
 # NO_LESSON_OPTION_TEXT = _("No lesson")
 
 chat_page = st.Page("./AI_page.py", title = _("Tutor AI"))
-practice = st.Page("./Test_practice_page.py", title=_("Practice"))
+practice = st.Page("./Practice_page.py", title=_("Practice"))
 leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./Test_learn_page.py", title=_("Learning with AI"), default = True) # New page for learning
 
@@ -319,7 +319,7 @@ with st.sidebar:
     with st.expander(r"$\textsf{\normalsize " + ("📜\t") + _("Study") + "}$", expanded=True):
         st.page_link("Test_learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
-        st.page_link("Test_practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
+        st.page_link("Practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
         st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
     
 pg_selection.run() # Run the selected page
