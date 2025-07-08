@@ -152,7 +152,7 @@ with st.sidebar:
                     "https://github.com/JohnPham69/Quiz_Maker_AI/blob/main/img/United-Kingdom-Flag.png?raw=true",  # UK flag
                 ],
                 div_style={"display": "flex", "justify-content": "left", "flex-wrap": "wrap"},
-                img_style={"margin": "5px", "height": "24px", "width": "24px"},
+                img_style={"margin": "5px", "height": "30px", "width": "30px"},
             )
             if vi == 0:
                 set_language_and_trigger_rerun_flag('vi')
