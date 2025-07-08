@@ -317,10 +317,10 @@ with st.sidebar:
         
 with st.sidebar:
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
-        st.page_link("Test_learn_page.py", label=_("Learning with AI"), icon="🐻\t") # New page link with icon
-        st.page_link("Test_AI_page.py", label=_("Tutor AI"), icon="🐯\t") # Page link with icon
-        st.page_link("Test_practice_page.py", label=_("Practice"), icon="🐼\t") # Page link with icon
-        st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🎓\t") # New page link with icon
+        st.page_link("Test_learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
+        st.page_link("Test_AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
+        st.page_link("Test_practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
+        st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
     
 pg_selection.run() # Run the selected page
 
