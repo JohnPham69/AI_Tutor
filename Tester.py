@@ -111,12 +111,11 @@ with st.sidebar:
     # You can write code here
 
     # To here, feel free to expand in between
-    
     #Start Logo
     st.logo(
-        image = "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
+        image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
         size = "large", # Adjusted size for sidebar,
-        link = "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
+        link = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
         icon_image= "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
     )
     
@@ -127,7 +126,9 @@ with st.sidebar:
             margin-top: 15px !important;
             padding-top: 10px !important;
             padding-right: 5px !important;
-            height: 80px; /* Set logo height to approximately 100px */
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
+            height: 100px; /* Set logo height to approximately 100px */
         }
         hr {
             margin-top: 10px !important;
