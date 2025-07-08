@@ -19,7 +19,7 @@ _ = get_translator() # Get the translator instance
 # NO_LESSON_OPTION_TEXT = _("No lesson")
 
 chat_page = st.Page("./Test_AI_page.py", title = _("Tutor AI"), default = True)
-practice = st.Page("./Test_practice_page.py", title=_("Practice / Quiz"))
+practice = st.Page("./Test_practice_page.py", title=_("Practice"))
 leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./Test_learn_page.py", title=_("Learning with AI")) # New page for learning
 
