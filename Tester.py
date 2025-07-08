@@ -139,7 +139,8 @@ with st.sidebar:
     </style>
     """)
     # End Logo
-
+    st.write("")
+    st.write("")
     # Container for languages
     with st.container():
         # Adjusted columns for language buttons
