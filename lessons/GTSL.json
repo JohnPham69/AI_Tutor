@@ -67,6 +67,27 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L40.md"
                 }
               ]
+            },
+            {
+              "name": "Cong nghe",
+              "less_no": 3,
+              "link": [
+                {
+                  "name": "HOA VA CAY CANH QUANH EM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/home_ec/L1.md"
+                },
+                {
+                  "name": "VAT LIEU, DUNG CU TRONG HOA VA CAY CANH TRONG CHAU",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/home_ec/L2.md"
+                },
+                {
+                  "name": "DO CHOI DAN GIAN",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/home_ec/L8.md"
+                }
+              ]
             }
           ]
         }
