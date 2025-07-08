@@ -56,6 +56,17 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/tech/L8.md"
                 }
               ]
+            },
+            {
+              "name": "Toan",
+              "less_no": 1,
+              "link": [
+                {
+                  "name": "PHEP CONG CAC SO TU NHIEN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L40.md"
+                }
+              ]
             }
           ]
         }
