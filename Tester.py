@@ -131,7 +131,7 @@ with st.sidebar:
         }
         hr {
             margin-top: 10px !important;
-            height: 5px !important;
+            height: 1px !important;
             background-color: #ddd !important;
             border-radius: 20px !important;
         }
