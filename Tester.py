@@ -126,14 +126,7 @@ with st.sidebar:
         [alt=Logo] {
             margin-top: 100px !important;
             height: 100px; /* Set logo height to approximately 100px */
-        }
-        hr {
-            margin-top: 10px !important;
-            height: 1px !important;
-            background-color: #ddd !important;
-            border-radius: 20px !important;
-        }
-        
+        }        
     </style>
     """)
     # End Logo
