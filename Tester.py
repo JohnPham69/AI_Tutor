@@ -161,7 +161,7 @@ with st.sidebar:
     
     st.markdown("---") # Separator line
 
-    with st.expander(r"$\textsf{\Large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
+    with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -349,7 +349,7 @@ with st.sidebar:
     st.markdown("---") # Separator line
     # API key
 
-    with st.expander(r"$\textsf{\Large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
+    with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
         nickname = st.text_input(
             ("Nickname"),
