@@ -343,8 +343,8 @@ with st.sidebar:
 
 with st.sidebar:
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
-        st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
         st.page_link("Test_learn_page.py", label=_("Learning with AI")) # New page link with icon
+        st.page_link("Test_AI_page.py", label=_("Tutor AI")) # Page link with icon
         st.page_link("Test_practice_page.py", label=_("Practice")) # Page link with icon
         st.page_link("Test_leader_page.py", label=_("Leaderboard")) # New page link with icon
     
