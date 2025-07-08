@@ -196,10 +196,10 @@ with st.sidebar:
 
         selected_grade_number = st.selectbox(
             _("Grade?"),
-            label_visibility="collapsed",
             grade_numbers,
+            label_visibility="collapsed",
             key='sb_grade_tester',
-            on_change=grade_changed_callback,
+            on_change=grade_changed_callback
         )
 
         # --- Textbook Set Selection ---
@@ -222,11 +222,12 @@ with st.sidebar:
 
         selected_textbook_set_name = st.selectbox(
             _("Textbook Set?"),
-            label_visibility="collapsed",
             textbook_set_names,
+            label_visibility="collapsed",
             key='sb_textbook_set_tester',
             on_change=textbook_set_changed_callback,
             disabled=not bool(textbook_set_names),
+
         )
 
         # --- Subject Selection (dependent on Grade and Textbook Set) ---
