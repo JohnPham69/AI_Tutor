@@ -157,8 +157,6 @@ with st.sidebar:
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
     
-    st.markdown("---") # Separator line
-
     with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
@@ -316,9 +314,7 @@ with st.sidebar:
                         "url": lesson_detail_found.get("link") # This is the .md URL
                     })
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
-    
-    st.markdown("---") # Separator line
-
+        
 with st.sidebar:
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         st.page_link("Test_learn_page.py", label=_("Learning with AI")) # New page link with icon
@@ -329,7 +325,6 @@ with st.sidebar:
 pg_selection.run() # Run the selected page
 
 with st.sidebar:
-    st.markdown("---") # Separator line
     # API key
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
@@ -409,7 +404,6 @@ with st.sidebar:
             st.session_state.saved_api_key_value_for_debug_tester = None
     # Chat Context Selection
         
-    st.markdown("---") # Separator line
     # Donate code here
     if st.session_state.lang == "vi":
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
