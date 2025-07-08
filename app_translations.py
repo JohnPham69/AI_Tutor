@@ -178,7 +178,7 @@ TRANSLATIONS = {
         "<p style='text-align:center; color:grey;'>No messages yet.</p>": "<p style='text-align:center; color:grey;'>Chưa có tin nhắn.</p>",
         "No subjects available": "Không có môn học nào",
         "Study": "Học tập",
-        "Pratice": "Luyện tập",
+        "Practice": "Luyện tập",
     }
 }
 
