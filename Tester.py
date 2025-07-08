@@ -287,17 +287,6 @@ with st.sidebar:
                 # When unchecked, clear the selection.
                 st.session_state.sb_lesson_tester = []
 
-
-
-        st.multiselect( # The multiselect's state is now managed by the checkbox callback and manual interaction
-            _("Lesson(s)?"),
-            options=actual_lesson_ids_for_multiselect,
-            label_visibility="collapsed",
-            key='sb_lesson_tester', # Will store a list of selected lesson IDs
-            placeholder=_("Choose lesson(s)") if actual_lesson_ids_for_multiselect else _("No lessons available"),
-            disabled=not bool(actual_lesson_ids_for_multiselect)
-        )
-
         st.checkbox(
             _("Select all lessons"),
             value=all_selected,
