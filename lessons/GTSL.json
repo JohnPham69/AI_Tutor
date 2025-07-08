@@ -809,7 +809,64 @@
         },
         {
           "name": "Chân trời sáng tạo",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "GDCD",
+              "less_no": 10,
+              "link": [
+                {
+                  "name": "SONG CO LI TUONG",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L1.md"
+                },
+                {
+                  "name": "KHOAN DUNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L2.md"
+                },
+                {
+                  "name": "TICH CUC THAM GIA CAC HOAT DONG CONG DONG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L3.md"
+                },
+                {
+                  "name": "KHACH QUAN VA CONG BANG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L4.md"
+                },
+                {
+                  "name": "BAO VE HOA BINH",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L5.md"
+                },
+                {
+                  "name": "QUAN LY THOI GIAN HIEU QUA",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L6.md"
+                },
+                {
+                  "name": "THICH UNG VOI THAY DOI",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L7.md"
+                },
+                {
+                  "name": "TIEU DUNG THONG MINH",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L8.md"
+                },
+                {
+                  "name": "VI PHAM PHAP LUAT VA TRACH NHIEM PHAP LI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L9.md"
+                },
+                {
+                  "name": "QUYEN TU DO KINH DOANH VA NGHIA VU NOP THUE",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CTST/civics/L10.md"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
