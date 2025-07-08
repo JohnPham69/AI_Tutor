@@ -115,7 +115,7 @@ TRANSLATIONS = {
         "Based on Sidebar Selection": "Dựa trên môn học và bài học đã chọn ở thanh bên (nếu có).",
         "Configure Your Quiz": "### Cấu hình Bài Quiz của Bạn",
         "Number of Questions Prompt": "Bạn muốn trả lời bao nhiêu câu?",
-        "Time Limit Prompt (minutes)": "Bạn muốn trả lời trong bao lâu (phút)?",
+        "Time Limit Prompt (minutes)": "Bạn muốn trả lời trong bao nhiêu phút?",
         "Time Per Question Info": "**Thời gian cho mỗi câu hỏi:** {time_per_question:.0f} giây",
         "Create Quiz and Start Button": "Tạo Quiz và Bắt đầu",
         "API Key Missing Error Config": "Vui lòng nhập API key ở mục Config hoặc thanh bên.",
