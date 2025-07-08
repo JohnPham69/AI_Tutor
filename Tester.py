@@ -243,7 +243,6 @@ with st.sidebar:
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names),
         )
-        st.session_state.sb_subject_tester = selected_subject_name
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
