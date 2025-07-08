@@ -238,15 +238,29 @@ with st.sidebar:
             st.session_state.sb_lesson_tester = []   # Cascade reset
             st.session_state.user_interacted_grade = False  # Consume the flag
 
-        selected_textbook_set_name = st.selectbox(
+        # --- Textbook Set Selection ---
+        textbook_set_label_to_value = {f"Set {name}": name for name in textbook_set_names}
+        textbook_set_labels = list(textbook_set_label_to_value.keys())
+
+        if 'sb_textbook_set_tester_label' not in st.session_state:
+            st.session_state.sb_textbook_set_tester_label = None
+
+        selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
-            textbook_set_names,
+            textbook_set_labels,
+            key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
-            key='sb_textbook_set_tester',
             placeholder=_("Choose textbook set"),
             on_change=textbook_set_changed_callback,
-            disabled=not bool(textbook_set_names),
+            disabled=not bool(textbook_set_labels),
         )
+
+        if st.session_state.sb_textbook_set_tester_label:
+            st.session_state.sb_textbook_set_tester = textbook_set_label_to_value[st.session_state.sb_textbook_set_tester_label]
+            selected_textbook_set_name = st.session_state.sb_textbook_set_tester
+        else:
+            st.session_state.sb_textbook_set_tester = None
+            selected_textbook_set_name = None
 
         # --- Subject Selection (dependent on Grade and Textbook Set) ---
         subject_names = []
@@ -275,27 +289,38 @@ with st.sidebar:
 
         # --- Lesson Selection (dependent on Grade, Textbook Set, and Subject) ---
         actual_lesson_ids_for_multiselect = []
+        lesson_label_to_value = {}
         current_subject_info = None
         if current_textbook_set_info and selected_subject_name:
             current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
             if current_subject_info:
+                # Use "Lesson: {ID}" as label, value is ID string
                 actual_lesson_ids_for_multiselect = [str(l["ID"]) for l in current_subject_info.get("link", []) if "ID" in l]
+                lesson_label_to_value = {f"Lesson: {lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
+        lesson_labels = list(lesson_label_to_value.keys())
 
-        # Initialize or update session state for lesson multiselect
-        if 'sb_lesson_tester' not in st.session_state or not isinstance(st.session_state.sb_lesson_tester, list):
-            st.session_state.sb_lesson_tester = []
+        if 'sb_lesson_tester_labels' not in st.session_state:
+            st.session_state.sb_lesson_tester_labels = []
 
-        # If subject was changed by user, clear lesson selection
-        if st.session_state.user_interacted_subject:
-            st.session_state.sb_lesson_tester = [] # Clear lessons
-            st.session_state.user_interacted_subject = False # Consume the flag
-        else:
-            # Filter current lesson selection against available options if subject didn't change by user action
-            # This handles cases where the list of lessons might change due to data updates.
-            current_selection_from_state = st.session_state.get('sb_lesson_tester', [])
-            valid_selection_for_current_subject = [lesson_id for lesson_id in current_selection_from_state if lesson_id in actual_lesson_ids_for_multiselect]
-            if st.session_state.sb_lesson_tester != valid_selection_for_current_subject: # Only update if necessary
-                st.session_state.sb_lesson_tester = valid_selection_for_current_subject
+        # Map current selected lesson IDs to labels for display
+        def get_lesson_labels_from_ids(ids):
+            return [label for label, value in lesson_label_to_value.items() if value in ids]
+
+        def get_lesson_ids_from_labels(labels):
+            return [lesson_label_to_value[label] for label in labels if label in lesson_label_to_value]
+
+        # Multiselect for lessons
+        selected_lesson_labels = st.multiselect(
+            _("Lesson(s)?"),
+            options=lesson_labels,
+            label_visibility="collapsed",
+            key='sb_lesson_tester_labels',
+            placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
+            disabled=not bool(lesson_labels)
+        )
+
+        # Update session state with lesson IDs
+        st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
         # --- "Select All" Checkbox for Lessons ---
         # The value of the checkbox is determined by whether all available lessons are currently selected.
