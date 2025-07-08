@@ -124,14 +124,14 @@ with st.sidebar:
     <style>
         [alt=Logo] {
             margin-top: 15px !important;
-            padding-top: 20px !important;
+            padding-top: 10px !important;
             padding-right: 5px !important;
-            padding-bottom: 5px !important;
-            margin-bottom: 20px !important;
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
             height: 100px; /* Set logo height to approximately 100px */
         }
         hr {
-            margin-top: 5px !important;
+            margin-top: 10px !important;
             height: 5px !important;
             background-color: #ddd !important;
             border-radius: 20px !important;
@@ -433,7 +433,12 @@ with st.sidebar:
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
     else:
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_en.png?raw=true")
-    st.image("https://github.com/JohnPham69/AI_Tutor/blob/7e97d6fd20e87926451ccdc60784c4a015e35aa9/img/TK-DONATION.png?raw=true") 
+    
+    if st.session_state.lang == "vi":
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__VI.png?raw=true")
+    else:
+        st.image("https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true")
+
 
 # Perform rerun if a language change was flagged
 # This is done after all sidebar interactions for the current pass are complete
