@@ -4,6 +4,6 @@
 - Đăng ký / Đăng nhập với tài khoản Google của bạn
 
 ## Bước 2: Điều hướng đến nơi lấy
-- Nhìn lên phía góc trên phải màn hình
+- Nhìn lên phía góc trên phải màn hình chọn "Get API key"
 - 
 
