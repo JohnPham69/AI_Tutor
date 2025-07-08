@@ -196,9 +196,11 @@ with st.sidebar:
 
         selected_grade_number = st.selectbox(
             _("Grade?"),
+            label_visibility="collapsed",
             grade_numbers,
             key='sb_grade_tester',
-            on_change=grade_changed_callback
+            on_change=grade_changed_callback,
+            placeholder = "Grade"
         )
 
         # --- Textbook Set Selection ---
@@ -221,6 +223,7 @@ with st.sidebar:
 
         selected_textbook_set_name = st.selectbox(
             _("Textbook Set?"),
+            label_visibility="collapsed",
             textbook_set_names,
             key='sb_textbook_set_tester',
             on_change=textbook_set_changed_callback,
@@ -247,6 +250,7 @@ with st.sidebar:
             _("Subject?"),
             subject_names,
             key='sb_subject_tester',
+            label_visibility="collapsed",
             on_change=subject_changed_callback,
             disabled=not bool(subject_names),
             placeholder = _("No subjects available")
@@ -297,6 +301,7 @@ with st.sidebar:
         st.multiselect( # The multiselect's state is now managed by the checkbox callback and manual interaction
             _("Lesson(s)?"),
             options=actual_lesson_ids_for_multiselect,
+            label_visibility="collapsed",
             key='sb_lesson_tester', # Will store a list of selected lesson IDs
             placeholder=_("Choose lesson(s)") if actual_lesson_ids_for_multiselect else _("No lessons available"),
             disabled=not bool(actual_lesson_ids_for_multiselect)
