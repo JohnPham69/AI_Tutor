@@ -188,11 +188,10 @@ with st.sidebar:
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
 
         if 'sb_grade_tester' not in st.session_state:
-            st.session_state.sb_grade_tester = grade_numbers[0] if grade_numbers else None
-            # On first initialization, behave as if user selected it to trigger downstream updates
+            st.session_state.sb_grade_tester = None  # Start with no selection
             if not st.session_state.sb_grade_tester_initialized:
-                    st.session_state.user_interacted_grade = True
-                    st.session_state.sb_grade_tester_initialized = True
+                st.session_state.user_interacted_grade = True
+                st.session_state.sb_grade_tester_initialized = True
 
         selected_grade_number = st.selectbox(
             _("Grade?"),
@@ -211,24 +210,20 @@ with st.sidebar:
 
         # Initialize or reset textbook_set if grade was changed by user, or if it's the very first run for textbook_set
         if 'sb_textbook_set_tester' not in st.session_state or st.session_state.user_interacted_grade:
-            st.session_state.sb_textbook_set_tester = textbook_set_names[0] if textbook_set_names else None
-            st.session_state.user_interacted_textbook_set = True # Signal for subject reset
-            st.session_state.sb_subject_tester = None # Cascade reset
+            st.session_state.sb_textbook_set_tester = None  # Start with no selection
+            st.session_state.user_interacted_textbook_set = True  # Signal for subject reset
+            st.session_state.sb_subject_tester = None  # Cascade reset
             st.session_state.sb_lesson_tester = []   # Cascade reset
-            st.session_state.user_interacted_grade = False # Consume the flag
-        # If current textbook selection is no longer valid for the current grade (e.g. data changed),
-        # Streamlit's selectbox will default to the first option if the key's value is not in options.
-        # We want to preserve the session state value unless explicitly changed by user interaction.
-        # The selectbox itself will handle displaying a valid option if the state value is out of bounds.
+            st.session_state.user_interacted_grade = False  # Consume the flag
 
         selected_textbook_set_name = st.selectbox(
             _("Textbook Set?"),
             textbook_set_names,
             label_visibility="collapsed",
             key='sb_textbook_set_tester',
+            placeholder=_("Choose textbook set"),
             on_change=textbook_set_changed_callback,
             disabled=not bool(textbook_set_names),
-
         )
 
         # --- Subject Selection (dependent on Grade and Textbook Set) ---
