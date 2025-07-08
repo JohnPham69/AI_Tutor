@@ -18,8 +18,8 @@ _ = get_translator() # Get the translator instance
 # If it were needed for a selectbox option in this file, it would be:
 # NO_LESSON_OPTION_TEXT = _("No lesson")
 
-chat_page = st.Page("./Test_AI_page.py", title = _("Tutor AI"), default = True)
-practice = st.Page("./Test_practice_page.py", title=_("Practice"))
+chat_page = st.Page("./AI_page.py", title = _("Tutor AI"))
+practice = st.Page("./Test_practice_page.py", title=_("Practice"), default = True)
 leaderboard_page = st.Page("./Test_leader_page.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./Test_learn_page.py", title=_("Learning with AI")) # New page for learning
 
@@ -35,11 +35,11 @@ def load_subject_lesson_data():
         st.sidebar.error(f"{_('Failed to load lesson data: ')}{e}")
         return {"grade": []} # Return default structure with "grade" key on error
 
-# Function to fetch and display lesson content (moved from Test_AI_page.py)
+# Function to fetch and display lesson content (moved from AI_page.py)
 def fetch_and_display_lessons():
     # Ensure messages list exists in session_state, initialize if not.
     # This is important because this function is now in Tester.py and might be called
-    # before Test_AI_page.py initializes st.session_state.messages.
+    # before AI_page.py initializes st.session_state.messages.
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -318,7 +318,7 @@ with st.sidebar:
 with st.sidebar:
     with st.expander(r"$\textsf{\normalsize " + ("📜\t") + _("Study") + "}$", expanded=True):
         st.page_link("Test_learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
-        st.page_link("Test_AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
+        st.page_link("AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("Test_practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
         st.page_link("Test_leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
     
