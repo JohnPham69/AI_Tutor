@@ -112,6 +112,7 @@ with st.sidebar:
 
     # To here, feel free to expand in between
     #Start Logo
+    st.write("")
     st.logo(
         image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
         size = "large", # Adjusted size for sidebar,
@@ -126,7 +127,7 @@ with st.sidebar:
             padding-top: 25px !important;
             padding-right: 5px !important;
             margin-bottom: 25px !important;
-            height: 100px; /* Set logo height to approximately 100px */
+            height: 110px; /* Set logo height to approximately 100px */
         }
         hr {
             margin-top: 10px !important;
