@@ -186,7 +186,7 @@ with st.sidebar:
         # --- Grade Selection ---
         grade_data = subject_lesson_data.get("grade", [])
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
-        grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
+        grade_label_to_value = {f"{_("Grade")} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
 
         if 'sb_grade_tester_label' not in st.session_state:
@@ -207,7 +207,7 @@ with st.sidebar:
         current_grade_info = next((g for g in grade_data if g.get("number") == selected_grade_number), None)
         if current_grade_info:
             textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
-        textbook_set_label_to_value = {f"Set {name}": name for name in textbook_set_names}
+        textbook_set_label_to_value = {_("Set") + " " + f"{name}": name for name in textbook_set_names}
         textbook_set_labels = list(textbook_set_label_to_value.keys())
 
         if 'sb_textbook_set_tester_label' not in st.session_state:
@@ -252,7 +252,7 @@ with st.sidebar:
             current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
             if current_subject_info:
                 actual_lesson_ids_for_multiselect = [str(l["ID"]) for l in current_subject_info.get("link", []) if "ID" in l]
-                lesson_label_to_value = {f"Lesson: {lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
+                lesson_label_to_value = {_("Lesson:") + " " + f"{lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
         lesson_labels = list(lesson_label_to_value.keys())
 
         if 'sb_lesson_tester_labels' not in st.session_state:
