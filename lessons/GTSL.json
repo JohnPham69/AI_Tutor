@@ -94,6 +94,51 @@
       ]
     },
     {
+      "number": 5,
+      "textbook_set": [
+        {
+          "name": "Cánh diều",
+          "subjects": []
+        },
+        {
+          "name": "Chân trời sáng tạo",
+          "subjects": [
+            {
+              "name": "Cong nghe",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "CONG NGHE TRONG DOI SONG",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L1.md"
+                },
+                {
+                  "name": "NHA SANG CHE",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L2.md"
+                },
+                {
+                  "name": "TIM HIEU THIET KE",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L3.md"
+                },
+                {
+                  "name": "SU DUNG DIEN THOAI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L5.md"
+                },
+                {
+                  "name": "SU DUNG TU LANH",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L6.md"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "number": 6,
       "textbook_set": [
         {
