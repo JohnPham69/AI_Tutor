@@ -181,9 +181,9 @@ TRANSLATIONS = {
         "Practice": "Luyện tập",
         "Choose grade": "Chọn khối",
         "Choose textbook set": "Chọn bộ sách giáo khoa",
-        "Grade": "Khối",
+        "Grade": "Lớp",
         "Set": "Bộ sách",
-        "Lesson:": "Bài: ",
+        "Lesson": "Bài",
     }
 }
 
