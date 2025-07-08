@@ -132,7 +132,7 @@ with st.sidebar:
         }
         hr {
             margin-top: 10px !important;
-            height: 10px !important;
+            height: 5px !important;
             background-color: #ddd !important;
             border-radius: 20px !important;
 
@@ -312,7 +312,6 @@ with st.sidebar:
         )
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
-        st.subheader(_("View lessons selected in the sidebar"))
         if st.button(_("View Lesson Button")):
             fetch_and_display_lessons()
 
