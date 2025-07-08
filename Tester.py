@@ -199,6 +199,7 @@ with st.sidebar:
             grade_numbers,
             label_visibility="collapsed",
             key='sb_grade_tester',
+            placeholder=_("Choose grade")
             on_change=grade_changed_callback
         )
 
