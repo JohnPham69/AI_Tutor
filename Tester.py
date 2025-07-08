@@ -126,8 +126,8 @@ with st.sidebar:
             margin-top: 15px !important;
             padding-top: 10px !important;
             padding-right: 5px !important;
-            padding-bottom: 0px !important;
-            margin-bottom: 0px !important;
+            padding-bottom: 5px !important;
+            margin-bottom: 5px !important;
             height: 100px; /* Set logo height to approximately 100px */
         }
         hr {
