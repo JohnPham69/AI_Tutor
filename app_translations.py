@@ -15,7 +15,7 @@ TRANSLATIONS = {
         "Save": "Save",
         "API key saved successfully!": "API key saved successfully!",
         "Please enter an API key!!!": "Please enter an API key!!!",
-        "Adjust Context": "Grade and lessons",
+        "Adjust Context": "Grade and Lessons",
         "Grade?": "Grade?",
         "Textbook Set?": "Textbook Set?",
         "Subject?": "Subject?",
