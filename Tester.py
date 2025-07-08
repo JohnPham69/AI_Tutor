@@ -186,7 +186,8 @@ with st.sidebar:
         # --- Grade Selection ---
         grade_data = subject_lesson_data.get("grade", [])
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
-        grade_options = [(f"{_('Grade')} {n}", n) for n in grade_numbers]  # List of (label, value) tuples
+        grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
+        grade_labels = list(grade_label_to_value.keys())
 
         if 'sb_grade_tester' not in st.session_state:
             st.session_state.sb_grade_tester = None  # Start with no selection
@@ -194,31 +195,33 @@ with st.sidebar:
                 st.session_state.user_interacted_grade = True
                 st.session_state.sb_grade_tester_initialized = True
 
-        # Find the index of the currently selected grade number in grade_options
-        def get_grade_index_from_value(value):
-            for idx, (_, v) in enumerate(grade_options):
+        # Find the label for the current value (if any)
+        def get_label_from_value(value):
+            for label, v in grade_label_to_value.items():
                 if v == value:
-                    return idx
+                    return label
             return None
 
-        selected_grade_index = get_grade_index_from_value(st.session_state.sb_grade_tester)
-        selected_grade_label = grade_options[selected_grade_index][0] if selected_grade_index is not None else None
+        # Use a separate key for the label selectbox
+        if 'sb_grade_tester_label' not in st.session_state:
+            st.session_state.sb_grade_tester_label = None
 
+        # Show selectbox with no default selection
         selected_grade_label = st.selectbox(
             _("Grade?"),
-            [label for label, _ in grade_options],
-            index=selected_grade_index if selected_grade_index is not None else 0,
-            label_visibility="collapsed",
+            grade_labels,
             key='sb_grade_tester_label',
+            label_visibility="collapsed",
             placeholder=_("Choose grade"),
             on_change=grade_changed_callback
         )
 
         # Update the session state with the corresponding grade number
-        if selected_grade_label:
-            selected_grade_number = dict(grade_options)[selected_grade_label]
-            st.session_state.sb_grade_tester = selected_grade_number
+        if st.session_state.sb_grade_tester_label:
+            st.session_state.sb_grade_tester = grade_label_to_value[st.session_state.sb_grade_tester_label]
+            selected_grade_number = st.session_state.sb_grade_tester
         else:
+            st.session_state.sb_grade_tester = None
             selected_grade_number = None
 
         # --- Textbook Set Selection ---
