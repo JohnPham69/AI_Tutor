@@ -189,56 +189,24 @@ with st.sidebar:
         grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
 
-        if 'sb_grade_tester' not in st.session_state:
-            st.session_state.sb_grade_tester = None  # Start with no selection
-            if not st.session_state.sb_grade_tester_initialized:
-                st.session_state.user_interacted_grade = True
-                st.session_state.sb_grade_tester_initialized = True
-
-        # Find the label for the current value (if any)
-        def get_label_from_value(value):
-            for label, v in grade_label_to_value.items():
-                if v == value:
-                    return label
-            return None
-
-        # Use a separate key for the label selectbox
         if 'sb_grade_tester_label' not in st.session_state:
             st.session_state.sb_grade_tester_label = None
 
-        # Show selectbox with no default selection
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
-            on_change=grade_changed_callback
         )
-
-        # Update the session state with the corresponding grade number
-        if st.session_state.sb_grade_tester_label:
-            st.session_state.sb_grade_tester = grade_label_to_value[st.session_state.sb_grade_tester_label]
-            selected_grade_number = st.session_state.sb_grade_tester
-        else:
-            st.session_state.sb_grade_tester = None
-            selected_grade_number = None
+        selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
+        st.session_state.sb_grade_tester = selected_grade_number
 
         # --- Textbook Set Selection ---
         textbook_set_names = []
         current_grade_info = next((g for g in grade_data if g.get("number") == selected_grade_number), None)
         if current_grade_info:
             textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
-
-        # Initialize or reset textbook_set if grade was changed by user, or if it's the very first run for textbook_set
-        if 'sb_textbook_set_tester' not in st.session_state or st.session_state.user_interacted_grade:
-            st.session_state.sb_textbook_set_tester = None  # Start with no selection
-            st.session_state.user_interacted_textbook_set = True  # Signal for subject reset
-            st.session_state.sb_subject_tester = None  # Cascade reset
-            st.session_state.sb_lesson_tester = []   # Cascade reset
-            st.session_state.user_interacted_grade = False  # Consume the flag
-
-        # --- Textbook Set Selection ---
         textbook_set_label_to_value = {f"Set {name}": name for name in textbook_set_names}
         textbook_set_labels = list(textbook_set_label_to_value.keys())
 
@@ -251,18 +219,12 @@ with st.sidebar:
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
-            on_change=textbook_set_changed_callback,
             disabled=not bool(textbook_set_labels),
         )
+        selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
+        st.session_state.sb_textbook_set_tester = selected_textbook_set_name
 
-        if st.session_state.sb_textbook_set_tester_label:
-            st.session_state.sb_textbook_set_tester = textbook_set_label_to_value[st.session_state.sb_textbook_set_tester_label]
-            selected_textbook_set_name = st.session_state.sb_textbook_set_tester
-        else:
-            st.session_state.sb_textbook_set_tester = None
-            selected_textbook_set_name = None
-
-        # --- Subject Selection (dependent on Grade and Textbook Set) ---
+        # --- Subject Selection ---
         subject_names = []
         current_textbook_set_info = None
         if current_grade_info and selected_textbook_set_name:
@@ -270,31 +232,26 @@ with st.sidebar:
             if current_textbook_set_info:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
 
-        # Initialize or reset subject if textbook_set was changed by user
-        if 'sb_subject_tester' not in st.session_state or st.session_state.user_interacted_textbook_set:
-            st.session_state.sb_subject_tester = subject_names[0] if subject_names else None
-            st.session_state.user_interacted_subject = True # Signal for lesson reset
-            st.session_state.sb_lesson_tester = []  # Cascade reset
-            st.session_state.user_interacted_textbook_set = False # Consume the flag
+        if 'sb_subject_tester' not in st.session_state:
+            st.session_state.sb_subject_tester = None
 
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
             key='sb_subject_tester',
             label_visibility="collapsed",
-            on_change=subject_changed_callback,
+            placeholder=_("No subjects available"),
             disabled=not bool(subject_names),
-            placeholder = _("No subjects available")
         )
+        st.session_state.sb_subject_tester = selected_subject_name
 
-        # --- Lesson Selection (dependent on Grade, Textbook Set, and Subject) ---
+        # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
         lesson_label_to_value = {}
         current_subject_info = None
         if current_textbook_set_info and selected_subject_name:
             current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
             if current_subject_info:
-                # Use "Lesson: {ID}" as label, value is ID string
                 actual_lesson_ids_for_multiselect = [str(l["ID"]) for l in current_subject_info.get("link", []) if "ID" in l]
                 lesson_label_to_value = {f"Lesson: {lesson_id}": lesson_id for lesson_id in actual_lesson_ids_for_multiselect}
         lesson_labels = list(lesson_label_to_value.keys())
@@ -302,14 +259,9 @@ with st.sidebar:
         if 'sb_lesson_tester_labels' not in st.session_state:
             st.session_state.sb_lesson_tester_labels = []
 
-        # Map current selected lesson IDs to labels for display
-        def get_lesson_labels_from_ids(ids):
-            return [label for label, value in lesson_label_to_value.items() if value in ids]
-
         def get_lesson_ids_from_labels(labels):
             return [lesson_label_to_value[label] for label in labels if label in lesson_label_to_value]
 
-        # Multiselect for lessons
         selected_lesson_labels = st.multiselect(
             _("Lesson(s)?"),
             options=lesson_labels,
@@ -318,8 +270,6 @@ with st.sidebar:
             placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
             disabled=not bool(lesson_labels)
         )
-
-        # Update session state with lesson IDs
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
         # --- "Select All" Checkbox for Lessons ---
