@@ -136,6 +136,7 @@ with st.sidebar:
             border-radius: 20px !important;
 
         }
+        
     </style>
     """)
     # End Logo
@@ -160,7 +161,7 @@ with st.sidebar:
     
     st.markdown("---") # Separator line
 
-    with st.expander(("📚\t\t\t\t") + _("Adjust Context")):
+    with st.expander(r"$\textsf{\Large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -248,6 +249,7 @@ with st.sidebar:
             key='sb_subject_tester',
             on_change=subject_changed_callback,
             disabled=not bool(subject_names),
+            placeholder = _("No subjects available")
         )
 
         # --- Lesson Selection (dependent on Grade, Textbook Set, and Subject) ---
@@ -348,7 +350,7 @@ with st.sidebar:
     st.markdown("---") # Separator line
     # API key
 
-    with st.expander(("⚙️\t") + _('Config')):
+    with st.expander(r"$\textsf{\Large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
         nickname = st.text_input(
             ("Nickname"),
@@ -431,15 +433,12 @@ with st.sidebar:
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
     else:
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_en.png?raw=true")
-    
-    st.write(("👇🏻") + _("Through")) # Replace with actual link or QR code if needed
-    st.write("PHAM XUAN GIA KHANG")
-    st.write("44108557")
-    st.write(_("ACB (Asia Commercial Joint Stock Bank)"))
-    changeAll()
+    st.image("https://github.com/JohnPham69/AI_Tutor/blob/7e97d6fd20e87926451ccdc60784c4a015e35aa9/img/TK-DONATION.png?raw=true") 
 
 # Perform rerun if a language change was flagged
 # This is done after all sidebar interactions for the current pass are complete
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
+
+changeAll()
