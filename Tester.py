@@ -150,7 +150,7 @@ with st.sidebar:
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
     
-    with st.expander(r"$\textsf{\normalsize " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
+    with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
             st.session_state.user_interacted_grade = True
@@ -309,7 +309,7 @@ with st.sidebar:
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
         
 with st.sidebar:
-    with st.expander(r"$\textsf{\normalsize " + ("📜\t") + _("Study") + "}$", expanded=True):
+    with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         st.page_link("Learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("Practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
@@ -320,7 +320,7 @@ pg_selection.run() # Run the selected page
 with st.sidebar:
     # API key
 
-    with st.expander(r"$\textsf{\normalsize " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
+    with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
         nickname = st.text_input(
             ("Nickname"),
