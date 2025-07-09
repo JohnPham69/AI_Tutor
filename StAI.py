@@ -32,7 +32,7 @@ def trans(text, user_api, user_model=None):
         return detected_lang if len(detected_lang) == 2 and detected_lang.isalpha() else "vi" # Default to Vietnamese
     except Exception as e:
         print(f"Error in detect_language: {e}")
-        return "vi" # Default to Vietnamese on error
+        return "Error in translation"
 
 def detect_language(text_to_detect, user_api, user_model=None):
     """
