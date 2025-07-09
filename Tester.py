@@ -360,7 +360,7 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
+        col1, col2, _un = st.columns([0.4, 0.4, 0.2])
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
