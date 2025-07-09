@@ -11,7 +11,7 @@
           "name": "Chân trời sáng tạo",
           "subjects": [
             {
-              "name": "Dao duc",
+              "name": "Đạo đức",
               "less_no": 1,
               "link": [
                 {
@@ -22,7 +22,7 @@
               ]
             },
             {
-              "name": "Tin hoc",
+              "name": "Tin học",
               "less_no": 6,
               "link": [
                 {
@@ -58,7 +58,7 @@
               ]
             },
             {
-              "name": "Toan",
+              "name": "Toán",
               "less_no": 1,
               "link": [
                 {
@@ -69,7 +69,7 @@
               ]
             },
             {
-              "name": "Cong nghe",
+              "name": "Công nghệ",
               "less_no": 3,
               "link": [
                 {
@@ -104,7 +104,7 @@
           "name": "Chân trời sáng tạo",
           "subjects": [
             {
-              "name": "Cong nghe",
+              "name": "Công nghẹ",
               "less_no": 5,
               "link": [
                 {
@@ -162,7 +162,7 @@
           "name": "Chân trời sáng tạo",
           "subjects": [
             {
-              "name": "Science - Khoa hoc tu nhien",
+              "name": "Khoa học tự nhiên",
               "less_no": 34,
               "link": [
                 {
@@ -338,7 +338,7 @@
               ]
             },
             {
-              "name": "Lich su",
+              "name": "Lịch sử",
               "less_no": 21,
               "link": [
                 {
@@ -449,7 +449,7 @@
               ]
             },
             {
-              "name": "Dia ly",
+              "name": "Địa lý",
               "less_no": 20,
               "link": [
                 {
@@ -555,7 +555,7 @@
               ]
             },
             {
-              "name": "Cong nghe",
+              "name": "Công nghệ",
               "less_no": 14,
               "link": [
                 {
@@ -631,7 +631,7 @@
               ]
             },
             {
-              "name": "HDTNHN, ban 1",
+              "name": "HDTNHN, bản 1",
               "less_no": 9,
               "link": [
                 {
@@ -682,7 +682,7 @@
               ]
             },
             {
-              "name": "HDTNHN, ban 2",
+              "name": "HDTNHN, bản 2",
               "less_no": 8,
               "link": [
                 {
@@ -728,7 +728,7 @@
               ]
             },
             {
-              "name": "Toan tap 1",
+              "name": "Toán tập 1",
               "less_no": 10,
               "link": [
                 {
@@ -894,7 +894,7 @@
           "name": "Chân trời sáng tạo",
           "subjects": [
             {
-              "name": "Geography",
+              "name": "Địa lý",
               "less_no": 19,
               "link": [
                 {
@@ -995,7 +995,7 @@
               ]
             },
             {
-              "name": "History",
+              "name": "Lịch sử",
               "less_no": 13,
               "link": [
                 {
@@ -1066,7 +1066,7 @@
               ]
             },
             {
-              "name": "Biology",
+              "name": "Sinh học",
               "less_no": 15,
               "link": [
                 {
@@ -1314,7 +1314,7 @@
               ]
             },
             {
-              "name": "Chemistry - Hoa hoc",
+              "name": "Hóa học",
               "less_no": 19,
               "link": [
                 {
@@ -1415,7 +1415,7 @@
               ]
             },
             {
-              "name": "HDTNHN, ban 2",
+              "name": "HDTNHN, bản 2",
               "less_no": 8,
               "link": [
                 {
@@ -1461,7 +1461,7 @@
               ]
             },
             {
-              "name": "Ngu van",
+              "name": "Ngữ văn",
               "less_no": 9,
               "link": [
                 {
@@ -1512,7 +1512,7 @@
               ]
             },
             {
-              "name": "Vat li",
+              "name": "Vật lí",
               "less_no": 18,
               "link": [
                 {
@@ -1608,7 +1608,7 @@
               ]
             },
             {
-              "name": "HDTNHN, ban 1",
+              "name": "HDTNHN, bản 1",
               "less_no": 9,
               "link": [
                 {
