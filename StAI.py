@@ -9,6 +9,31 @@ from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
 
+def trans(text, user_api, user_model=None):
+    try:
+        client = genai.Client(api_key=user_api) # type: ignore
+        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
+
+        prompt = f"""
+
+        Văn bản: "{text}"
+
+        Hãy dịch ra tiếng anh."""
+
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
+        generate_content_config = types.GenerateContentConfig(
+            temperature=0.1,
+            response_mime_type="text/plain",
+        )
+        ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
+            model=model_to_use, contents=contents, config=generate_content_config
+        ))
+        detected_lang = ans.strip().lower()
+        return detected_lang if len(detected_lang) == 2 and detected_lang.isalpha() else "vi" # Default to Vietnamese
+    except Exception as e:
+        print(f"Error in detect_language: {e}")
+        return "vi" # Default to Vietnamese on error
+
 def detect_language(text_to_detect, user_api, user_model=None):
     """
     Detects the primary language of the input text.
@@ -84,6 +109,8 @@ def afterStepOne(plan_text, user_api, user_model=None):
         config=generate_content_config,
     ):
         ans += chunk.text
+    if st.session_state.lang == "en":
+        return trans(ans, user_api, user_model)  # Translate to English if needed
     return ans.replace("\n", "\n\n")
 
 
