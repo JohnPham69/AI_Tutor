@@ -152,10 +152,6 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                 st.error(_("Not Enough Questions Error"))
                 st.session_state.generated_quiz_data = []
 
-    if st.button(_("Go Back Button")):
-        reset_quiz_state()
-        st.rerun()
-
 # --- QUESTIONING or FEEDBACK ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
     idx = st.session_state.current_question_idx
