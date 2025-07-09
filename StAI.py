@@ -28,8 +28,7 @@ def trans(text, user_api, user_model=None):
         ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
             model=model_to_use, contents=contents, config=generate_content_config
         ))
-        detected_lang = ans.strip().lower()
-        return detected_lang if len(detected_lang) == 2 and detected_lang.isalpha() else "vi" # Default to Vietnamese
+        return ans.strip()
     except Exception as e:
         print(f"Error in detect_language: {e}")
         return "Error in translation"
