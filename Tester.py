@@ -364,7 +364,7 @@ with st.sidebar:
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
-            st.buton("How to")
+            st.button("How to")
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
