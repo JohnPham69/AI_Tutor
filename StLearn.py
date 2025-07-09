@@ -8,23 +8,19 @@ from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
 
-def detect_language(text_to_detect, user_api, user_model=None):
+def trans(text, user_api, user_model=None):
     """
-    Detects the primary language of the input text.
-    Returns a two-letter ISO 639-1 language code (e.g., "en", "vi").
-    Defaults to "en" on error or if the language is unclear.
+    Translate the given text to English using Gemini.
     """
     try:
         client = genai.Client(api_key=user_api) # type: ignore
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
 
-        prompt = f"""Phát hiện ngôn ngữ chính của văn bản sau.
-        Chỉ phản hồi bằng mã ngôn ngữ ISO 639-1 gồm hai chữ cái (ví dụ: "en" cho tiếng Anh, "vi" cho tiếng Việt).
-        Nếu ngôn ngữ không rõ ràng, quá ngắn hoặc hỗn hợp, hãy mặc định là "vi".
+        prompt = f"""
 
-        Văn bản: "{text_to_detect}"
+        Văn bản: "{text}"
 
-        Phản hồi của bạn chỉ phải là mã ngôn ngữ gồm hai chữ cái."""
+        Bắt buộc phải dịch ra tiếng anh. Kết quả phải là tiếng Anh hoàn chỉnh, không có từ lóng hoặc ngôn ngữ địa phương."""
 
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
         generate_content_config = types.GenerateContentConfig(
@@ -34,11 +30,10 @@ def detect_language(text_to_detect, user_api, user_model=None):
         ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
             model=model_to_use, contents=contents, config=generate_content_config
         ))
-        detected_lang = ans.strip().lower()
-        return detected_lang if len(detected_lang) == 2 and detected_lang.isalpha() else "vi"
+        return ans.strip()
     except Exception as e:
-        print(f"Error in detect_language: {e}")
-        return "vi"
+        print(f"Error in translation: {e}")
+        return "Error in translation"
 
 def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
@@ -102,7 +97,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             Lưu ý: Chỉ sử dụng đúng định dạng trên, không trả về bất kỳ thông tin nào khác.
         """
         # Detect language of the user input
-        detected_lang_code = detect_language(original_user_text_input, user_api, active_model_name)
         active_step_1_prompt = step_1_prompt_vi
 
         # Construct the full prompt for the LLM, combining contexts and user query
@@ -172,3 +166,4 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
