@@ -184,6 +184,10 @@ TRANSLATIONS = {
         "Grade": "Lớp",
         "Set": "Bộ sách",
         "Lesson": "Bài",
+        "No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics.": "Không có môn học hoặc bài học nào được chọn từ thanh bên. Bài quiz sẽ bao gồm các chủ đề kiến thức chung.",
+        "A lesson (ID: {lesson_id}) was selected, but its content URL could not be found. The quiz may cover general topics for subject '{subject_name}'. Please check sidebar selections and data integrity.": "Bài học (ID: {lesson_id}) đã được chọn, nhưng URL nội dung không thể tìm thấy. Bài quiz có thể bao gồm các chủ đề chung cho môn '{subject_name}'. Vui lòng kiểm tra các lựa chọn ở thanh bên và tính toàn vẹn của dữ liệu.",
+        "No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.": "Không có bài học cụ thể nào được chọn từ thanh bên cho môn '{subject_name}'. Bài quiz sẽ bao gồm các chủ đề chung cho môn này.",
+        "A lesson is selected, but the subject is missing. Please check sidebar selections. The quiz may cover general knowledge topics.": "Một bài học đã được chọn, nhưng môn học bị thiếu. Vui lòng kiểm tra các lựa chọn ở thanh bên. Bài quiz có thể bao gồm các chủ đề kiến thức chung.",
     }
 }
 
