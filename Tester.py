@@ -360,9 +360,12 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
+        col1, col2 = st.columns(2)
+        with col1:
+            save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
+        with col2:
+            st.buton("How to")
         
-        save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
-
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
             st.session_state.trigger_cookie_read_tester = False
