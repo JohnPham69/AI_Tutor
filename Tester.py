@@ -108,6 +108,8 @@ pg_selection = st.navigation(list(PAGES.values()), position="hidden") # Convert 
 #    pg_selection.run()
 
 with st.sidebar:
+    controller = get_cookie_controller()
+    controller.render()  # <-- REQUIRED for cookies to work!
     # You can write code here
 
     # To here, feel free to expand in between
@@ -347,12 +349,13 @@ with st.sidebar:
         )
 
         api_key_input = st.text_input(
-                _("API Key"),
-                placeholder=_("Enter your API key here"),
-                label_visibility="collapsed",
-                type="password",
-                key="sidebar_api_key_input_tester" # Added key for stability
-            )
+            _("API Key"),
+            value=controller.get('user_api') or "",
+            placeholder=_("Enter your API key here"),
+            label_visibility="collapsed",
+            type="password",
+            key="sidebar_api_key_input_tester"
+        )
 
         model_input = st.text_input(
             ("Model"),
@@ -360,43 +363,12 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        col1, col2, _un = st.columns([0.4, 0.4, 0.2])
+        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
-            get_api = st.button("FAQ")
-            # --- How to get API key (get_api button) ---
-            if get_api:
-                if st.session_state.lang == "vi":
-                    howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
-                    try:
-                        response = requests.get(howto_url)
-                        response.raise_for_status()
-                        content = response.text
-                        # Ensure messages list exists
-                        if "messages" not in st.session_state:
-                            st.session_state.messages = []
-                        st.session_state.messages.append({"role": "assistant", "content": content})
-                    except requests.exceptions.RequestException as e:
-                        if "messages" not in st.session_state:
-                            st.session_state.messages = []
-                        st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                    st.rerun()
-                else:
-                    howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
-                    try:
-                        response = requests.get(howto_url)
-                        response.raise_for_status()
-                        content = response.text
-                        # Ensure messages list exists
-                        if "messages" not in st.session_state:
-                            st.session_state.messages = []
-                        st.session_state.messages.append({"role": "assistant", "content": content})
-                    except requests.exceptions.RequestException as e:
-                        if "messages" not in st.session_state:
-                            st.session_state.messages = []
-                        st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                    st.rerun()
+            get_api = st.button("How to")
+        
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
             st.session_state.trigger_cookie_read_tester = False
@@ -427,7 +399,38 @@ with st.sidebar:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
-        
+        # --- How to get API key (get_api button) ---
+        if get_api:
+            if st.session_state.lang == "vi":
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
+            else:
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
     if st.session_state.lang == "vi":
@@ -439,7 +442,6 @@ with st.sidebar:
         st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__VI.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
     else:
         st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
-
 
 
 
