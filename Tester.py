@@ -365,7 +365,38 @@ with st.sidebar:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
             get_api = st.button("How to")
-        
+            # --- How to get API key (get_api button) ---
+            if get_api:
+                if st.session_state.lang == "vi":
+                    howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+                    try:
+                        response = requests.get(howto_url)
+                        response.raise_for_status()
+                        content = response.text
+                        # Ensure messages list exists
+                        if "messages" not in st.session_state:
+                            st.session_state.messages = []
+                        st.session_state.messages.append({"role": "assistant", "content": content})
+                    except requests.exceptions.RequestException as e:
+                        if "messages" not in st.session_state:
+                            st.session_state.messages = []
+                        st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                    st.rerun()
+                else:
+                    howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+                    try:
+                        response = requests.get(howto_url)
+                        response.raise_for_status()
+                        content = response.text
+                        # Ensure messages list exists
+                        if "messages" not in st.session_state:
+                            st.session_state.messages = []
+                        st.session_state.messages.append({"role": "assistant", "content": content})
+                    except requests.exceptions.RequestException as e:
+                        if "messages" not in st.session_state:
+                            st.session_state.messages = []
+                        st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                    st.rerun()
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
             st.session_state.trigger_cookie_read_tester = False
@@ -396,38 +427,7 @@ with st.sidebar:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
-        # --- How to get API key (get_api button) ---
-        if get_api:
-            if st.session_state.lang == "vi":
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
-                try:
-                    response = requests.get(howto_url)
-                    response.raise_for_status()
-                    content = response.text
-                    # Ensure messages list exists
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": content})
-                except requests.exceptions.RequestException as e:
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
-            else:
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
-                try:
-                    response = requests.get(howto_url)
-                    response.raise_for_status()
-                    content = response.text
-                    # Ensure messages list exists
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": content})
-                except requests.exceptions.RequestException as e:
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
+        
 # Perform rerun if a language change was flagged
     # Donate code here
     if st.session_state.lang == "vi":
