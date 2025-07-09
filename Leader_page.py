@@ -98,8 +98,8 @@ if not df_leaderboard.empty:
     # If they were accidentally numeric and matched 'Total Attempted', they'd be converted,
     # but their distinct names prevent direct misuse in the logic below.
 
-    # 1. Calculate Performance Ratio
-    df_leaderboard['Performance Ratio'] = df_leaderboard.apply(
+    # 1. Calculate Performance
+    df_leaderboard['Performance'] = df_leaderboard.apply(
         lambda row: row['Correct Answer'] / row['Total Attempted']
         if row['Total Attempted'] > 0 else 0.0,
         axis=1
@@ -109,7 +109,7 @@ if not df_leaderboard.empty:
 
     if not df_leaderboard.empty: # Proceed only if there are users meeting the criteria
         # 2. Sort the DataFrame
-        sort_by_columns = ["Performance Ratio", "Total Attempted"]
+        sort_by_columns = ["Performance", "Total Attempted"]
         ascending_order = [False, False]
         if 'User Name' in df_leaderboard.columns:
             sort_by_columns.append("User Name")
@@ -133,7 +133,7 @@ if not df_leaderboard.empty:
 
         # 5. Reorder columns to a defined order
         desired_cols_order = ["Rank", "User Name", "Total Attempted", "Correct Answer", "Subject",
-                              "Performance Ratio", "School", "Class", "Student ID"]
+                              "Performance", "School", "Class", "Student ID"]
         existing_cols_in_order = [col for col in desired_cols_order if col in df_leaderboard.columns]
         other_cols = [col for col in df_leaderboard.columns if col not in existing_cols_in_order]
         final_cols_order = existing_cols_in_order + other_cols
@@ -142,7 +142,7 @@ if not df_leaderboard.empty:
 # Translation dictionary for column headers
 column_translation = {
     "Rank": "Hạng",
-    "Performance Ratio": "Tỷ lệ đúng",
+    "Performance": "Tỷ lệ đúng",
     "Total Attempted": "Số câu đã làm",
     "User Name": "Tên",
     "Correct Answer": "Số câu đúng",
@@ -155,11 +155,14 @@ column_translation = {
 # Determine language from session_state
 lang = st.session_state.get("lang", "en")
 
+# Format 'Performance' to 2 decimal places before translation
+if not df_leaderboard.empty and 'Performance' in df_leaderboard.columns:
+    df_leaderboard['Performance'] = pd.to_numeric(df_leaderboard['Performance'], errors='coerce').fillna(0.0).apply(lambda x: f'{x:.2f}')
+
 # Translate column headers if Vietnamese is selected
 if lang == "vi" and not df_leaderboard.empty:
     df_leaderboard = df_leaderboard.rename(columns=column_translation)
 elif lang != "vi" and not df_leaderboard.empty:
-    # Optionally, you can ensure English headers if needed
     reverse_translation = {v: k for k, v in column_translation.items()}
     df_leaderboard = df_leaderboard.rename(columns=reverse_translation)
 
@@ -175,12 +178,12 @@ st.subheader(_("Top Performers"))
 
 if not df_leaderboard.empty:
     # Ensure 'Rank' column is treated as string for display due to medals
-    if 'Rank' in df_leaderboard.columns: # Should already be string after medal processing
+    if 'Rank' in df_leaderboard.columns:
         df_leaderboard['Rank'] = df_leaderboard['Rank'].astype(str)
-    # If 'Performance Ratio' exists and was read as string, convert to numeric for potential formatting
-    if 'Performance Ratio' in df_leaderboard.columns:
+    # If 'Performance' exists and was read as string, convert to numeric for potential formatting
+    if 'Performance' in df_leaderboard.columns:
         # Convert to numeric and format to 2 decimal places
-        df_leaderboard['Performance Ratio'] = pd.to_numeric(df_leaderboard['Performance Ratio'], errors='coerce').fillna(0.0).apply(lambda x: f'{x:.2f}')
+        df_leaderboard['Performance'] = pd.to_numeric(df_leaderboard['Performance'], errors='coerce').fillna(0.0).apply(lambda x: f'{x:.2f}')
 
     st.dataframe(df_leaderboard.style.apply(highlight_user, axis=1), hide_index=True, use_container_width=True)
 else:
