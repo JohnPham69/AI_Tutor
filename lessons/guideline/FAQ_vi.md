@@ -26,7 +26,7 @@
 
 - Bạn có thể đóng góp bài học mới hoặc đề xuất tính năng bằng cách:
   - Gửi pull request hoặc issue lên [GitHub repository của dự án](https://github.com/JohnPham69/AI_Tutor/issues).
-  - Liên hệ trực tiếp với nhóm phát triển qua email hoặc các kênh liên lạc được cung cấp trong phần giới thiệu của chương trình.
+  - Liên hệ trực tiếp qua email: pxgiakhang@gmail.com
 - Mọi đóng góp đều được hoan nghênh!
 
 ---
