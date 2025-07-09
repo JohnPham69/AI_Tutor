@@ -18,7 +18,7 @@ def trans(text, user_api, user_model=None):
 
         Văn bản: "{text}"
 
-        Hãy dịch ra tiếng anh."""
+        Bắt buộc phải dịch ra tiếng anh. Kết quả phải là tiếng Anh hoàn chỉnh, không có từ lóng hoặc ngôn ngữ địa phương."""
 
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
         generate_content_config = types.GenerateContentConfig(
