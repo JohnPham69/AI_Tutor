@@ -34,39 +34,6 @@ def trans(text, user_api, user_model=None):
         print(f"Error in detect_language: {e}")
         return "Error in translation"
 
-def detect_language(text_to_detect, user_api, user_model=None):
-    """
-    Detects the primary language of the input text.
-    Returns a two-letter ISO 639-1 language code (e.g., "en", "vi").
-    Defaults to "en" on error or if the language is unclear.
-    """
-    try:
-        client = genai.Client(api_key=user_api) # type: ignore
-        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
-
-        prompt = f"""Phát hiện ngôn ngữ chính của văn bản sau.
-        Chỉ phản hồi bằng mã ngôn ngữ ISO 639-1 gồm hai chữ cái (ví dụ: "en" cho tiếng Anh, "vi" cho tiếng Việt).
-        Nếu ngôn ngữ không rõ ràng, quá ngắn hoặc hỗn hợp, hãy mặc định là "vi".
-
-        Văn bản: "{text_to_detect}"
-
-        Phản hồi của bạn chỉ phải là mã ngôn ngữ gồm hai chữ cái."""
-
-        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
-        generate_content_config = types.GenerateContentConfig(
-            temperature=0.1,
-            response_mime_type="text/plain",
-        )
-        ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
-            model=model_to_use, contents=contents, config=generate_content_config
-        ))
-        detected_lang = ans.strip().lower()
-        return detected_lang if len(detected_lang) == 2 and detected_lang.isalpha() else "vi" # Default to Vietnamese
-    except Exception as e:
-        print(f"Error in detect_language: {e}")
-        return "vi" # Default to Vietnamese on error
-
-    
 def afterStepOne(plan_text, user_api, user_model=None):
     client = genai.Client( # type: ignore
         api_key=user_api,  # Replace with your actual API key or environment variable
