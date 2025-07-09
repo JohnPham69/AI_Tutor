@@ -360,11 +360,11 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        col1, col2 = st.columns(2)
+        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
-            st.button("How to")
+            get_api = st.button("How to")
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -389,8 +389,7 @@ with st.sidebar:
                 st.rerun() # Rerun to apply changes immediately
             else: # Only API key is strictly required for this part
                 st.warning(_("Please enter your API key!!!"))
-            
-
+        
         if st.session_state.trigger_cookie_read_tester:
             # Simplify: Remove 'key' argument from controller.get for this test
             retrieved_api_key_tester = controller.get('user_api')
