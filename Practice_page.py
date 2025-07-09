@@ -73,10 +73,8 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
         st.error(st.session_state.quiz_error_message)
         st.session_state.quiz_error_message = None
 
-    if st.button(_("Start Quiz Button")):
-        st.session_state.quiz_step = QUIZ_STATE_CONFIG
-        st.rerun()
-    st.caption(_("Based on Sidebar Selection"))
+    st.session_state.quiz_step = QUIZ_STATE_CONFIG
+    st.rerun()
 
 # --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
