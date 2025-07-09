@@ -49,6 +49,18 @@ RAW_SHEET_COLUMNS = [
     "Student ID"
 ]
 
+# translation note
+#
+# Rank = Hạng
+# Performance Ratio = Tỷ lệ đúng
+# Total Attempted = Số câu đã làm
+# User Name = Tên
+# Correct Answer = Số câu đúng
+# School = Trường
+# Subject = Môn học
+# Class = Lớp
+# Student ID = Mã học sinh
+
 # Read all values from the sheet to bypass gspread's header processing
 all_values = sheet.get_all_values()
 
@@ -126,6 +138,30 @@ if not df_leaderboard.empty:
         other_cols = [col for col in df_leaderboard.columns if col not in existing_cols_in_order]
         final_cols_order = existing_cols_in_order + other_cols
         df_leaderboard = df_leaderboard[final_cols_order]
+
+# Translation dictionary for column headers
+column_translation = {
+    "Rank": "Hạng",
+    "Performance Ratio": "Tỷ lệ đúng",
+    "Total Attempted": "Số câu đã làm",
+    "User Name": "Tên",
+    "Correct Answer": "Số câu đúng",
+    "School": "Trường",
+    "Subject": "Môn học",
+    "Class": "Lớp",
+    "Student ID": "Mã học sinh"
+}
+
+# Determine language from session_state
+lang = st.session_state.get("lang", "en")
+
+# Translate column headers if Vietnamese is selected
+if lang == "vi" and not df_leaderboard.empty:
+    df_leaderboard = df_leaderboard.rename(columns=column_translation)
+elif lang != "vi" and not df_leaderboard.empty:
+    # Optionally, you can ensure English headers if needed
+    reverse_translation = {v: k for k, v in column_translation.items()}
+    df_leaderboard = df_leaderboard.rename(columns=reverse_translation)
 
 # Highlight function
 def highlight_user(row_series): # Parameter is a pandas Series
