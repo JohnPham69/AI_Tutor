@@ -124,7 +124,7 @@ def genRes(
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
         # Lấy ngôn ngữ từ session_state
-        lang = getattr(st.session_state, "lang", "vi")
+        lang = st.session_state.lang
 
         # Prompt tiếng Việt (giữ nguyên)
         step_1_prompt_vi = """
