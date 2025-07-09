@@ -436,9 +436,10 @@ with st.sidebar:
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_en.png?raw=true")
     
     if st.session_state.lang == "vi":
-        st.image("https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__VI.png?raw=true")
+        st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__VI.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
     else:
-        st.image("https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true")
+        st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
+
 
 
 
