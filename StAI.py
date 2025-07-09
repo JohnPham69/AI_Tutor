@@ -169,7 +169,7 @@ def genRes(
 
         # Nếu là tiếng Anh, thêm yêu cầu dịch ra tiếng Anh
         if lang == "en":
-            active_step_1_prompt = step_1_prompt_vi + "\n\nHãy dịch tất cả ra tiếng Anh."
+            active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
         else:
             active_step_1_prompt = step_1_prompt_vi
 
