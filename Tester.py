@@ -364,7 +364,7 @@ with st.sidebar:
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
-            get_api = st.button("How to")
+            get_api = st.button(_("How to"))
             # --- How to get API key (get_api button) ---
             if get_api:
                 if st.session_state.lang == "vi":
