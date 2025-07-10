@@ -5,8 +5,10 @@ from app_translations import get_translator # Import the translator
 from app_utils import get_cookie_controller, getVal # Import the singleton controller
 import tempfile
 import os
-
-from Tester import controller
+try:
+    from Tester import controller
+except Exception as e:
+    pass
 
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
