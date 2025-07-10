@@ -7,11 +7,6 @@ from app_translations import get_translator
 from app_utils import get_cookie_controller
 
 controller = get_cookie_controller()
-try:
-    controller.refresh()
-except Exception:
-    pass
-
 _ = get_translator()
 
 if "messages" not in st.session_state:
@@ -37,9 +32,7 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
-
 if prompt:
-    
     # Handle file upload
     if prompt.get("files"):
         uploaded_file = prompt["files"][0]
@@ -70,12 +63,11 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
-        st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
         with st.chat_message("user"):
             st.markdown(user_text)
-        st.session_state.messages.append({"role": "user", "content": user_text})        
+        st.session_state.messages.append({"role": "user", "content": user_text})
 
         user_api = controller.get('user_api')
         user_model = controller.get('user_model')
@@ -89,7 +81,7 @@ if prompt:
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
-                    "",
+                    user_api,
                     user_model,
                     selected_grade=selected_grade_from_tester,
                     selected_subject_name=selected_subject_from_tester,
