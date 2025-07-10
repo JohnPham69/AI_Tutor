@@ -14,7 +14,6 @@ from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
 cookies = get_cookies_manager()
-st.header(cookies.ready())
 controller = get_cookie_controller() # Use the cached singleton instance
 
 # Initialize language settings (call once)
