@@ -7,6 +7,17 @@ from app_translations import get_translator
 from app_utils import get_cookie_controller
 
 controller = get_cookie_controller()
+try:
+    controller.refresh()
+except Exception:
+    pass
+
+# Detect if cookie not yet loaded
+user_api = controller.get('user_api')
+if not user_api:
+    st.info("Loading settings, please wait or reload the page if this persists...")
+    st.stop()  # Stop the script, let Streamlit rerun automatically later
+
 
 try:
     controller.refresh()
@@ -40,7 +51,7 @@ prompt = st.chat_input(
 uploaded_content = ""
 
 if prompt:
-    user_api = controller.get('user_api')
+    
     # Handle file upload
     if prompt.get("files"):
         uploaded_file = prompt["files"][0]
@@ -76,8 +87,9 @@ if prompt:
         user_text = prompt["text"]
         with st.chat_message("user"):
             st.markdown(user_text)
-        st.session_state.messages.append({"role": "user", "content": user_text + "hahaha" + user_api})        
-        
+        st.session_state.messages.append({"role": "user", "content": user_text})        
+
+        user_api = controller.get('user_api')
         user_model = controller.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
