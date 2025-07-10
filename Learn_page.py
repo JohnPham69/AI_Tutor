@@ -5,14 +5,17 @@ from app_translations import get_translator # Import the translator
 from app_utils import get_cookie_controller # Import the singleton controller
 import tempfile
 import os
+from streamlit_cookies_manager import CookieManager
+
+# This should be on top of your script
+cookies = CookieManager()
 
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
-controller = get_cookie_controller() # Use the cached singleton instance
 # Instead, fetch from st.session_state
-user_api = st.session_state.get('user_api')
-user_model = st.session_state.get('user_model')
+user_api = cookies.get('user_api')
+user_model = cookies.get('user_model')
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
