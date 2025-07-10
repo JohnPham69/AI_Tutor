@@ -10,8 +10,9 @@ import os
 follow_up = [] # an array that stores follow_up quesiotns
 
 controller = get_cookie_controller() # Use the cached singleton instance
-the_api = controller.get('user_api')
-the_model = controller.get('user_model')
+# Instead, fetch from st.session_state
+user_api = st.session_state.get('user_api')
+user_model = st.session_state.get('user_model')
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
@@ -99,8 +100,8 @@ if prompt:
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
-                    the_api,
-                    the_model,
+                    user_api,
+                    user_model,
                     selected_grade=selected_grade_from_tester,
                     selected_subject_name=selected_subject_from_tester,
                     selected_lesson_data_list=selected_lesson_details_for_ai,
@@ -122,8 +123,8 @@ if st.session_state.messages and len(follow_up) != 0:
         if st.button(question, key=f"followup_{idx}"):
             st.session_state.messages.append({"role": "user", "content": question})
 
-            user_api = controller.get('user_api')
-            user_model = controller.get('user_model')
+            user_api = st.session_state.get('user_api')
+            user_model = st.session_state.get('user_model')
             selected_grade_from_tester = st.session_state.get('sb_grade_tester')
             selected_subject_from_tester = st.session_state.get('sb_subject_tester')
             selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
@@ -134,8 +135,8 @@ if st.session_state.messages and len(follow_up) != 0:
                     ai_response = genRes(
                         question,
                         st.session_state.messages,
-                        the_api,
-                        the_model,
+                        user_api,
+                        user_model,
                         selected_grade=selected_grade_from_tester,
                         selected_subject_name=selected_subject_from_tester,
                         selected_lesson_data_list=selected_lesson_details_for_ai,
