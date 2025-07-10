@@ -12,18 +12,6 @@ try:
 except Exception:
     pass
 
-# Detect if cookie not yet loaded
-user_api = controller.get('user_api')
-if not user_api:
-    st.info("Loading settings, please wait or reload the page if this persists...")
-    st.stop()  # Stop the script, let Streamlit rerun automatically later
-
-
-try:
-    controller.refresh()
-except Exception:
-    pass
-
 _ = get_translator()
 
 if "messages" not in st.session_state:
