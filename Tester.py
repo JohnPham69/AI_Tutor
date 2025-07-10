@@ -321,6 +321,9 @@ with st.sidebar:
         st.page_link("Leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
+        
+        if 'user_api' not in st.session_state:
+            st.session_state.user_api = controller.get('user_api') or ""
 
         nickname = st.text_input(
             ("Nickname"),
@@ -376,9 +379,9 @@ with st.sidebar:
             st.session_state.saved_api_key_value_for_debug_tester = None
 
         if save_button:
-            if api_key_input:
+            if st.session_state.user_api:
                 expires = datetime.datetime.now() + datetime.timedelta(days=30)
-                controller.set('user_api', api_key_input, expires=expires)
+                controller.set('user_api', st.session_state.user_api, expires=expires)
                 controller.set('user_model', model_input, expires=expires)
                 controller.set('user_nickname', nickname, expires=expires)
                 controller.set('user_school', school, expires=expires)
