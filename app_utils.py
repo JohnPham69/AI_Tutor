@@ -2,8 +2,8 @@ import streamlit as st
 from streamlit_cookies_controller import CookieController
 
 def get_cookie_controller():
-    controller = CookieController()
-    try:
+    try:        
+        controller = CookieController()
         controller.refresh()
     except Exception:
         pass
