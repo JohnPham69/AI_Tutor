@@ -380,14 +380,13 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                expires = datetime.datetime.now() + datetime.timedelta(days=30)
-                controller.set('user_api', api_key_input, expires=expires)
-                controller.set('user_model', model_input, expires=expires)
-                controller.set('user_nickname', nickname, expires=expires)
-                controller.set('user_school', school, expires=expires)
-                controller.set('user_class', studyClass, expires=expires)
-                controller.set('user_id', StudentID, expires=expires)
-                st.sidebar.success(_("API key saved successfully!"))
+                controller.set('user_api', api_key_input)
+                controller.set('user_model', model_input)
+                controller.set('user_nickname', nickname)
+                controller.set('user_school', school)
+                controller.set('user_class', studyClass)
+                controller.set('user_id', StudentID)
+                st.success(_("API key saved successfully!"))
                 st.rerun()
             else:
                 st.warning(_("Please enter your API key!!!"))
