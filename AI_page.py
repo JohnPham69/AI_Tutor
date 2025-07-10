@@ -9,8 +9,6 @@ from app_utils import get_cookie_controller
 controller = get_cookie_controller()
 _ = get_translator()
 
-st.button(st.context.cookies['user_api'])
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
