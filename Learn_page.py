@@ -10,6 +10,10 @@ import os
 follow_up = [] # an array that stores follow_up quesiotns
 
 controller = get_cookie_controller() # Use the cached singleton instance
+try:
+    controller.refresh()
+except Exception as e:
+    pass # who the fuck cares about the error, as long as it doesn't poses a threat.
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
@@ -22,7 +26,7 @@ if "uploaded_file_content" not in st.session_state:
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
-    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet. Start a conversation!</p>"), unsafe_allow_html=True)
+    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet</p>"), unsafe_allow_html=True)
 else:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
