@@ -10,6 +10,11 @@ from app_utils import get_cookie_controller # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
+from streamlit_cookies_manager import CookieManager
+
+# This should be on top of your script
+cookies = CookieManager()
+
 controller = get_cookie_controller() # Use the cached singleton instance
 # Initialize language settings (call once)
 init_session_language()
@@ -155,7 +160,7 @@ with st.sidebar:
                 set_language_and_trigger_rerun_flag('vi')
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
-    
+    st.write(cookies.get('user_api'))
     with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
