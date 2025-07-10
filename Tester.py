@@ -379,9 +379,9 @@ with st.sidebar:
             st.session_state.saved_api_key_value_for_debug_tester = None
 
         if save_button:
-            if st.session_state.user_api:
+            if api_key_input:
                 expires = datetime.datetime.now() + datetime.timedelta(days=30)
-                controller.set('user_api', st.session_state.user_api, expires=expires)
+                controller.set('user_api', api_key_input, expires=expires)
                 controller.set('user_model', model_input, expires=expires)
                 controller.set('user_nickname', nickname, expires=expires)
                 controller.set('user_school', school, expires=expires)
