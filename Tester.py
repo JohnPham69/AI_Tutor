@@ -6,15 +6,16 @@ import tempfile # For temporary files
 import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
-from app_utils import get_cookie_controller # Import the singleton controller
+from app_utils import get_cookie_controller, get_cookies_manager # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
 from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
-
+cookies = get_cookies_manager()
 controller = get_cookie_controller() # Use the cached singleton instance
+
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -159,6 +160,7 @@ with st.sidebar:
                 set_language_and_trigger_rerun_flag('vi')
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
+    st.write(cookies.get('user_api'))
     with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
