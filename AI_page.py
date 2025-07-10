@@ -28,7 +28,7 @@ else:
 prompt = st.chat_input(
     _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
     accept_file=True,
-    file_type=['txt', 'pptx', 'pdf', 'docx', 'png', 'jpg', 'jpeg'],
+    file_type=['txt', 'pptx', 'pdf', 'docx'],
 )
 
 uploaded_content = ""

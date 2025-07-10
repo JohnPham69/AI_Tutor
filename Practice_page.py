@@ -73,8 +73,10 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
         st.error(st.session_state.quiz_error_message)
         st.session_state.quiz_error_message = None
 
-    st.session_state.quiz_step = QUIZ_STATE_CONFIG
-    st.rerun()
+    if st.button(_("Start Quiz Button")):
+        st.session_state.quiz_step = QUIZ_STATE_CONFIG
+        st.rerun()
+    st.caption(_("Based on Sidebar Selection"))
 
 # --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
@@ -151,6 +153,10 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
             else:
                 st.error(_("Not Enough Questions Error"))
                 st.session_state.generated_quiz_data = []
+
+    if st.button(_("Go Back Button")):
+        reset_quiz_state()
+        st.rerun()
 
 # --- QUESTIONING or FEEDBACK ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
