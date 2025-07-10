@@ -13,9 +13,7 @@ cookies = CookieManager()
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
-# Instead, fetch from st.session_state
-user_api = cookies.get('user_api')
-user_model = cookies.get('user_model')
+
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
@@ -45,6 +43,11 @@ prompt = st.chat_input(
 
 uploaded_content = ""
 # Xử lý follow_up cho mỗi lần assistant trả lời
+
+# Instead, fetch from st.session_state
+user_api = cookies.get('user_api')
+user_model = cookies.get('user_model')
+
 def extract_response_and_followup(ai_response):
     if "///Follow_up///" in ai_response:
         response = ai_response.split("///Follow_up///")[0].strip()
@@ -126,8 +129,6 @@ if st.session_state.messages and len(follow_up) != 0:
         if st.button(question, key=f"followup_{idx}"):
             st.session_state.messages.append({"role": "user", "content": question})
 
-            user_api = st.session_state.get('user_api')
-            user_model = st.session_state.get('user_model')
             selected_grade_from_tester = st.session_state.get('sb_grade_tester')
             selected_subject_from_tester = st.session_state.get('sb_subject_tester')
             selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
