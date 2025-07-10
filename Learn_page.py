@@ -5,16 +5,14 @@ from app_translations import get_translator # Import the translator
 from app_utils import get_cookie_controller # Import the singleton controller
 import tempfile
 import os
-
+from streamlit_cookies_controller import CookieController
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
-
-controller = get_cookie_controller() # Use the cached singleton instance
 try:
-    controller.refresh()
+    # Initialize cookie controller safely without duplicate key errors
+    controller = get_cookie_controller()
 except Exception as e:
-    pass # who the fuck cares about the error, as long as it doesn't poses a threat.
-
+    pass
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
@@ -89,6 +87,9 @@ if prompt:
         with st.chat_message("user"):
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
+
+        
+        
 
         user_api = controller.get('user_api')
         user_model = controller.get('user_model')
