@@ -21,4 +21,4 @@ def get_cookies_manager():
         # which leads to the error when we then try to assign it to session_state manually.
         st.session_state[manage_key] = CookieManager()
     # This should be on top of your script
-    return st.session_state[manage_key]
+    return CookieManager()
