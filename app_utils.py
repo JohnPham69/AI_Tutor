@@ -1,12 +1,10 @@
 import streamlit as st
-from streamlit_cookies_controller import CookieController
 
-controller = CookieController()
 
-def setVal(name, val):
+def setVal(controller, name, val):
     controller.set(name, val)
     
-def get_cookie_controller():
+def get_cookie_controller(controller):
     controller = CookieController()
     try:        
         controller.refresh()
@@ -14,5 +12,5 @@ def get_cookie_controller():
         pass
     return controller
 
-def getVal(val):
+def getVal(controller, val):
     return controller.get(val)
