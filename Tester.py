@@ -380,7 +380,7 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                controller.set('user_api', api_key_input)
+                controller.set('user_api', user_api, secure=True, same_site='lax', path='/')
                 controller.set('user_model', model_input)
                 controller.set('user_nickname', nickname)
                 controller.set('user_school', school)
