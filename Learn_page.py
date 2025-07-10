@@ -5,10 +5,11 @@ from app_translations import get_translator # Import the translator
 from app_utils import get_cookie_controller # Import the singleton controller
 import tempfile
 import os
-from streamlit_cookies_controller import CookieController
+
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
+controller = get_cookie_controller() # Use the cached singleton instance
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
@@ -21,7 +22,7 @@ if "uploaded_file_content" not in st.session_state:
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
-    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet</p>"), unsafe_allow_html=True)
+    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet. Start a conversation!</p>"), unsafe_allow_html=True)
 else:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
@@ -46,14 +47,6 @@ def extract_response_and_followup(ai_response):
         response = ai_response.strip()
         follow_up = []
     return response, follow_up
-
-try:
-    controller = CookieController()
-except Exception as e:
-    pass
-
-user_api = controller.get('user_api')
-user_model = controller.get('user_model')
 
 if prompt:
     # Handle file upload
@@ -92,6 +85,8 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
+        user_api = controller.get('user_api')
+        user_model = controller.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
@@ -124,8 +119,9 @@ if st.session_state.messages and len(follow_up) != 0:
     for idx, question in enumerate(follow_up):
         if st.button(question, key=f"followup_{idx}"):
             st.session_state.messages.append({"role": "user", "content": question})
-            
-            
+
+            user_api = controller.get('user_api')
+            user_model = controller.get('user_model')
             selected_grade_from_tester = st.session_state.get('sb_grade_tester')
             selected_subject_from_tester = st.session_state.get('sb_subject_tester')
             selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
