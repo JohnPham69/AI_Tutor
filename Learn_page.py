@@ -15,7 +15,7 @@ _ = get_translator() # Initialize translator for this page, assumes session_stat
 if st.button("Click me"):
     st.write(controller.get('user_api'))
     st.write("hi")
-
+a = controller.get('user_api')
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -101,7 +101,7 @@ if prompt:
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
-                    user_api,
+                    a,
                     user_model,
                     selected_grade=selected_grade_from_tester,
                     selected_subject_name=selected_subject_from_tester,
@@ -136,7 +136,7 @@ if st.session_state.messages and len(follow_up) != 0:
                     ai_response = genRes(
                         question,
                         st.session_state.messages,
-                        user_api,
+                        a,
                         user_model,
                         selected_grade=selected_grade_from_tester,
                         selected_subject_name=selected_subject_from_tester,
