@@ -9,7 +9,9 @@ from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
 cookies = get_cookies_manager()
-
+if not cookies.ready():
+    # Wait for the component to load and send us current cookies.
+    st.stop()
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
