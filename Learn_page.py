@@ -12,6 +12,9 @@ follow_up = [] # an array that stores follow_up quesiotns
 controller = get_cookie_controller() # Use the cached singleton instance
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
+if st.button("Check API"):
+    st.write(controller.get('user_api'))
+
 the_api = controller.get('user_api')
 the_model = controller.get('user_model')
 
