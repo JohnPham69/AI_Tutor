@@ -395,7 +395,7 @@ with st.sidebar:
                 st.session_state['user_class'] = studyClass
                 st.session_state['user_id'] = StudentID
                 st.sidebar.success(_("API key saved successfully!"))
-                st.write(st.context.cookies.get('user_api'))
+                st.write(st.context.cookies.get('_user_api'))
             else:
                 st.warning(_("Please enter your API key!!!"))
         
