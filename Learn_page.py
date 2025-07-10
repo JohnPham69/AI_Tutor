@@ -6,13 +6,15 @@ from app_utils import get_cookie_controller, getVal # Import the singleton contr
 import tempfile
 import os
 
+from Tester import controller
+
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 if st.button("Check API"):
-    st.write(getVal('user_api'))
+    st.write(getVal(controller, 'user_api'))
 
 #the_api = getVal('user_api')
 #the_model = getVal('user_model')
