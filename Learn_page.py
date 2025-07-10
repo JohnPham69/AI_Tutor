@@ -14,8 +14,8 @@ _ = get_translator() # Initialize translator for this page, assumes session_stat
 if st.button("Check API"):
     st.write(getVal('user_api'))
 
-the_api = getVal('user_api')
-the_model = getVal('user_model')
+#the_api = getVal('user_api')
+#the_model = getVal('user_model')
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
