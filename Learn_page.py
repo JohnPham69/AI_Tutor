@@ -9,8 +9,8 @@ from streamlit_cookies_controller import CookieController
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 try:
-    # Initialize cookie controller safely without duplicate key errors
     controller = get_cookie_controller()
+    controller.refresh()
 except Exception as e:
     pass
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
@@ -51,6 +51,9 @@ def extract_response_and_followup(ai_response):
         follow_up = []
     return response, follow_up
 
+user_api = controller.get('user_api')
+user_model = controller.get('user_model')
+
 if prompt:
     # Handle file upload
     if prompt.get("files"):
@@ -89,10 +92,11 @@ if prompt:
         st.session_state.messages.append({"role": "user", "content": user_text})
 
         
-        
+        try:
+            controller = get_cookie_controller()
+        except Exception as e:
+            pass
 
-        user_api = controller.get('user_api')
-        user_model = controller.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
@@ -125,9 +129,8 @@ if st.session_state.messages and len(follow_up) != 0:
     for idx, question in enumerate(follow_up):
         if st.button(question, key=f"followup_{idx}"):
             st.session_state.messages.append({"role": "user", "content": question})
-
-            user_api = controller.get('user_api')
-            user_model = controller.get('user_model')
+            
+            
             selected_grade_from_tester = st.session_state.get('sb_grade_tester')
             selected_subject_from_tester = st.session_state.get('sb_subject_tester')
             selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
