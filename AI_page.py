@@ -7,6 +7,10 @@ from app_translations import get_translator
 from app_utils import get_cookie_controller
 
 controller = get_cookie_controller()
+try:
+    controller.refresh()
+except Exception:
+    pass
 _ = get_translator()
 
 if "messages" not in st.session_state:
