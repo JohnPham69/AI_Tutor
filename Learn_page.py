@@ -2,13 +2,14 @@ import streamlit as st
 from StLearn import genRes
 from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
-from app_utils import get_cookie_controller # Import the singleton controller
+from app_utils import get_cookie_controller, get_cookies_manager # Import the singleton controller
 import tempfile
 import os
 from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
-cookies = CookieManager()
+cookies = get_cookies_manager()
+
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
