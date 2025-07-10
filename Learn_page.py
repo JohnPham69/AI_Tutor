@@ -91,12 +91,6 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
-        
-        try:
-            controller = get_cookie_controller()
-        except Exception as e:
-            pass
-
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
