@@ -76,6 +76,12 @@ if prompt:
             pass
         
         user_api = controller.get('user_api')
+        count = 0
+        while not user_api:
+            user_api = controller.get('user_api')
+            st.write(count)
+            count += 1
+        
         user_model = controller.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
