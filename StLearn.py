@@ -4,6 +4,14 @@
 import requests
 from google import genai
 from google.genai import types
+from app_utils import get_cookie_controller # Import the singleton controller
+
+controller = get_cookie_controller() # Use the cached singleton instance
+try:
+    controller.refresh()
+except Exception as e:
+    pass # who the fuck cares about the error, as long as it doesn't poses a threat.
+
 
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
@@ -37,8 +45,10 @@ def trans(text, user_api, user_model=None):
 
 def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
-        if not user_api:
-            return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        #if not user_api:
+        #    return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        user_api = controller.get('user_api')
+        
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
 
