@@ -392,7 +392,7 @@ with st.sidebar:
                 controller.set('user_class', studyClass)
                 controller.set('user_id', StudentID)
                 st.success(_("API key saved successfully!"))
-                st.rerun()
+                st.write(controller.get('user_api'))
             else:
                 st.warning(_("Please enter your API key!!!"))
         
