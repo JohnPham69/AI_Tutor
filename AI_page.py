@@ -8,6 +8,11 @@ from app_utils import get_cookie_controller
 
 controller = get_cookie_controller()
 
+try:
+    controller.refresh()
+except Exception:
+    pass
+
 _ = get_translator()
 
 if "messages" not in st.session_state:
@@ -33,7 +38,9 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
+
 if prompt:
+    user_api = controller.get('user_api')
     # Handle file upload
     if prompt.get("files"):
         uploaded_file = prompt["files"][0]
@@ -68,16 +75,8 @@ if prompt:
         user_text = prompt["text"]
         with st.chat_message("user"):
             st.markdown(user_text)
-        st.session_state.messages.append({"role": "user", "content": user_text})
-
-        try:
-            controller.refresh()
-        except Exception:
-            pass
+        st.session_state.messages.append({"role": "user", "content": user_text + "hahaha" + user_api})        
         
-        user_api = controller.get('user_api')
-        st.sidebar.write("User:" + user_api)
-        st.rerun()
         user_model = controller.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
