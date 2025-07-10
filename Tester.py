@@ -1,19 +1,22 @@
 import streamlit as st
-import requests # Added for fetching JSON
-import json # Added for parsing JSON
-from markitdown import MarkItDown # For converting files to text
-import tempfile # For temporary files
+import requests  # Added for fetching JSON
+import json  # Added for parsing JSON
+from markitdown import MarkItDown  # For converting files to text
+import tempfile  # For temporary files
 import os
 from st_clickable_images import clickable_images
-from app_translations import get_translator, init_session_language # Import from new translations module
-from app_utils import get_cookie_controller # Import the singleton controller
+from app_translations import get_translator, init_session_language  # Import from new translations module
+from app_utils import get_cookie_controller  # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
-# controller = get_cookie_controller() # Use the cached singleton instance
-# Initialize language settings (call once)
+# ✅ Initialize cookie controller safely without duplicate key errors
+controller = get_cookie_controller()
+
+# ✅ Initialize language settings (call once)
 init_session_language()
-_ = get_translator() # Get the translator instance
+_ = get_translator()  # Get the translator instance
+
 
 # NO_LESSON_OPTION_TEXT was previously defined here but is not used in this file.
 # If it were needed for a selectbox option in this file, it would be:
@@ -109,10 +112,10 @@ pg_selection = st.navigation(list(PAGES.values()), position="hidden") # Convert 
 #    pg_selection.run()
 
 with st.sidebar:
-    controller = get_cookie_controller()
-    controller.refresh()  # Force refresh from browser
-    st.write("All cookies:", controller.getAll())
-
+    try:
+        controller.refresh()
+    except Exception as e:
+        pass # who the fuck cares about the error, as long as it doesn't poses a threat.
     # To here, feel free to expand in between
     #Start Logo
     st.write("")
@@ -310,18 +313,12 @@ with st.sidebar:
                         "url": lesson_detail_found.get("link") # This is the .md URL
                     })
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
-        
-with st.sidebar:
+
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         st.page_link("Learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("Practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
         st.page_link("Leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
-    
-pg_selection.run() # Run the selected page
-
-with st.sidebar:
-    # API key
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
@@ -369,11 +366,8 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
-        with col1:
-            save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
-        with col2:
-            get_api = st.button("How to")
+        save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
+            
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -400,39 +394,41 @@ with st.sidebar:
             retrieved_api_key_tester = controller.get('user_api')
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
-
-        # --- How to get API key (get_api button) ---
-        if get_api:
-            if st.session_state.lang == "vi":
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
-                try:
-                    response = requests.get(howto_url)
-                    response.raise_for_status()
-                    content = response.text
-                    # Ensure messages list exists
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": content})
-                except requests.exceptions.RequestException as e:
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
-            else:
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
-                try:
-                    response = requests.get(howto_url)
-                    response.raise_for_status()
-                    content = response.text
-                    # Ensure messages list exists
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": content})
-                except requests.exceptions.RequestException as e:
-                    if "messages" not in st.session_state:
-                        st.session_state.messages = []
-                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
+        
+        
+    get_api = st.button("FAQ")
+    # --- How to get API key (get_api button) ---
+    if get_api:
+        if st.session_state.lang == "vi":
+            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+            try:
+                response = requests.get(howto_url)
+                response.raise_for_status()
+                content = response.text
+                # Ensure messages list exists
+                if "messages" not in st.session_state:
+                    st.session_state.messages = []
+                st.session_state.messages.append({"role": "assistant", "content": content})
+            except requests.exceptions.RequestException as e:
+                if "messages" not in st.session_state:
+                    st.session_state.messages = []
+                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+            st.rerun()
+        else:
+            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+            try:
+                response = requests.get(howto_url)
+                response.raise_for_status()
+                content = response.text
+                # Ensure messages list exists
+                if "messages" not in st.session_state:
+                    st.session_state.messages = []
+                st.session_state.messages.append({"role": "assistant", "content": content})
+            except requests.exceptions.RequestException as e:
+                if "messages" not in st.session_state:
+                    st.session_state.messages = []
+                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+            st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
     if st.session_state.lang == "vi":
@@ -446,7 +442,7 @@ with st.sidebar:
         st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
 
 
-
+pg_selection.run() # Run the selected page
 # This is done after all sidebar interactions for the current pass are complete
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
