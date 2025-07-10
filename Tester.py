@@ -14,10 +14,7 @@ from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
 cookies = get_cookies_manager()
-red = cookies.ready()
-while not red:
-    # Wait for the component to load and send us current cookies.
-    red = cookies.ready()
+st.header(cookies.ready())
 controller = get_cookie_controller() # Use the cached singleton instance
 
 # Initialize language settings (call once)
