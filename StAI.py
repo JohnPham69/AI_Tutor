@@ -8,17 +8,6 @@ import streamlit as st
 from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
-import streamlit as st
-
-from app_utils import get_cookie_controller
-
-controller = get_cookie_controller()
-try:
-    controller.refresh()
-except Exception:
-    pass
-
-
 
 def trans(text, user_api, user_model=None):
     try:
@@ -99,11 +88,11 @@ def genRes(
     import streamlit as st  # Đảm bảo đã cài đặt streamlit
 
     try:
-        #if not user_api:
-        #    return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        if not user_api:
+            return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
-        user_api = controller.get("user_api")
+
         # Fetch lesson material for multiple lessons
         lesson_material_fetched_parts = []
         lesson_ids_for_prompt_display = []

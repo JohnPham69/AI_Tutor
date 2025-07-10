@@ -2,21 +2,18 @@ import streamlit as st
 from StLearn import genRes
 from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
-from app_utils import get_cookie_controller, getVal # Import the singleton controller
+from app_utils import get_cookie_controller # Import the singleton controller
 import tempfile
 import os
-
 
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
+controller = get_cookie_controller() # Use the cached singleton instance
+the_api = controller.get('user_api')
+the_model = controller.get('user_model')
+
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
-
-if st.button("Check API"):
-    st.write(getVal(controller, 'user_api'))
-
-#the_api = getVal('user_api')
-#the_model = getVal('user_model')
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
@@ -91,6 +88,7 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
+        
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
@@ -124,6 +122,8 @@ if st.session_state.messages and len(follow_up) != 0:
         if st.button(question, key=f"followup_{idx}"):
             st.session_state.messages.append({"role": "user", "content": question})
 
+            user_api = controller.get('user_api')
+            user_model = controller.get('user_model')
             selected_grade_from_tester = st.session_state.get('sb_grade_tester')
             selected_subject_from_tester = st.session_state.get('sb_subject_tester')
             selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])

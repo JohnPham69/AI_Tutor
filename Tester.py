@@ -6,14 +6,11 @@ import tempfile # For temporary files
 import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
-from app_utils import get_cookie_controller, setVal # Import the singleton controller
+from app_utils import get_cookie_controller # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
-from streamlit_cookies_controller import CookieController
-
-
-controller = CookieController() # Use the cached singleton instance
+controller = get_cookie_controller() # Use the cached singleton instance
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -377,18 +374,20 @@ with st.sidebar:
         if save_button:
             if api_key_input:
                 expires = datetime.datetime.now() + datetime.timedelta(days=30)
-                setVal(controller, 'user_api', api_key_input)
-                setVal(controller, 'user_model', model_input)
-                setVal(controller, 'user_nickname', nickname)
-                setVal(controller, 'user_school', school)
-                setVal(controller, 'user_class', studyClass)
-                setVal(controller, 'user_id', StudentID)
+                controller.set('user_api', api_key_input, expires=expires)
+                controller.set('user_model', model_input, expires=expires)
+                controller.set('user_nickname', nickname, expires=expires)
+                controller.set('user_school', school, expires=expires)
+                controller.set('user_class', studyClass, expires=expires)
+                controller.set('user_id', StudentID, expires=expires)
                 st.sidebar.success(_("API key saved successfully!"))
-                st.write(controller.get('user_api'))
+                st.rerun()
             else:
                 st.warning(_("Please enter your API key!!!"))
         
         if st.session_state.trigger_cookie_read_tester:
+            # Simplify: Remove 'key' argument from controller.get for this test
+            retrieved_api_key_tester = controller.get('user_api')
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
