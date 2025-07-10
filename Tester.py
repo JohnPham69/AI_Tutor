@@ -395,6 +395,7 @@ with st.sidebar:
                 st.session_state['user_class'] = studyClass
                 st.session_state['user_id'] = StudentID
                 st.sidebar.success(_("API key saved successfully!"))
+                st.rerun()
             else:
                 st.warning(_("Please enter your API key!!!"))
         
@@ -454,8 +455,5 @@ pg_selection.run() # Run the selected page
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
-
-
-st.sidebar.write(st.context.cookies.get('_user_api'))
 
 changeAll()
