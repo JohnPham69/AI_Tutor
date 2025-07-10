@@ -82,6 +82,13 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
 subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
+# On app start, sync cookie values into st.session_state if not already present
+for key in ["user_api", "user_model", "user_nickname", "user_school", "user_class", "user_id"]:
+    if key not in st.session_state:
+        value = controller.get(key)
+        if value is not None:
+            st.session_state[key] = value
+
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
                     for (i = 0; i < elements.length; ++i) { if (elements[i].innerText == |wgt_txt|) 
@@ -380,6 +387,13 @@ with st.sidebar:
                 controller.set('user_school', school, expires=expires)
                 controller.set('user_class', studyClass, expires=expires)
                 controller.set('user_id', StudentID, expires=expires)
+                # Sync to st.session_state as well
+                st.session_state['user_api'] = api_key_input
+                st.session_state['user_model'] = model_input
+                st.session_state['user_nickname'] = nickname
+                st.session_state['user_school'] = school
+                st.session_state['user_class'] = studyClass
+                st.session_state['user_id'] = StudentID
                 st.sidebar.success(_("API key saved successfully!"))
                 st.rerun()
             else:
