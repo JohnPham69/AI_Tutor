@@ -8,7 +8,7 @@ import os
 from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
-cookies = get_cookies_manager()
+cookies = CookieManager()
 
 if cookies.ready():
     # Global variable
