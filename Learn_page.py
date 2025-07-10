@@ -10,7 +10,7 @@ from streamlit_cookies_manager import CookieManager
 # This should be on top of your script
 cookies = get_cookies_manager()
 
-if not cookies.ready():
+if cookies.ready():
     # Global variable
     follow_up = [] # an array that stores follow_up quesiotns
     
