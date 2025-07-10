@@ -8,11 +8,7 @@ import os
 from streamlit_cookies_controller import CookieController
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
-try:
-    controller = get_cookie_controller()
-    controller.refresh()
-except Exception as e:
-    pass
+
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
@@ -50,6 +46,11 @@ def extract_response_and_followup(ai_response):
         response = ai_response.strip()
         follow_up = []
     return response, follow_up
+
+try:
+    controller = CookieController()
+except Exception as e:
+    pass
 
 user_api = controller.get('user_api')
 user_model = controller.get('user_model')
