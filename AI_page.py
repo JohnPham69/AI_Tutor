@@ -89,7 +89,7 @@ if prompt:
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
-                    user_api,
+                    "",
                     user_model,
                     selected_grade=selected_grade_from_tester,
                     selected_subject_name=selected_subject_from_tester,
