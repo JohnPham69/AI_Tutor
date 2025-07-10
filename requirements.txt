@@ -5,3 +5,4 @@ st_clickable_images
 gspread
 oauth2client
 streamlit-cookies-controller
+streamlit_cookies_manager
