@@ -2,21 +2,20 @@ import streamlit as st
 from StLearn import genRes
 from markitdown import MarkItDown
 from app_translations import get_translator # Import the translator
-from app_utils import get_cookie_controller # Import the singleton controller
+from app_utils import get_cookie_controller, getVal # Import the singleton controller
 import tempfile
 import os
 
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
-controller = get_cookie_controller() # Use the cached singleton instance
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 if st.button("Check API"):
-    st.write(controller.get('user_api'))
+    st.write(getVal('user_api'))
 
-the_api = controller.get('user_api')
-the_model = controller.get('user_model')
+the_api = getVal('user_api')
+the_model = getVal('user_model')
 
 # Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
