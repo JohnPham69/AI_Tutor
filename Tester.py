@@ -10,8 +10,13 @@ from app_utils import get_cookie_controller  # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
+from streamlit_cookies_controller import CookieController
+
 # ✅ Initialize cookie controller safely without duplicate key errors
-controller = get_cookie_controller()
+try:
+    controller = CookieController()
+except Exception as e:
+    pass
 
 # ✅ Initialize language settings (call once)
 init_session_language()
@@ -380,7 +385,7 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                controller.set('user_api', st.session_state.user_api, secure=True, same_site='lax', path='/')
+                controller.set('user_api', api_key_input)
                 controller.set('user_model', model_input)
                 controller.set('user_nickname', nickname)
                 controller.set('user_school', school)
