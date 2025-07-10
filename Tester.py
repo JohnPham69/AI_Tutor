@@ -1,27 +1,19 @@
 import streamlit as st
-import requests  # Added for fetching JSON
-import json  # Added for parsing JSON
-from markitdown import MarkItDown  # For converting files to text
-import tempfile  # For temporary files
+import requests # Added for fetching JSON
+import json # Added for parsing JSON
+from markitdown import MarkItDown # For converting files to text
+import tempfile # For temporary files
 import os
 from st_clickable_images import clickable_images
-from app_translations import get_translator, init_session_language  # Import from new translations module
-from app_utils import get_cookie_controller  # Import the singleton controller
+from app_translations import get_translator, init_session_language # Import from new translations module
+from app_utils import get_cookie_controller # Import the singleton controller
 import streamlit.components.v1 as components
 import datetime
 
-from streamlit_cookies_controller import CookieController
-
-# ✅ Initialize cookie controller safely without duplicate key errors
-try:
-    controller = CookieController()
-except Exception as e:
-    pass
-
-# ✅ Initialize language settings (call once)
+controller = get_cookie_controller() # Use the cached singleton instance
+# Initialize language settings (call once)
 init_session_language()
-_ = get_translator()  # Get the translator instance
-
+_ = get_translator() # Get the translator instance
 
 # NO_LESSON_OPTION_TEXT was previously defined here but is not used in this file.
 # If it were needed for a selectbox option in this file, it would be:
@@ -117,10 +109,6 @@ pg_selection = st.navigation(list(PAGES.values()), position="hidden") # Convert 
 #    pg_selection.run()
 
 with st.sidebar:
-    try:
-        controller.refresh()
-    except Exception as e:
-        pass # who the fuck cares about the error, as long as it doesn't poses a threat.
     # To here, feel free to expand in between
     #Start Logo
     st.write("")
@@ -326,9 +314,6 @@ with st.sidebar:
         st.page_link("Leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
-        
-        if 'user_api' not in st.session_state:
-            st.session_state.user_api = controller.get('user_api') or ""
 
         nickname = st.text_input(
             ("Nickname"),
@@ -374,8 +359,11 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
-            
+        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
+        with col1:
+            save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
+        with col2:
+            get_api = st.button("How to")
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -385,13 +373,14 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                controller.set('user_api', api_key_input)
-                controller.set('user_model', model_input)
-                controller.set('user_nickname', nickname)
-                controller.set('user_school', school)
-                controller.set('user_class', studyClass)
-                controller.set('user_id', StudentID)
-                st.success(_("API key saved successfully!"))
+                expires = datetime.datetime.now() + datetime.timedelta(days=30)
+                controller.set('user_api', api_key_input, expires=expires)
+                controller.set('user_model', model_input, expires=expires)
+                controller.set('user_nickname', nickname, expires=expires)
+                controller.set('user_school', school, expires=expires)
+                controller.set('user_class', studyClass, expires=expires)
+                controller.set('user_id', StudentID, expires=expires)
+                st.sidebar.success(_("API key saved successfully!"))
                 st.write(controller.get('user_api'))
             else:
                 st.warning(_("Please enter your API key!!!"))
@@ -401,41 +390,39 @@ with st.sidebar:
             retrieved_api_key_tester = controller.get('user_api')
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
-        
-        
-    get_api = st.button("FAQ")
-    # --- How to get API key (get_api button) ---
-    if get_api:
-        if st.session_state.lang == "vi":
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                # Ensure messages list exists
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
-        else:
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                # Ensure messages list exists
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
+
+        # --- How to get API key (get_api button) ---
+        if get_api:
+            if st.session_state.lang == "vi":
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
+            else:
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
     if st.session_state.lang == "vi":
