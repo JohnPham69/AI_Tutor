@@ -69,8 +69,8 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
-        user_api = controller.get('user_api')
-        user_model = controller.get('user_model')
+        user_api = st.session_state.get('user_api')
+        user_model = st.session_state.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
