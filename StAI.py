@@ -8,6 +8,17 @@ import streamlit as st
 from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
+import streamlit as st
+
+from app_utils import get_cookie_controller
+
+controller = get_cookie_controller()
+try:
+    controller.refresh()
+except Exception:
+    pass
+
+user_api = controller.get("user_api")
 
 def trans(text, user_api, user_model=None):
     try:
