@@ -14,6 +14,7 @@ try:
     controller.refresh()
 except Exception as e:
     pass # who the fuck cares about the error, as long as it doesn't poses a threat.
+
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
