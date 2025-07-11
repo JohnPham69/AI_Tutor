@@ -445,7 +445,7 @@ with st.sidebar:
 
 pg_selection.run() # Run the selected page
 
-st.write(cookies.get('user_api'))
+st.write(cookies.get('user_api') + "hahar")
 
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
