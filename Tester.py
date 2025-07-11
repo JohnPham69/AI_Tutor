@@ -9,7 +9,7 @@ import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
 import streamlit.components.v1 as components
-from app_utils import get_cookie_controller
+
 from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
@@ -19,7 +19,6 @@ if not cookies.ready():
     st.spinner()
     st.stop()
 
-controller = get_cookie_controller()
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -28,10 +27,10 @@ _ = get_translator() # Get the translator instance
 # If it were needed for a selectbox option in this file, it would be:
 # NO_LESSON_OPTION_TEXT = _("No lesson")
 
-chat_page = st.Page("./aitutor.py", title = _("Tutor AI"))
-practice = st.Page("./practice.py", title=_("Practice"))
-leaderboard_page = st.Page("./leaderboard.py", title=_("Leaderboard")) # New page for leaderboard
-learning_page = st.Page("./learn.py", title=_("Learning with AI"), default = True) # New page for learning
+chat_page = st.Page("./AI_page.py", title = _("Tutor AI"))
+practice = st.Page("./Practice_page.py", title=_("Practice"))
+leaderboard_page = st.Page("./Leader_page.py", title=_("Leaderboard")) # New page for leaderboard
+learning_page = st.Page("./Learn_page.py", title=_("Learning with AI"), default = True) # New page for learning
 
 # Function to load subject/lesson data (can be a utility if used elsewhere)
 @st.cache_data(ttl=3600) # Cache data for an hour
@@ -311,10 +310,10 @@ with st.sidebar:
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
 
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
-        st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
-        st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
-        st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
-        st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
+        st.page_link("Learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
+        st.page_link("AI_page.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
+        st.page_link("Practice_page.py", label=_("Practice"), icon="🐼") # Page link with icon
+        st.page_link("Leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
@@ -362,8 +361,11 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
-        
+        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
+        with col1:
+            save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
+        with col2:
+            get_api = st.button("How to")
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -373,15 +375,13 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-
-                controller.set('user_api', api_key_input)
-                controller.set('user_model', model_input)
-                controller.set('nickname', nickname)
-                controller.set('user_school', school)
-                controller.set('user_class', studyClass)
-                controller.set('user_id', StudentID)
+                assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
+                assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
+                assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
+                assert cookies['user_school'] == school # Ensure the cookie is set correctly
+                assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
+                assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
                 
-
                 # Sync to st.session_state as well
                 st.session_state['user_api'] = api_key_input
                 st.session_state['user_model'] = model_input
@@ -397,44 +397,41 @@ with st.sidebar:
         if st.session_state.trigger_cookie_read_tester:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
-    
-    # --- How to get API key (get_api button) ---
-    if st.button(_("FAQ - Frequently Asked Question")):
-        if st.session_state.lang == "vi":
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                # Ensure messages list exists
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
-        else:
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                # Ensure messages list exists
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                if "messages" not in st.session_state:
-                    st.session_state.messages = []
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
+
+        # --- How to get API key (get_api button) ---
+        if get_api:
+            if st.session_state.lang == "vi":
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
+            else:
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    # Ensure messages list exists
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    if "messages" not in st.session_state:
+                        st.session_state.messages = []
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
-    
-    
-    
     if st.session_state.lang == "vi":
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
     else:
@@ -448,7 +445,7 @@ with st.sidebar:
 
 pg_selection.run() # Run the selected page
 
-st.session_state['user_api'] = cookies.get('user_api')
+st.write(cookies.get('user_api'))
 
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
