@@ -64,7 +64,7 @@ def afterStepOne(plan_text, user_api, user_model=None):
     ]
 
     generate_content_config = types.GenerateContentConfig(
-        temperature=1,
+        temperature=0.7,
         top_p=0.95,
         response_mime_type="text/plain",
     )
@@ -214,7 +214,7 @@ def genRes(
         contents_for_step1.append(types.Content(role="user", parts=[types.Part.from_text(text=current_user_message_for_step1)])) # type: ignore
 
         generate_content_config = types.GenerateContentConfig(
-            temperature=1,
+            temperature=0.7,
             response_mime_type="text/plain",
         )
         
