@@ -395,7 +395,8 @@ with st.sidebar:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
-    get_api = st.button("FAQ - Frequently Asked Question")
+    # FAQ button
+    get_api = st.button(_("FAQ - Frequently Asked Question"))
     
     # --- How to get API key (get_api button) ---
     if get_api:
