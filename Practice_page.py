@@ -131,7 +131,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     st.markdown(_("Time Per Question Info").format(time_per_question=st.session_state.time_for_each))
 
     if st.button(_("Create Quiz and Start Button")):
-        user_api_key = controller.get("user_api")
+        user_api_key = st.session_state.get('user_api')
         if not user_api_key:
             st.error(_("API key not configured, please set it in the Config page."))
         else:
