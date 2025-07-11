@@ -7,9 +7,6 @@ import tempfile
 import os
 from streamlit_cookies_manager import CookieManager
 
-# This should be on top of your script
-cookies = get_cookie_controller()
-
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
@@ -45,8 +42,8 @@ uploaded_content = ""
 # Xử lý follow_up cho mỗi lần assistant trả lời
 
 # Instead, fetch from st.session_state
-user_api = cookies.get('user_api')
-user_model = cookies.get('user_model')
+user_api = st.session_state.get('user_api')
+user_model = st.session_state.get('user_model')
 
 def extract_response_and_followup(ai_response):
     if "///Follow_up///" in ai_response:
