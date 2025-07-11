@@ -9,7 +9,7 @@ import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
 import streamlit.components.v1 as components
-
+from app_utils import get_cookie_controller
 from streamlit_cookies_manager import CookieManager
 
 # This should be on top of your script
@@ -19,6 +19,7 @@ if not cookies.ready():
     st.spinner()
     st.stop()
 
+controller = get_cookie_controller()
 # Initialize language settings (call once)
 init_session_language()
 _ = get_translator() # Get the translator instance
@@ -372,13 +373,14 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
+                
                 assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
                 assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
                 assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
                 assert cookies['user_school'] == school # Ensure the cookie is set correctly
                 assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
                 assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
-                
+                cookies.save()
                 # Sync to st.session_state as well
                 st.session_state['user_api'] = api_key_input
                 st.session_state['user_model'] = model_input
