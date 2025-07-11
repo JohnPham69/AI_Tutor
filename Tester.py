@@ -374,12 +374,13 @@ with st.sidebar:
         if save_button:
             if api_key_input:
 
-                cookies.set('user_api', api_key_input)
-                cookies.set('user_model', model_input)
-                cookies.set('user_nickname', nickname)
-                cookies.set('user_school', school)
-                cookies.set('user_class', studyClass)
-                cookies.set('user_id', StudentID)
+                controller.set('user_api', api_key_input)
+                controller.set('user_model', model_input)
+                controller.set('nickname', nickname)
+                controller.set('user_school', school)
+                controller.set('user_class', studyClass)
+                controller.set('user_id', StudentID)
+                
 
                 # Sync to st.session_state as well
                 st.session_state['user_api'] = api_key_input
