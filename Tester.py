@@ -1,18 +1,23 @@
+import os
+
 import streamlit as st
+from streamlit.components.v1 import html
+
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
-from markitdown import MarkItDown # For converting files to text
-import tempfile # For temporary files
 import os
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
-from app_utils import get_cookie_controller, get_cookies_manager # Import the singleton controller
 import streamlit.components.v1 as components
-import datetime
 
 from streamlit_cookies_manager import CookieManager
 
-controller = get_cookie_controller() # Use the cached singleton instance
+# This should be on top of your script
+cookies = CookieManager()
+if not cookies.ready():
+    # Wait for the component to load and send us current cookies.
+    st.spinner()
+    st.stop()
 
 # Initialize language settings (call once)
 init_session_language()
@@ -85,13 +90,6 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
 subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
-# On app start, sync cookie values into st.session_state if not already present
-for key in ["user_api", "user_model", "user_nickname", "user_school", "user_class", "user_id"]:
-    if key not in st.session_state:
-        value = controller.get(key)
-        if value is not None:
-            st.session_state[key] = value
-
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
                     for (i = 0; i < elements.length; ++i) { if (elements[i].innerText == |wgt_txt|) 
@@ -99,11 +97,6 @@ def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
 
     htmlstr = htmlstr.replace('|wgt_txt|', "'" + wgt_txt + "'")
     components.html(f"{htmlstr}", height=0, width=0)
-
-
-def changeAll():
-    ChangeWidgetFontSize(_("Config"), '20px')
-    ChangeWidgetFontSize(_("Adjust Context"), '20px')
 
 
 PAGES = {
@@ -326,35 +319,35 @@ with st.sidebar:
 
         nickname = st.text_input(
             ("Nickname"),
-            value=controller.get('user_nickname') or "",
+            value="",
             placeholder=_("Enter your nickname here"),
             label_visibility="collapsed",
         )
 
         school = st.text_input(
             ("School"),
-            value=controller.get('user_school') or "",
+            value="",
             placeholder=_("Enter your school name here"),
             label_visibility="collapsed",
         )
 
         studyClass = st.text_input(
             ("Class"),
-            value=controller.get('user_class') or "",
+            value="",
             placeholder=_("Enter your class here"),
             label_visibility="collapsed",
         )
 
         StudentID = st.text_input(
             ("Student ID"),
-            value=controller.get('user_id') or "",
+            value="",
             placeholder=_("Enter your Student ID here"),
             label_visibility="collapsed",
         )
 
         api_key_input = st.text_input(
             _("API Key"),
-            value=controller.get('user_api') or "",
+            value="",
             placeholder=_("Enter your API key here"),
             label_visibility="collapsed",
             type="password",
@@ -363,7 +356,7 @@ with st.sidebar:
 
         model_input = st.text_input(
             ("Model"),
-            value=controller.get('user_model') or "",
+            value="",
             placeholder=_("Enter your model name here"),
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
@@ -382,13 +375,13 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                expires = datetime.datetime.now() + datetime.timedelta(days=30)
-                controller.set('user_api', api_key_input, expires=expires)
-                controller.set('user_model', model_input, expires=expires)
-                controller.set('user_nickname', nickname, expires=expires)
-                controller.set('user_school', school, expires=expires)
-                controller.set('user_class', studyClass, expires=expires)
-                controller.set('user_id', StudentID, expires=expires)
+                assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
+                assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
+                assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
+                assert cookies['user_school'] == school # Ensure the cookie is set correctly
+                assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
+                assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
+                
                 # Sync to st.session_state as well
                 st.session_state['user_api'] = api_key_input
                 st.session_state['user_model'] = model_input
@@ -402,8 +395,6 @@ with st.sidebar:
                 st.warning(_("Please enter your API key!!!"))
         
         if st.session_state.trigger_cookie_read_tester:
-            # Simplify: Remove 'key' argument from controller.get for this test
-            retrieved_api_key_tester = controller.get('user_api')
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
@@ -453,9 +444,9 @@ with st.sidebar:
 
 
 pg_selection.run() # Run the selected page
-# This is done after all sidebar interactions for the current pass are complete
+
+st.write(cookies.get('user_api'))
+
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
-
-changeAll()
