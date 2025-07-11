@@ -394,12 +394,9 @@ with st.sidebar:
         if st.session_state.trigger_cookie_read_tester:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
-
-    # FAQ button
-    get_api = st.button(_("FAQ - Frequently Asked Question"))
     
     # --- How to get API key (get_api button) ---
-    if get_api:
+    if st.button(_("FAQ - Frequently Asked Question")):
         if st.session_state.lang == "vi":
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
             try:
