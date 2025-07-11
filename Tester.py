@@ -395,6 +395,8 @@ with st.sidebar:
             st.session_state.trigger_cookie_read_tester = False # Reset flag
             st.session_state.saved_api_key_value_for_debug_tester = None
 
+        get_api = st.button("FAQ - Frequently Asked Question")
+        
         # --- How to get API key (get_api button) ---
         if get_api:
             if st.session_state.lang == "vi":
@@ -430,7 +432,7 @@ with st.sidebar:
 # Perform rerun if a language change was flagged
     # Donate code here
     
-    get_api = st.button("FAQ - Frequently Asked Question")
+    
     
     if st.session_state.lang == "vi":
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
