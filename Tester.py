@@ -361,11 +361,8 @@ with st.sidebar:
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
             )
-        col1, col2, _un = st.columns([0.3, 0.3, 0.4])
-        with col1:
-            save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
-        with col2:
-            get_api = st.button("FAQ - Frequently Asked Question")
+        save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
+        
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -432,6 +429,9 @@ with st.sidebar:
                 st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
+    
+    get_api = st.button("FAQ - Frequently Asked Question")
+    
     if st.session_state.lang == "vi":
         st.image("https://github.com/JohnPham69/AI_Tutor/blob/20f1dbaab05539835da73852e9f4777e1744e38f/img/donate_vi.png?raw=true")
     else:
