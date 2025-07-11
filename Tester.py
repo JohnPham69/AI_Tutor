@@ -29,7 +29,7 @@ _ = get_translator() # Get the translator instance
 
 chat_page = st.Page("./aitutor.py", title = _("Tutor AI"))
 practice = st.Page("./practice.py", title=_("Practice"))
-leaderboard_page = st.Page("./Leader_page.py", title=_("Leaderboard")) # New page for leaderboard
+leaderboard_page = st.Page("./leaderboard.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./Learn_page.py", title=_("Learning with AI"), default = True) # New page for learning
 
 # Function to load subject/lesson data (can be a utility if used elsewhere)
@@ -313,7 +313,7 @@ with st.sidebar:
         st.page_link("Learn_page.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
-        st.page_link("Leader_page.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
+        st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
 
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
