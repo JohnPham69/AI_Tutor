@@ -373,14 +373,14 @@ with st.sidebar:
 
         if save_button:
             if api_key_input:
-                
-                assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
-                assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
-                assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
-                assert cookies['user_school'] == school # Ensure the cookie is set correctly
-                assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
-                assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
-                cookies.save()
+
+                cookies.set('user_api', api_key_input)
+                cookies.set('user_model', model_input)
+                cookies.set('user_nickname', nickname)
+                cookies.set('user_school', school)
+                cookies.set('user_class', studyClass)
+                cookies.set('user_id', StudentID)
+
                 # Sync to st.session_state as well
                 st.session_state['user_api'] = api_key_input
                 st.session_state['user_model'] = model_input
