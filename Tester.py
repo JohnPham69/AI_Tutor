@@ -365,7 +365,7 @@ with st.sidebar:
         with col1:
             save_button = st.button(("💾\t") + _("Save"), key="sidebar_save_button_tester")
         with col2:
-            get_api = st.button("How to")
+            get_api = st.button("FAQ - Frequently Asked Question")
         
         # Session state for managing the cookie set/get flow for debugging
         if 'trigger_cookie_read_tester' not in st.session_state:
@@ -401,7 +401,7 @@ with st.sidebar:
         # --- How to get API key (get_api button) ---
         if get_api:
             if st.session_state.lang == "vi":
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_vi.md"
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
                 try:
                     response = requests.get(howto_url)
                     response.raise_for_status()
@@ -416,7 +416,7 @@ with st.sidebar:
                     st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
                 st.rerun()
             else:
-                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/how_to_get_API_key_en.md"
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
                 try:
                     response = requests.get(howto_url)
                     response.raise_for_status()
