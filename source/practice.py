@@ -164,11 +164,11 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         # --- Logic to save results to the leaderboard ---
         
         # Get user info from cookies to see if we can save
-        nick = controller.get('user_nickname')
-        school = controller.get('user_school')
-        class_name = controller.get('user_class')
-        student_id = controller.get('user_id')
-        subject_fin = controller.get('selected_subject_name')
+        nick = st.session_state.get('user_nickname')
+        school = st.session_state.get('user_school')
+        class_name = st.session_state.get('user_class')
+        student_id = st.session_state.get('user_id')
+        subject_fin = st.session_state.get('selected_subject_name')
 
         # Check if all required user info is present before enabling the save button
         can_save = all([nick, school, class_name, student_id, subject_fin])
@@ -227,7 +227,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
             with col1:
                 if st.button(_("Check Answer Button"), key=f"check_{idx}"):
                     st.session_state.user_answers[idx] = answer
-                    key = controller.get("user_api")
+                    key = st.session_state.get("user_api")
                     if not key:
                         st.error(_("API Key Missing In-Quiz Error"))
                         reset_quiz_state()
