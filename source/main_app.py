@@ -11,6 +11,7 @@ from app_translations import get_translator, init_session_language # Import from
 import streamlit.components.v1 as components
 from app_utils import get_cookie_controller
 from streamlit_cookies_manager import CookieManager
+import time
 
 # This should be on top of your script
 cookies = CookieManager()
@@ -397,6 +398,7 @@ with st.sidebar:
                 st.session_state['user_class'] = studyClass
                 st.session_state['user_id'] = StudentID
                 st.sidebar.success(_("API key saved successfully!"))
+                time.sleep(0.7)
                 st.rerun()
             else:
                 st.warning(_("Please enter your API key!!!"))
