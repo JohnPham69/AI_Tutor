@@ -190,7 +190,8 @@ TRANSLATIONS = {
         "A lesson is selected, but the subject is missing. Please check sidebar selections. The quiz may cover general knowledge topics.": "Một bài học đã được chọn, nhưng môn học bị thiếu. Vui lòng kiểm tra các lựa chọn ở thanh bên. Bài quiz có thể bao gồm các chủ đề kiến thức chung.",
         "How to": "API Key?",
         "FAQ - Frequently Asked Question": "FAQ - Câu hỏi thường gặp",
-        "Please enter your API key!!!": "Bạn cần nhập API key!!!" 
+        "Please enter your API key!!!": "Bạn cần nhập API key!!!", 
+        "AI is thinking...": "AI đang suy nghĩ",
     }
 }
 
