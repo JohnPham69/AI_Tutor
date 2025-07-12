@@ -316,40 +316,47 @@ with st.sidebar:
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
         st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🎓") # New page link with icon
-
+    #Get stuffs
+    st.session_state['user_api'] = cookies.get('user_api')
+    st.session_state['user_model'] = cookies.get('user_model')
+    st.session_state['user_nickname'] = cookies.get('user_nickname')
+    st.session_state['user_school'] = cookies.get('user_school')
+    st.session_state['user_class'] = cookies.get('user_class')
+    st.session_state['user_id'] = cookies.get('user_id')
+    
     with st.expander(r"$\textsf{\large " + ("🔧\t") + _('Config') + "}$"): # Can change Large into Huge and footnotesize
 
         nickname = st.text_input(
             ("Nickname"),
-            value="",
+            value= st.session_state.get('user_nickname', ''),
             placeholder=_("Enter your nickname here"),
             label_visibility="collapsed",
         )
 
         school = st.text_input(
             ("School"),
-            value="",
+            value= st.session_state.get('user_school', ''),
             placeholder=_("Enter your school name here"),
             label_visibility="collapsed",
         )
 
         studyClass = st.text_input(
             ("Class"),
-            value="",
+            value= st.session_state.get('user_class', ''),
             placeholder=_("Enter your class here"),
             label_visibility="collapsed",
         )
 
         StudentID = st.text_input(
             ("Student ID"),
-            value="",
+            value= st.session_state.get('user_id', ''),
             placeholder=_("Enter your Student ID here"),
             label_visibility="collapsed",
         )
 
         api_key_input = st.text_input(
             _("API Key"),
-            value="",
+            value= st.session_state.get('user_api', ''),
             placeholder=_("Enter your API key here"),
             label_visibility="collapsed",
             type="password",
@@ -358,7 +365,7 @@ with st.sidebar:
 
         model_input = st.text_input(
             ("Model"),
-            value="",
+            value= st.session_state.get('user_model', ''),
             placeholder=_("Enter your model name here"),
             label_visibility="collapsed",
             key="sidebar_model_input_tester" # Added key
@@ -456,8 +463,6 @@ with st.sidebar:
 
 
 pg_selection.run() # Run the selected page
-
-st.session_state['user_api'] = cookies.get('user_api')
 
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
