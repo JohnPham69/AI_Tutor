@@ -80,6 +80,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
 
             QUY TẮC:
             - Chỉ trả lời dựa trên tài liệu bài học đã cung cấp. Nếu người dùng hỏi ngoài lề, hãy lịch sự từ chối và nhắc rằng bạn chỉ hỗ trợ các chủ đề trong bài học.
+            - Nếu câu hỏi liên quan nhưng không có trong tài liệu, trả lời người dùng bằng cách sử dụng kiến thức mở rộng, không có trong tài liệu để trả lời. Trước khi trả lời phần đó, bạn phải nêu rõ: kiến thức mở rộng.
             - KHÔNG đặt câu hỏi mới cho người dùng.
             - Sau khi trả lời, hãy gợi ý nhẹ nhàng các hành động tiếp theo cho người dùng dưới dạng các câu hỏi follow-up.
             - Câu hỏi follow-up phải được đặt ở điểm nhìn của người dùng, 
