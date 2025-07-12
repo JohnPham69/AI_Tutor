@@ -1,23 +1,24 @@
 # FAQ – Frequently Asked Questions
 
-## 1. API Usage: Where is my API KEY stored and how is it used?
+## 1. How do I get my API Key, where does it stored, how to use it?
 
+- To get and use your API key, please read the instructions at the end of the page.
 - **Your API KEY is stored locally on your device** (for example: in a configuration file or your browser's local storage, depending on how you use the program).
 - The program **does not send your API KEY to any external server**. The API KEY is only used to authenticate requests to Google's AI services.
-- To use the API KEY, simply paste it into the API configuration box in the program and click Save. See the detailed instructions at the end of this page.
+- To use the API KEY, simply paste it into the API configuration box in the program and click Save.
 
-## 2. User Data Collection: What information does the program collect, where is it stored, and for what purpose?
+## 2. What information does the program collect, where is it stored, and for what purpose?
 
 - The program **does not collect your personal information**.
 - Data such as API KEY, chat history, and personal settings (if any) **are only stored on your device**.
 - No data is sent outside or stored on the developer's server unless you actively share it.
 
-## 3. Program Reliability: Are the program's responses reliable?
+## 3. Are the program's responses reliable?
 
 - The program uses Google's AI model to generate responses, which **may or may not be accurate** depending on the situation.
 - You should double-check important information and **not use the results for critical decisions** without verification.
 
-## 4. Usage Fees: Do I have to pay to use the program?
+## 4. Do I have to pay to use the program?
 
 - The program is **free** for users.
 - However, using Google's API may be limited or charged if you exceed the free quota set by Google. Please check Google's policy for more details.
