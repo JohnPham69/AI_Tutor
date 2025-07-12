@@ -2,7 +2,7 @@
 
 ## 1. API KEY được lấy thế nào, được lưu ở đâu và sử dụng thế nào?
 
-- Xem hướng dẫn lấy API Key [tại đây](lessons/guideline/how_to_get_API_key_vi.md)
+- Xem hướng dẫn lấy API Key [tại đây](https://github.com/JohnPham69/AI_Tutor/blob/31bd4d143940b87514f026eae0334fea887c0d86/lessons/guideline/how_to_get_API_key_vi.md)
 - **API KEY của bạn sẽ được lưu cục bộ trên thiết bị của bạn** (ví dụ: trong file cấu hình hoặc bộ nhớ tạm của trình duyệt, tùy vào cách bạn sử dụng chương trình).
 - Chương trình **không gửi API KEY của bạn lên máy chủ bên ngoài**. API KEY chỉ được sử dụng để xác thực các yêu cầu tới dịch vụ AI của Google.
 - Để sử dụng API KEY, bạn chỉ cần dán vào ô cấu hình API trong chương trình và bấm Lưu.
