@@ -163,7 +163,29 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         ):
             step_one_output_text += chunk.text
         if st.session_state.lang == 'en':
-            return trans(step_one_output_text, user_api, user_model)
+            if "///Follow_up///" in step_one_output_text:
+                main_response = step_one_output_text.split("///Follow_up///")[0].strip()
+                follow_up_raw = step_one_output_text.split("///Follow_up///")[1]
+                follow_ups_vi = [q.strip() for q in follow_up_raw.split("-") if q.strip()]
+            else:
+                main_response = step_one_output_text.strip()
+                follow_ups_vi = []
+        
+            # Dịch phần chính
+            translated_response = trans(main_response, user_api, user_model)
+        
+            # Dịch từng câu follow-up
+            translated_follow_ups = []
+            for q in follow_ups_vi:
+                translated_q = trans(q, user_api, user_model)
+                translated_follow_ups.append(f"- {translated_q}")
+        
+            # Gắn lại theo đúng format
+            if translated_follow_ups:
+                translated_response += "\n///Follow_up///\n" + "\n".join(translated_follow_ups)
+        
+            return translated_response
+
         # Xử lý kết quả: chỉ lấy phần trước ///Follow_up///
         return step_one_output_text
 
