@@ -77,7 +77,7 @@ if prompt:
         uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
         with st.chat_message("assistant"):
-            with st.spinner("AI is thinking..."):
+            with st.spinner(_("AI is thinking...")):
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
