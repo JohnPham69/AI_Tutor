@@ -160,10 +160,8 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             config=generate_content_config,
         ):
             step_one_output_text += chunk.text
-        if st.session_state.lang == "en":
-            return trans(step_one_output_text, user_api, user_model)
         # Xử lý kết quả: chỉ lấy phần trước ///Follow_up///
-        return step_one_output_text
+        return st.session_state.lang
 
     except Exception as e:
         print(f"Error in genRes: {e}")
