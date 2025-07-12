@@ -4,6 +4,7 @@
 import requests
 from google import genai
 from google.genai import types
+import streamlit as st
 
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash"
@@ -160,6 +161,8 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             config=generate_content_config,
         ):
             step_one_output_text += chunk.text
+        if st.session_state.lang == 'en':
+            return trans(step_one_output_text, user_api, user_model)
         # Xử lý kết quả: chỉ lấy phần trước ///Follow_up///
         return step_one_output_text
 
