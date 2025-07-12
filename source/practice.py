@@ -138,7 +138,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     lesson_id_str=selected_lesson_id_for_quiz, # Pass lesson_id_str
                     question_type=type_of_question,
                 )
-                controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
+                st.session_state['selected_subject_name'] = selected_subject_name # Store in cookies for AI page
             if data and len(data) == num_q:
                 st.session_state.generated_quiz_data = data
                 st.session_state.num_questions_to_ask = num_q
