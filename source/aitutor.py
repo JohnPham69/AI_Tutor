@@ -63,6 +63,7 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
+        st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
         with st.chat_message("user"):
