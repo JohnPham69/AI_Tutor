@@ -191,7 +191,7 @@ TRANSLATIONS = {
         "How to": "API Key?",
         "FAQ - Frequently Asked Question": "FAQ - Câu hỏi thường gặp",
         "Please enter your API key!!!": "Bạn cần nhập API key!!!", 
-        "AI is thinking...": "AI đang suy nghĩ",
+        "AI is thinking...": "AI đang suy nghĩ...",
     }
 }
 
