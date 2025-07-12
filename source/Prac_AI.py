@@ -92,6 +92,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Đối với mỗi câu hỏi, hãy cung cấp một câu trả lời chính xác và ngắn gọn.
             Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
             QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm), bạn PHẢI sử dụng ký tự `\n\n` để biểu thị dấu xuống dòng. Không được có ký tự xuống dòng thực sự (raw newline characters) bên trong các chuỗi JSON.
+            Có nghĩa, đối với câu hỏi trắc nghiệm, bạn PHẢI xuống hai dòng, trước khi viết mỗi lựa chọn.
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
             Ví dụ về định dạng JSON bắt buộc cho 2 câu hỏi:
             [
