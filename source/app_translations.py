@@ -79,6 +79,7 @@ TRANSLATIONS = {
         "Select all lessons": "Select all lessons",
         "Learning with AI": "Learning",
         "Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)": "Type your message here (/x for new chat)",
+        "Lỗi cấu hình: Google Sheets credentials không được thiết lập trong Streamlit secrets.": "Configuration error: Google Sheets credentials were not established in Streamlit secrets",
     },
     "vi": {
         "No lesson": "Không chọn bài học",
@@ -192,6 +193,7 @@ TRANSLATIONS = {
         "FAQ - Frequently Asked Question": "FAQ - Câu hỏi thường gặp",
         "Please enter your API key!!!": "Bạn cần nhập API key!!!", 
         "AI is thinking...": "AI đang suy nghĩ...",
+        "Error in AddNewResult: 'gcp_service_account' not found in st.secrets.": "Lỗi trong AddNewResult: 'gcp_service_account' không thể tìm được trong st.secrets."
     }
 }
 
