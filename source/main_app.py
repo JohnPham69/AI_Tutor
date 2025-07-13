@@ -1,11 +1,10 @@
-import os
 
 import streamlit as st
 from streamlit.components.v1 import html
 
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
-import os
+# import os # Future improvements
 from st_clickable_images import clickable_images
 from app_translations import get_translator, init_session_language # Import from new translations module
 import streamlit.components.v1 as components
