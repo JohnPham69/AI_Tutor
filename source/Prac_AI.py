@@ -60,11 +60,11 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         return ""
 
 def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str = "Mixed"):
-    """
-    Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
-    Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
-    Format JSON: [{"question": "...", "answer": "..."}, ...]
-    """
+    
+    # Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
+    # Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
+    # Format JSON: [{"question": "...", "answer": "..."}, ...]
+    
     if not user_api:
         print("Lỗi: API key không được cung cấp cho generate_quiz_data.")
         return None
