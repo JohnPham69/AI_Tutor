@@ -9,9 +9,8 @@
 
 ### 2. Chương trình sẽ thu thập thông tin gì, lưu ở đâu và dùng cho mục đích gì?
 
-- Chương trình **không thu thập thông tin cá nhân** của bạn.
-- Các dữ liệu như API KEY, lịch sử chat, cấu hình cá nhân (nếu có) **chỉ được lưu trên thiết bị của bạn**.
-- Không có dữ liệu nào được gửi ra ngoài hoặc lưu trữ trên máy chủ của bên phát triển, trừ khi bạn chủ động chia sẻ.
+- Chương trình chỉ thu thập **tên, trường, lớp** của bạn.
+- Các dữ liệu như API KEY, model AI, lịch sử chat, cấu hình cá nhân (nếu có) **chỉ được lưu trên thiết bị của bạn**.
 
 ### 3. Kết quả phản hồi có tin cậy không?
 
