@@ -213,7 +213,7 @@ with st.sidebar:
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
             on_change=apply_cookies,
-            kwargs={'key': 'user_grade', 'value': st.session_state.sb_grade_tester_label}
+            kwargs={'key': 'user_grade', 'value': st.session_state.get('sb_grade_tester_label')}
         )
 
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
@@ -244,7 +244,7 @@ with st.sidebar:
             placeholder=_("Choose textbook set"),
             disabled=not bool(textbook_set_labels),
             on_change=apply_cookies,
-            kwargs={'key': 'user_set', 'value': st.session_state.sb_textbook_set_tester_label}
+            kwargs={'key': 'user_set', 'value': st.session_state.get('sb_textbook_set_tester_label')}
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         st.session_state.sb_textbook_set_tester = selected_textbook_set_name
@@ -273,7 +273,7 @@ with st.sidebar:
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names),
             on_change=apply_cookies,
-            kwargs={'key': 'user_sub', 'value': st.session_state.sb_subject_tester}
+            kwargs={'key': 'user_sub', 'value': st.session_state.get('sb_subject_tester')}
         )
 
         # --- Lesson Multiselect ---
@@ -307,7 +307,7 @@ with st.sidebar:
             placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
             disabled=not bool(lesson_labels),
             on_change=apply_cookies,
-            kwargs={'key': 'user_les', 'value': st.session_state.sb_lesson_tester_labels}
+            kwargs={'key': 'user_les', 'value': st.session_state.get('sb_lesson_tester_labels', [])}
         )
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
