@@ -228,7 +228,7 @@ with st.sidebar:
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
-        st.session_state.sb_grade_tester = selected_grade_number
+        
 
         # --- Textbook Set Selection ---
         textbook_set_names = []
@@ -261,7 +261,7 @@ with st.sidebar:
             }
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
-        st.session_state.sb_textbook_set_tester = selected_textbook_set_name
+        
 
         # --- Subject Selection ---
         subject_names = []
@@ -291,7 +291,7 @@ with st.sidebar:
                 'value': st.session_state.get('sb_subject_tester')
             }
         )
-        st.session_state.sb_subject_tester = selected_subject_name
+        
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
