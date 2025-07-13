@@ -7,10 +7,10 @@ import requests # Để lấy tài liệu bài học
 # Hàm phụ trợ để lấy tài liệu bài học (tương tự như trong StAI.py)
 # Điều này có thể được tái cấu trúc thành một module tiện ích chung sau này
 def _fetch_lesson_content(subject_name, lesson_id_str):
-    """
-    Lấy nội dung bài học từ một URL JSON chính và sau đó từ link .md cụ thể.
-    Trả về nội dung bài học dưới dạng chuỗi hoặc chuỗi rỗng nếu có lỗi.
-    """
+    
+    # Lấy nội dung bài học từ một URL JSON chính và sau đó từ link .md cụ thể.
+    # Trả về nội dung bài học dưới dạng chuỗi hoặc chuỗi rỗng nếu có lỗi.
+    
     if not subject_name or not lesson_id_str:
         return ""
     try:
