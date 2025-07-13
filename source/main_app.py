@@ -1,15 +1,16 @@
-
 import streamlit as st
 from streamlit.components.v1 import html
-
+import streamlit.components.v1 as components
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
 # import os # Future improvements
 from st_clickable_images import clickable_images
+# Translation requests
 from app_translations import get_translator, init_session_language # Import from new translations module
-import streamlit.components.v1 as components
+# Cookies stuffs
 from app_utils import get_cookie_controller
 from streamlit_cookies_manager import CookieManager
+# Adjust and enhance UX / UI
 import time
 
 # This should be on top of your script
