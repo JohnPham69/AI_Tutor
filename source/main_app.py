@@ -206,13 +206,7 @@ with st.sidebar:
         grade_labels = list(grade_label_to_value.keys())
 
         if 'sb_grade_tester_label' not in st.session_state:
-            if st.session_state['user_grade']:
-                # Set to label from cookie (e.g., "Grade 6")
-                grade_label = f"{_('Grade')} {st.session_state['user_grade']}"
-                if grade_label in grade_labels:
-                    st.session_state.sb_grade_tester_label = grade_label
-            else:
-                st.session_state.sb_grade_tester_label = None
+            st.session_state.sb_grade_tester_label = None
 
 
         selected_grade_label = st.selectbox(
@@ -237,12 +231,8 @@ with st.sidebar:
         textbook_set_labels = list(textbook_set_label_to_value.keys())
 
         if 'sb_textbook_set_tester_label' not in st.session_state:
-            user_set = st.session_state['user_set']
-            set_label = f"{_('Set')} {user_set}" if user_set else None
-            if set_label in textbook_set_labels:
-                st.session_state.sb_textbook_set_tester_label = set_label
-            else:
-                st.session_state.sb_textbook_set_tester_label = None
+            st.session_state.sb_textbook_set_tester_label = None
+
 
 
         selected_textbook_set_label = st.selectbox(
@@ -270,11 +260,8 @@ with st.sidebar:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
 
         if 'sb_subject_tester' not in st.session_state:
-            user_sub = st.session_state['user_sub']
-            if user_sub in subject_names:
-                st.session_state.sb_subject_tester = user_sub
-            else:
-                st.session_state.sb_subject_tester = None
+            st.session_state.sb_subject_tester = None
+
 
 
         selected_subject_name = st.selectbox(
@@ -300,12 +287,8 @@ with st.sidebar:
         lesson_labels = list(lesson_label_to_value.keys())
 
         if 'sb_lesson_tester_labels' not in st.session_state:
-            user_les = st.session_state['user_les']
-            if isinstance(user_les, list):
-                labels = [k for k, v in lesson_label_to_value.items() if v in user_les]
-                st.session_state.sb_lesson_tester_labels = labels
-            else:
-                st.session_state.sb_lesson_tester_labels = []
+            st.session_state.sb_lesson_tester_labels = []
+
 
 
         def get_lesson_ids_from_labels(labels):
