@@ -163,12 +163,18 @@ with st.sidebar:
         def subject_changed_callback():
             st.session_state.user_interacted_subject = True
 
-        def apply_cookies(cookies_name, cookies_value):
-            cookies[cookies_name] = cookies_value # Set the cookie
+        # def apply_cookies(cookies_name, cookies_value):
+        #    cookies[cookies_name] = cookies_value # Set the cookie
+        #
+        #    assert cookies[cookies_name] == cookies_value # Ensure the cookie is set correctly
+        #    cookies.save()
 
-            assert cookies[cookies_name] == cookies_value # Ensure the cookie is set correctly
-            cookies.save()
-
+        def apply_cookies(*, key=None, value=None):
+            if key is not None:
+                cookies[key] = value
+                assert cookies[key] == value
+                cookies.save()
+                
         # Initialize interaction flags if they don't exist
         if 'user_interacted_grade' not in st.session_state:
             st.session_state.user_interacted_grade = False
