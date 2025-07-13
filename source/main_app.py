@@ -171,10 +171,18 @@ with st.sidebar:
         #    cookies.save()
 
         def apply_cookies(*, key=None, value=None):
-            if key is not None:
-                cookies[key] = value
-                assert cookies[key] == value
+            if key is None or value is None:
+                return  # Ignore invalid calls
+        
+            # Ensure value is serializable and not a complex object
+            try:
+                cookies[key] = str(value)  # convert to string for safety
+                # This assert is required to trigger .save() per plugin's behavior
+                assert cookies[key] == str(value)
                 cookies.save()
+            except Exception as e:
+                st.warning(f"Failed to set cookie '{key}': {e}")
+
                 
         # Initialize interaction flags if they don't exist
         if 'user_interacted_grade' not in st.session_state:
@@ -245,7 +253,10 @@ with st.sidebar:
             placeholder=_("Choose textbook set"),
             disabled=not bool(textbook_set_labels),
             on_change=apply_cookies,
-            kwargs={'key': 'user_set', 'value': st.session_state.get('sb_textbook_set_tester_label')}
+            kwargs={
+                'key': 'user_set',
+                'value': st.session_state.get('sb_textbook_set_tester_label') or ''
+            }
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         st.session_state.sb_textbook_set_tester = selected_textbook_set_name
