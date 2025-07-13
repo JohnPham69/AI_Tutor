@@ -208,29 +208,16 @@ with st.sidebar:
         if 'sb_grade_tester_label' not in st.session_state:
             st.session_state.sb_grade_tester_label = None
 
-        grade_labels = list(grade_label_to_value.keys())
 
-        # Get saved number from cookies/session_state
-        saved_grade_number = st.session_state.get('user_grade')
-        saved_grade_label = f"{_('Grade')} {saved_grade_number}" if saved_grade_number else None
-        
-        # Set index for selectbox if the label exists
-        grade_index = grade_labels.index(saved_grade_label) if saved_grade_label in grade_labels else None
-        
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
-            index=grade_index,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
             on_change=apply_cookies,
-            kwargs={
-                'key': 'user_grade',
-                'value': grade_label_to_value.get(st.session_state.get('sb_grade_tester_label'))
-            }
+            kwargs={'key': 'user_grade', 'value': st.session_state.get('sb_grade_tester_label')}
         )
-
 
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
         st.session_state.sb_grade_tester = selected_grade_number
@@ -246,18 +233,11 @@ with st.sidebar:
         if 'sb_textbook_set_tester_label' not in st.session_state:
             st.session_state.sb_textbook_set_tester_label = None
 
-        textbook_set_labels = list(textbook_set_label_to_value.keys())
 
-        # Get saved set name and build label
-        saved_set_name = st.session_state.get('user_set')
-        saved_set_label = f"{_('Set')} {saved_set_name}" if saved_set_name else None
-        
-        set_index = textbook_set_labels.index(saved_set_label) if saved_set_label in textbook_set_labels else None
-        
+
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
-            index=set_index,
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
@@ -265,10 +245,9 @@ with st.sidebar:
             on_change=apply_cookies,
             kwargs={
                 'key': 'user_set',
-                'value': textbook_set_label_to_value.get(st.session_state.get('sb_textbook_set_tester_label')) or ''
+                'value': st.session_state.get('sb_textbook_set_tester_label') or ''
             }
         )
-
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         st.session_state.sb_textbook_set_tester = selected_textbook_set_name
 
@@ -283,27 +262,18 @@ with st.sidebar:
         if 'sb_subject_tester' not in st.session_state:
             st.session_state.sb_subject_tester = None
 
-        # Subject names are raw
-        subject_names = [...]  # already built earlier
-        
-        saved_subject = st.session_state.get('user_sub')
-        subject_index = subject_names.index(saved_subject) if saved_subject in subject_names else None
-        
+
+
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
-            index=subject_index,
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names),
             on_change=apply_cookies,
-            kwargs={
-                'key': 'user_sub',
-                'value': st.session_state.get('sb_subject_tester')
-            }
+            kwargs={'key': 'user_sub', 'value': st.session_state.get('sb_subject_tester')}
         )
-
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
@@ -332,7 +302,7 @@ with st.sidebar:
             placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
             disabled=not bool(lesson_labels),
             on_change=apply_cookies,
-            kwargs={'key': 'user_les', 'value': get_lesson_ids_from_labels(st.session_state.get('sb_lesson_tester_labels', []))}
+            kwargs={'key': 'user_les', 'value': st.session_state.get('sb_lesson_tester_labels', [])}
         )
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
