@@ -433,10 +433,15 @@ with st.sidebar:
                 cookies["user_id"] = StudentID # Set the cookie
 
                 assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
+                cookies.save()
                 assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
+                cookies.save()
                 assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
+                cookies.save()
                 assert cookies['user_school'] == school # Ensure the cookie is set correctly
+                cookies.save()
                 assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
+                cookies.save()
                 assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
                 cookies.save()
 
