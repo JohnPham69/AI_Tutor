@@ -426,23 +426,27 @@ with st.sidebar:
             if api_key_input:
 
                 cookies["user_api"] = api_key_input # Set the cookie for API key
-                cookies["user_model"] = model_input # Set the cookie for model
-                cookies["user_nickname"] = nickname # Set the cookie for nickname
-                cookies["user_school"] = school # Set the cookie for
-                cookies["user_class"] = studyClass # Set the cookie for class
-                cookies["user_id"] = StudentID # Set the cookie
-
                 assert cookies['user_api'] == api_key_input # Ensure the cookie is set correctly
-                cookies.save()
-                assert cookies['user_model'] == model_input # Ensure the cookie is set correctly
-                cookies.save()
-                assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
-                cookies.save()
-                assert cookies['user_school'] == school # Ensure the cookie is set correctly
-                cookies.save()
-                assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
-                cookies.save()
-                assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
+                
+                if model_input:
+                    cookies["user_model"] = str(model_input)
+                    assert cookies["user_model"] == str(model_input)
+
+                if nickname:
+                    cookies["user_nickname"] = nickname # Set the cookie for nickname
+                    assert cookies['user_nickname'] == nickname # Ensure the cookie is set correctly
+
+                if school:
+                    cookies["user_school"] = school # Set the cookie for
+                    assert cookies['user_school'] == school # Ensure the cookie is set correctly
+
+                if studyClass:
+                    cookies["user_class"] = studyClass # Set the cookie for class
+                    assert cookies['user_class'] == studyClass # Ensure the cookie is set correctly
+
+                if StudentID:
+                    cookies["user_id"] = StudentID # Set the cookie
+                    assert cookies['user_id'] == StudentID # Ensure the cookie is set correctly
                 cookies.save()
 
                 # Sync to st.session_state as well
