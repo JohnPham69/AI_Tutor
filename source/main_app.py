@@ -202,23 +202,31 @@ with st.sidebar:
         # --- Grade Selection ---
         grade_data = subject_lesson_data.get("grade", [])
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
-        grade_label_to_value = {f"{_("Grade")} {n}": n for n in grade_numbers}
+        grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
-
-        if 'sb_grade_tester_label' not in st.session_state:
-            st.session_state.sb_grade_tester_label = None
-
-
+        
+        # Restore saved grade index
+        saved_grade_number = cookies.get('user_grade')
+        selected_grade_index = None
+        if saved_grade_number and str(saved_grade_number).isdigit():
+            saved_label = f"{_('Grade')} {int(saved_grade_number)}"
+            if saved_label in grade_labels:
+                selected_grade_index = grade_labels.index(saved_label)
+        
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
+            index=selected_grade_index,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
             on_change=apply_cookies,
-            kwargs={'key': 'user_grade', 'value': st.session_state.get('sb_grade_tester_label')}
+            kwargs={
+                'key': 'user_grade',
+                'value': grade_label_to_value.get(st.session_state.get('sb_grade_tester_label'))
+            }
         )
-
+        
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
         st.session_state.sb_grade_tester = selected_grade_number
 
@@ -229,15 +237,19 @@ with st.sidebar:
             textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
         textbook_set_label_to_value = {_("Set") + " " + f"{name}": name for name in textbook_set_names}
         textbook_set_labels = list(textbook_set_label_to_value.keys())
-
-        if 'sb_textbook_set_tester_label' not in st.session_state:
-            st.session_state.sb_textbook_set_tester_label = None
-
-
-
+        
+        # Restore saved textbook set index
+        saved_set_name = cookies.get('user_set')
+        selected_set_index = None
+        if saved_set_name:
+            saved_label = f"{_('Set')} {saved_set_name}"
+            if saved_label in textbook_set_labels:
+                selected_set_index = textbook_set_labels.index(saved_label)
+        
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
+            index=selected_set_index,
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
@@ -245,7 +257,7 @@ with st.sidebar:
             on_change=apply_cookies,
             kwargs={
                 'key': 'user_set',
-                'value': st.session_state.get('sb_textbook_set_tester_label') or ''
+                'value': textbook_set_label_to_value.get(st.session_state.get('sb_textbook_set_tester_label')) or ''
             }
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
@@ -258,22 +270,28 @@ with st.sidebar:
             current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
             if current_textbook_set_info:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
-
-        if 'sb_subject_tester' not in st.session_state:
-            st.session_state.sb_subject_tester = None
-
-
-
+        
+        # Restore saved subject index
+        saved_subject = cookies.get('user_sub')
+        selected_subject_index = None
+        if saved_subject and saved_subject in subject_names:
+            selected_subject_index = subject_names.index(saved_subject)
+        
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
+            index=selected_subject_index,
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names),
             on_change=apply_cookies,
-            kwargs={'key': 'user_sub', 'value': st.session_state.get('sb_subject_tester')}
+            kwargs={
+                'key': 'user_sub',
+                'value': st.session_state.get('sb_subject_tester')
+            }
         )
+        st.session_state.sb_subject_tester = selected_subject_name
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
