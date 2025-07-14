@@ -89,7 +89,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Dạng của tất cả các câu hỏi phải dưới dạng {question_type}.
             {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
             
-            Đối với mỗi câu hỏi, hãy cung cấp một câu trả lời chính xác và ngắn gọn.
+            Đối với mỗi câu hỏi, hãy cho biết đây là câu hỏi gì, trắc nghiệm, hay trả lời dài / ngắn sau đó cung cấp nội dung câu hỏi và tiếp đến trả lời chính xác và ngắn gọn.
             Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
             QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
             QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm), bạn PHẢI sử dụng ký tự `\n` để biểu thị dấu xuống dòng.
