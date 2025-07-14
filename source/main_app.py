@@ -216,7 +216,7 @@ with st.sidebar:
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
-            index=selected_grade_index,
+            # index=selected_grade_index,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade")
@@ -244,7 +244,7 @@ with st.sidebar:
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
-            index=selected_set_index,
+            # index=selected_set_index,
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
@@ -270,7 +270,7 @@ with st.sidebar:
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
-            index=selected_subject_index,
+            # index=selected_subject_index,
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
