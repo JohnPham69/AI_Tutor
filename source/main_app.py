@@ -219,12 +219,7 @@ with st.sidebar:
             index=selected_grade_index,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
-            placeholder=_("Choose grade"),
-            on_change=apply_cookies,
-            kwargs={
-                'key': 'user_grade',
-                'value': grade_label_to_value.get(st.session_state.get('sb_grade_tester_label'))
-            }
+            placeholder=_("Choose grade")
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
@@ -253,12 +248,7 @@ with st.sidebar:
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
-            disabled=not bool(textbook_set_labels),
-            on_change=apply_cookies,
-            kwargs={
-                'key': 'user_set',
-                'value': textbook_set_label_to_value.get(st.session_state.get('sb_textbook_set_tester_label')) or ''
-            }
+            disabled=not bool(textbook_set_labels)
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         
@@ -284,12 +274,7 @@ with st.sidebar:
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
-            disabled=not bool(subject_names),
-            on_change=apply_cookies,
-            kwargs={
-                'key': 'user_sub',
-                'value': st.session_state.get('sb_subject_tester')
-            }
+            disabled=not bool(subject_names)
         )
         
 
@@ -318,9 +303,7 @@ with st.sidebar:
             label_visibility="collapsed",
             key='sb_lesson_tester_labels',
             placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
-            disabled=not bool(lesson_labels),
-            on_change=apply_cookies,
-            kwargs={'key': 'user_les', 'value': st.session_state.get('sb_lesson_tester_labels', [])}
+            disabled=not bool(lesson_labels)
         )
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
