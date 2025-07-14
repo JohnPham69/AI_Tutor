@@ -101,7 +101,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
                     if current_subject_info:
                         lesson_detail_found = next(
-                            (l_info for l_info in current_subject_info.get("link", []) if str(l_info.get("ID")) == selected_lesson_id_for_quiz),
+                            (l_info for l_info in current_subject_info.get("link", []) if int(l_info.get("ID", -1)) == int(selected_lesson_id_for_quiz)),
                             None
                         )
                         if lesson_detail_found and lesson_detail_found.get("link"):
