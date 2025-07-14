@@ -215,8 +215,6 @@ with st.sidebar:
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
-        cookies['user_grade'] = selected_grade_label
-        cookies.save()
 
         # --- Textbook Set Selection ---
         textbook_set_names = []
@@ -236,8 +234,6 @@ with st.sidebar:
             disabled=not bool(textbook_set_labels)
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
-        cookies['user_set'] = selected_textbook_set_label
-        cookies.save()
         
         # --- Subject Selection ---
         subject_names = []
@@ -256,8 +252,6 @@ with st.sidebar:
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names)
         )
-        cookies['user_sub'] = selected_subject_name
-        cookies.save()
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
