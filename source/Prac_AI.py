@@ -59,7 +59,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type):
+def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str = "Mixed"):
     
     # Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
     # Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
@@ -77,12 +77,6 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         if subject_name and lesson_id_str:
             lesson_material = _fetch_lesson_content(subject_name, lesson_id_str)
 
-        if question_type == "Mixed":
-            question_type = "trắc nghiệm, tự luận, trả lời ngắn"
-        elif question_type == "Multiple Choice":
-            question_type = "trắc nghiệm 4 lựa chọn (A, B, C, D)"
-        else:
-            question_type = "tự luận, trả lời ngắn"
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
             Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi.
