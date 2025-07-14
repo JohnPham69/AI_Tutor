@@ -93,11 +93,10 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
             QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
             QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm), bạn PHẢI sử dụng ký tự `\n\n` để biểu thị dấu xuống dòng. Không được có ký tự xuống dòng thực sự (raw newline characters) bên trong các chuỗi JSON.
-            Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG HAI DÒNG, trước khi viết mỗi lựa chọn.
+            Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG HAI DÒNG, trước khi viết mỗi lựa chọn tính từ lựa chọn thứ nhất.
             Ví dụ cho câu hỏi TRẮC NGHIỆM:
             '
             Nội dung câu hỏi?
-
             A. Lựa chọn A
 
             B. Lựa chọn B
@@ -110,8 +109,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Ví dụ về định dạng JSON bắt buộc cho 2 câu hỏi:
             [
                 {{
-                    "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?
-                    
+                    "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
                     A. abcde
                     
                     B. abcde
