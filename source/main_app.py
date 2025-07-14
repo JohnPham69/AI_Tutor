@@ -215,7 +215,9 @@ with st.sidebar:
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
-        
+        cookies['user_grade'] = selected_grade_label
+        assert cookies['user_grade'] == selected_grade_label
+        cookies.save()
 
         # --- Textbook Set Selection ---
         textbook_set_names = []
@@ -235,8 +237,10 @@ with st.sidebar:
             disabled=not bool(textbook_set_labels)
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
+        cookies['user_set'] = selected_textbook_set_label
+        assert cookies['user_set'] == selected_textbook_set_label
+        cookies.save()
         
-
         # --- Subject Selection ---
         subject_names = []
         current_textbook_set_info = None
@@ -244,13 +248,7 @@ with st.sidebar:
             current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
             if current_textbook_set_info:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
-        
-        # Restore saved subject index
-        saved_subject = cookies.get('user_sub')
-        selected_subject_index = None
-        if saved_subject and saved_subject in subject_names:
-            selected_subject_index = subject_names.index(saved_subject)
-        
+            
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
@@ -260,7 +258,9 @@ with st.sidebar:
             placeholder=_("No subjects available"),
             disabled=not bool(subject_names)
         )
-        
+        cookies['user_sub'] = selected_subject_name
+        assert cookies['user_sub'] == selected_subject_name
+        cookies.save()
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
