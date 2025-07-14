@@ -88,8 +88,6 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
 
     if not selected_subject and not lesson_id:
         st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
-    elif lesson_id and not lesson_url:
-        st.warning(_("A lesson (ID: {lesson_id}) was selected, but its content URL could not be found. The quiz may cover general topics for subject '{subject_name}'. Please check sidebar selections and data integrity.").format(lesson_id=lesson_id, subject_name=selected_subject or _("N/A")))
     elif not lesson_id:
         st.info(_("No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.").format(subject_name=selected_subject))
     elif not selected_subject:
