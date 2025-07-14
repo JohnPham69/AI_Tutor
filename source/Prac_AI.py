@@ -59,7 +59,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str = "Mixed"):
+def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str):
     
     # Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
     # Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
