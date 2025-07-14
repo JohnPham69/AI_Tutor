@@ -205,14 +205,6 @@ with st.sidebar:
         grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
         
-        # Restore saved grade index
-        saved_grade_number = cookies.get('user_grade')
-        selected_grade_index = None
-        if saved_grade_number and str(saved_grade_number).isdigit():
-            saved_label = f"{_('Grade')} {int(saved_grade_number)}"
-            if saved_label in grade_labels:
-                selected_grade_index = grade_labels.index(saved_label)
-        
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
@@ -232,15 +224,7 @@ with st.sidebar:
             textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
         textbook_set_label_to_value = {_("Set") + " " + f"{name}": name for name in textbook_set_names}
         textbook_set_labels = list(textbook_set_label_to_value.keys())
-        
-        # Restore saved textbook set index
-        saved_set_name = cookies.get('user_set')
-        selected_set_index = None
-        if saved_set_name:
-            saved_label = f"{_('Set')} {saved_set_name}"
-            if saved_label in textbook_set_labels:
-                selected_set_index = textbook_set_labels.index(saved_label)
-        
+                
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
