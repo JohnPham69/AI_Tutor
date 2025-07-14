@@ -99,6 +99,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
         if not user_key:
             st.error(_("API key not configured, please set it in the Config page."))
         else:
+            st.write(q_type)
             with st.spinner(_("Creating Quiz Spinner")):
                 quiz = generate_quiz_data(
                     num_questions=num_q,
@@ -115,10 +116,6 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                 st.rerun()
             else:
                 st.error(_("Not Enough Questions Error"))
-
-    if st.button(_("Go Back Button")):
-        reset_quiz_state()
-        st.rerun()
 
 # --- QUESTIONING ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
