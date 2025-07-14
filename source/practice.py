@@ -42,9 +42,14 @@ st.title(_("Practice Quiz Title"))
 def reset_quiz_state(reset_step=True):
     if reset_step:
         st.session_state.quiz_step = QUIZ_STATE_INITIAL
-    for k in ["num_questions_to_ask", "current_question_idx", "user_answers", "feedback", "generated_quiz_data", "quiz_error_message"]:
-        st.session_state[k] = {} if isinstance(st.session_state.get(k), dict) else [] if isinstance(st.session_state.get(k), list) else None
+    st.session_state.num_questions_to_ask = 0
+    st.session_state.current_question_idx = 0
+    st.session_state.user_answers = {}
+    st.session_state.feedback = {}
+    st.session_state.generated_quiz_data = []
+    st.session_state.quiz_error_message = None
     st.session_state.time_for_each = 60
+
 
 # --- Helper to fetch lesson ---
 def get_lesson_from_context(data, grade, set_name, subject, lesson_id):
@@ -116,6 +121,9 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                 st.rerun()
             else:
                 st.error(_("Not Enough Questions Error"))
+
+idx = st.session_state.current_question_idx or 0
+total = st.session_state.num_questions_to_ask or 0
 
 # --- QUESTIONING ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
