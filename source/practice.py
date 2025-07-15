@@ -3,9 +3,9 @@ from Prac_AI import generate_quiz_data, evaluate_user_answer_clarity
 import streamlit.components.v1 as components
 from random import randint
 import time
-import os
-import requests
 import json
+import requests
+import os
 from app_translations import get_translator # Import translator
 from app_utils import get_cookie_controller # Import the singleton controller
 from StResult import AddNewResult
@@ -70,8 +70,15 @@ timeout = 0
 
 # --- INITIAL STATE ---
 if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
-    st.session_state.quiz_step = QUIZ_STATE_CONFIG
-    st.rerun()
+    st.markdown(_("Start New Practice Session"))
+    if st.session_state.quiz_error_message:
+        st.error(st.session_state.quiz_error_message)
+        st.session_state.quiz_error_message = None
+
+    if st.button(_("Start Quiz Button")):
+        st.session_state.quiz_step = QUIZ_STATE_CONFIG
+        st.rerun()
+    st.caption(_("Based on Sidebar Selection"))
 
 # --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
@@ -86,53 +93,61 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     selected_lesson_id_for_quiz = None
     lesson_content_url_for_quiz = None
 
-    if raw_selected_lesson_ids_list: # A lesson ID is selected from the multiselect
-        selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0] # Use the first selected lesson ID for the quiz
-        # For getting the file
-        '''
-        selected_lesson_details = st.session_state.get('selected_lesson_contexts', [])
-        if not selected_lesson_details:
-            st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected from the sidebar.")})
-        else:
-            combined_lesson_content = []
-            for lesson_detail in selected_lesson_details:
-                lesson_id = lesson_detail.get('id', 'UnknownID')
-                lesson_name = lesson_detail.get('name', f'Lesson {lesson_id}')
-                lesson_url = lesson_detail.get('url')
-    
-                if lesson_url:
-                    try:
-                        response = requests.get(lesson_url)
-                        response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
-                        content = response.text
-                        combined_lesson_content.append(f"{content}")
-                    except requests.exceptions.RequestException as e:
-                        combined_lesson_content.append(f"### {_('Failed to fetch content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{_('Error')}: {e}")
-        '''
+    # Ensure subject_lesson_data is available
+if 'subject_lesson_data_for_pages' not in st.session_state:
+    try:
+        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
+        response = requests.get(main_json_url)
+        response.raise_for_status()
+        st.session_state.subject_lesson_data_for_pages = response.json()
+    except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
+        st.error(f"Failed to load lesson data: {e}")
+        st.stop()
 
-        
-        # Directly look up the URL using the full subject_lesson_data and current selections
-        # This avoids relying on selected_lesson_contexts which might be stale due to st.navigation
-        subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages')
-        if subject_data_from_session and selected_grade_number and \
-           selected_textbook_set_name and selected_subject_name and selected_lesson_id_for_quiz:
-            
-            current_grade_info = next((g for g in subject_data_from_session.get("grade", []) if g.get("number") == selected_grade_number), None)
-            if current_grade_info:
-                current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
-                if current_textbook_set_info:
-                    current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
-                    if current_subject_info:
-                        lesson_detail_found = next(
-                            (l_info for l_info in current_subject_info.get("link", []) if str(l_info.get("ID")) == selected_lesson_id_for_quiz),
-                            None
-                        )
-                        if lesson_detail_found and lesson_detail_found.get("link"):
-                            lesson_content_url_for_quiz = lesson_detail_found.get("link")
+subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages')
+
+selected_lesson_id_for_quiz = None
+lesson_content_url_for_quiz = None
+
+# Ensure subject_lesson_data is available
+if 'subject_lesson_data_for_pages' not in st.session_state:
+    try:
+        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
+        response = requests.get(main_json_url)
+        response.raise_for_status()
+        st.session_state.subject_lesson_data_for_pages = response.json()
+    except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
+        st.error(f"Failed to load lesson data: {e}")
+        st.stop()
+
+subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages')
+
+selected_lesson_id_for_quiz = None
+lesson_content_url_for_quiz = None
+
+if raw_selected_lesson_ids_list:  # A lesson ID is selected
+    selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0]  # Take first selected ID
+
+    if subject_data_from_session and selected_grade_number and selected_textbook_set_name and selected_subject_name:
+        # Navigate through the hierarchy
+        current_grade_info = next((g for g in subject_data_from_session.get("grade", []) if g.get("number") == selected_grade_number), None)
+        if current_grade_info:
+            current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+            if current_textbook_set_info:
+                current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
+                if current_subject_info:
+                    lesson_detail_found = next(
+                        (l_info for l_info in current_subject_info.get("link", []) if str(l_info.get("ID")) == selected_lesson_id_for_quiz),
+                        None
+                    )
+                    if lesson_detail_found and lesson_detail_found.get("link"):
+                        lesson_content_url_for_quiz = lesson_detail_found.get("link")  # ✅ Got the URL
 
     # Inform user if subject/lesson is not selected for the quiz
     if not selected_subject_name and not selected_lesson_id_for_quiz:
         st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
+    elif selected_lesson_id_for_quiz and not lesson_content_url_for_quiz:
+        st.warning(_("A lesson (ID: {lesson_id}) was selected, but its content URL could not be found. The quiz may cover general topics for subject '{subject_name}'. Please check sidebar selections and data integrity.").format(lesson_id=selected_lesson_id_for_quiz, subject_name=selected_subject_name if selected_subject_name else _("N/A")))
     elif not selected_lesson_id_for_quiz: # Subject is selected, but no specific lesson
         st.info(_("No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.").format(subject_name=selected_subject_name))
     elif not selected_subject_name: # Lesson selected but somehow no subject (should be rare with sidebar logic)
@@ -157,7 +172,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     user_api=user_api_key, 
                     subject_name=selected_subject_name, 
                     lesson_id_str=selected_lesson_id_for_quiz, # Pass lesson_id_str
-                    question_type=type_of_question
+                    question_type=type_of_question,
                 )
                 controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
             if data and len(data) == num_q:
@@ -168,6 +183,10 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
             else:
                 st.error(_("Not Enough Questions Error"))
                 st.session_state.generated_quiz_data = []
+
+    if st.button(_("Go Back Button")):
+        reset_quiz_state()
+        st.rerun()
 
 # --- QUESTIONING or FEEDBACK ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
@@ -185,11 +204,11 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         # --- Logic to save results to the leaderboard ---
         
         # Get user info from cookies to see if we can save
-        nick = st.session_state.get('user_nickname')
-        school = st.session_state.get('user_school')
-        class_name = st.session_state.get('user_class')
-        student_id = st.session_state.get('user_id')
-        subject_fin = st.session_state.get('selected_subject_name')
+        nick = controller.get('user_nickname')
+        school = controller.get('user_school')
+        class_name = controller.get('user_class')
+        student_id = controller.get('user_id')
+        subject_fin = controller.get('selected_subject_name')
 
         # Check if all required user info is present before enabling the save button
         can_save = all([nick, school, class_name, student_id, subject_fin])
