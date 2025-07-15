@@ -4,6 +4,8 @@ import streamlit.components.v1 as components
 from random import randint
 import time
 import os
+import requests
+import json
 from app_translations import get_translator # Import translator
 from app_utils import get_cookie_controller # Import the singleton controller
 from StResult import AddNewResult
