@@ -179,9 +179,6 @@ if st.button(_("Create Quiz and Start Button")):
             st.error(_("Not Enough Questions Error"))
             st.session_state.generated_quiz_data = []
 
-if st.button(_("Go Back Button")):
-    reset_quiz_state()
-    st.rerun()
 
 # --- QUESTIONING or FEEDBACK ---
 if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
