@@ -109,39 +109,41 @@ subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages'
 selected_lesson_id_for_quiz = None
 lesson_content_url_for_quiz = None
 
-# Ensure subject_lesson_data is available
+# Ensure JSON data exists
 if 'subject_lesson_data_for_pages' not in st.session_state:
     try:
-        main_json_url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
-        response = requests.get(main_json_url)
-        response.raise_for_status()
-        st.session_state.subject_lesson_data_for_pages = response.json()
+        url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
+        res = requests.get(url)
+        res.raise_for_status()
+        st.session_state.subject_lesson_data_for_pages = res.json()
     except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
         st.error(f"Failed to load lesson data: {e}")
         st.stop()
 
-subject_data_from_session = st.session_state.get('subject_lesson_data_for_pages')
-
-selected_lesson_id_for_quiz = None
+subject_data = st.session_state.subject_lesson_data_for_pages
 lesson_content_url_for_quiz = None
+lesson_text = None
 
-if raw_selected_lesson_ids_list:  # A lesson ID is selected
-    selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0]  # Take first selected ID
+if raw_selected_lesson_ids_list:
+    lesson_id = raw_selected_lesson_ids_list[0]
+    grade_info = next((g for g in subject_data.get("grade", []) if g.get("number") == selected_grade_number), None)
+    if grade_info:
+        set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+        if set_info:
+            subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
+            if subject_info:
+                lesson_detail = next((l for l in subject_info.get("link", []) if str(l.get("ID")) == lesson_id), None)
+                if lesson_detail:
+                    lesson_content_url_for_quiz = lesson_detail.get("link")
 
-    if subject_data_from_session and selected_grade_number and selected_textbook_set_name and selected_subject_name:
-        # Navigate through the hierarchy
-        current_grade_info = next((g for g in subject_data_from_session.get("grade", []) if g.get("number") == selected_grade_number), None)
-        if current_grade_info:
-            current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
-            if current_textbook_set_info:
-                current_subject_info = next((s for s in current_textbook_set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
-                if current_subject_info:
-                    lesson_detail_found = next(
-                        (l_info for l_info in current_subject_info.get("link", []) if str(l_info.get("ID")) == selected_lesson_id_for_quiz),
-                        None
-                    )
-                    if lesson_detail_found and lesson_detail_found.get("link"):
-                        lesson_content_url_for_quiz = lesson_detail_found.get("link")  # ✅ Got the URL
+# Optionally fetch lesson text
+if lesson_content_url_for_quiz:
+    try:
+        lesson_res = requests.get(lesson_content_url_for_quiz)
+        lesson_res.raise_for_status()
+        lesson_text = lesson_res.text
+    except requests.exceptions.RequestException as e:
+        st.warning(f"Could not fetch lesson content: {e}")
 
     # Inform user if subject/lesson is not selected for the quiz
     if not selected_subject_name and not selected_lesson_id_for_quiz:
