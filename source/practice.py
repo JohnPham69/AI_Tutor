@@ -6,8 +6,8 @@ import time
 import json
 import requests
 import os
-from app_translations import get_translator # Import translator
-from app_utils import get_cookie_controller # Import the singleton controller
+from app_translations import get_translator  # Import translator
+from app_utils import get_cookie_controller  # Import the singleton controller
 from StResult import AddNewResult
 
 # --- Constants ---
@@ -36,10 +36,9 @@ def ensure_session():
             st.session_state[key] = val
 
 ensure_session()
-_ = get_translator() # Initialize translator for this page
-controller = get_cookie_controller() # Use the cached singleton instance
+_ = get_translator()  # Initialize translator for this page
+controller = get_cookie_controller()  # Use the cached singleton instance
 st.title(_("Practice Quiz Title"))
-
 
 # --- Reset function ---
 def reset_quiz_state(set_step_to_initial=True):
@@ -61,11 +60,10 @@ def refresher(seconds):
         filePath = os.path.join(mainDir, 'dummy.py')
         with open(filePath, 'w') as f:
             f.write(f'# {randint(0, 10000)}')
-            # The following line will raise NameError due to `idx` and `current` not being in scope.
-            # It is translated assuming these variables would be correctly scoped in a fixed version.
             st.session_state.feedback[idx] = {"message": _("Incorrect Feedback Message").format(correct_answer=current['answer']), "status": FEEDBACK_STATUS_INCORRECT}
             st.session_state.quiz_step = QUIZ_STATE_GRADING_FEEDBACK
             st.rerun()
+
 timeout = 0
 
 # --- INITIAL STATE ---
@@ -77,7 +75,7 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     st.markdown(_("Configure Your Quiz"))
 
-    # Sidebar selections from Tester.py
+    # Get sidebar selections
     selected_grade_number = st.session_state.get('sb_grade_tester')
     selected_textbook_set_name = st.session_state.get('sb_textbook_set_tester')
     selected_subject_name = st.session_state.get("sb_subject_tester")
@@ -97,21 +95,22 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     subject_data = st.session_state.subject_lesson_data_for_pages
     lesson_content_url_for_quiz = None
     lesson_text = None
+    selected_lesson_id_for_quiz = None
 
-    # 🔍 Navigate JSON if a lesson is selected
+    # Navigate JSON if lesson selected
     if raw_selected_lesson_ids_list:
-        lesson_id = raw_selected_lesson_ids_list[0]
+        selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0]
         grade_info = next((g for g in subject_data.get("grade", []) if g.get("number") == selected_grade_number), None)
         if grade_info:
             set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
             if set_info:
                 subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
                 if subject_info:
-                    lesson_detail = next((l for l in subject_info.get("link", []) if str(l.get("ID")) == lesson_id), None)
+                    lesson_detail = next((l for l in subject_info.get("link", []) if str(l.get("ID")) == selected_lesson_id_for_quiz), None)
                     if lesson_detail:
                         lesson_content_url_for_quiz = lesson_detail.get("link")
 
-    # Fetch lesson content if URL found
+    # Fetch lesson content if available
     if lesson_content_url_for_quiz:
         try:
             lesson_res = requests.get(lesson_content_url_for_quiz)
@@ -120,13 +119,20 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
         except requests.exceptions.RequestException as e:
             st.warning(f"Could not fetch lesson content: {e}")
 
-    # Always show quiz setup inputs:
+    # Info messages
+    if not selected_subject_name and not selected_lesson_id_for_quiz:
+        st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
+    elif selected_lesson_id_for_quiz and not lesson_content_url_for_quiz:
+        st.warning(_("A lesson (ID: {lesson_id}) was selected, but its content URL could not be found.").format(lesson_id=selected_lesson_id_for_quiz))
+    elif not selected_lesson_id_for_quiz and selected_subject_name:
+        st.info(_("No specific lesson selected for subject '{subject_name}'").format(subject_name=selected_subject_name))
+
+    # Always show quiz settings
     num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
     num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 30, value=10, step=1)
     type_of_question = st.selectbox(_("Type of Question Prompt"),
                                     options=[_("Mixed"), _("Multiple Choice"), _("Long / Short Answer")],
                                     index=0)
-
     st.session_state.time_for_each = num_time * 60 / num_q
     st.markdown(_("Time Per Question Info").format(time_per_question=st.session_state.time_for_each))
 
@@ -140,70 +146,66 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     num_questions=num_q,
                     user_api=user_api_key,
                     subject_name=selected_subject_name,
-                    lesson_id_str=lesson_id if raw_selected_lesson_ids_list else None,
-                    lesson_text=lesson_text,  # If your function supports content input
+                    lesson_id_str=selected_lesson_id_for_quiz,
+                    lesson_text=lesson_text,  # If supported by your backend
                     question_type=type_of_question,
                 )
-                controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
-        if data and len(data) == num_q:
-            st.session_state.generated_quiz_data = data
-            st.session_state.num_questions_to_ask = num_q
-            st.session_state.quiz_step = QUIZ_STATE_QUESTIONING
-            st.rerun()
-        else:
-            st.error(_("Not Enough Questions Error"))
-            st.session_state.generated_quiz_data = []
+                controller.set('selected_subject_name', selected_subject_name)
+            if data and len(data) == num_q:
+                st.session_state.generated_quiz_data = data
+                st.session_state.num_questions_to_ask = num_q
+                st.session_state.quiz_step = QUIZ_STATE_QUESTIONING
+                st.rerun()
+            else:
+                st.error(_("Not Enough Questions Error"))
+                st.session_state.generated_quiz_data = []
 
+    if st.button(_("Go Back Button")):
+        reset_quiz_state()
+        st.rerun()
 
 # --- QUESTIONING or FEEDBACK ---
-if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
+elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
     idx = st.session_state.current_question_idx
-    total_questions_in_quiz = st.session_state.num_questions_to_ask # Renamed for clarity
+    total_questions_in_quiz = st.session_state.num_questions_to_ask
     data = st.session_state.generated_quiz_data
 
-    if not data or idx >= total_questions_in_quiz or idx >= len(data): # Quiz completed
+    if not data or idx >= total_questions_in_quiz or idx >= len(data):
         st.balloons()
         st.success(_("Quiz Completed Message"))
-        
+
         num_correct_in_quiz = sum(1 for i in range(total_questions_in_quiz) if st.session_state.feedback.get(i, {}).get("status") == FEEDBACK_STATUS_CORRECT)
         st.markdown(_("Result Info").format(correct=num_correct_in_quiz, total=total_questions_in_quiz))
-        
-        # --- Logic to save results to the leaderboard ---
-        
-        # Get user info from cookies to see if we can save
+
+        # Save results
         nick = controller.get('user_nickname')
         school = controller.get('user_school')
         class_name = controller.get('user_class')
         student_id = controller.get('user_id')
         subject_fin = controller.get('selected_subject_name')
 
-        # Check if all required user info is present before enabling the save button
         can_save = all([nick, school, class_name, student_id, subject_fin])
-        
+
         if not can_save:
-            st.warning(_("Save your own results!")) # Reusing a key that prompts user to save
+            st.warning(_("Save your own results!"))
             st.caption(_("Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results."))
 
         col1, col2 = st.columns(2)
         with col1:
-            # The "Add to Leaderboards" button now directly saves the result.
             if st.button(_("Add to Leaderboards"), disabled=not can_save):
-                # Pass the results of the current quiz only. AddNewResult handles accumulation.
                 save_successful = AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin)
                 if save_successful:
                     st.success(_("Results saved."))
                     reset_quiz_state()
                     st.rerun()
-                # AddNewResult shows its own error on failure.
         with col2:
             if st.button(_("Go Back Button")):
                 reset_quiz_state()
                 st.rerun()
+
     else:
         if st.session_state.quiz_step == QUIZ_STATE_QUESTIONING:
-            # --- Countdown UI with HTML ---
             time_remaining_text = _("Time Remaining Label")
-            # --- Display current question ---
             st.markdown(_("Question Number Info").format(current_idx_plus_1=idx + 1, total_questions=total_questions_in_quiz))
             current = data[idx]
             st.markdown(f"**{current['question']}**")
@@ -213,23 +215,19 @@ if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEE
             timeout = int(st.session_state.time_for_each)
             components.html(f"""
                 <p>{time_remaining_text} <span id="myButton" >{_("Timer")}</span></p>
-                
                 <script>
-                    // Countdown timer function
-                    let countdown = {timeout}; // Set initial countdown value
+                    let countdown = {timeout};
                     const button = document.getElementById('myButton');
-            
                     const interval = setInterval(() => {{
-                    countdown--;
-                    button.textContent = countdown;
-            
-                    if (countdown <= 0) {{
-                        clearInterval(interval); // Stop the timer
-                    }}
-                    }}, 1000); // Update every second
+                        countdown--;
+                        button.textContent = countdown;
+                        if (countdown <= 0) {{
+                            clearInterval(interval);
+                        }}
+                    }}, 1000);
                 </script>
             """, height=80)
-            
+
             col1, col2 = st.columns([0.82, 0.18])
             with col1:
                 if st.button(_("Check Answer Button"), key=f"check_{idx}"):
@@ -241,7 +239,7 @@ if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEE
                         st.rerun()
                     with st.spinner(_("Grading Spinner")):
                         result = evaluate_user_answer_clarity(answer, current['answer'], current['question'], key)
-                    if result == FEEDBACK_STATUS_CORRECT.upper(): # evaluate_user_answer_clarity returns "CORRECT" or "INCORRECT"
+                    if result == FEEDBACK_STATUS_CORRECT.upper():
                         st.session_state.feedback[idx] = {"message": _("Correct Feedback Message"), "status": FEEDBACK_STATUS_CORRECT}
                     elif result == FEEDBACK_STATUS_INCORRECT.upper():
                         st.session_state.feedback[idx] = {"message": _("Incorrect Feedback Message").format(correct_answer=current['answer']), "status": FEEDBACK_STATUS_INCORRECT}
@@ -254,11 +252,9 @@ if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEE
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_q"):
                     reset_quiz_state()
                     st.rerun()
-            
-            # Start the refresher thread
-            refresher(timeout + 1)  # Start the refresher thread
-                
-            
+
+            refresher(timeout + 1)
+
         elif st.session_state.quiz_step == QUIZ_STATE_GRADING_FEEDBACK:
             feedback = st.session_state.feedback.get(idx, {})
             if feedback.get("status") == FEEDBACK_STATUS_CORRECT:
@@ -273,7 +269,6 @@ if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEE
                     st.session_state.quiz_step = QUIZ_STATE_QUESTIONING
                     st.rerun()
             with col2:
-                if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"): # Consider a different key if it causes conflict, or reuse if intended
+                if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
-        
