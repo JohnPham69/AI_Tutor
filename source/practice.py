@@ -155,36 +155,36 @@ type_of_question = st.selectbox(_("Type of Question Prompt"),
 st.session_state.time_for_each = num_time * 60 / num_q
 st.markdown(_("Time Per Question Info").format(time_per_question=st.session_state.time_for_each))
 
-    if st.button(_("Create Quiz and Start Button")):
-        user_api_key = st.session_state.get('user_api')
-        if not user_api_key:
-            st.error(_("API key not configured, please set it in the Config page."))
+if st.button(_("Create Quiz and Start Button")):
+    user_api_key = st.session_state.get('user_api')
+    if not user_api_key:
+        st.error(_("API key not configured, please set it in the Config page."))
+    else:
+        with st.spinner(_("Creating Quiz Spinner")):
+            # Pass subject_name and the direct lesson_content_url
+            data = generate_quiz_data(
+                num_questions=num_q, 
+                user_api=user_api_key, 
+                subject_name=selected_subject_name, 
+                lesson_id_str=selected_lesson_id_for_quiz, # Pass lesson_id_str
+                question_type=type_of_question,
+            )
+            controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
+        if data and len(data) == num_q:
+            st.session_state.generated_quiz_data = data
+            st.session_state.num_questions_to_ask = num_q
+            st.session_state.quiz_step = QUIZ_STATE_QUESTIONING
+            st.rerun()
         else:
-            with st.spinner(_("Creating Quiz Spinner")):
-                # Pass subject_name and the direct lesson_content_url
-                data = generate_quiz_data(
-                    num_questions=num_q, 
-                    user_api=user_api_key, 
-                    subject_name=selected_subject_name, 
-                    lesson_id_str=selected_lesson_id_for_quiz, # Pass lesson_id_str
-                    question_type=type_of_question,
-                )
-                controller.set('selected_subject_name', selected_subject_name) # Store in cookies for AI page
-            if data and len(data) == num_q:
-                st.session_state.generated_quiz_data = data
-                st.session_state.num_questions_to_ask = num_q
-                st.session_state.quiz_step = QUIZ_STATE_QUESTIONING
-                st.rerun()
-            else:
-                st.error(_("Not Enough Questions Error"))
-                st.session_state.generated_quiz_data = []
+            st.error(_("Not Enough Questions Error"))
+            st.session_state.generated_quiz_data = []
 
-    if st.button(_("Go Back Button")):
-        reset_quiz_state()
-        st.rerun()
+if st.button(_("Go Back Button")):
+    reset_quiz_state()
+    st.rerun()
 
 # --- QUESTIONING or FEEDBACK ---
-elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
+if st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
     idx = st.session_state.current_question_idx
     total_questions_in_quiz = st.session_state.num_questions_to_ask # Renamed for clarity
     data = st.session_state.generated_quiz_data
