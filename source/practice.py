@@ -86,6 +86,28 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
 
     if raw_selected_lesson_ids_list: # A lesson ID is selected from the multiselect
         selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0] # Use the first selected lesson ID for the quiz
+        # For getting the file
+        '''
+        selected_lesson_details = st.session_state.get('selected_lesson_contexts', [])
+        if not selected_lesson_details:
+            st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected from the sidebar.")})
+        else:
+            combined_lesson_content = []
+            for lesson_detail in selected_lesson_details:
+                lesson_id = lesson_detail.get('id', 'UnknownID')
+                lesson_name = lesson_detail.get('name', f'Lesson {lesson_id}')
+                lesson_url = lesson_detail.get('url')
+    
+                if lesson_url:
+                    try:
+                        response = requests.get(lesson_url)
+                        response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
+                        content = response.text
+                        combined_lesson_content.append(f"{content}")
+                    except requests.exceptions.RequestException as e:
+                        combined_lesson_content.append(f"### {_('Failed to fetch content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{_('Error')}: {e}")
+        '''
+
         
         # Directly look up the URL using the full subject_lesson_data and current selections
         # This avoids relying on selected_lesson_contexts which might be stale due to st.navigation
