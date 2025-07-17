@@ -241,7 +241,8 @@ with st.sidebar:
 
         def save_gra_sub_les(val_key, save_key):
             st.session_state[val_key] = st.session_state[save_key]
-        
+            controller.set(val_key, st.session_state[save_key])
+        st.write(cookies.get('user_grade'))
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
