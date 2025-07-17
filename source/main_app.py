@@ -318,8 +318,6 @@ with st.sidebar:
         if 'sb_lesson_tester_labels' not in st.session_state:
             st.session_state.sb_lesson_tester_labels = []
 
-
-
         def get_lesson_ids_from_labels(labels):
             return [lesson_label_to_value[label] for label in labels if label in lesson_label_to_value]
 
@@ -332,6 +330,7 @@ with st.sidebar:
             disabled=not bool(lesson_labels),
             on_change=fetch_selected_lessons
         )
+
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
         # --- "Select All" Checkbox for Lessons ---
@@ -348,17 +347,6 @@ with st.sidebar:
                 st.session_state.sb_lesson_tester_labels = lesson_labels
             else:
                 st.session_state.sb_lesson_tester_labels = []
-
-        selected_lesson_labels = st.multiselect(
-            _("Lesson(s)?"),
-            options=lesson_labels,
-            label_visibility="collapsed",
-            key='sb_lesson_tester_labels',
-            placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
-            disabled=not bool(lesson_labels),
-            on_change=fetch_selected_lessons
-        )
-
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
