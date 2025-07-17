@@ -73,28 +73,41 @@ subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
 def fetch_selected_lessons():
-    selected_ids = st.session_state.sb_lesson_tester
-    lesson_contexts = []
+    selected_ids = st.session_state.get("sb_lesson_tester", [])
     contents = []
+    lesson_contexts = []
 
-    if current_subject_info:
-        all_lessons = current_subject_info.get("link", [])
-        for lesson_id in selected_ids:
-            lesson = next((l for l in all_lessons if str(l.get("ID")) == lesson_id), None)
-            if lesson and lesson.get("link"):
-                url = lesson["link"]
-                lesson_contexts.append({
-                    "id": str(lesson.get("ID")),
-                    "name": lesson.get("name", f"Lesson {lesson.get('ID')}"),
-                    "url": url
-                })
-                # Fetch content
-                try:
-                    r = requests.get(url)
-                    r.raise_for_status()
-                    contents.append(r.text)
-                except requests.exceptions.RequestException as e:
-                    contents.append(f"### Error fetching {url}: {e}")
+    # Get grade, set, subject from session_state
+    selected_grade_number = st.session_state.get('sb_grade_tester')
+    selected_textbook_set_name = st.session_state.get('sb_textbook_set_tester')
+    selected_subject_name = st.session_state.get('sb_subject_tester_label')
+
+    subject_lesson_data = st.session_state.get('subject_lesson_data_for_pages', {})
+
+    # Navigate JSON structure dynamically
+    grade_info = next((g for g in subject_lesson_data.get("grade", []) if g.get("number") == selected_grade_number), None)
+    if grade_info:
+        set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+        if set_info:
+            subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
+            if subject_info:
+                all_lessons = subject_info.get("link", [])
+                for lesson_id in selected_ids:
+                    lesson = next((l for l in all_lessons if str(l.get("ID")) == lesson_id), None)
+                    if lesson and lesson.get("link"):
+                        url = lesson["link"]
+                        lesson_contexts.append({
+                            "id": str(lesson.get("ID")),
+                            "name": lesson.get("name", f"Lesson {lesson.get('ID')}"),
+                            "url": url
+                        })
+                        # Fetch content
+                        try:
+                            r = requests.get(url)
+                            r.raise_for_status()
+                            contents.append(r.text)
+                        except requests.exceptions.RequestException as e:
+                            contents.append(f"### Error fetching {url}: {e}")
 
     st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
