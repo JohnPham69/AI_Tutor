@@ -114,13 +114,18 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
             st.error(_("API key not configured, please set it in the Config page."))
         else:
             with st.spinner(_("Creating Quiz Spinner")):
+                lesson_text = None
+                if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
+                    lesson_text = "\n\n".join(st.session_state.lesson_contents)
+                
+                # Later in the quiz generation call:
                 data = generate_quiz_data(
                     num_questions=num_q,
                     user_api=user_api_key,
                     subject_name=selected_subject_name,
                     lesson_id_str=raw_selected_lesson_ids_list[0] if raw_selected_lesson_ids_list else None,
-                    lesson_text=lesson_text,  # Pre-fetched content from session_state
                     question_type=type_of_question,
+                    lesson_text=lesson_text,  # ✅ now supported
                 )
                 controller.set('selected_subject_name', selected_subject_name)
 
