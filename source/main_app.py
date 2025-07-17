@@ -299,11 +299,14 @@ with st.sidebar:
             if current_textbook_set_info:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
         
-        # Restore saved subject index
-        saved_subject = cookies.get('user_sub')
-        selected_subject_index = None
-        if saved_subject and saved_subject in subject_names:
-            selected_subject_index = subject_names.index(saved_subject)
+        def save_user_set():
+            # This is safe because the selectbox has already been rendered
+            st.session_state['user_set'] = st.session_state['sb_textbook_set_tester_label']
+            original_value = textbook_set_label_to_value.get(st.session_state['user_set'])
+            controller.set('user_set', original_value)
+        
+        prep_sub = cookies.get('user_sub')
+        sub_index = textbook_set_names.index(prep_sub) if prep_sub in textbook_set_names else None
         
         selected_subject_name = st.selectbox(
             _("Subject?"),
@@ -331,7 +334,7 @@ with st.sidebar:
 
         def get_lesson_ids_from_labels(labels):
             return [lesson_label_to_value[label] for label in labels if label in lesson_label_to_value]
-
+        
         selected_lesson_labels = st.multiselect(
             _("Lesson(s)?"),
             options=lesson_labels,
