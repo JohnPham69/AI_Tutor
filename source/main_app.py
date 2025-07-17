@@ -3,6 +3,7 @@ from streamlit.components.v1 import html
 import streamlit.components.v1 as components
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
+import re
 # import os # Future improvements
 from st_clickable_images import clickable_images
 # Translation requests
@@ -119,6 +120,12 @@ def fetch_selected_lessons():
     st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
 
+def get_number_in_string(text):
+    match = re.search(r'\d+', text)
+    if match:
+        number = match.group()
+        return number
+
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
                     for (i = 0; i < elements.length; ++i) { if (elements[i].innerText == |wgt_txt|) 
@@ -230,11 +237,13 @@ with st.sidebar:
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
         grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
-    
+
+        
+        
         def save_user_grade():
             # This is safe because the selectbox has already been rendered
             st.session_state['user_grade'] = st.session_state['sb_grade_tester_label']
-            controller.set('user_grade', st.session_state['user_grade'])
+            controller.set('user_grade', get_number_in_string(st.session_state['user_grade']))
             
         st.write(cookies.get('user_grade'))
         selected_grade_label = st.selectbox(
