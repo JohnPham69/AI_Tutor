@@ -364,7 +364,6 @@ with st.sidebar:
             on_change=fetch_selected_lessons
         )
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
-        st.write("DEBUG:", st.session_state.sb_lesson_tester, st.session_state.get("lesson_contents"))
 
         # --- "Select All" Checkbox for Lessons ---
         # The value of the checkbox is determined by whether all available lessons are currently selected.
