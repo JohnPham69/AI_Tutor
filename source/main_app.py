@@ -280,7 +280,7 @@ with st.sidebar:
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
-            index=None,
+            index=set_index,
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
