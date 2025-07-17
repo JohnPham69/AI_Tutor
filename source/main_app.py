@@ -290,34 +290,54 @@ with st.sidebar:
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         
-
         # --- Subject Selection ---
         subject_names = []
         current_textbook_set_info = None
+        
         if current_grade_info and selected_textbook_set_name:
-            current_textbook_set_info = next((ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+            current_textbook_set_info = next(
+                (ts for ts in current_grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name),
+                None
+            )
             if current_textbook_set_info:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
         
-        def save_user_set():
-            # This is safe because the selectbox has already been rendered
-            st.session_state['user_set'] = st.session_state['sb_textbook_set_tester_label']
-            original_value = textbook_set_label_to_value.get(st.session_state['user_set'])
-            controller.set('user_set', original_value)
+        # Build mapping for labels → values
+        subject_label_to_value = {_("Subject") + " " + f"{name}": name for name in subject_names}
+        subject_labels = list(subject_label_to_value.keys())
         
-        prep_sub = cookies.get('user_sub')
-        sub_index = textbook_set_names.index(prep_sub) if prep_sub in textbook_set_names else None
+        # Get previous subject from cookies
+        prep_sub = cookies.get('user_sub')  # Original subject name
+        sub_index = None
+        if prep_sub and prep_sub in subject_label_to_value.values():
+            for i, (label, value) in enumerate(subject_label_to_value.items()):
+                if value == prep_sub:
+                    sub_index = i
+                    break
         
-        selected_subject_name = st.selectbox(
+        # Save subject choice to cookies and controller
+        def save_user_sub():
+            user_subject_label = st.session_state['sb_subject_tester_label']
+            original_subject_value = subject_label_to_value.get(user_subject_label)
+            st.session_state['user_sub'] = user_subject_label
+            controller.set('user_sub', original_subject_value)
+        
+        # Subject selectbox
+        selected_subject_label = st.selectbox(
             _("Subject?"),
-            subject_names,
-            index=None,
-            key='sb_subject_tester',
+            subject_labels,
+            index=sub_index,
+            key='sb_subject_tester_label',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
-            disabled=not bool(subject_names)
-        )        
+            disabled=not bool(subject_labels),
+            on_change=save_user_sub
+        )
+        
+        # Get actual subject name
+        selected_subject_name = subject_label_to_value.get(selected_subject_label)
 
+        
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
         lesson_label_to_value = {}
