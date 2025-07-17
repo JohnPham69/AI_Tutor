@@ -120,11 +120,11 @@ def fetch_selected_lessons():
     st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
 
-def get_number_in_string(text):
+def get_number_in_string(text: str) -> str:
+    if not text:  # Handles None or empty string
+        return ''
     match = re.search(r'\d+', text)
-    if match:
-        number = match.group()
-        return number
+    return match.group() if match else ''
 
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
