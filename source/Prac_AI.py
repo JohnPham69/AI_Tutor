@@ -59,23 +59,32 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None, lesson_id_str: str = None, question_type: str = "Mixed"):
-    
-    # Tạo ra N câu hỏi quiz cùng đáp án, dựa trên chủ đề và bài học (nếu có).
-    # Trả về một list các dictionary, mỗi dict chứa "question" và "answer".
-    # Format JSON: [{"question": "...", "answer": "..."}, ...]
-    
+def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None,
+                       lesson_id_str: str = None, question_type: str = "Mixed", lesson_text: str = None):
+    """
+    Generate N quiz questions based on a subject and optionally a lesson's content.
+    If lesson_text is provided, it overrides the fetch from GitHub.
+    """
     if not user_api:
-        print("Lỗi: API key không được cung cấp cho generate_quiz_data.")
+        print("Error: API key missing.")
         return None
 
     try:
-        client = genai.Client(api_key=user_api) # type: ignore
-        model_name = "gemini-2.5-flash" # Chuẩn hóa tên model
+        client = genai.Client(api_key=user_api)
+        model_name = "gemini-2.5-flash"
 
-        lesson_material = ""
-        if subject_name and lesson_id_str:
+        # Use pre-fetched lesson_text if available
+        lesson_material = lesson_text if lesson_text else ""
+        if not lesson_material and subject_name and lesson_id_str:
             lesson_material = _fetch_lesson_content(subject_name, lesson_id_str)
+
+        # Question type handling
+        if question_type == "Mixed":
+            question_type = "trắc nghiệm, tự luận, trả lời ngắn"
+        elif question_type == "Multiple Choice":
+            question_type = "trắc nghiệm 4 lựa chọn (A, B, C, D)"
+        else:
+            question_type = "tự luận, trả lời ngắn"
 
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
