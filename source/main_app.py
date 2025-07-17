@@ -93,32 +93,30 @@ subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
 def fetch_selected_lessons():
-    # Build contexts based on current selection
     selected_ids = st.session_state.sb_lesson_tester
     lesson_contexts = []
-    
+    contents = []
+
     if current_subject_info:
         all_lessons = current_subject_info.get("link", [])
         for lesson_id in selected_ids:
             lesson = next((l for l in all_lessons if str(l.get("ID")) == lesson_id), None)
             if lesson and lesson.get("link"):
+                url = lesson["link"]
                 lesson_contexts.append({
                     "id": str(lesson.get("ID")),
                     "name": lesson.get("name", f"Lesson {lesson.get('ID')}"),
-                    "url": lesson.get("link")
+                    "url": url
                 })
-    
-    st.session_state.selected_lesson_contexts = lesson_contexts
+                # Fetch content
+                try:
+                    r = requests.get(url)
+                    r.raise_for_status()
+                    contents.append(r.text)
+                except requests.exceptions.RequestException as e:
+                    contents.append(f"### Error fetching {url}: {e}")
 
-    # Fetch content immediately and store
-    contents = []
-    for ctx in lesson_contexts:
-        try:
-            r = requests.get(ctx["url"])
-            r.raise_for_status()
-            contents.append(r.text)
-        except requests.exceptions.RequestException as e:
-            contents.append(f"Error fetching {ctx['name']}: {e}")
+    st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
 
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
@@ -351,13 +349,16 @@ with st.sidebar:
             else:
                 st.session_state.sb_lesson_tester_labels = []
 
-        st.checkbox(
-            _("Select all lessons"),
-            value=all_selected,
-            key="select_all_lessons_cb",
-            on_change=on_select_all_change,
-            disabled=not bool(lesson_labels)
+        selected_lesson_labels = st.multiselect(
+            _("Lesson(s)?"),
+            options=lesson_labels,
+            label_visibility="collapsed",
+            key='sb_lesson_tester_labels',
+            placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
+            disabled=not bool(lesson_labels),
+            on_change=fetch_selected_lessons
         )
+
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
