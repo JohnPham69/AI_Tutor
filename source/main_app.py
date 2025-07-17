@@ -303,7 +303,7 @@ with st.sidebar:
                 subject_names = [s["name"] for s in current_textbook_set_info.get("subjects", []) if "name" in s]
         
         # Build mapping for labels → values
-        subject_label_to_value = {_("Subject") + " " + f"{name}": name for name in subject_names}
+        subject_label_to_value = {f"{name}": name for name in subject_names}
         subject_labels = list(subject_label_to_value.keys())
         
         # Get previous subject from cookies
