@@ -363,10 +363,7 @@ with st.sidebar:
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
-            if "lesson_contents" in st.session_state:
-                fetch_and_display_lessons()
-            else:
-                st.warning(_("No lessons selected or loaded yet."))
+            fetch_and_display_lessons()
 
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
         if 'selected_lesson_contexts' not in st.session_state:
