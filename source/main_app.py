@@ -237,19 +237,20 @@ with st.sidebar:
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
         grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
-
-        
+        string_grade_numbers = [str(n) for n in grade_numbers]        
         
         def save_user_grade():
             # This is safe because the selectbox has already been rendered
             st.session_state['user_grade'] = st.session_state['sb_grade_tester_label']
             controller.set('user_grade', get_number_in_string(st.session_state['user_grade']))
-            
-        st.write(cookies.get('user_grade'))
+        
+        prep_grade = cookies.get('user_grade')
+        grade_index = string_grade_numbers.index(prep_grade) if prep_grade in string_grade_numbers else None
+        
         selected_grade_label = st.selectbox(
             _("Grade?"),
             grade_labels,
-            index=None,
+            index=grade_index,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
