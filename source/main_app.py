@@ -238,6 +238,9 @@ with st.sidebar:
             saved_label = f"{_('Grade')} {int(saved_grade_number)}"
             if saved_label in grade_labels:
                 selected_grade_index = grade_labels.index(saved_label)
+
+        def save_gra_sub_les(val_key, save_key):
+            st.session_state[val_key] = st.session_state[save_key]
         
         selected_grade_label = st.selectbox(
             _("Grade?"),
@@ -245,7 +248,8 @@ with st.sidebar:
             index=None,
             key='sb_grade_tester_label',
             label_visibility="collapsed",
-            placeholder=_("Choose grade")
+            placeholder=_("Choose grade"),
+            on_change=save_gra_sub_les('user_grade', 'sb_grade_tester_label')
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
@@ -274,7 +278,8 @@ with st.sidebar:
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
-            disabled=not bool(textbook_set_labels)
+            disabled=not bool(textbook_set_labels),
+            on_change=save_gra_sub_les('user_set', 'sb_textbook_set_tester_label')
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         
@@ -296,13 +301,13 @@ with st.sidebar:
         selected_subject_name = st.selectbox(
             _("Subject?"),
             subject_names,
-            # index=selected_subject_index,
+            index=None,
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
-            disabled=not bool(subject_names)
-        )
-        
+            disabled=not bool(subject_names),
+            on_change=save_gra_sub_les('user_sub', 'sb_subject_tester')
+        )        
 
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
