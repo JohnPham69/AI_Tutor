@@ -92,6 +92,35 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
 subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
+def fetch_selected_lessons():
+    # Build contexts based on current selection
+    selected_ids = st.session_state.sb_lesson_tester
+    lesson_contexts = []
+    
+    if current_subject_info:
+        all_lessons = current_subject_info.get("link", [])
+        for lesson_id in selected_ids:
+            lesson = next((l for l in all_lessons if str(l.get("ID")) == lesson_id), None)
+            if lesson and lesson.get("link"):
+                lesson_contexts.append({
+                    "id": str(lesson.get("ID")),
+                    "name": lesson.get("name", f"Lesson {lesson.get('ID')}"),
+                    "url": lesson.get("link")
+                })
+    
+    st.session_state.selected_lesson_contexts = lesson_contexts
+
+    # Fetch content immediately and store
+    contents = []
+    for ctx in lesson_contexts:
+        try:
+            r = requests.get(ctx["url"])
+            r.raise_for_status()
+            contents.append(r.text)
+        except requests.exceptions.RequestException as e:
+            contents.append(f"Error fetching {ctx['name']}: {e}")
+    st.session_state.lesson_contents = contents
+
 def ChangeWidgetFontSize(wgt_txt, wch_font_size = '12px'):
     htmlstr = """<script>var elements = window.parent.document.querySelectorAll('*'), i;
                     for (i = 0; i < elements.length; ++i) { if (elements[i].innerText == |wgt_txt|) 
@@ -302,7 +331,8 @@ with st.sidebar:
             label_visibility="collapsed",
             key='sb_lesson_tester_labels',
             placeholder=_("Choose lesson(s)") if lesson_labels else _("No lessons available"),
-            disabled=not bool(lesson_labels)
+            disabled=not bool(lesson_labels),
+            on_change=fetch_selected_lessons
         )
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
@@ -331,7 +361,10 @@ with st.sidebar:
 
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
-            fetch_and_display_lessons()
+            if "lesson_contents" in st.session_state:
+                st.write("\n\n---\n\n".join(st.session_state.lesson_contents))
+            else:
+                st.warning(_("No lessons selected or loaded yet."))
 
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
         if 'selected_lesson_contexts' not in st.session_state:
