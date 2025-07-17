@@ -230,15 +230,7 @@ with st.sidebar:
         grade_numbers = sorted(list(set(g["number"] for g in grade_data if "number" in g)))
         grade_label_to_value = {f"{_('Grade')} {n}": n for n in grade_numbers}
         grade_labels = list(grade_label_to_value.keys())
-        
-        # Restore saved grade index
-        saved_grade_number = cookies.get('user_grade')
-        selected_grade_index = None
-        if saved_grade_number and str(saved_grade_number).isdigit():
-            saved_label = f"{_('Grade')} {int(saved_grade_number)}"
-            if saved_label in grade_labels:
-                selected_grade_index = grade_labels.index(saved_label)
-
+    
         def save_user_grade():
             # This is safe because the selectbox has already been rendered
             st.session_state['user_grade'] = st.session_state['sb_grade_tester_label']
