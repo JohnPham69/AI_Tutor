@@ -239,9 +239,11 @@ with st.sidebar:
             if saved_label in grade_labels:
                 selected_grade_index = grade_labels.index(saved_label)
 
-        def save_gra_sub_les(val_key, save_key):
-            st.session_state[val_key] = st.session_state[save_key]
-            controller.set(val_key, st.session_state[save_key])
+        def save_user_grade():
+            # This is safe because the selectbox has already been rendered
+            st.session_state['user_grade'] = st.session_state['sb_grade_tester_label']
+            controller.set('user_grade', st.session_state['user_grade'])
+            
         st.write(cookies.get('user_grade'))
         selected_grade_label = st.selectbox(
             _("Grade?"),
@@ -250,7 +252,7 @@ with st.sidebar:
             key='sb_grade_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose grade"),
-            on_change=save_gra_sub_les('user_grade', 'sb_grade_tester_label')
+            on_change=save_user_grade
         )
         
         selected_grade_number = grade_label_to_value[selected_grade_label] if selected_grade_label else None
@@ -279,8 +281,7 @@ with st.sidebar:
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
-            disabled=not bool(textbook_set_labels),
-            on_change=save_gra_sub_les('user_set', 'sb_textbook_set_tester_label')
+            disabled=not bool(textbook_set_labels)
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         
@@ -306,8 +307,7 @@ with st.sidebar:
             key='sb_subject_tester',
             label_visibility="collapsed",
             placeholder=_("No subjects available"),
-            disabled=not bool(subject_names),
-            on_change=save_gra_sub_les('user_sub', 'sb_subject_tester')
+            disabled=not bool(subject_names)
         )        
 
         # --- Lesson Multiselect ---
