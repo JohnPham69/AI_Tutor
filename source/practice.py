@@ -91,10 +91,8 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     # Show info or warning based on selections
     if not selected_subject_name and not raw_selected_lesson_ids_list:
         st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
-    elif raw_selected_lesson_ids_list and not lesson_text:
-        st.warning(_("Lesson(s) selected but content is missing in session state."))
     elif not raw_selected_lesson_ids_list and selected_subject_name:
-        st.info(_("No specific lesson selected for subject '{subject_name}'").format(subject_name=selected_subject_name))
+        st.info(_("No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.").format(subject_name=selected_subject_name))
 
     # Always show quiz settings
     num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
