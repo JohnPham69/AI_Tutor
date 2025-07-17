@@ -267,15 +267,16 @@ with st.sidebar:
             textbook_set_names = [ts["name"] for ts in current_grade_info.get("textbook_set", []) if "name" in ts]
         textbook_set_label_to_value = {_("Set") + " " + f"{name}": name for name in textbook_set_names}
         textbook_set_labels = list(textbook_set_label_to_value.keys())
+
+        def save_user_set():
+            # This is safe because the selectbox has already been rendered
+            st.session_state['user_set'] = st.session_state['sb_textbook_set_tester_label']
+            original_value = textbook_set_label_to_value.get(st.session_state['user_set'])
+            controller.set('user_set', original_value)
         
-        # Restore saved textbook set index
-        saved_set_name = cookies.get('user_set')
-        selected_set_index = None
-        if saved_set_name:
-            saved_label = f"{_('Set')} {saved_set_name}"
-            if saved_label in textbook_set_labels:
-                selected_set_index = textbook_set_labels.index(saved_label)
-        
+        prep_set = cookies.get('user_set')
+        set_index = textbook_set_names.index(prep_set) if prep_set in textbook_set_names else None
+                
         selected_textbook_set_label = st.selectbox(
             _("Textbook Set?"),
             textbook_set_labels,
@@ -283,7 +284,8 @@ with st.sidebar:
             key='sb_textbook_set_tester_label',
             label_visibility="collapsed",
             placeholder=_("Choose textbook set"),
-            disabled=not bool(textbook_set_labels)
+            disabled=not bool(textbook_set_labels),
+            on_change=save_user_set
         )
         selected_textbook_set_name = textbook_set_label_to_value[selected_textbook_set_label] if selected_textbook_set_label else None
         
