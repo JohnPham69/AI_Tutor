@@ -72,59 +72,28 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
     st.rerun()
 
 # --- CONFIG STATE ---
+# --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     st.markdown(_("Configure Your Quiz"))
 
-    # Get sidebar selections
+    # Get sidebar selections from session state
     selected_grade_number = st.session_state.get('sb_grade_tester')
     selected_textbook_set_name = st.session_state.get('sb_textbook_set_tester')
     selected_subject_name = st.session_state.get("sb_subject_tester")
     raw_selected_lesson_ids_list = st.session_state.get("sb_lesson_tester", [])
 
-    # Ensure JSON data exists
-    if 'subject_lesson_data_for_pages' not in st.session_state:
-        try:
-            url = "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/GTSL.json"
-            res = requests.get(url)
-            res.raise_for_status()
-            st.session_state.subject_lesson_data_for_pages = res.json()
-        except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
-            st.error(f"Failed to load lesson data: {e}")
-            st.stop()
-
-    subject_data = st.session_state.subject_lesson_data_for_pages
-    lesson_content_url_for_quiz = None
+    # Use lesson content from session_state instead of refetching
     lesson_text = None
-    selected_lesson_id_for_quiz = None
+    if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
+        # Combine all lesson contents into one string
+        lesson_text = "\n\n".join(st.session_state.lesson_contents)
 
-    # Navigate JSON if lesson selected
-    if raw_selected_lesson_ids_list:
-        selected_lesson_id_for_quiz = raw_selected_lesson_ids_list[0]
-        grade_info = next((g for g in subject_data.get("grade", []) if g.get("number") == selected_grade_number), None)
-        if grade_info:
-            set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
-            if set_info:
-                subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
-                if subject_info:
-                    lesson_detail = next((l for l in subject_info.get("link", []) if str(l.get("ID")) == selected_lesson_id_for_quiz), None)
-                    if lesson_detail:
-                        lesson_content_url_for_quiz = lesson_detail.get("link")
-
-    # Fetch lesson content if available
-    if lesson_content_url_for_quiz:
-        try:
-            lesson_res = requests.get(lesson_content_url_for_quiz)
-            lesson_res.raise_for_status()
-            lesson_text = lesson_res.text
-        except requests.exceptions.RequestException as e:
-            st.warning(f"Could not fetch lesson content: {e}")
-
-    # Info messages
-    if not selected_subject_name and not selected_lesson_id_for_quiz:
+    # Show info or warning based on selections
+    if not selected_subject_name and not raw_selected_lesson_ids_list:
         st.info(_("No subject or lesson selected from the sidebar. The quiz will cover general knowledge topics."))
-    elif selected_lesson_id_for_quiz and not lesson_content_url_for_quiz:
-        st.warning(_("A lesson (ID: {lesson_id}) was selected, but its content URL could not be found.").format(lesson_id=selected_lesson_id_for_quiz))
-    elif not selected_lesson_id_for_quiz and selected_subject_name:
+    elif raw_selected_lesson_ids_list and not lesson_text:
+        st.warning(_("Lesson(s) selected but content is missing in session state."))
+    elif not raw_selected_lesson_ids_list and selected_subject_name:
         st.info(_("No specific lesson selected for subject '{subject_name}'").format(subject_name=selected_subject_name))
 
     # Always show quiz settings
@@ -133,9 +102,12 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     type_of_question = st.selectbox(_("Type of Question Prompt"),
                                     options=[_("Mixed"), _("Multiple Choice"), _("Long / Short Answer")],
                                     index=0)
+
+    # Calculate time per question
     st.session_state.time_for_each = num_time * 60 / num_q
     st.markdown(_("Time Per Question Info").format(time_per_question=st.session_state.time_for_each))
 
+    # Button to create quiz
     if st.button(_("Create Quiz and Start Button")):
         user_api_key = st.session_state.get('user_api')
         if not user_api_key:
@@ -146,11 +118,13 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     num_questions=num_q,
                     user_api=user_api_key,
                     subject_name=selected_subject_name,
-                    lesson_id_str=selected_lesson_id_for_quiz,
-                    lesson_text=lesson_text,  # If supported by your backend
+                    lesson_id_str=raw_selected_lesson_ids_list[0] if raw_selected_lesson_ids_list else None,
+                    lesson_text=lesson_text,  # Pre-fetched content from session_state
                     question_type=type_of_question,
                 )
                 controller.set('selected_subject_name', selected_subject_name)
+
+            # Validate data and proceed
             if data and len(data) == num_q:
                 st.session_state.generated_quiz_data = data
                 st.session_state.num_questions_to_ask = num_q
