@@ -55,32 +55,11 @@ def fetch_and_display_lessons():
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    selected_lesson_details = st.session_state.get('selected_lesson_contexts', [])
-    if not selected_lesson_details:
-        st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected from the sidebar.")})
+    if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
+        for content in st.session_state.lesson_contents:
+            st.session_state.messages.append({"role": "assistant", "content": content})
     else:
-        combined_lesson_content = []
-        for lesson_detail in selected_lesson_details:
-            lesson_id = lesson_detail.get('id', 'UnknownID')
-            lesson_name = lesson_detail.get('name', f'Lesson {lesson_id}')
-            lesson_url = lesson_detail.get('url')
-
-            if lesson_url:
-                try:
-                    response = requests.get(lesson_url)
-                    response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
-                    content = response.text
-                    combined_lesson_content.append(f"{content}")
-                except requests.exceptions.RequestException as e:
-                    combined_lesson_content.append(f"### {_('Failed to fetch content for Lesson')} '{lesson_name}' (ID {lesson_id})\n\n{_('Error')}: {e}")
-            else:
-                 combined_lesson_content.append(f"### {_('Missing URL for Lesson')} '{lesson_name}' (ID {lesson_id})")
-
-        if combined_lesson_content:
-            full_content_message = "\n\n---\n\n".join(combined_lesson_content)
-            st.session_state.messages.append({"role": "assistant", "content": full_content_message})
-        else:
-            st.session_state.messages.append({"role": "assistant", "content": _("Could not retrieve content for any selected lesson.")})
+        st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected or loaded yet.")})
     st.rerun()
 
 def set_language_and_trigger_rerun_flag(new_lang_code):
@@ -385,7 +364,7 @@ with st.sidebar:
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
             if "lesson_contents" in st.session_state:
-                st.write("\n\n---\n\n".join(st.session_state.lesson_contents))
+                fetch_and_display_lessons()
             else:
                 st.warning(_("No lessons selected or loaded yet."))
 
