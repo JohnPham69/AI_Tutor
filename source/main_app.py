@@ -77,19 +77,23 @@ def fetch_selected_lessons():
     contents = []
     lesson_contexts = []
 
-    # Get grade, set, subject from session_state
-    selected_grade_number = st.session_state.get('sb_grade_tester')
-    selected_textbook_set_name = st.session_state.get('sb_textbook_set_tester')
-    selected_subject_name = st.session_state.get('sb_subject_tester_label')
+    # Get values from the correct keys
+    selected_grade_label = st.session_state.get('sb_grade_tester_label')
+    selected_textbook_set_label = st.session_state.get('sb_textbook_set_tester_label')
+    selected_subject_label = st.session_state.get('sb_subject_tester_label')
+
+    # Convert labels back to actual values
+    grade_label_to_value = {f"Grade {g['number']}": g['number'] for g in st.session_state.subject_lesson_data_for_pages.get("grade", [])}
+    selected_grade_number = grade_label_to_value.get(selected_grade_label)
 
     subject_lesson_data = st.session_state.get('subject_lesson_data_for_pages', {})
 
-    # Navigate JSON structure dynamically
+    # Navigate JSON structure
     grade_info = next((g for g in subject_lesson_data.get("grade", []) if g.get("number") == selected_grade_number), None)
     if grade_info:
-        set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") == selected_textbook_set_name), None)
+        set_info = next((ts for ts in grade_info.get("textbook_set", []) if ts.get("name") in selected_textbook_set_label), None)
         if set_info:
-            subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_name), None)
+            subject_info = next((s for s in set_info.get("subjects", []) if s.get("name") == selected_subject_label), None)
             if subject_info:
                 all_lessons = subject_info.get("link", [])
                 for lesson_id in selected_ids:
@@ -111,6 +115,7 @@ def fetch_selected_lessons():
 
     st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
+
 
 def get_number_in_string(text: str) -> str:
     if not text:  # Handles None or empty string
@@ -356,7 +361,7 @@ with st.sidebar:
             disabled=not bool(lesson_labels),
             on_change=fetch_selected_lessons
         )
-
+        st.write("DEBUG:", st.session_state.sb_lesson_tester, st.session_state.lesson_contents)
         st.session_state.sb_lesson_tester = get_lesson_ids_from_labels(st.session_state.sb_lesson_tester_labels)
 
         # --- "Select All" Checkbox for Lessons ---
