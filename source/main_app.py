@@ -386,9 +386,11 @@ with st.sidebar:
             
         tone = st.radio(
             r"$\textsf{\normalsize " + _("AI's tone") + "}$",
-            ["Funny", "Serious"]
+            [_("Funny"), _("Serious")]
         )
 
+        if tone:
+            controller.set('user_ai_tone', tone)
         
         
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
