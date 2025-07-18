@@ -383,9 +383,9 @@ with st.sidebar:
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
             fetch_and_display_lessons()
-
+            
         tone = st.radio(
-            "AI's tone",
+            r"$\textsf{\normalsize " + _("AI's tone") + "}$",
             ["Funny", "Serious"]
         )
 
