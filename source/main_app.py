@@ -526,6 +526,7 @@ with st.sidebar:
     
     # --- How to get API key (get_api button) ---
     if st.button(_("FAQ - Frequently Asked Question")):
+        pg_selection.switch_page("learn.py")
         if st.session_state.lang == "vi":
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
             try:
