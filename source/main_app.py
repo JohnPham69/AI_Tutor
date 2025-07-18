@@ -384,6 +384,13 @@ with st.sidebar:
         if st.button(_("View Lesson Button")):
             fetch_and_display_lessons()
 
+        tone = st.radio(
+            "AI's tone",
+            ["Funny", "Serious"]
+        )
+
+        
+        
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
         if 'selected_lesson_contexts' not in st.session_state:
             st.session_state.selected_lesson_contexts = []
