@@ -383,18 +383,6 @@ with st.sidebar:
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
             fetch_and_display_lessons()
-
-        
-        tone = st.radio(
-            r"$\textsf{\normalsize " + _("AI's tone") + "}$",
-            [_("Funny"), _("Serious")]
-        )
-        
-        if tone:
-            st.write(tone)
-            controller.set('user_ai_tone', tone)
-            st.session_state['ai_tone'] = cookies.get('user_ai_tone')
-            st.write(st.session_state.get('ai_tone') + "haha")
         
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
         if 'selected_lesson_contexts' not in st.session_state:
@@ -418,6 +406,16 @@ with st.sidebar:
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
 
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
+        tone = st.checkbox("Funny")
+        level = st.checkbox("Advance")
+        st.session_state['ai_tone'] = "polite"
+        st.session_state['ai_level'] = "normal"
+        if tone:
+            st.session_state['ai_tone'] = tone.lower()
+        if level:
+            st.session_state['ai_level'] = level.lower()
+        st.write(st.session_state.get('ai_tone'))
+        
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
