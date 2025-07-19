@@ -414,7 +414,7 @@ with st.sidebar:
             st.session_state['ai_tone'] = tone.lower()
         if level:
             st.session_state['ai_level'] = level.lower()
-        st.write(st.session_state.get('ai_tone'))
+        st.write(st.session_state['ai_tone'])
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
