@@ -118,9 +118,16 @@ def fetch_selected_lessons():
     st.session_state.selected_lesson_contexts = lesson_contexts
     st.session_state.lesson_contents = contents
 
-def save_ai(name, val_bool):
-    controller.set(name, val_bool)
-    st.session_state[name] = val_bool
+def save_ai(name):
+    if not st.session_state[name]:
+        controller.set(name, True)
+        st.session_state[name] = True
+    elif st.session_state[name] == True:
+        controller.set(name, False)
+        st.session_state[name] = False
+    else:
+        controller.set(name, True)
+        st.session_state[name] = True
 
 def get_number_in_string(text: str) -> str:
     if not text:  # Handles None or empty string
@@ -410,16 +417,8 @@ with st.sidebar:
         
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         
-        tone = st.checkbox("Funny", value = cookies.get('ai_fun'))
-        level = st.checkbox("Advance", value = cookies.get('ai_hard'))
-        if tone:
-            save_ai('ai_fun', True)
-        else:
-            save_ai('ai_fun', False)
-        if level:
-            save_ai('ai_hard', True)
-        else:
-            save_ai('ai_hard', False)
+        tone = st.checkbox("Funny", value = cookies.get('ai_fun'), on_change = save_ai, kwargs = ('ai_fun'))
+        level = st.checkbox("Advance", value = cookies.get('ai_hard'), on_change = save_ai, kwargs = ('ai_hard'))
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
