@@ -72,6 +72,14 @@ def set_language_and_trigger_rerun_flag(new_lang_code):
 subject_lesson_data = load_subject_lesson_data()
 st.session_state.subject_lesson_data_for_pages = subject_lesson_data # Store for other pages to access
 
+
+def get_bool_cookie(key):
+    val = cookies.get(key)
+    if val in [True, "True", "true", 1, "1"]:
+        return True
+    return False
+
+
 def fetch_selected_lessons():
     # Convert labels to IDs inside function
     selected_labels = st.session_state.get("sb_lesson_tester_labels", [])
@@ -120,7 +128,7 @@ def fetch_selected_lessons():
 
 def save_ai(name):
     st.session_state[name] = not st.session_state[name]
-    controller.set(name, st.session_state[name])
+    controller.set(name, str(st.session_state[name]))
 
 def get_number_in_string(text: str) -> str:
     if not text:  # Handles None or empty string
@@ -409,9 +417,14 @@ with st.sidebar:
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
         
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
-        
-        tone = st.checkbox("Funny", value=cookies.get('ai_fun'), on_change=save_ai, kwargs={'name': 'ai_fun'})
-        level = st.checkbox("Advance", value=cookies.get('ai_hard'), on_change=save_ai, kwargs={'name': 'ai_hard'})
+        # Initialize session state from cookie
+        if 'ai_fun' not in st.session_state:
+            st.session_state['ai_fun'] = get_bool_cookie('ai_fun')
+        if 'ai_hard' not in st.session_state:
+            st.session_state['ai_hard'] = get_bool_cookie('ai_hard')
+
+        tone = st.checkbox("Funny", value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
+        level = st.checkbox("Advance", value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
