@@ -406,15 +406,15 @@ with st.sidebar:
         st.session_state.selected_lesson_contexts = new_selected_lesson_contexts
 
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
-        tone = st.checkbox("Funny")
-        level = st.checkbox("Advance")
-        st.session_state['ai_fun'] = False
-        st.session_state['ai_hard'] = False
+        
+        tone = st.checkbox("Funny", value = cookies.get('ai_fun'))
+        level = st.checkbox("Advance", value = cookies.get('ai_hard'))
         if tone:
             st.session_state['ai_fun'] = tone
+            controller.set('ai_fun', st.session_state['ai_fun'])
         if level:
             st.session_state['ai_hard'] = level
-        st.write(st.session_state['ai_fun'])
+            controller.set('ai_hard', st.session_state['ai_hard'])
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
