@@ -34,7 +34,7 @@ if not st.session_state.messages:
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
-    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet.</p>"), unsafe_allow_html=True)
+    pass
 else:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
