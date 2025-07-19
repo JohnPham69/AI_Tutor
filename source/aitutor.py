@@ -15,12 +15,16 @@ st.session_state.uploaded_file_content = ""
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
+
 if not st.session_state.messages:
-    pass
-else:
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
+    st.session_state.messages = []
+    if not st.session_state.get('user_api'):
+        with st.chat_message("assistant"):
+            st.markdown("API Key Missing Error Config")
+    else:
+        with st.chat_message("assistant"):
+            st.markdown("Shall we start?")
+
 
 # Accept chat input and file
 prompt = st.chat_input(
