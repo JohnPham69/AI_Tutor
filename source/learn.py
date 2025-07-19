@@ -21,6 +21,16 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
+# Clear messages and display initial assistant message on app open
+if not st.session_state.messages:
+    st.session_state.messages = []
+    if not st.session_state.get('user_api'):
+        with st.chat_message("assistant"):
+            st.markdown("API Key Missing Error Config")
+    else:
+        with st.chat_message("assistant"):
+            st.markdown("Shall we start?")
+
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
