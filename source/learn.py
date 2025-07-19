@@ -14,12 +14,9 @@ follow_up = [] # an array that stores follow_up quesiotns
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
-# Initialize chat history if it doesn't exist
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-if "uploaded_file_content" not in st.session_state:
-    st.session_state.uploaded_file_content = ""
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
+st.rerun()
 
 # Clear messages and display initial assistant message on app open
 if not st.session_state.messages:
