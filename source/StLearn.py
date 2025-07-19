@@ -100,10 +100,16 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
 
             Lưu ý: Chỉ sử dụng đúng định dạng trên, không trả về bất kỳ thông tin nào khác.
         """
+        
+        if st.session_state['ai_hard']:
+            step_1_prompt_vi = step_1_prompt_vi + "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học."
+        if st.session_state['ai_fun']:
+            step_1_prompt_vi = step_1_prompt_vi + "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời."
+        # Construct the full prompt for the LLM, combining contexts and user query
+        
         # Detect language of the user input
         active_step_1_prompt = step_1_prompt_vi
-
-        # Construct the full prompt for the LLM, combining contexts and user query
+        
         prompt_elements = []
         if uploaded_file_text:
             prompt_elements.append(
