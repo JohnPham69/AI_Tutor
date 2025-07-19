@@ -417,8 +417,8 @@ with st.sidebar:
         
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         
-        tone = st.checkbox("Funny", value = cookies.get('ai_fun'), on_change = save_ai, kwargs = ('ai_fun'))
-        level = st.checkbox("Advance", value = cookies.get('ai_hard'), on_change = save_ai, kwargs = ('ai_hard'))
+        tone = st.checkbox("Funny", value = cookies.get('ai_fun'), on_change = save_ai, kwargs = {'name': 'ai_fun'})
+        level = st.checkbox("Advance", value=cookies.get('ai_hard'), on_change=save_ai, kwargs={'name': 'ai_hard'})
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
