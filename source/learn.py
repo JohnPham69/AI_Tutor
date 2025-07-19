@@ -22,10 +22,10 @@ if not st.session_state.messages:
     st.session_state.messages = []
     if not st.session_state.get('user_api'):
         with st.chat_message("assistant"):
-            st.markdown("API Key Missing Error Config")
+            st.markdown(_("API Key Missing Error Config"))
     else:
         with st.chat_message("assistant"):
-            st.markdown("Shall we start?")
+            st.markdown(_("Shall we start?"))
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
