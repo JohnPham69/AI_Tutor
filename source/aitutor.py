@@ -18,7 +18,7 @@ if "uploaded_file_content" not in st.session_state:
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
 if not st.session_state.messages:
-    st.markdown(_("<p style='text-align:center; color:grey;'>No messages yet.</p>"), unsafe_allow_html=True)
+    pass
 else:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
@@ -63,7 +63,6 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
-        st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
         with st.chat_message("user"):
@@ -78,7 +77,7 @@ if prompt:
         uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
         with st.chat_message("assistant"):
-            with st.spinner(_("AI is thinking...")):
+            with st.spinner("AI is thinking..."):
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
