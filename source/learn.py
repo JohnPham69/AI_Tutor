@@ -16,7 +16,6 @@ _ = get_translator() # Initialize translator for this page, assumes session_stat
 
 st.session_state.messages = []
 st.session_state.uploaded_file_content = ""
-st.rerun()
 
 # Clear messages and display initial assistant message on app open
 if not st.session_state.messages:
