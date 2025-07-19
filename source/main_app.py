@@ -408,13 +408,13 @@ with st.sidebar:
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         tone = st.checkbox("Funny")
         level = st.checkbox("Advance")
-        st.session_state['ai_tone'] = "Polite"
-        st.session_state['ai_level'] = "Normal"
+        st.session_state['ai_fun'] = False
+        st.session_state['ai_hard'] = False
         if tone:
-            st.session_state['ai_tone'] = tone
+            st.session_state['ai_fun'] = tone
         if level:
-            st.session_state['ai_level'] = level
-        st.write(st.session_state['ai_tone'])
+            st.session_state['ai_hard'] = level
+        st.write(st.session_state['ai_fun'])
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
