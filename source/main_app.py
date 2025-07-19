@@ -407,11 +407,12 @@ with st.sidebar:
 
     with st.expander(r"$\textsf{\large " + ("📜\t") + _("Study") + "}$", expanded=True):
         
-        tone = st.checkbox("Funny", value = cookies.get('ai_fun'), on_change=st.session_state['ai_fun'] = tone)
-        level = st.checkbox("Advance", value = cookies.get('ai_hard'), on_change=st.session_state['ai_hard'] = level)
+        tone = st.checkbox("Funny", value = cookies.get('ai_fun'), on_change= controller.set('ai_fun', st.session_state['ai_fun']))
+        level = st.checkbox("Advance", value = cookies.get('ai_hard'), on_change= controller.set('ai_hard', st.session_state['ai_hard']))
         if tone:
-            controller.set('ai_fun', st.session_state['ai_fun'])
+            st.session_state['ai_fun'] = tone
         if level:
+            st.session_state['ai_hard'] = level
             controller.set('ai_hard', st.session_state['ai_hard'])
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
