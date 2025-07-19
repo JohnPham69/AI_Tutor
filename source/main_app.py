@@ -391,9 +391,10 @@ with st.sidebar:
         )
         
         if tone:
+            st.write(tone)
             controller.set('user_ai_tone', tone)
             st.session_state['ai_tone'] = cookies.get('user_ai_tone')
-            st.write(st.session_state.get('ai_tone'))
+            st.write(st.session_state.get('ai_tone') + "haha")
         
         # Initialize or update selected_lesson_contexts based on sb_lesson_tester
         if 'selected_lesson_contexts' not in st.session_state:
