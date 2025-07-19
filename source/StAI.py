@@ -38,7 +38,7 @@ def afterStepOne(plan_text, user_api, user_model=None):
         api_key=user_api,  # Replace with your actual API key or environment variable
     )
     model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
-
+    
     # Construct the prompt/content for after step one
     prompt_for_after_step_one = """
         Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
@@ -170,6 +170,10 @@ def genRes(
             """.replace("{subject}", selected_subject_name if selected_subject_name else "học").replace("{grade}", selected_grade if selected_grade else "phổ thông")
 
         # Nếu là tiếng Anh, thêm yêu cầu dịch ra tiếng Anh
+        if st.session_state['ai_hard']:
+            step_1_prompt_vi = step_1_prompt_vi + "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học."
+        if st.session_state['ai_fun']:
+            step_1_prompt_vi = step_1_prompt_vi + "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời."
         if lang == "en":
             active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
         else:
