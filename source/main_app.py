@@ -346,7 +346,6 @@ with st.sidebar:
         
         # Get actual subject name
         selected_subject_name = subject_label_to_value.get(selected_subject_label)
-
         
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
@@ -422,9 +421,11 @@ with st.sidebar:
             st.session_state['ai_fun'] = get_bool_cookie('ai_fun')
         if 'ai_hard' not in st.session_state:
             st.session_state['ai_hard'] = get_bool_cookie('ai_hard')
-
-        tone = st.checkbox("Funny", value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
-        level = st.checkbox("Advance", value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
+        col1, col2 = st.columns(2)
+        with col1:
+            tone = st.checkbox(_("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
+        with col2:
+            level = st.checkbox(_("Advance"), value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
