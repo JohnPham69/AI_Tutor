@@ -193,7 +193,10 @@ TRANSLATIONS = {
         "FAQ - Frequently Asked Question": "FAQ - Câu hỏi thường gặp",
         "Please enter your API key!!!": "Bạn cần nhập API key!!!", 
         "AI is thinking...": "AI đang suy nghĩ...",
-        "Error in AddNewResult: 'gcp_service_account' not found in st.secrets.": "Lỗi trong AddNewResult: 'gcp_service_account' không thể tìm được trong st.secrets."
+        "Error in AddNewResult: 'gcp_service_account' not found in st.secrets.": "Lỗi trong AddNewResult: 'gcp_service_account' không thể tìm được trong st.secrets.",
+        "Funny": "Hài hước",
+        "Advance": "Nâng cao",
+        "Shall we start": "Chúng ta bắt đầu nhé"
     }
 }
 
