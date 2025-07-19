@@ -9,11 +9,9 @@ from app_utils import get_cookie_controller
 controller = get_cookie_controller()
 _ = get_translator()
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
-if "uploaded_file_content" not in st.session_state:
-    st.session_state.uploaded_file_content = ""
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
