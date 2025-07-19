@@ -119,15 +119,8 @@ def fetch_selected_lessons():
     st.session_state.lesson_contents = contents
 
 def save_ai(name):
-    if not st.session_state[name]:
-        controller.set(name, True)
-        st.session_state[name] = True
-    elif st.session_state[name] == True:
-        controller.set(name, False)
-        st.session_state[name] = False
-    else:
-        controller.set(name, True)
-        st.session_state[name] = True
+    st.session_state[name] = not st.session_state[name]
+    controller.set(name, st.session_state[name])
 
 def get_number_in_string(text: str) -> str:
     if not text:  # Handles None or empty string
