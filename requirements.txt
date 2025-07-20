@@ -6,3 +6,4 @@ gspread
 oauth2client
 streamlit-cookies-controller
 streamlit-cookies-manager
+streamlit_extras
