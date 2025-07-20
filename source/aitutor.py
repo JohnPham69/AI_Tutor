@@ -19,6 +19,11 @@ if "uploaded_file_content" not in st.session_state:
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
+if not st.session_state.first_question_sent:
+    st.session_state.messages = []
+    st.session_state.uploaded_file_content = ""
+    st.rerun()
+    st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
@@ -74,6 +79,7 @@ if prompt:
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
         st.session_state.first_question_sent = False # Reset to send first question again
+        st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
         with st.chat_message("user"):
