@@ -22,6 +22,10 @@ if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
 # Display chat messages from history.
+
+st.session_state.uploaded_file_content = ""
+st.session_state.messages = []
+
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
