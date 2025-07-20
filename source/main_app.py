@@ -432,7 +432,8 @@ with st.sidebar:
                 st.session_state['ai_fun'] = not st.session_state['ai_fun']
             # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
             st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
-            st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
+            if st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯"):  # Page link with icon
+                st.session_state.reset_chat = True  # Trigger reset in aitutor.py
         with col2:
             if btt(("🕵\t") + _("Advance"), key='btt_ai_level'):
                 st.session_state['ai_hard'] = not st.session_state['ai_hard']
