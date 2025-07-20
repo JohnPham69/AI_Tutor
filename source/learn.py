@@ -14,24 +14,16 @@ follow_up = [] # an array that stores follow_up quesiotns
 
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
-
-# Clear messages and display initial assistant message on app open
-if not st.session_state.messages:
+# Initialize chat history if it doesn't exist
+if "messages" not in st.session_state:
     st.session_state.messages = []
-    if not st.session_state.get('user_api'):
-        with st.chat_message("assistant"):
-            st.markdown(_("API Key Missing Error Config"))
-    else:
-        with st.chat_message("assistant"):
-            st.markdown(_("Shall we start?"))
+
+if "uploaded_file_content" not in st.session_state:
+    st.session_state.uploaded_file_content = ""
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
-if not st.session_state.messages:
-    pass
-else:
+if "messages" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
