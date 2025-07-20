@@ -27,7 +27,6 @@ st.session_state.uploaded_file_content = ""
 st.session_state.messages = []
 
 with st.chat_message("assistant"):
-    st.markdown(_("Shall we start?"))
     st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
 
