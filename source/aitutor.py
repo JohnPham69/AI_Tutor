@@ -27,6 +27,34 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
+
+user_api = st.session_state.get('user_api')
+user_model = st.session_state.get('user_model')
+selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
+
+with st.chat_message("assistant"):
+    with st.spinner("AI is thinking..."):
+        ai_response = genRes(
+            user_text,
+            st.session_state.messages,
+            user_api,
+            user_model,
+            selected_grade=selected_grade_from_tester,
+            selected_subject_name=selected_subject_from_tester,
+            selected_lesson_data_list=selected_lesson_details_for_ai,
+            uploaded_file_text=uploaded_content_for_prompt,
+            translator=_
+        )
+        # Ensure ai_response is not None before attempting to markdown.
+        if ai_response is not None:
+            st.markdown(ai_response)
+        else:
+            st.markdown("Error: No response from AI.")
+
+
 if prompt:
     # Handle file upload
     if prompt.get("files"):
@@ -63,13 +91,6 @@ if prompt:
         with st.chat_message("user"):
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
-
-        user_api = st.session_state.get('user_api')
-        user_model = st.session_state.get('user_model')
-        selected_grade_from_tester = st.session_state.get('sb_grade_tester')
-        selected_subject_from_tester = st.session_state.get('sb_subject_tester')
-        selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
-        uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
         with st.chat_message("assistant"):
             with st.spinner("AI is thinking..."):
