@@ -20,7 +20,6 @@ if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
 st.session_state.uploaded_file_content = ""
-st.session_state.messages = []
 
 user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
@@ -28,30 +27,6 @@ selected_grade_from_tester = st.session_state.get('sb_grade_tester')
 selected_subject_from_tester = st.session_state.get('sb_subject_tester')
 selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
 uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
-
-if not st.session_state.first_question_sent:
-    if user_api is not None:
-        first_text = "Chào bạn! Rất vui được đồng hành cùng bạn ôn tập."
-        with st.chat_message("assistant"):
-            with st.spinner(_("AI is thinking...")):
-                ai_response = genRes(
-                    first_text,
-                    st.session_state.messages,
-                    user_api,
-                    user_model,
-                    selected_grade=selected_grade_from_tester,
-                    selected_subject_name=selected_subject_from_tester,
-                    selected_lesson_data_list=selected_lesson_details_for_ai,
-                    uploaded_file_text=uploaded_content_for_prompt,
-                    translator=_
-                )
-                if ai_response is not None:
-                    st.session_state.messages.append({"role": "assistant", "content": ai_response})
-                else:
-                    st.markdown("Error: No response from AI.")
-    else:
-        st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config")})
-    st.session_state.first_question_sent = True
 
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
