@@ -426,13 +426,12 @@ with st.sidebar:
         col1, col2 = st.columns(2)
         with col1:
             tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
+            st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
+            st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         with col2:
-            level = st.checkbox(("🕵\t") + _("Advance"), value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
-        
-        st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
-        st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
-        st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
-        st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🏆") # New page link with icon
+            level = st.checkbox(("🕵\t") + _("Advance"), value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})      
+            st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
+            st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🏆") # New page link with icon
     #Get stuffs
     st.session_state['user_api'] = cookies.get('user_api')
     st.session_state['user_model'] = cookies.get('user_model')
