@@ -17,8 +17,6 @@ if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
 def onetimeonly():
-    # Add initial greeting
-    st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
     # Generate and add the first AI question
     selected_grade_from_tester = st.session_state.get('sb_grade_tester')
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
@@ -40,7 +38,6 @@ def onetimeonly():
         st.session_state.messages.append({"role": "assistant", "content": ai_response})
     else:
         st.session_state.messages.append({"role": "assistant", "content": "Error: No response from AI."})
-    st.session_state["first_ai_question_sent"] = True
 
 
 # Show "Shall we start?" and immediately ask a question only once per session
