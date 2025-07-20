@@ -36,6 +36,8 @@ practice = st.Page("./practice.py", title=_("Practice"))
 leaderboard_page = st.Page("./leaderboard.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./learn.py", title=_("Learning with AI"), default = True) # New page for learning
 
+
+
 # Function to load subject/lesson data (can be a utility if used elsewhere)
 @st.cache_data(ttl=3600) # Cache data for an hour
 def load_subject_lesson_data():
@@ -426,7 +428,7 @@ with st.sidebar:
 
         col1, col2 = st.columns(2)
         with col1:
-            save_ai('ai_fun') if btt(("😜\t") + _("Funny"), key='btt_ai_fun') else pass
+            save_ai('ai_fun') if btt(("😜\t") + _("Funny"), key='btt_ai_fun') else print()
             # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
             st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
             st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
