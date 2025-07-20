@@ -540,7 +540,6 @@ with st.sidebar:
     
     # --- How to get API key (get_api button) ---
     if st.button("FAQ - Frequently Asked Question"):
-        st.switch_page("learn.py")
         if st.session_state.lang == "vi":
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
             try:
@@ -571,6 +570,7 @@ with st.sidebar:
                     st.session_state.messages = []
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
             st.rerun()
+        st.switch_page("learn.py")
 # Perform rerun if a language change was flagged
     # Donate code here
     
