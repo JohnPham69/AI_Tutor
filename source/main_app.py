@@ -428,7 +428,8 @@ with st.sidebar:
 
         col1, col2 = st.columns(2)
         with col1:
-            save_ai('ai_fun') if btt(("😜\t") + _("Funny"), key='btt_ai_fun') else print()
+            if btt(("😜\t") + _("Funny"), key='btt_ai_fun'):
+                save_ai('ai_fun') 
             # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
             st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
             st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
