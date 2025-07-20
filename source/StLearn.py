@@ -83,7 +83,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             QUY TẮC:
             - Chỉ trả lời dựa trên tài liệu bài học đã cung cấp. Nếu người dùng hỏi ngoài lề, hãy lịch sự từ chối và nhắc rằng bạn chỉ hỗ trợ các chủ đề trong bài học.
             - Nếu câu hỏi liên quan nhưng không có trong tài liệu, trả lời người dùng bằng cách sử dụng kiến thức mở rộng, không có trong tài liệu để trả lời. 
-            - Trước khi trả lời phần kiến thức mở rộng, bạn PHẢI NÊU RÕ: kiến thức mở rộng. Kiến thức mở rộng phải là heading 3, có nghĩa khi viết dưới dạng markdown nó phải là ```### Kiến thức mở rộng```.
+            - Trước khi trả lời phần kiến thức mở rộng, bạn PHẢI NÊU RÕ: kiến thức mở rộng. Kiến thức mở rộng phải là heading 4, có nghĩa khi viết dưới dạng markdown nó phải là ```### Kiến thức mở rộng```.
             - KHÔNG đặt câu hỏi mới cho người dùng.
             - Sau khi trả lời, hãy gợi ý nhẹ nhàng các hành động tiếp theo cho người dùng dưới dạng các câu hỏi follow-up.
             - Câu hỏi follow-up phải được đặt ở điểm nhìn của người dùng, 
@@ -101,8 +101,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             Lưu ý: Chỉ sử dụng đúng định dạng trên, không trả về bất kỳ thông tin nào khác.
         """
         
-        if st.session_state['ai_hard']:
-            step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học. \n\n" + step_1_prompt_vi
         if st.session_state['ai_fun']:
             step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. \n\n" + step_1_prompt_vi 
         # Construct the full prompt for the LLM, combining contexts and user query
