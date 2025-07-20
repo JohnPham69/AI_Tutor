@@ -585,6 +585,7 @@ if "messages" not in st.session_state:
         st.session_state.messages.append({"role": "assistant", "content": "API Key Missing Error Config"})
     else:
         st.session_state.messages.append({"role": "assistant", "content": "Shall we start?"})
+    st.rerun()
 
 pg_selection.run() # Run the selected page
 
