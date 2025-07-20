@@ -15,9 +15,9 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
+if "first_question_sent" not in st.session_state:
+    st.session_state.first_question_sent = False
 
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -34,25 +34,30 @@ selected_grade_from_tester = st.session_state.get('sb_grade_tester')
 selected_subject_from_tester = st.session_state.get('sb_subject_tester')
 selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
 uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
-first_text = "Ok, start thôi"
-with st.chat_message("assistant"):
-    with st.spinner("AI is thinking..."):
-        ai_response = genRes(
-            first_text,
-            st.session_state.messages,
-            user_api,
-            user_model,
-            selected_grade=selected_grade_from_tester,
-            selected_subject_name=selected_subject_from_tester,
-            selected_lesson_data_list=selected_lesson_details_for_ai,
-            uploaded_file_text=uploaded_content_for_prompt,
-            translator=_
-        )
-        # Ensure ai_response is not None before attempting to markdown.
-        if ai_response is not None:
-            st.markdown(ai_response)
-        else:
-            st.markdown("Error: No response from AI.")
+
+# Send the first question if it hasn't been sent yet
+if not st.session_state.first_question_sent:
+    first_text = "Ok, start thôi"
+    with st.chat_message("assistant"):
+        with st.spinner("AI is thinking..."):
+            ai_response = genRes(
+                first_text,
+                st.session_state.messages,
+                user_api,
+                user_model,
+                selected_grade=selected_grade_from_tester,
+                selected_subject_name=selected_subject_from_tester,
+                selected_lesson_data_list=selected_lesson_details_for_ai,
+                uploaded_file_text=uploaded_content_for_prompt,
+                translator=_
+            )
+            # Ensure ai_response is not None before attempting to markdown.
+            if ai_response is not None:
+                st.markdown(ai_response)
+                st.session_state.messages.append({"role": "assistant", "content": ai_response})
+            else:
+                st.markdown("Error: No response from AI.")
+    st.session_state.first_question_sent = True
 
 
 if prompt:
@@ -86,6 +91,7 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
+        st.session_state.first_question_sent = False # Reset to send first question again
     elif prompt.get("text"):
         user_text = prompt["text"]
         with st.chat_message("user"):
