@@ -20,7 +20,13 @@ if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
 st.session_state.uploaded_file_content = ""
-st.session_state.first_question_sent = False
+st.session_state.messages = []
+
+# These will now render in Streamlit's main flow, below the sticky title.
+if "messages" in st.session_state:
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
 
 # Accept chat input and file
 prompt = st.chat_input(
