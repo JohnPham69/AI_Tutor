@@ -200,12 +200,14 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             Chỉ trả lời bằng một từ duy nhất: "CORRECT" nếu câu trả lời của người dùng về cơ bản là đúng, hoặc "INCORRECT" nếu không.
             Không cung cấp bất kỳ giải thích nào, chỉ một từ duy nhất.
 
-            Câu hỏi: "{question_context}"
-            Câu trả lời đúng: "{correct_answer}"
-            Câu trả lời của người dùng: "{user_answer}"
+            Câu hỏi: '{question_context}'
+            Câu trả lời đúng: '{correct_answer}'
+            Câu trả lời của người dùng: '{user_answer}'
 
             Đánh giá của bạn (CORRECT hoặc INCORRECT):
             """
+        if st.session_state['ai_hard']:
+            prompt_text = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + prompt_text
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
