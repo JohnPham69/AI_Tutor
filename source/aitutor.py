@@ -24,18 +24,19 @@ st.session_state.messages = []
 
 st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
-user_api = st.session_state.get('user_api')
-user_model = st.session_state.get('user_model')
-selected_grade_from_tester = st.session_state.get('sb_grade_tester')
-selected_subject_from_tester = st.session_state.get('sb_subject_tester')
-selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
-uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
+
+user_api = st.session_state.get('user_api')
+user_model = st.session_state.get('user_model')
+selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -45,8 +46,6 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
-
-
 
 if prompt:
     # Handle file upload
