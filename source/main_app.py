@@ -539,7 +539,7 @@ with st.sidebar:
             st.session_state.saved_api_key_value_for_debug_tester = None
     
     # --- How to get API key (get_api button) ---
-    if st.button(_("FAQ - Frequently Asked Question")):
+    if st.button("FAQ - Frequently Asked Question"):
         st.switch_page("learn.py")
         if st.session_state.lang == "vi":
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
