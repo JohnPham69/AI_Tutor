@@ -9,22 +9,11 @@ from app_utils import get_cookie_controller
 controller = get_cookie_controller()
 _ = get_translator()
 
-
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
-
-# Display chat messages from history.
-# These will now render in Streamlit's main flow, below the sticky title.
-
-if not st.session_state.messages:
+if "messages" not in st.session_state:
     st.session_state.messages = []
-    if not st.session_state.get('user_api'):
-        with st.chat_message("assistant"):
-            st.markdown(_("API Key Missing Error Config"))
-    else:
-        with st.chat_message("assistant"):
-            st.markdown(_("Shall we start?"))
 
+if "uploaded_file_content" not in st.session_state:
+    st.session_state.uploaded_file_content = ""
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -99,3 +88,9 @@ if prompt:
         # Add assistant response to chat history
         if ai_response is not None:
             st.session_state.messages.append({"role": "assistant", "content": ai_response})
+
+# Display chat messages from history.
+# These will now render in Streamlit's main flow, below the sticky title.
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.markdown(msg["content"])
