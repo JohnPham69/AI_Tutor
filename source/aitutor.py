@@ -16,9 +16,7 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
-# Show "Shall we start?" and immediately ask a question only once per session
-st.session_state.messages = []
-if not st.session_state.messages:
+def onetimeonly():
     # Add initial greeting
     st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
     # Generate and add the first AI question
@@ -43,6 +41,12 @@ if not st.session_state.messages:
     else:
         st.session_state.messages.append({"role": "assistant", "content": "Error: No response from AI."})
     st.session_state["first_ai_question_sent"] = True
+
+
+# Show "Shall we start?" and immediately ask a question only once per session
+st.session_state.messages = []
+if not st.session_state.messages:
+    onetimeonly()
 
 # Display chat messages from history.
 if "messages" in st.session_state:
