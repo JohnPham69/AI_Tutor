@@ -22,13 +22,9 @@ if "first_question_sent" not in st.session_state:
 st.session_state.uploaded_file_content = ""
 st.session_state.messages = []
 
-
-
-user_api = st.session_state.get('user_api')
-
 st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
-
+user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
 selected_grade_from_tester = st.session_state.get('sb_grade_tester')
 selected_subject_from_tester = st.session_state.get('sb_subject_tester')
