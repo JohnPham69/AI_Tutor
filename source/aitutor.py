@@ -10,12 +10,6 @@ controller = get_cookie_controller()
 _ = get_translator()
 
 # Reset chat state when the app is accessed
-if 'reset_chat' in st.session_state and st.session_state.reset_chat:
-    st.session_state.messages = []
-    st.session_state.uploaded_file_content = ""
-    st.session_state.first_question_sent = False
-    st.session_state.reset_chat = False
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -24,6 +18,10 @@ if "uploaded_file_content" not in st.session_state:
 
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
+
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
+st.session_state.first_question_sent = False
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -60,10 +58,10 @@ if not st.session_state.first_question_sent:
             # Ensure ai_response is not None before attempting to markdown.
             if ai_response is not None:
                 st.markdown(ai_response)
-                st.session_state.messages.append({"role": "assistant", "content": ai_response})
             else:
                 st.markdown("Error: No response from AI.")
     st.session_state.first_question_sent = True
+    st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
 
 if prompt:
