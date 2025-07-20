@@ -21,6 +21,12 @@ if "first_question_sent" not in st.session_state:
 
 st.session_state.uploaded_file_content = ""
 
+if user_api is not None:
+    st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
+else:
+    st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config")})
+
+
 user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
 selected_grade_from_tester = st.session_state.get('sb_grade_tester')
