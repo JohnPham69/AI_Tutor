@@ -554,7 +554,7 @@ with st.sidebar:
                 if "messages" not in st.session_state:
                     st.session_state.messages = []
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
+            st.rerun()
         else:
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
             try:
@@ -569,7 +569,7 @@ with st.sidebar:
                 if "messages" not in st.session_state:
                     st.session_state.messages = []
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-                st.rerun()
+            st.rerun()
 # Perform rerun if a language change was flagged
     # Donate code here
     
