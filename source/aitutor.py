@@ -26,10 +26,7 @@ st.session_state.messages = []
 
 user_api = st.session_state.get('user_api')
 
-if user_api is not None:
-    st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
-else:
-    st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config")})
+st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
 
 user_model = st.session_state.get('user_model')
