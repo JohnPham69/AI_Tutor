@@ -38,7 +38,9 @@ selected_subject_from_tester = st.session_state.get('sb_subject_tester')
 selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
 uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
-prompt = ""
+if not st.session_state.first_question_sent:
+    prompt = "Bắt đầu thôi!"
+    st.session_state.first_question_sent = True
 
 if prompt:
     # Handle file upload
