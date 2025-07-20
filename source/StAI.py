@@ -171,9 +171,9 @@ def genRes(
 
         # Nếu là tiếng Anh, thêm yêu cầu dịch ra tiếng Anh
         if st.session_state['ai_hard']:
-            step_1_prompt_vi = step_1_prompt_vi + "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học."
+            step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + step_1_prompt_vi
         if st.session_state['ai_fun']:
-            step_1_prompt_vi = step_1_prompt_vi + "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời."
+            step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời." + step_1_prompt_vi
         if lang == "en":
             active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
         else:
