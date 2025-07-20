@@ -41,24 +41,23 @@ uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 # Send the first question if it hasn't been sent yet
 if not st.session_state.first_question_sent:
     first_text = "Chào bạn! Tôi đã sẵn sàng. Để chúng ta cùng bắt đầu, bạn muốn ôn tập bài học nào nè? Kể cho tớ nghe nhé, tớ sẽ giúp bạn ôn bài thật vui!"
-    with st.chat_message("assistant"):
-        with st.spinner("AI is thinking..."):
-            ai_response = genRes(
-                first_text,
-                st.session_state.messages,
-                user_api,
-                user_model,
-                selected_grade=selected_grade_from_tester,
-                selected_subject_name=selected_subject_from_tester,
-                selected_lesson_data_list=selected_lesson_details_for_ai,
-                uploaded_file_text=uploaded_content_for_prompt,
-                translator=_
-            )
-            # Ensure ai_response is not None before attempting to markdown.
-            if ai_response is not None:
-                st.session_state.messages.append({"role": "assistant", "content": ai_response})
-            else:
-                st.markdown("Error: No response from AI.")
+    with st.spinner("AI is thinking..."):
+        ai_response = genRes(
+            first_text,
+            st.session_state.messages,
+            user_api,
+            user_model,
+            selected_grade=selected_grade_from_tester,
+            selected_subject_name=selected_subject_from_tester,
+            selected_lesson_data_list=selected_lesson_details_for_ai,
+            uploaded_file_text=uploaded_content_for_prompt,
+            translator=_
+        )
+        # Ensure ai_response is not None before attempting to markdown.
+        if ai_response is not None:
+            st.session_state.messages.append({"role": "assistant", "content": ai_response})
+        else:
+            st.markdown("Error: No response from AI.")
     st.session_state.first_question_sent = True
 
 
