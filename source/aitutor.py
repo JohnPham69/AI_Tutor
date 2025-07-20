@@ -16,6 +16,32 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
+# Automatically send the first question if no messages exist
+if not st.session_state.messages:
+    selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+    selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+    selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+    uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
+    first_text = _("Chào bạn! Rất vui được đồng hành cùng bạn ôn tập.")
+    with st.chat_message("assistant"):
+        with st.spinner(_("AI is thinking...")):
+            ai_response = genRes(
+                first_text,
+                [],
+                st.session_state.get('user_api'),
+                st.session_state.get('user_model'),
+                selected_grade=selected_grade_from_tester,
+                selected_subject_name=selected_subject_from_tester,
+                selected_lesson_data_list=selected_lesson_details_for_ai,
+                uploaded_file_text=uploaded_content_for_prompt,
+                translator=_
+            )
+            if ai_response is not None:
+                st.markdown(ai_response)
+                st.session_state.messages.append({"role": "assistant", "content": ai_response})
+            else:
+                st.markdown("Error: No response from AI.")
+
 # Display chat messages from history.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
