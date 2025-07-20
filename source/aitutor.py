@@ -21,7 +21,7 @@ if "first_question_sent" not in st.session_state:
 
 st.session_state.messages = []
 st.session_state.uploaded_file_content = ""
-
+st.session_state.messages.append({"role": "assistant", "content": ("Start a conversation!!")})
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
