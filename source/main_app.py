@@ -562,6 +562,7 @@ with st.sidebar:
             except requests.exceptions.RequestException as e:
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
             st.rerun()
+
 # Perform rerun if a language change was flagged
     # Donate code here
     
@@ -577,6 +578,13 @@ with st.sidebar:
     else:
         st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
 
+# Add this block to display initial message if messages is empty
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    if not st.session_state.get('user_api'):
+        st.session_state.messages.append({"role": "assistant", "content": "API Key Missing Error Config"})
+    else:
+        st.session_state.messages.append({"role": "assistant", "content": "Shall we start?"})
 
 pg_selection.run() # Run the selected page
 
