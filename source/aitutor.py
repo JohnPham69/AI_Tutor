@@ -15,6 +15,10 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
+
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
+
 # Accept chat input and file
 prompt = st.chat_input(
     _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
