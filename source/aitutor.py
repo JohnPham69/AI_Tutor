@@ -28,6 +28,8 @@ if "messages" in st.session_state:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
+st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
+
 user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
 selected_grade_from_tester = st.session_state.get('sb_grade_tester')
