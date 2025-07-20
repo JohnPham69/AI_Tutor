@@ -578,9 +578,18 @@ with st.sidebar:
     else:
         st.markdown("[![Foo](https://github.com/JohnPham69/AI_Tutor/blob/ffb33cc79817f02b6eb8ed06ae43a1c97d4dbbc3/img/DONATION__EN.png?raw=true)](https://github.com/JohnPham69/AI_Tutor)")
 
-# Add this block to display initial message if messages is empty
+# Initialize session state variables
 if "messages" not in st.session_state:
     st.session_state.messages = []
+if "lang" not in st.session_state:
+    st.session_state.lang = "en"  # Or "vi", depending on your default
+if "changeLang" not in st.session_state:
+    st.session_state.changeLang = False
+if 'user_api' not in st.session_state:
+    st.session_state['user_api'] = None
+
+# Add this block to display initial message if messages is empty
+if not st.session_state.messages: # Check if messages is empty
     if not st.session_state.get('user_api'):
         st.session_state.messages.append({"role": "assistant", "content": "API Key Missing Error Config"})
     else:
