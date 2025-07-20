@@ -46,11 +46,11 @@ if not st.session_state.first_question_sent:
                     translator=_
                 )
                 if ai_response is not None:
-                    st.session_state.messages.append({"role": "assistant", "content": ai_response)})
+                    st.session_state.messages.append({"role": "assistant", "content": ai_response})
                 else:
                     st.markdown("Error: No response from AI.")
     else:
-        st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config"))})
+        st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config")})
     st.session_state.first_question_sent = True
 
 # These will now render in Streamlit's main flow, below the sticky title.
