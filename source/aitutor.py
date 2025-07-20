@@ -10,14 +10,11 @@ controller = get_cookie_controller()
 _ = get_translator()
 
 # Reset chat state when the app is accessed
-# if 'reset_chat' not in st.session_state: # Remove this block
-#     st.session_state.reset_chat = True
-
-# if st.session_state.reset_chat:
-#     st.session_state.messages = []
-#     st.session_state.uploaded_file_content = ""
-#     st.session_state.first_question_sent = False
-#     st.session_state.reset_chat = False
+if 'reset_chat' in st.session_state and st.session_state.reset_chat:
+    st.session_state.messages = []
+    st.session_state.uploaded_file_content = ""
+    st.session_state.first_question_sent = False
+    st.session_state.reset_chat = False
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
