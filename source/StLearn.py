@@ -77,10 +77,11 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
         # Định nghĩa lại prompt cho StLearn
-        step_1_prompt_vi = """
+        step_1_prompt_vi = f"""
             Bạn là một AI Trợ Lý Học Tập, chuyên trả lời các câu hỏi của người dùng dựa trên nội dung bài học được cung cấp.
-
+            
             QUY TẮC:
+            - Chỉ được phép sử dụng từ ngữ thích hợp với độ tuổi ở lớp {selected_grade}.
             - Chỉ trả lời dựa trên tài liệu bài học đã cung cấp. Nếu người dùng hỏi ngoài lề, hãy lịch sự từ chối và nhắc rằng bạn chỉ hỗ trợ các chủ đề trong bài học.
             - Nếu câu hỏi liên quan nhưng không có trong tài liệu, trả lời người dùng bằng cách sử dụng kiến thức mở rộng, không có trong tài liệu để trả lời. 
             - Trước khi trả lời phần kiến thức mở rộng, bạn PHẢI NÊU RÕ: kiến thức mở rộng. Kiến thức mở rộng phải là heading 4, có nghĩa khi viết dưới dạng markdown nó phải là ```### Kiến thức mở rộng```.
