@@ -19,25 +19,14 @@ if "uploaded_file_content" not in st.session_state:
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
-if not st.session_state.first_question_sent:
-    st.session_state.messages = []
-    st.session_state.uploaded_file_content = ""
-    st.session_state.first_question_sent = True
-    st.rerun()
-    st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
 
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
-
-user_api = st.session_state.get('user_api')
-user_model = st.session_state.get('user_model')
-selected_grade_from_tester = st.session_state.get('sb_grade_tester')
-selected_subject_from_tester = st.session_state.get('sb_subject_tester')
-selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
-uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -87,6 +76,13 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
+        user_api = st.session_state.get('user_api')
+        user_model = st.session_state.get('user_model')
+        selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+        selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+        selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+        uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
+        
         with st.chat_message("assistant"):
             with st.spinner("AI is thinking..."):
                 ai_response = genRes(
