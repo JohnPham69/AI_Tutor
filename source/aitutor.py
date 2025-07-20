@@ -18,10 +18,6 @@ if "uploaded_file_content" not in st.session_state:
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
-st.session_state.first_question_sent = False
-
 # Accept chat input and file
 prompt = st.chat_input(
     _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
@@ -56,7 +52,7 @@ if not st.session_state.first_question_sent:
             )
             # Ensure ai_response is not None before attempting to markdown.
             if ai_response is not None:
-                st.markdown(_("Start-up question:"))
+                st.markdown(ai_response)
                 st.session_state.messages.append({"role": "assistant", "content": ai_response})
             else:
                 st.markdown("Error: No response from AI.")
@@ -117,11 +113,12 @@ if prompt:
                 # Ensure ai_response is not None before attempting to markdown.
                 if ai_response is not None:
                     st.markdown(ai_response)
+                    st.session_state.messages.append({"role": "assistant", "content": ai_response})
                 else:
                     st.markdown("Error: No response from AI.")
         # Add assistant response to chat history
-        if ai_response is not None:
-            st.session_state.messages.append({"role": "assistant", "content": ai_response})
+        # if ai_response is not None: # Remove this line
+        #     st.session_state.messages.append({"role": "assistant", "content": ai_response}) # Remove this line
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
