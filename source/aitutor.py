@@ -34,11 +34,11 @@ selected_grade_from_tester = st.session_state.get('sb_grade_tester')
 selected_subject_from_tester = st.session_state.get('sb_subject_tester')
 selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
 uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
-
+first_text = "Ok, start thôi"
 with st.chat_message("assistant"):
     with st.spinner("AI is thinking..."):
         ai_response = genRes(
-            user_text,
+            first_text,
             st.session_state.messages,
             user_api,
             user_model,
