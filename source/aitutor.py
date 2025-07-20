@@ -9,22 +9,14 @@ from app_utils import get_cookie_controller
 controller = get_cookie_controller()
 _ = get_translator()
 
-# Reset chat state when the app is accessed
+# Initialize chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
-if "first_question_sent" not in st.session_state:
-    st.session_state.first_question_sent = False
-
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
-with st.chat_message("assistant"):
-    st.markdown("Start a conversation!!")
-    
-# These will now render in Streamlit's main flow, below the sticky title.
+# Display chat messages from history.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
@@ -38,6 +30,9 @@ prompt = st.chat_input(
 )
 
 uploaded_content = ""
+
+user_api = st.session_state.get('user_api')
+user_model = st.session_state.get('user_model')
 
 if prompt:
     # Handle file upload
@@ -70,7 +65,6 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
-        st.session_state.first_question_sent = False # Reset to send first question again
         st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
@@ -78,15 +72,13 @@ if prompt:
             st.markdown(user_text)
         st.session_state.messages.append({"role": "user", "content": user_text})
 
-        user_api = st.session_state.get('user_api')
-        user_model = st.session_state.get('user_model')
         selected_grade_from_tester = st.session_state.get('sb_grade_tester')
         selected_subject_from_tester = st.session_state.get('sb_subject_tester')
         selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
         uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
-        
+
         with st.chat_message("assistant"):
-            with st.spinner("AI is thinking..."):
+            with st.spinner(_("AI is thinking...")):
                 ai_response = genRes(
                     user_text,
                     st.session_state.messages,
@@ -98,15 +90,8 @@ if prompt:
                     uploaded_file_text=uploaded_content_for_prompt,
                     translator=_
                 )
-                # Ensure ai_response is not None before attempting to markdown.
                 if ai_response is not None:
                     st.markdown(ai_response)
                     st.session_state.messages.append({"role": "assistant", "content": ai_response})
                 else:
                     st.markdown("Error: No response from AI.")
-
-# Display chat messages from history.
-# These will now render in Streamlit's main flow, below the sticky title.
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
