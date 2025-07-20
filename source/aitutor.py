@@ -22,6 +22,7 @@ if "first_question_sent" not in st.session_state:
 if not st.session_state.first_question_sent:
     st.session_state.messages = []
     st.session_state.uploaded_file_content = ""
+    st.session_state.first_question_sent = True
     st.rerun()
     st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
