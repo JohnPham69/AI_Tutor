@@ -104,6 +104,8 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         
         if st.session_state['ai_fun']:
             step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. \n\n" + step_1_prompt_vi 
+        else:
+            step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật nghiêm khắc, chỉnh chu, chuyên nghiệp. \n\n" + step_1_prompt_vi 
         # Construct the full prompt for the LLM, combining contexts and user query
         
         # Detect language of the user input
