@@ -591,9 +591,9 @@ if 'user_api' not in st.session_state:
 # Add this block to display initial message if messages is empty
 if not st.session_state.messages: # Check if messages is empty
     if not st.session_state.get('user_api'):
-        st.session_state.messages.append({"role": "assistant", "content": "API Key Missing Error Config"})
+        st.session_state.messages.append({"role": "assistant", "content": _("API Key Missing Error Config")})
     else:
-        st.session_state.messages.append({"role": "assistant", "content": "Shall we start?"})
+        st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
     st.rerun()
 
 pg_selection.run() # Run the selected page
