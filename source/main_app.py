@@ -346,6 +346,7 @@ with st.sidebar:
         
         # Get actual subject name
         selected_subject_name = subject_label_to_value.get(selected_subject_label)
+
         
         # --- Lesson Multiselect ---
         actual_lesson_ids_for_multiselect = []
@@ -421,11 +422,9 @@ with st.sidebar:
             st.session_state['ai_fun'] = get_bool_cookie('ai_fun')
         if 'ai_hard' not in st.session_state:
             st.session_state['ai_hard'] = get_bool_cookie('ai_hard')
-        col1, col2 = st.columns(2)
-        with col1:
-            tone = st.checkbox(_("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
-        with col2:
-            level = st.checkbox(_("Advance"), value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
+
+        tone = st.checkbox("Funny", value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
+        level = st.checkbox("Advance", value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})
         
         st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
         st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
@@ -539,7 +538,7 @@ with st.sidebar:
             st.session_state.saved_api_key_value_for_debug_tester = None
     
     # --- How to get API key (get_api button) ---
-    if st.button("FAQ - Frequently Asked Question"):
+    if st.button(_("FAQ - Frequently Asked Question")):
         if st.session_state.lang == "vi":
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
             try:
