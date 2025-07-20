@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html
 import streamlit.components.v1 as components
+from streamlit_extras.stateful_button import button as btt
 import requests # Added for fetching JSON
 import json # Added for parsing JSON
 import re
@@ -425,7 +426,10 @@ with st.sidebar:
 
         col1, col2 = st.columns(2)
         with col1:
-            tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
+            tone = btt(("😜\t") + _("Funny"))
+            if tone:
+                save_ai('ai_fun')
+            # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
             st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
             st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯") # Page link with icon
         with col2:
