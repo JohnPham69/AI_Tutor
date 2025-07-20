@@ -9,6 +9,16 @@ from app_utils import get_cookie_controller
 controller = get_cookie_controller()
 _ = get_translator()
 
+# Reset chat state when the app is accessed
+if 'reset_chat' not in st.session_state:
+    st.session_state.reset_chat = True
+
+if st.session_state.reset_chat:
+    st.session_state.messages = []
+    st.session_state.uploaded_file_content = ""
+    st.session_state.first_question_sent = False
+    st.session_state.reset_chat = False
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -17,6 +27,8 @@ if "uploaded_file_content" not in st.session_state:
 
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
+
+
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -116,9 +128,6 @@ if prompt:
                     st.session_state.messages.append({"role": "assistant", "content": ai_response})
                 else:
                     st.markdown("Error: No response from AI.")
-        # Add assistant response to chat history
-        # if ai_response is not None: # Remove this line
-        #     st.session_state.messages.append({"role": "assistant", "content": ai_response}) # Remove this line
 
 # Display chat messages from history.
 # These will now render in Streamlit's main flow, below the sticky title.
