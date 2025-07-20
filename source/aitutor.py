@@ -10,14 +10,14 @@ controller = get_cookie_controller()
 _ = get_translator()
 
 # Reset chat state when the app is accessed
-if 'reset_chat' not in st.session_state:
-    st.session_state.reset_chat = True
+# if 'reset_chat' not in st.session_state: # Remove this block
+#     st.session_state.reset_chat = True
 
-if st.session_state.reset_chat:
-    st.session_state.messages = []
-    st.session_state.uploaded_file_content = ""
-    st.session_state.first_question_sent = False
-    st.session_state.reset_chat = False
+# if st.session_state.reset_chat:
+#     st.session_state.messages = []
+#     st.session_state.uploaded_file_content = ""
+#     st.session_state.first_question_sent = False
+#     st.session_state.reset_chat = False
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -27,8 +27,6 @@ if "uploaded_file_content" not in st.session_state:
 
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
-
-
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -48,7 +46,7 @@ uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
 # Send the first question if it hasn't been sent yet
 if not st.session_state.first_question_sent:
-    first_text = "Chào bạn! Tôi đã sẵn sàng. Để chúng ta cùng bắt đầu, bạn muốn ôn tập bài học nào nè? Kể cho tớ nghe nhé, tớ sẽ giúp bạn ôn bài thật vui!"
+    first_text = "Chào bạn! Rất vui được đồng hành cùng bạn ôn tập. Hôm nay, chúng ta sẽ cùng ôn lại Bài 3: TÌM HIỂU THIẾT KẾ nhé. Bạn đã sẵn sàng chưa? Bạn muốn tôi hỏi một câu ôn tập luôn, hay bạn muốn tôi tóm tắt lại một một phần nào đó của bài học trước?"
     with st.chat_message("assistant"):
         with st.spinner("AI is thinking..."):
             ai_response = genRes(
