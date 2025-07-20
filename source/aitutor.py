@@ -17,7 +17,8 @@ if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
 # Show "Shall we start?" and immediately ask a question only once per session
-if not st.session_state.messages and not st.session_state.get("first_ai_question_sent", False):
+st.session_state.messages = []
+if not st.session_state.messages:
     # Add initial greeting
     st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
     # Generate and add the first AI question
