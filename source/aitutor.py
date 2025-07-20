@@ -57,7 +57,7 @@ if not st.session_state.first_question_sent:
             )
             # Ensure ai_response is not None before attempting to markdown.
             if ai_response is not None:
-                st.markdown(ai_response)
+                pass
             else:
                 st.markdown("Error: No response from AI.")
     st.session_state.first_question_sent = True
