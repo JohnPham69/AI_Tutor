@@ -426,7 +426,7 @@ with st.sidebar:
 
         col1, col2 = st.columns(2)
         with col1:
-            tone = btt(("😜\t") + _("Funny"))
+            tone = btt(("😜\t") + _("Funny"), key='btt_ai_fun')
             if tone:
                 save_ai('ai_fun')
             # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
