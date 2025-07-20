@@ -18,6 +18,9 @@ if "uploaded_file_content" not in st.session_state:
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
+st.session_state.first_question_sent = False
 
 # Accept chat input and file
 prompt = st.chat_input(
