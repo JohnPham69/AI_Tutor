@@ -15,12 +15,12 @@ if "messages" not in st.session_state:
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
 
+st.session_state.messages = []
+st.session_state.uploaded_file_content = ""
+
 if "first_question_sent" not in st.session_state:
     st.session_state.first_question_sent = False
 
-st.session_state.messages = []
-st.session_state.uploaded_file_content = ""
-st.session_state.first_question_sent = False
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -40,7 +40,7 @@ uploaded_content_for_prompt = st.session_state.get("uploaded_file_content", "")
 
 # Send the first question if it hasn't been sent yet
 if not st.session_state.first_question_sent:
-    first_text = "Ok, start thôi"
+    first_text = "Chào bạn! Tôi đã sẵn sàng. Để chúng ta cùng bắt đầu, bạn muốn ôn tập bài học nào nè? Kể cho tớ nghe nhé, tớ sẽ giúp bạn ôn bài thật vui!"
     with st.chat_message("assistant"):
         with st.spinner("AI is thinking..."):
             ai_response = genRes(
