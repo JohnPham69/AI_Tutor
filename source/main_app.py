@@ -602,8 +602,10 @@ if not st.session_state.messages: # Check if messages is empty
     starting_mess = _("Shall we start?")
     start_api_miss = _("API Key Missing Error Config")
     if not st.session_state.get('user_api'):
+        st.session_state.messages = []
         st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
     else:
+        st.session_state.messages = []
         st.session_state.messages.append({"role": "assistant", "content": starting_mess})
     st.rerun()
 
