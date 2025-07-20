@@ -56,7 +56,6 @@ if not st.session_state.first_question_sent:
             )
             # Ensure ai_response is not None before attempting to markdown.
             if ai_response is not None:
-                st.markdown(ai_response)
                 st.session_state.messages.append({"role": "assistant", "content": ai_response})
             else:
                 st.markdown("Error: No response from AI.")
