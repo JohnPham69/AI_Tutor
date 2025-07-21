@@ -22,6 +22,16 @@ if "messages" in st.session_state:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
+starting_mess = _("Shall we start?")
+start_api_miss = _("API Key Missing Error Config")
+if not st.session_state.get('user_api'):
+    st.session_state.messages = []
+    st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
+else:
+    st.session_state.messages = []
+    st.session_state['first_mess_set'] = False
+    st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+
 # Accept chat input and file
 prompt = st.chat_input(
     _("Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)"),
