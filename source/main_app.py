@@ -598,7 +598,7 @@ if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
 if pg_selection == chat_page or pg_selection == learning_page:
-    if 'user_api' is not in st.session_state:
+    if 'user_api' not in st.session_state:
         st.session_state.messages = []
         if not st.session_state.get('user_api'):
             st.session_state['first_mess_set'] = True
