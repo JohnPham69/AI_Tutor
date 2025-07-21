@@ -18,12 +18,15 @@ if "messages" not in st.session_state:
 
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
-    
+
 # These will now render in Streamlit's main flow, below the sticky title.
 if "messages" in st.session_state:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
+
+while len(st.session_state.messages) > 1:
+    st.session_state.messages.pop()  # Remove from the end
 
 
 # Accept chat input and file
