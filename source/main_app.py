@@ -619,8 +619,7 @@ if reset_chat:
         st.session_state['first_mess_set'] = False  # Don't touch this logic
         starting_mess = _("Shall we start?")
         st.session_state.messages.append({"role": "assistant", "content": starting_mess})
-    # Do NOT update last_chat_page here!
-    st.rerun()
+
 
 pg_selection.run()  # Run the selected page
 
