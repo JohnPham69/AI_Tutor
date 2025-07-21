@@ -616,6 +616,8 @@ if pg_selection == chat_page or pg_selection == learning_page:
         st.rerun()
 
 pg_selection.run()
+while len(st.session_state.messages) > 1:
+        st.session_state.messages.pop()
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
