@@ -94,9 +94,13 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Ví dụ cho câu hỏi TRẮC NGHIỆM:
             '
             Nội dung câu hỏi?
+            
             A. Lựa chọn A
+            
             B. Lựa chọn B
+            
             C. Lựa chọn C
+            
             D. Lựa chọn D
             '
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
@@ -104,9 +108,13 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             [
                 {{
                     "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
+                    
                     A. abcde
+                    
                     B. abcde
+                    
                     C. abcde
+                    
                     D. abcde
                     ",
                     "answer": "Đây là ví dụ câu trả lời A."
