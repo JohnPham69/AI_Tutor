@@ -609,26 +609,21 @@ if (pg_selection == chat_page or pg_selection == learning_page):
     if st.session_state.last_chat_page != pg_selection:
         reset_chat = True
 
-if reset_chat:
-    st.session_state.messages = []
-    if not st.session_state.get('user_api'):
-        st.session_state['first_mess_set'] = True
-        start_api_miss = _("API Key Missing Error Config")
-        st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
-    else:
-        st.session_state['first_mess_set'] = False  # Don't touch this logic
-        starting_mess = _("Shall we start?")
-        st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+if pg_selection == chat_page or pg_selection == learning_page:
+    if 'user_api' is not in st.session_state:
+        st.session_state.messages = []
+        if not st.session_state.get('user_api'):
+            st.session_state['first_mess_set'] = True
+            start_api_miss = _("API Key Missing Error Config")
+            st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
+        else:
+            st.session_state['first_mess_set'] = False  # Don't touch this logic
+            starting_mess = _("Shall we start?")
+            st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+        st.rerun()
 
 
-pg_selection.run()  # Run the selected page
-
-# Now update last_chat_page AFTER the page has run
-if (pg_selection == chat_page or pg_selection == learning_page):
-    st.session_state.last_chat_page = pg_selection
-else:
-    st.session_state.last_chat_page = None
-
+pg_selection.run()
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
     st.rerun()
