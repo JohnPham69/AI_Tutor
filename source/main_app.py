@@ -603,14 +603,15 @@ if pg_selection == chat_page or pg_selection == learning_page:
         st.session_state['first_mess_set'] = True
         starting_mess = _("Shall we start?")
         start_api_miss = _("API Key Missing Error Config")
-        if not st.session_state.get('user_api'):
-            st.session_state.messages = []
-            st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
-        else:
-            st.session_state.messages = []
-            st.session_state['first_mess_set'] = False
-            st.session_state.messages.append({"role": "assistant", "content": starting_mess})
         st.rerun()
+    if not st.session_state.get('user_api'):
+        st.session_state.messages = []
+        st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
+    else:
+        st.session_state.messages = []
+        st.session_state['first_mess_set'] = False
+        st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+        
 
 pg_selection.run() # Run the selected page
 
