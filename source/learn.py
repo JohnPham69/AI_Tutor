@@ -10,8 +10,6 @@ from streamlit_cookies_manager import CookieManager
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
-
-
 _ = get_translator() # Initialize translator for this page, assumes session_state lang is set by Tester.py
 
 # Initialize chat history if it doesn't exist
@@ -20,11 +18,6 @@ if "messages" not in st.session_state:
 
 if "uploaded_file_content" not in st.session_state:
     st.session_state.uploaded_file_content = ""
-
-# Display chat messages from history.
-
-st.session_state.uploaded_file_content = ""
-st.session_state.messages = []
 
 st.session_state.messages.append({"role": "assistant", "content": _("Shall we start?")})
 
