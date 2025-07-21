@@ -34,7 +34,7 @@ uploaded_content = ""
 user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
 
-
+st.write(st.session_state.first_mess_set)
 if not st.session_state.first_mess_set:
     first_mess_fake = "Ok, chúng ta có thể bắt đầu."
     selected_grade_from_tester = st.session_state.get('sb_grade_tester')
