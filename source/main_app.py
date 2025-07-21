@@ -599,10 +599,9 @@ if 'user_api' not in st.session_state:
 
 # Only run this block if on the chat page
 if pg_selection == chat_page or pg_selection == learning_page:
-    if not st.session_state.messages: # Check if messages is empty
-        st.session_state['first_mess_set'] = True
-        starting_mess = _("Shall we start?")
-        start_api_miss = _("API Key Missing Error Config")
+    st.session_state['first_mess_set'] = True
+    starting_mess = _("Shall we start?")
+    start_api_miss = _("API Key Missing Error Config")
     if not st.session_state.get('user_api'):
         st.session_state.messages = []
         st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
