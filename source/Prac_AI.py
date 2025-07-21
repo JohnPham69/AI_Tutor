@@ -3,6 +3,7 @@ from google import genai
 from google.genai import types
 import json
 import requests # Để lấy tài liệu bài học
+import streamlit as st
 
 # Hàm phụ trợ để lấy tài liệu bài học (tương tự như trong StAI.py)
 # Điều này có thể được tái cấu trúc thành một module tiện ích chung sau này
