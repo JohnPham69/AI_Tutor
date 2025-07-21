@@ -598,17 +598,15 @@ if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
 if pg_selection == chat_page or pg_selection == learning_page:
-    st.session_state['first_mess_set'] = True
-    if 'user_api' not in st.session_state:
-        st.session_state.messages = []
+    if not st.session_state.messages: # Check if messages is empty
+        st.session_state['first_mess_set'] = True
+        starting_mess = _("Shall we start?")
+        start_api_miss = _("API Key Missing Error Config")
         if not st.session_state.get('user_api'):
-            st.session_state['first_mess_set'] = True
-            start_api_miss = _("API Key Missing Error Config")
+            st.session_state.messages = []
             st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
-            
         else:
-            st.session_state['first_mess_set'] = False  # Don't touch this logic
-            starting_mess = _("Shall we start?")
+            st.session_state.messages = []
             st.session_state['first_mess_set'] = False
             st.session_state.messages.append({"role": "assistant", "content": starting_mess})
         st.rerun()
