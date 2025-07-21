@@ -603,8 +603,6 @@ if pg_selection == chat_page or pg_selection == learning_page:
         if not st.session_state.get('user_api'):
             st.session_state['first_mess_set'] = True
             start_api_miss = _("API Key Missing Error Config")
-            while len(st.session_state.messages) > 1:
-                st.session_state.messages.pop()  # Remove from the end
             st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
             
         else:
