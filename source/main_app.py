@@ -560,7 +560,6 @@ with st.sidebar:
                 st.session_state.messages.append({"role": "assistant", "content": content})
             except requests.exceptions.RequestException as e:
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
         else:
             howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
             try:
@@ -570,7 +569,6 @@ with st.sidebar:
                 st.session_state.messages.append({"role": "assistant", "content": content})
             except requests.exceptions.RequestException as e:
                 st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
 
 # Perform rerun if a language change was flagged
     # Donate code here
