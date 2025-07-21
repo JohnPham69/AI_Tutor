@@ -597,18 +597,6 @@ if "changeLang" not in st.session_state:
 if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
-if "chat_reset" not in st.session_state:
-    st.session_state.chat_reset = False
-
-if "last_chat_page" not in st.session_state:
-    st.session_state.last_chat_page = None
-
-# Only reset chat when switching to chat/learning page
-reset_chat = False
-if (pg_selection == chat_page or pg_selection == learning_page):
-    if st.session_state.last_chat_page != pg_selection:
-        reset_chat = True
-
 if pg_selection == chat_page or pg_selection == learning_page:
     if 'user_api' is not in st.session_state:
         st.session_state.messages = []
