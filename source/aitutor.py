@@ -40,7 +40,7 @@ if not st.session_state.first_mess_set:
     selected_grade_from_tester = st.session_state.get('sb_grade_tester')
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
-    st.session_state.first_mess_set = True
+    
     with st.chat_message("assistant"):
         with st.spinner(_("AI is thinking...")):
             ai_response = genRes(
@@ -57,8 +57,10 @@ if not st.session_state.first_mess_set:
             if ai_response is not None:
                 st.markdown(ai_response)
                 st.session_state.messages.append({"role": "assistant", "content": ai_response})
+                st.session_state.first_mess_set = True
             else:
                 st.markdown("Error: No response from AI.")
+                st.session_state.first_mess_set = True
 else:
     pass
 
