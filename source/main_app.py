@@ -607,9 +607,9 @@ if pg_selection == chat_page or pg_selection == learning_page:
             st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
         else:
             st.session_state.messages = []
-            if not 'first_mess_set' not in st.session_state: # The first message
+            if not 'first_mess_set' not in st.session_state and pg_selection == learning_page: # The first message
                 st.session_state['first_mess_set'] = False
-            else:
+            elif pg_selection == learning_page:
                 st.session_state['first_mess_set'] = True
             st.session_state.messages.append({"role": "assistant", "content": starting_mess})
         st.rerun()
