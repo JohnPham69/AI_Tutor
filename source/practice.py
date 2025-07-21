@@ -43,7 +43,7 @@ st.title(_("Practice Quiz Title"))
 # --- Reset function ---
 def reset_quiz_state(set_step_to_initial=True):
     if set_step_to_initial:
-        st.session_state.quiz_step = QUIZ_STATE_INITIAL
+        st.session_state.quiz_step = QUIZ_STATE_CONFIG
     st.session_state.num_questions_to_ask = 0
     st.session_state.current_question_idx = 0
     st.session_state.user_answers = {}
