@@ -22,7 +22,7 @@ FEEDBACK_STATUS_ERROR = "error"
 # --- Session state init ---
 def ensure_session():
     default_values = {
-        "quiz_step": QUIZ_STATE_INITIAL,
+        "quiz_step": QUIZ_STATE_CONFIG,
         "num_questions_to_ask": 0,
         "current_question_idx": 0,
         "user_answers": {},
