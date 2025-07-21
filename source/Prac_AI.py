@@ -4,6 +4,7 @@ from google.genai import types
 import json
 import requests # Để lấy tài liệu bài học
 import streamlit as st
+import re
 
 # Hàm phụ trợ để lấy tài liệu bài học (tương tự như trong StAI.py)
 # Điều này có thể được tái cấu trúc thành một module tiện ích chung sau này
@@ -90,7 +91,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Đối với mỗi câu hỏi, hãy cho biết đây là câu hỏi gì, trắc nghiệm, hay trả lời dài / ngắn sau đó cung cấp nội dung câu hỏi và tiếp đến trả lời chính xác và ngắn gọn.
             Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
             QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
-            QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm), bạn PHẢI sử dụng ký tự `\n` để biểu thị dấu xuống dòng.
+            QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm).
             Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG DÒNG, trước khi viết mỗi lựa chọn tính từ lựa chọn thứ nhất.
             Ví dụ cho câu hỏi TRẮC NGHIỆM:
             '
@@ -153,12 +154,29 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         if json_start != -1 and json_end != -1 and json_start < json_end:
             json_str = ans[json_start:json_end+1]
 
-        quiz_data_list = json.loads(json_str)
-        
+        print("AI raw response:", ans)
+        print("Extracted JSON string:", json_str)
+
+        # Fix: Escape unescaped newlines inside string values for JSON parsing
+        def escape_newlines_in_json_strings(s):
+            # This regex finds newlines inside double-quoted strings and replaces them with \n
+            def replacer(match):
+                return match.group(0).replace('\n', '\\n')
+            return re.sub(r'\"(.*?)(?<!\\)\"', replacer, s, flags=re.DOTALL)
+
+        json_str_fixed = escape_newlines_in_json_strings(json_str)
+
+        try:
+            quiz_data_list = json.loads(json_str_fixed)
+        except Exception as e:
+            print("JSON decode error:", e)
+            print("json_str_fixed was:", json_str_fixed)
+            return None
+
         if isinstance(quiz_data_list, list) and all(isinstance(item, dict) and "question" in item and "answer" in item for item in quiz_data_list):
-            return quiz_data_list[:num_questions] # Đảm bảo trả về đúng số lượng yêu cầu
+            return quiz_data_list[:num_questions]
         else:
-            print(f"Lỗi: AI không trả về định dạng JSON như mong đợi. Dữ liệu nhận được: {json_str}")
+            print(f"Lỗi: AI không trả về định dạng JSON như mong đợi. Dữ liệu nhận được: {json_str_fixed}")
             return None
 
     except json.JSONDecodeError as json_err:
@@ -179,7 +197,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         print("Lỗi: API key không được cung cấp cho evaluate_user_answer_clarity.")
         return "ERROR"
     try:
-        client = genai.Client(api_key=user_api) # type: ignore
+        client = genai.Client(api_key=user_api)
         model_name = "gemini-2.5-flash"
 
         prompt_text = f"""
@@ -221,14 +239,13 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             if chunk.text:
                 ans_stream += chunk.text
         evaluation_text = ans_stream.strip().upper()
+        print("AI grading response:", repr(evaluation_text))  # <-- Add this line
 
         if evaluation_text in ["CORRECT", "INCORRECT"]:
             return evaluation_text
         else:
             print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
-            # Nếu AI không chắc chắn, mặc định là INCORRECT để an toàn
-            return "INCORRECT" 
-            
+            return "INCORRECT"
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
