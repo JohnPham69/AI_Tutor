@@ -34,6 +34,34 @@ uploaded_content = ""
 user_api = st.session_state.get('user_api')
 user_model = st.session_state.get('user_model')
 
+
+if not st.session_state.first_mess_set:
+    first_mess_fake = "Ok, chúng ta có thể bắt đầu."
+    selected_grade_from_tester = st.session_state.get('sb_grade_tester')
+    selected_subject_from_tester = st.session_state.get('sb_subject_tester')
+    selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
+
+    with st.chat_message("assistant"):
+        with st.spinner(_("AI is thinking...")):
+            ai_response = genRes(
+                first_mess_fake,
+                st.session_state.messages,
+                user_api,
+                user_model,
+                selected_grade=selected_grade_from_tester,
+                selected_subject_name=selected_subject_from_tester,
+                selected_lesson_data_list=selected_lesson_details_for_ai,
+                uploaded_file_text=None,
+                translator=_
+            )
+            if ai_response is not None:
+                st.markdown(ai_response)
+                st.session_state.messages.append({"role": "assistant", "content": ai_response})
+            else:
+                st.markdown("Error: No response from AI.")
+else:
+    pass
+
 if prompt:
     # Handle file upload
     if prompt.get("files"):
