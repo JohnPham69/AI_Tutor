@@ -25,9 +25,6 @@ if "messages" in st.session_state:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-while len(st.session_state.messages) > 2:
-    st.session_state.messages.pop()  # Remove from the end
-
 
 # Accept chat input and file
 prompt = st.chat_input(
