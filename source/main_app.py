@@ -597,6 +597,9 @@ if "changeLang" not in st.session_state:
 if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
+if 'curr_page' not in st.session_state:
+    st.session_state['curr_page'] = None
+
 if pg_selection == chat_page or pg_selection == learning_page:
     if not st.session_state.messages: # Check if messages is empty
         st.session_state['first_mess_set'] = True
@@ -611,8 +614,6 @@ if pg_selection == chat_page or pg_selection == learning_page:
             
             st.session_state.messages.append({"role": "assistant", "content": starting_mess})
         st.rerun()
-    while len(st.session_state.messages) > 1:
-        st.session_state.messages.pop()
 
 pg_selection.run()
 if st.session_state.get('changeLang', False):
