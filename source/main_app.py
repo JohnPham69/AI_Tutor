@@ -597,9 +597,11 @@ if "changeLang" not in st.session_state:
 if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
-# Only run this block if on the chat page
-if pg_selection == chat_page or pg_selection == learning_page:
-    # Always clear chat history and reset messages
+if "chat_reset" not in st.session_state:
+    st.session_state.chat_reset = False
+
+# Only reset chat ONCE per page visit
+if (pg_selection == chat_page or pg_selection == learning_page) and not st.session_state.chat_reset:
     st.session_state.messages = []
     if not st.session_state.get('user_api'):
         st.session_state['first_mess_set'] = True
@@ -609,10 +611,14 @@ if pg_selection == chat_page or pg_selection == learning_page:
         st.session_state['first_mess_set'] = False  # Don't touch this logic
         starting_mess = _("Shall we start?")
         st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+    st.session_state.chat_reset = True
     st.rerun()
-        
 
-pg_selection.run() # Run the selected page
+pg_selection.run()  # Run the selected page
+
+# Reset the flag when leaving chat/learning page
+if not (pg_selection == chat_page or pg_selection == learning_page):
+    st.session_state.chat_reset = False
 
 if st.session_state.get('changeLang', False):
     st.session_state.changeLang = False # Reset the flag
