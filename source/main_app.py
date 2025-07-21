@@ -612,8 +612,6 @@ if pg_selection == chat_page or pg_selection == learning_page:
             starting_mess = _("Shall we start?")
             st.session_state.messages.append({"role": "assistant", "content": starting_mess})
         st.rerun()
-    while len(st.session_state.messages) > 1:
-        st.session_state.messages.pop()  # Remove from the end
 
 pg_selection.run()
 if st.session_state.get('changeLang', False):
