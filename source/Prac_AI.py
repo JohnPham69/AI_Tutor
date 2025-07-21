@@ -60,7 +60,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         return ""
 
 def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None,
-                       lesson_id_str: str = None, question_type: str = "Mixed", lesson_text: str = None):
+                       lesson_id_str: str = None, question_type: str = None, lesson_text: str = None):
     """
     Generate N quiz questions based on a subject and optionally a lesson's content.
     If lesson_text is provided, it overrides the fetch from GitHub.
@@ -79,13 +79,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             lesson_material = _fetch_lesson_content(subject_name, lesson_id_str)
 
         # Question type handling
-        if question_type == "Mixed":
-            question_type = "trắc nghiệm, tự luận, trả lời ngắn"
-        elif question_type == "Multiple Choice":
-            question_type = "trắc nghiệm 4 lựa chọn (A, B, C, D)"
-        else:
-            question_type = "tự luận, trả lời ngắn"
-
+        
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo câu hỏi trắc nghiệm chất lượng cao.
             Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi.
@@ -101,11 +95,8 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             '
             Nội dung câu hỏi?
             A. Lựa chọn A
-
             B. Lựa chọn B
-
             C. Lựa chọn C
-
             D. Lựa chọn D
             '
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
@@ -114,11 +105,8 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
                 {{
                     "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
                     A. abcde
-                    
                     B. abcde
-                    
                     C. abcde
-                    
                     D. abcde
                     ",
                     "answer": "Đây là ví dụ câu trả lời A."
