@@ -40,7 +40,7 @@ if not st.session_state.first_mess_set:
     selected_grade_from_tester = st.session_state.get('sb_grade_tester')
     selected_subject_from_tester = st.session_state.get('sb_subject_tester')
     selected_lesson_details_for_ai = st.session_state.get('selected_lesson_contexts', [])
-
+    st.session_state.first_mess_set = True
     with st.chat_message("assistant"):
         with st.spinner(_("AI is thinking...")):
             ai_response = genRes(
