@@ -597,17 +597,18 @@ if "changeLang" not in st.session_state:
 if 'user_api' not in st.session_state:
     st.session_state['user_api'] = None
 
-# Add this block to display initial message if messages is empty
-if not st.session_state.messages: # Check if messages is empty
-    starting_mess = _("Shall we start?")
-    start_api_miss = _("API Key Missing Error Config")
-    if not st.session_state.get('user_api'):
-        st.session_state.messages = []
-        st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
-    else:
-        st.session_state.messages = []
-        st.session_state.messages.append({"role": "assistant", "content": starting_mess})
-    st.rerun()
+# Only run this block if on the chat page
+if pg_selection == chat_page or pg_selection == learning_page:
+    if not st.session_state.messages: # Check if messages is empty
+        starting_mess = _("Shall we start?")
+        start_api_miss = _("API Key Missing Error Config")
+        if not st.session_state.get('user_api'):
+            st.session_state.messages = []
+            st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
+        else:
+            st.session_state.messages = []
+            st.session_state.messages.append({"role": "assistant", "content": starting_mess})
+        st.rerun()
 
 pg_selection.run() # Run the selected page
 
