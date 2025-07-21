@@ -43,6 +43,8 @@ st.title(_("Practice Quiz Title"))
 # --- Reset function ---
 def reset_quiz_state(set_step_to_initial=True):
     if set_step_to_initial:
+        st.session_state.quiz_step = QUIZ_STATE_INITIAL
+    else:
         st.session_state.quiz_step = QUIZ_STATE_CONFIG
     st.session_state.num_questions_to_ask = 0
     st.session_state.current_question_idx = 0
@@ -205,11 +207,9 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
             with col1:
                 if st.button(_("Check Answer Button"), key=f"check_{idx}"):
                     st.session_state.user_answers[idx] = answer
-                    key = controller.get("user_api")
+                    key = st.session_state.get("user_api")
                     if not key:
                         st.error(_("API Key Missing In-Quiz Error"))
-                        reset_quiz_state()
-                        st.rerun()
                     with st.spinner(_("Grading Spinner")):
                         result = evaluate_user_answer_clarity(answer, current['answer'], current['question'], key)
                     if result == FEEDBACK_STATUS_CORRECT.upper():
