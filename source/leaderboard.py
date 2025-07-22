@@ -74,6 +74,26 @@ else:
     num_actual_cols = df_leaderboard.shape[1]
     df_leaderboard.columns = RAW_SHEET_COLUMNS[:num_actual_cols]
 
+    # Convert 'Total Attempted' and 'Correct Answer' to integers before grouping
+    if 'Total Attempted' in df_leaderboard.columns:
+        df_leaderboard['Total Attempted'] = pd.to_numeric(df_leaderboard['Total Attempted'], errors='coerce').fillna(0).astype(int)
+    if 'Correct Answer' in df_leaderboard.columns:
+        df_leaderboard['Correct Answer'] = pd.to_numeric(df_leaderboard['Correct Answer'], errors='coerce').fillna(0).astype(int)
+
+    # Group by 'User Name' and 'Subject', sum 'Total Attempted' and 'Correct Answer'
+    if {'User Name', 'Subject', 'Total Attempted', 'Correct Answer'}.issubset(df_leaderboard.columns):
+        df_leaderboard = (
+            df_leaderboard
+            .groupby(['User Name', 'Subject'], as_index=False)
+            .agg({
+                'Total Attempted': 'sum',
+                'Correct Answer': 'sum',
+                'School': 'first',
+                'Class': 'first',
+                'Student ID': 'first'
+            })
+        )
+
 # Process the data fetched from Google Sheets
 if not df_leaderboard.empty:
     # Convert 'Total Attempted' and 'Correct Answer' to numeric, fill errors with 0
@@ -109,7 +129,7 @@ if not df_leaderboard.empty:
 
     if not df_leaderboard.empty: # Proceed only if there are users meeting the criteria
         # 2. Sort the DataFrame
-        sort_by_columns = ["Performance", "Total Attempted"]
+        sort_by_columns = ["Correct Answer", "Performance"]
         ascending_order = [False, False]
         if 'User Name' in df_leaderboard.columns:
             sort_by_columns.append("User Name")
@@ -132,7 +152,7 @@ if not df_leaderboard.empty:
         df_leaderboard['Rank'] = df_leaderboard['Rank'].astype(str) # Ensure all ranks are strings
 
         # 5. Reorder columns to a defined order
-        desired_cols_order = ["Rank", "User Name", "Total Attempted", "Correct Answer", "Subject",
+        desired_cols_order = ["Rank", "User Name", "Correct Answer", "Total Attempted", "Subject",
                               "Performance", "School", "Class", "Student ID"]
         existing_cols_in_order = [col for col in desired_cols_order if col in df_leaderboard.columns]
         other_cols = [col for col in df_leaderboard.columns if col not in existing_cols_in_order]
