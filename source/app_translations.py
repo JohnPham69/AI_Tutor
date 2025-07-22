@@ -196,7 +196,8 @@ TRANSLATIONS = {
         "Error in AddNewResult: 'gcp_service_account' not found in st.secrets.": "Lỗi trong AddNewResult: 'gcp_service_account' không thể tìm được trong st.secrets.",
         "Funny": "Hài hước",
         "Advance": "Nâng cao",
-        "Shall we start?": "Chúng ta bắt đầu nhé!!"
+        "Shall we start?": "Chúng ta bắt đầu nhé!!",
+        "Select Ranking Criteria": "Chọn phương thức xếp hạng"
     }
 }
 
