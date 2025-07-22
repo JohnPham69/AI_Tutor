@@ -61,6 +61,13 @@ RAW_SHEET_COLUMNS = [
 # Class = Lớp
 # Student ID = Mã học sinh
 
+# Ranking option selection
+ranking_option = st.selectbox(
+    _("Select Ranking Criteria"),
+    [_("Rank by Correct answer"), _("Rank by Total Attempted")],
+    index=0  # Default: Correct Answer
+)
+
 # Read all values from the sheet to bypass gspread's header processing
 all_values = sheet.get_all_values()
 
@@ -129,8 +136,12 @@ if not df_leaderboard.empty:
 
     if not df_leaderboard.empty: # Proceed only if there are users meeting the criteria
         # 2. Sort the DataFrame
-        sort_by_columns = ["Correct Answer", "Performance"]
-        ascending_order = [False, False]
+        if ranking_option == _("Rank by Correct answer"):
+            sort_by_columns = ["Correct Answer", "Performance"]
+            ascending_order = [False, False]
+        else:  # Rank by Total Attempted
+            sort_by_columns = ["Total Attempted", "Performance"]
+            ascending_order = [False, False]
         if 'User Name' in df_leaderboard.columns:
             sort_by_columns.append("User Name")
             ascending_order.append(True)
