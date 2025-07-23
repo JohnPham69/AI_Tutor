@@ -36,8 +36,6 @@ practice = st.Page("./practice.py", title=_("Practice"))
 leaderboard_page = st.Page("./leaderboard.py", title=_("Leaderboard")) # New page for leaderboard
 learning_page = st.Page("./learn.py", title=_("Learning with AI"), default = True) # New page for learning
 
-
-
 # Function to load subject/lesson data (can be a utility if used elsewhere)
 @st.cache_data(ttl=3600) # Cache data for an hour
 def load_subject_lesson_data():
