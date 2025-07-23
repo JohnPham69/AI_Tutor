@@ -80,7 +80,7 @@ TRANSLATIONS = {
         "Learning with AI": "Learning",
         "Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)": "Type your message here (/x for new chat)",
         "Rank by Total Attempted": "Total Questions Attempted",
-        "Rank by Correct answer": "Total Correct Answers"
+        "Rank by Correct answer": "Total Correct Answers",
         "Lỗi cấu hình: Google Sheets credentials không được thiết lập trong Streamlit secrets.": "Configuration error: Google Sheets credentials were not established in Streamlit secrets",
     },
     "vi": {
@@ -201,7 +201,7 @@ TRANSLATIONS = {
         "Shall we start?": "Chúng ta bắt đầu nhé!!",
         "Select Ranking Criteria": "Chọn phương thức xếp hạng",
         "Rank by Correct answer": "Tổng số câu làm đúng",
-        "Rank by Total Attempted": "Tổng số câu đã làm"
+        "Rank by Total Attempted": "Tổng số câu đã làm",
     }
 }
 
