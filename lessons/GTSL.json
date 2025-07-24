@@ -796,7 +796,64 @@
         },
         {
           "name": "Chân trời sáng tạo",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "GDCD",
+              "less_no": 10,
+              "link": [
+                {
+                  "name": "TU HAO VE TRUYEN THONG DAN TOC VIET NAM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L1.md"
+                },
+                {
+                  "name": "TON TRONG SU DA DANG CUA CAC DAN TOC",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L2.md"
+                },
+                {
+                  "name": "LAO DONG CAN CU, SANG TAO",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L3.md"
+                },
+                {
+                  "name": "BAO VE LE PHAI",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L4.md"
+                },
+                {
+                  "name": "BAO VE MOI TRUONG VA TAI NGUYEN THIEN NHIEN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L5.md"
+                },
+                {
+                  "name": "XAC DINH MUC TIEU CA NHAN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L6.md"
+                },
+                {
+                  "name": "PHONG, CHONG BAO LUC GIA DINH",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L7.md"
+                },
+                {
+                  "name": "LAP KE HOACH CHI TIEU",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L8.md"
+                },
+                {
+                  "name": "PHONG NGUA TAI NAN VU KHI, CHAY, NO VA CAC CHAT DOC HAI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L9.md"
+                },
+                {
+                  "name": "QUYEN VA NGHIA VU LAO DONG CUA CONG DAN",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade8/CTST/civics/L10.md"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
