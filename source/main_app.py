@@ -546,29 +546,33 @@ with st.sidebar:
     
     # --- How to get API key (get_api button) ---
     if st.button(_("FAQ - Frequently Asked Question")):
-        # Ensure messages list exists
-        if "messages" not in st.session_state:
-            st.session_state.messages = []
-        if st.session_state.lang == "vi":
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
+        if pg_selection == chat_page or pg_selection == learning_page:
+            # Ensure messages list exists
+            if "messages" not in st.session_state:
+                st.session_state.messages = []
+            if st.session_state.lang == "vi":
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_vi.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
+            else:
+                howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
+                try:
+                    response = requests.get(howto_url)
+                    response.raise_for_status()
+                    content = response.text
+                    st.session_state.messages.append({"role": "assistant", "content": content})
+                except requests.exceptions.RequestException as e:
+                    st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
+                st.rerun()
         else:
-            howto_url = "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/guideline/FAQ_en.md"
-            try:
-                response = requests.get(howto_url)
-                response.raise_for_status()
-                content = response.text
-                st.session_state.messages.append({"role": "assistant", "content": content})
-            except requests.exceptions.RequestException as e:
-                st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
-            st.rerun()
+            st.warning('Only work in Learning and Tutor')
+            
 
 # Perform rerun if a language change was flagged
     # Donate code here
