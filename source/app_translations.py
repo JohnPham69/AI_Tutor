@@ -202,6 +202,7 @@ TRANSLATIONS = {
         "Select Ranking Criteria": "Chọn phương thức xếp hạng",
         "Rank by Correct answer": "Tổng số câu làm đúng",
         "Rank by Total Attempted": "Tổng số câu đã làm",
+        'Only work in Learning and Tutor': "Chỉ xem được trong Học bài và Trả bài",
     }
 }
 
