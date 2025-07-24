@@ -391,6 +391,9 @@ with st.sidebar:
                 st.session_state.sb_lesson_tester_labels = lesson_labels
             else:
                 st.session_state.sb_lesson_tester_labels = []
+            
+            # ✅ Trigger fetch after updating selection
+            fetch_selected_lessons()
 
         st.checkbox(
             _("Select all lessons"),
