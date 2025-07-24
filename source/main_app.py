@@ -392,6 +392,13 @@ with st.sidebar:
             else:
                 st.session_state.sb_lesson_tester_labels = []
 
+        st.checkbox(
+            _("Select all lessons"),
+            value=all_selected,  # Reflects current selection
+            key="select_all_lessons_cb",
+            on_change=on_select_all_change
+        )
+        
         # "View Lesson" button and its subheader, now in Tester.py's sidebar
         if st.button(_("View Lesson Button")):
             fetch_and_display_lessons()
