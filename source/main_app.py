@@ -581,7 +581,7 @@ with st.sidebar:
                     st.session_state.messages.append({"role": "assistant", "content": f"### {_('Failed to fetch guideline')}\n\n{_('Error')}: {e}"})
                 st.rerun()
         else:
-            st.warning('Only work in Learning and Tutor')
+            st.warning(_('Only work in Learning and Tutor'))
             
 
 # Perform rerun if a language change was flagged
