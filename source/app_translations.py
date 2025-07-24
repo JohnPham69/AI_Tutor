@@ -203,6 +203,7 @@ TRANSLATIONS = {
         "Rank by Correct answer": "Tổng số câu làm đúng",
         "Rank by Total Attempted": "Tổng số câu đã làm",
         'Only work in Learning and Tutor': "Chỉ xem được trong Học bài và Trả bài",
+        "No lessons selected or loaded yet.": "Chưa có chọn bài học"
     }
 }
 
