@@ -9,6 +9,7 @@ import re
 from st_clickable_images import clickable_images
 # Translation requests
 from app_translations import get_translator, init_session_language # Import from new translations module
+from StAI import trans
 # Cookies stuffs
 from app_utils import get_cookie_controller
 from streamlit_cookies_manager import CookieManager
@@ -64,7 +65,8 @@ def fetch_and_display_lessons():
     if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
         for content in st.session_state.lesson_contents:
             if st.session_state.lang == "en":
-                pass
+                st.spinner("Fetching lessons...")
+                st.session_state.messages.append({"role": "assistant", "content": trans(content, cookies.get('user_api'), "gemini-2.5-flash")})
             else:
                 st.session_state.messages.append({"role": "assistant", "content": content})
     else:
