@@ -613,7 +613,7 @@ with st.sidebar:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "lang" not in st.session_state:
-    st.session_state.lang = "en"  # Or "vi", depending on your default
+    st.session_state.lang = "vi"  # Or "vi", depending on your default
 if "changeLang" not in st.session_state:
     st.session_state.changeLang = False
 if 'user_api' not in st.session_state:
