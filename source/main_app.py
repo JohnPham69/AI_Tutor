@@ -63,7 +63,10 @@ def fetch_and_display_lessons():
 
     if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
         for content in st.session_state.lesson_contents:
-            st.session_state.messages.append({"role": "assistant", "content": content})
+            if st.session_state.lang == "en":
+                pass
+            else:
+                st.session_state.messages.append({"role": "assistant", "content": content})
     else:
         st.session_state.messages.append({"role": "assistant", "content": _("No lessons selected or loaded yet.")})
     st.rerun()
