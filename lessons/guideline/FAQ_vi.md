@@ -6,6 +6,7 @@
 - **API KEY của bạn sẽ được lưu cục bộ trên thiết bị của bạn** (ví dụ: trong file cấu hình hoặc bộ nhớ tạm của trình duyệt, tùy vào cách bạn sử dụng chương trình).
 - Chương trình **không gửi API KEY của bạn lên máy chủ bên ngoài**. API KEY chỉ được sử dụng để xác thực các yêu cầu tới dịch vụ AI của Google.
 - Để sử dụng API KEY, bạn chỉ cần dán vào ô cấu hình API trong chương trình và bấm Lưu.
+- Đây là một [video hướng dẫn](https://youtu.be/Ng6dZaqEewI), xem qua để dễ thực hiện hơn.
 
 ### 2. Chương trình sẽ thu thập thông tin gì, lưu ở đâu và dùng cho mục đích gì?
 
