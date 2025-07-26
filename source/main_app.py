@@ -49,6 +49,9 @@ def load_subject_lesson_data():
         return {"grade": []} # Return default structure with "grade" key on error
 
 # Function to fetch and display lesson content (moved from AI_page.py)
+
+#### Upcoming upgrade, translate lessons -> en, if current lang is english, vice versa ####
+
 def fetch_and_display_lessons():
     # Ensure messages list exists in session_state, initialize if not.
     # This is important because this function is now in Tester.py and might be called
