@@ -1039,6 +1039,77 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L9.md"
                 }
               ]
+            },
+            {
+              "name": "Địa lý",
+              "less_no": 13,
+              "link": [
+                {
+                  "name": "DÂN CƯ VÀ DÂN TỘC, CHẤT LƯỢNG CUỘC SỐNG",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L1.md"
+                },
+                {
+                  "name": "PHÂN BỐ DÂN CƯ VÀ CÁC LOẠI HÌNH QUẦN CƯ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L2.md"
+                },
+                {
+                  "name": "NÔNG NGHIỆP, LÂM NGHIỆP, THUỶ SẢN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L4.md"
+                },
+                {
+                  "name": "CÔNG NGHIỆP",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L6.md"
+                },
+                {
+                  "name": "DỊCH VỤ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L8.md"
+                },
+                {
+                  "name": "VÙNG TRUNG DU VÀ MIỀN NÚI BẮC BỘ",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L9.md"
+                },
+                {
+                  "name": "VÙNG ĐỒNG BẰNG SÔNG HỒNG",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L11.md"
+                },
+                {
+                  "name": "BẮC TRUNG BỘ",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L13.md"
+                },
+                {
+                  "name": "DUYÊN HẢI NAM TRUNG BỘ",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L15.md"
+                },
+                {
+                  "name": "VÙNG TÂY NGUYÊN",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L17.md"
+                },
+                {
+                  "name": "VÙNG ĐÔNG NAM BỘ",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L19.md"
+                },
+                {
+                  "name": "VÙNG ĐỒNG BẰNG SÔNG CỬU LONG",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L21.md"
+                },
+                {
+                  "name": "PHÁT TRIỂN TỔNG HỢP KINH TẾ VÀ BẢO VỆ TÀI NGUYÊN, MÔI TRƯỜNG BIỂN ĐẢO",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/geography/L23.md"
+                }
+              ]
             }
           ]
         }
