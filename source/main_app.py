@@ -170,13 +170,20 @@ with st.sidebar:
     # To here, feel free to expand in between
     #Start Logo
     st.write("")
-    st.logo(
-        image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
-        size = "large", # Adjusted size for sidebar,
-        link = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
-        icon_image= "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
-    )
-    
+    if st.session_state.lang == "vi":
+        st.logo(
+            image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/aitutors_logo_vi.png?raw=true",
+            size = "large", # Adjusted size for sidebar,
+            link = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/aitutors_logo_vi.png?raw=true",
+            icon_image= "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
+        )
+    else:
+        st.logo(
+            image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
+            size = "large", # Adjusted size for sidebar,
+            link = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/logo.png?raw=true",
+            icon_image= "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
+        )
     # Inject custom CSS to make the logo bigger
     st.html("""
     <style>
