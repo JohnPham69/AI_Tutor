@@ -172,9 +172,9 @@ with st.sidebar:
     st.write("")
     if st.session_state.lang == "vi":
         st.logo(
-            image = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/aitutors_logo_vi.png?raw=true",
+            image = "https://github.com/JohnPham69/AI_Tutor/blob/50a1d15bad3def51f059e1f2f8460260db9ed130/img/aitutors_logo_vi.png?raw=true",
             size = "large", # Adjusted size for sidebar,
-            link = "https://github.com/JohnPham69/AI_Tutor/blob/be788c9e48670e9a01f0173ee5a3d171482523e6/img/aitutors_logo_vi.png?raw=true",
+            link = "https://github.com/JohnPham69/AI_Tutor/blob/50a1d15bad3def51f059e1f2f8460260db9ed130/img/aitutors_logo_vi.png?raw=true",
             icon_image= "https://github.com/JohnPham69/AI_Tutor/blob/main/img/aitutors_logo.png?raw=true",
         )
     else:
