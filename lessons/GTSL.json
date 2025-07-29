@@ -1217,6 +1217,52 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B1/L9.md"
                 }
               ]
+            },
+            {
+              "name": "HDTNHN, bản 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "THỂ HIỆN KĨ NĂNG GIAO TIẾP, ỨNG XỬ VÀ SỐNG HÀI HOÀ",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L1.md"
+                },
+                {
+                  "name": "THÍCH NGHI VỚI NHỮNG THAY ĐỔI TRONG CUỘC SỐNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L2.md"
+                },
+                {
+                  "name": "THỰC HIỆN CÁC HOẠT ĐỘNG GIÁO DỤC TRONG NHÀ TRƯỜNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L3.md"
+                },
+                {
+                  "name": "GÓP PHẦN CHĂM LO HẠNH PHÚC VÀ PHÁT TRIỂN KINH TẾ GIA ĐÌNH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L4.md"
+                },
+                {
+                  "name": "XÂY DỰNG MẠNG LƯỚI QUAN HỆ VÀ THAM GIA CÁC HOẠT ĐỘNG CỘNG ĐỒNG Ở ĐỊA PHƯƠNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L5.md"
+                },
+                {
+                  "name": "PHÒNG CHỐNG Ô NHIỄM MÔI TRƯỜNG VÀ BẢO VỆ CẢNH QUAN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L6.md"
+                },
+                {
+                  "name": "TÌM HIỂU NGHỀ VÀ RÈN LUYỆN BẢN THÂN THEO ĐỊNH HƯỚNG NGHỀ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L7.md"
+                },
+                {
+                  "name": "ĐỊNH HƯỚNG CHO BẢN THÂN SAU TRUNG HỌC CƠ SỞ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
             }
           ]
         }
