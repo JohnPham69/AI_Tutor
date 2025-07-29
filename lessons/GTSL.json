@@ -848,6 +848,68 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/GDCD/L12.md"
                 }
               ]
+            },
+            {
+              "name": "Văn tập 1",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "TIẾNG NÓI CỦA VẠN VẬT",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L1.md"
+                },
+                {
+                  "name": "BÀI HỌC CUỘC SỐNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L2.md"
+                },
+                {
+                  "name": "NHỮNG GÓC NHÌN VĂN CHƯƠNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L3.md"
+                },
+                {
+                  "name": "QUÀ TẶNG CỦA THIÊN NHIÊN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L4.md"
+                },
+                {
+                  "name": "TỪNG BƯỚC HOÀN THIỆN BẢN THÂN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L5.md"
+                }
+              ]
+            },
+            {
+              "name": "Văn tập 2",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "HÀNH TRÌNH TRI THỨC",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L6.md"
+                },
+                {
+                  "name": "TRI TUỆ DÂN GIAN",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L7.md"
+                },
+                {
+                  "name": "NÉT ĐẸP VĂN HOÁ VIỆT",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L8.md"
+                },
+                {
+                  "name": "TRONG THẾ GIỚI VIỄN TƯỞNG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L9.md"
+                },
+                {
+                  "name": "LẮNG NGHE TRÁI TIM MÌNH",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/literature/L10.md"
+                }
+              ]
             }
           ]
         }
