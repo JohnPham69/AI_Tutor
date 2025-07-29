@@ -1051,7 +1051,128 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L15.md"
                 }
               ]
-            }            
+            },
+            {
+              "name": "Lịch sử",
+              "less_no": 23,
+              "link": [
+                {
+                  "name": "Các cuộc cách mạng tư sản ở châu Âu và Bắc Mỹ",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L1.md"
+                },
+                {
+                  "name": "Cách mạng công nghiệp",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L2.md"
+                },
+                {
+                  "name": "Tình hình Đông Nam Á từ nửa sau thế kỉ XVI đến thế kỉ XIX",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L3.md"
+                },
+                {
+                  "name": "Xung đột Nam – Bắc Triều và Trịnh – Nguyễn",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L4.md"
+                },
+                {
+                  "name": "Quá trình khai phá vùng đất phía Nam từ thế kỉ XVI đến thế kỉ XVIII",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L5.md"
+                },
+                {
+                  "name": "Kinh tế, văn hoá và tôn giáo ở Đại Việt trong các thế kỉ XVI – XVIII",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L6.md"
+                },
+                {
+                  "name": "Kinh tế, văn hoá và tôn giáo ở Đại Việt trong các thế kỉ XVII",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L7.md"
+                },
+                {
+                  "name": "Phong trào Tây Sơn",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L8.md"
+                },
+                {
+                  "name": "Các nước Anh, Pháp, Đức, Mĩ chuyển sang giai đoạn chủ nghĩa đế quốc",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L9.md"
+                },
+                {
+                  "name": "Công xã Pa-ri (năm 1871)",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L10.md"
+                },
+                {
+                  "name": "Phong trào công nhân và sự ra đời của chủ nghĩa Mác",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L11.md"
+                },
+                {
+                  "name": "Chiến tranh thế giới thứ nhất [1914 – 1918]",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L12.md"
+                },
+                {
+                  "name": "Cách mạng tháng Mười Nga năm 1917",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L13.md"
+                },
+                {
+                  "name": "Sự phát triển của khoa học, kĩ thuật, văn học, nghệ thuật trong các thế kỉ XVIII – XIX",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L14.md"
+                },
+                {
+                  "name": "Trung Quốc",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L15.md"
+                },
+                {
+                  "name": "Nhật Bản",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L16.md"
+                },
+                {
+                  "name": "Ấn Độ",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L17.md"
+                },
+                {
+                  "name": "Đông Nam Á",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L18.md"
+                },
+                {
+                  "name": "Việt Nam nửa đầu thế kỉ XIX",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L19.md"
+                },
+                {
+                  "name": "Cuộc kháng chiến chống thực dân Pháp xâm lược của nhân dân Việt Nam (1858 – 1884)",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L20.md"
+                },
+                {
+                  "name": "Phong trào chống Pháp của nhân dân Việt Nam trong những năm cuối thế kỉ XIX",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L21.md"
+                },
+                {
+                  "name": "Trào lưu cải cách ở Việt Nam nửa cuối thế kỉ XIX",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L22.md"
+                },
+                {
+                  "name": "Việt Nam đầu thế kỉ XX",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L23.md"
+                }
+              ]
+            }
           ]
         }
       ]
