@@ -1172,6 +1172,57 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L23.md"
                 }
               ]
+            },
+            {
+              "name": "HDTNHN, bản 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "Tự tạo động lực và ứng phó với áp lực trong cuộc sống",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L1.md"
+                },
+                {
+                  "name": "Giao tiếp, ứng xử tích cực",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L2.md"
+                },
+                {
+                  "name": "Góp phần xây dựng văn hoá nhà trường",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L3.md"
+                },
+                {
+                  "name": "Góp phần xây dựng gia đình hạnh phúc",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L4.md"
+                },
+                {
+                  "name": "Xây dựng ngân sách cá nhân và góp phần phát triển kinh tế gia đình",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L5.md"
+                },
+                {
+                  "name": "Xây dựng mạng lưới thực hiện các hoạt động cộng đồng",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L6.md"
+                },
+                {
+                  "name": "Bảo vệ môi trường và quảng bá cảnh quan đất nước",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L7.md"
+                },
+                {
+                  "name": "Tìm hiểu những nghề em quan tâm",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L8.md"
+                },
+                {
+                  "name": "Xác định con đường cho bản thân sau trung học cơ sở",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B1/L9.md"
+                }
+              ]
             }
           ]
         }
