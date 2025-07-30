@@ -1288,7 +1288,7 @@
             },
             {
               "name": "Toán tập 1",
-              "less_no": 5,
+              "less_no": 10,
               "link": [
                 {
                   "name": "BIỂU THỨC ĐẠI SỐ",
@@ -1339,6 +1339,47 @@
                   "name": "PHÂN TÍCH DỮ LIỆU",
                   "ID": 17,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_1/L17.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán tập 2",
+              "less_no": 7,
+              "link": [
+                {
+                  "name": "KHÁI NIỆM HÀM SỐ",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L1.md"
+                },
+                {
+                  "name": "TỌA ĐỘ CỦA MỘT ĐIỂM VÀ ĐỒ THỊ CỦA HÀM SỐ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L2.md"
+                },
+                {
+                  "name": "HÀM SỐ BẬC NHẤT y = ax + b (a ≠ 0)",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L3.md"
+                },
+                {
+                  "name": "PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L5.md"
+                },
+                {
+                  "name": "GIẢI BÀI TOÁN BẰNG CÁCH LẬP PHƯƠNG TRÌNH BẬC NHẤT",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L6.md"
+                },
+                {
+                  "name": "MÔ TẢ XÁC SUẤT BẰNG TỈ SỐ",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L14.md"
+                },
+                {
+                  "name": "XÁC SUẤT LÍ THUYẾT VÀ XÁC SUẤT THỰC NGHIỆM",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L15.md"
                 }
               ]
             }
