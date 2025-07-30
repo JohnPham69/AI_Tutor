@@ -1413,6 +1413,87 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L16.md"
                 }
               ]
+            },
+            {
+              "name": "Khoa học tự nhiên",
+              "less_no": 15,
+              "link": [
+                {
+                  "name": "Biến đổi vật lí và biến đổi hoá học",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/science/L2.md"
+                },
+                {
+                  "name": "Phản ứng hoá học và năng lượng trong các phản ứng hoá học",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L3.md"
+                },
+                {
+                  "name": "Định luật bảo toàn khối lượng và phương trình hoá học",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L4.md"
+                },
+                {
+                  "name": "Mol và tỉ khối của chất khí",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L5.md"
+                },
+                {
+                  "name": "Tính theo phương trình hoá học",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L6.md"
+                },
+                {
+                  "name": "Nồng độ dung dịch",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L7.md"
+                },
+                {
+                  "name": "Tốc độ phản ứng và chất xúc tác",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L8.md"
+                },
+                {
+                  "name": "Acid",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L9.md"
+                },
+                {
+                  "name": "Base",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L10.md"
+                },
+                {
+                  "name": "Thang pH",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L11.md"
+                },
+                {
+                  "name": "Oxide",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L12.md"
+                },
+                {
+                  "name": "Muối",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L13.md"
+                },
+                {
+                  "name": "Phân bón hoá học",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L14.md"
+                },
+                {
+                  "name": "Khối lượng riêng",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L15.md"
+                },
+                {
+                  "name": "Áp suất",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/geography/L16.md"
+                }
+              ]
             }
           ]
         }
