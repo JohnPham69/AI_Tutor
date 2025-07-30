@@ -1382,6 +1382,37 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/math_2/L15.md"
                 }
               ]
+            },
+            {
+              "name": "Toán tập 2",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "LỊCH SỬ PHÁT TRIỂN MÁY TÍNH",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L1.md"
+                },
+                {
+                  "name": "THÔNG TIN TRONG MÔI TRƯỜNG SỐ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L2.md"
+                },
+                {
+                  "name": "THÔNG TIN TRONG VIỆC GIẢI QUYẾT VẤN ĐỀ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L3.md"
+                },
+                {
+                  "name": "SỬ DỤNG CÔNG NGHỆ KĨ THUẬT SỐ",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L4.md"
+                },
+                {
+                  "name": "TIN HỌC VÀ NGHỀ NGHIỆP",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/tech/L16.md"
+                }
+              ]
             }
           ]
         }
