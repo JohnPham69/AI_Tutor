@@ -6,7 +6,7 @@ from app_utils import get_cookie_controller, get_cookies_manager # Import the si
 import tempfile
 import os
 from streamlit_cookies_manager import CookieManager
-
+#
 # Global variable
 follow_up = [] # an array that stores follow_up quesiotns
 
