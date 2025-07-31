@@ -17,7 +17,7 @@ from streamlit_cookies_manager import CookieManager
 import time
 
 #### Note for upgrade looks like this ####
-
+#
 # This should be on top of your script
 cookies = CookieManager()
 if not cookies.ready():
