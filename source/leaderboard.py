@@ -5,7 +5,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from app_translations import get_translator # Import translator
 _ = get_translator() # Initialize translator for this page
-
+#
 # Page title
 st.title(_("Leaderboard"))
 
