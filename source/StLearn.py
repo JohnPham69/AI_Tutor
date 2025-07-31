@@ -1,6 +1,6 @@
 # To run this code you need to install the following dependencies:
 # pip install google-genai
-
+#
 import requests
 from google import genai
 from google.genai import types
