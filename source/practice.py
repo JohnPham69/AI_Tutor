@@ -9,7 +9,7 @@ import os
 from app_translations import get_translator  # Import translator
 from app_utils import get_cookie_controller  # Import the singleton controller
 from StResult import AddNewResult
-
+#
 # --- Constants ---
 QUIZ_STATE_INITIAL = "initial"
 QUIZ_STATE_CONFIG = "config"
