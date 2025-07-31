@@ -1,6 +1,6 @@
 # To run this code you need to install the following dependencies:
 # pip install google-genai
-
+#
 import requests
 import json # Added for parsing JSON
 from google import genai
