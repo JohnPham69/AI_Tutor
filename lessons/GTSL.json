@@ -2846,6 +2846,63 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/geography/L9.md"
                 }
               ]
+            },
+            {
+              "name": "Văn tập 1",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "NHỮNG SẮC ĐIỆU THI CA",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L1.md"
+                },
+                {
+                  "name": "NHỮNG Ở CỬA NHÌN RA CUỘC SỐNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L2.md"
+                },
+                {
+                  "name": "SÔNG NÚI LINH THIÊNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L3.md"
+                },
+                {
+                  "name": "SỰ THẬT VÀ TRANG VIẾT",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L4.md"
+                },
+                {
+                  "name": "TIẾNG CƯỜI TRÊN SÂN KHẤU",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L5.md"
+                }
+              ]
+            },
+            {
+              "name": "Văn tập 2",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "TRONG THẾ GIỚI CỦA GIẤC MƠ",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L6.md"
+                },
+                {
+                  "name": "TRONG ÁNH ĐÊM THÀNH THỊ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L7.md"
+                },
+                {
+                  "name": "HAI TAY XÂY DỰNG MỘT SƠN HÀ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L8.md"
+                },
+                {
+                  "name": "KHÁM PHÁ TỰ NHIÊN VÀ XÃ HỘI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L9.md"
+                }
+              ]
             }
           ]
         }
@@ -2853,3 +2910,4 @@
     }
   ]
 }
+
