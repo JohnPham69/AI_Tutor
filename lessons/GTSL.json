@@ -2988,6 +2988,92 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/literature/L9.md"
                 }
               ]
+            },
+            {
+              "name": "Lịch sử",
+              "less_no": 16,
+              "link": [
+                {
+                  "name": "LIÊN HỢP QUỐC",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L1.md"
+                },
+                {
+                  "name": "TRẬT TỰ THẾ GIỚI TRONG CHIẾN TRANH LẠNH",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L2.md"
+                },
+                {
+                  "name": "TRẬT TỰ THẾ GIỚI SAU CHIẾN TRANH LẠNH",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L3.md"
+                },
+                {
+                  "name": "SỰ RA ĐỜI VÀ PHÁT TRIỂN CỦA HIỆP HỘI CÁC QUỐC GIA ĐÔNG NAM Á (ASEAN)",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L4.md"
+                },
+                {
+                  "name": "CỘNG ĐỒNG ASEAN: TỪ Ý TƯỞNG ĐẾN HIỆN THỰC",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L5.md"
+                },
+                {
+                  "name": "CÁCH MẠNG THÁNG TÁM NĂM 1945",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L6.md"
+                },
+                {
+                  "name": "CUỘC KHÁNG CHIẾN CHỐNG THỰC DÂN PHÁP (1945 – 1954)",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L7.md"
+                },
+                {
+                  "name": "CUỘC KHÁNG CHIẾN CHỐNG MỸ, CỨU NƯỚC (1954 – 1975)",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L8.md"
+                },
+                {
+                  "name": "ĐẤU TRANH BẢO VỆ TỔ QUỐC TỪ SAU THÁNG 4 – 1975 ĐẾN NAY. MỘT SỐ BÀI HỌC LỊCH SỬ CỦA CÁC CUỘC KHÁNG CHIẾN BẢO VỆ TỔ QUỐC TỪ NĂM 1945 ĐẾN NAY",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L9.md"
+                },
+                {
+                  "name": "KHÁI QUÁT VỀ CÔNG CUỘC ĐỔI MỚI TỪ NĂM 1986 ĐẾN NAY",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L10.md"
+                },
+                {
+                  "name": "KHÁI QUÁT VỀ CÔNG CUỘC ĐỔI MỚI TỪ NĂM 1986 ĐẾN NAY",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L11.md"
+                },
+                {
+                  "name": "HOẠT ĐỘNG ĐỐI NGOẠI CỦA VIỆT NAM TRONG ĐẤU TRANH GIÀNH ĐỘC LẬP DÂN TỘC (ĐẦU THẾ KỈ XX ĐẾN CÁCH MẠNG THÁNG TÁM NĂM 1945)",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L12.md"
+                },
+                {
+                  "name": "HOẠT ĐỘNG ĐỐI NGOẠI CỦA VIỆT NAM TỪ SAU CÁCH MẠNG THÁNG TÁM NĂM 1945 ĐẾN NAY",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L13.md"
+                },
+                {
+                  "name": "KHÁI QUÁT VỀ CUỘC ĐỜI VÀ SỰ NGHIỆP CỦA HỒ CHÍ MINH",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L14.md"
+                },
+                {
+                  "name": "HỒ CHÍ MINH – ANH HÙNG GIẢI PHÓNG DÂN TỘC",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L15.md"
+                },
+                {
+                  "name": "HỒ CHÍ MINH TRONG LÒNG NHÂN DÂN THẾ GIỚI VÀ VIỆT NAM",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L16.md"
+                }
+              ]
             }
           ]
         }
@@ -2995,5 +3081,6 @@
     }
   ]
 }
+
 
 
