@@ -3074,6 +3074,154 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/history/L16.md"
                 }
               ]
+            },
+            {
+              "name": "HDTNHN, bản 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "Thể hiện sự trưởng thành của bản thân",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L1.md"
+                },
+                {
+                  "name": "Theo đuổi đam mê",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L2.md"
+                },
+                {
+                  "name": "Phát triển mối quan hệ với thầy cô và các bạn",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L3.md"
+                },
+                {
+                  "name": "Xây dựng giá trị gia đình",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L4.md"
+                },
+                {
+                  "name": "Thực hiện kế hoạch tài chính trong cuộc sống",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L5.md"
+                },
+                {
+                  "name": "Tham gia xây dựng và phát triển cộng đồng",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L6.md"
+                },
+                {
+                  "name": "Xu hướng phát triển nghề nghiệp và thị trường lao động",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L7.md"
+                },
+                {
+                  "name": "Sẵn sàng học tập và lao động",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L8.md"
+                },
+                {
+                  "name": "Bảo vệ cảnh quan thiên nhiên, thế giới động vật và thực vật",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B1/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTNHN, bản 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "RÈN LUYỆN BẢN THÂN VÀ THÍCH ỨNG VỚI SỰ THAY ĐỔI",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L1.md"
+                },
+                {
+                  "name": "THỂ HIỆN BẢN LĨNH VÀ ĐAM MÊ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L2.md"
+                },
+                {
+                  "name": "PHÁT TRIỂN CÁC MỐI QUAN HỆ VỚI THẦY CÔ, BẠN BÈ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L3.md"
+                },
+                {
+                  "name": "THỂ HIỆN TRÁCH NHIỆM VỚI GIA ĐÌNH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L4.md"
+                },
+                {
+                  "name": "PHÁT TRIỂN CỘNG ĐỒNG ĐOÀN KẾT VÀ BỀN VỮNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L5.md"
+                },
+                {
+                  "name": "BẢO TỒN ĐỘNG VẬT, THỰC VẬT VÀ CẢNH QUAN THIÊN NHIÊN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L6.md"
+                },
+                {
+                  "name": "PHÂN TÍCH XU HƯỚNG PHÁT TRIỂN NGHỀ VÀ THỊ TRƯỜNG LAO ĐỘNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L7.md"
+                },
+                {
+                  "name": "QUYẾT ĐỊNH LỰA CHỌN NGHỀ NGHIỆP CHO BẢN THÂN",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
+            },
+            {
+              "name": "GDQP",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "BẢO VỆ TỔ QUỐC VIỆT NAM XÃ HỘI CHỦ NGHĨA SAU NĂM 1975",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L1.md"
+                },
+                {
+                  "name": "TỔ CHỨC QUÂN ĐỘI NHÂN DÂN VIỆT NAM VÀ CÔNG AN NHÂN DÂN VIỆT NAM",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L2.md"
+                },
+                {
+                  "name": "CÔNG TÁC TUYỂN SINH, ĐÀO TẠO TRONG CÁC TRƯỜNG QUÂN ĐỘI NHÂN DÂN VIỆT NAM VÀ CÔNG AN NHÂN DÂN VIỆT NAM",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L3.md"
+                },
+                {
+                  "name": "MỘT SỐ HIỂU BIẾT VỀ CHIẾN LƯỢC “DIỄN BIẾN HOÀ BÌNH”, BẠO LOẠN LẬT ĐỔ CỦA CÁC THẾ LỰC THÙ ĐỊCH ĐỐI VỚI CÁCH MẠNG VIỆT NAM",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L4.md"
+                },
+                {
+                  "name": "TRUYỀN THỐNG VÀ NGHỆ THUẬT ĐÁNH GIẶC GIỮ NƯỚC CỦA ĐỊA PHƯƠNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L5.md"
+                },
+                {
+                  "name": "KĨ THUẬT BẮN SÚNG TIỂU LIÊN AK",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L6.md"
+                },
+                {
+                  "name": "TÌM VÀ GIỮ PHƯƠNG HƯỚNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L7.md"
+                },
+                {
+                  "name": "VẬN DỤNG CÁC TƯ THẾ, ĐỘNG TÁC CƠ BẢN KHI VẬN ĐỘNG TRONG CHIẾN ĐẤU",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L8.md"
+                },
+                {
+                  "name": "CHẠY VŨ TRANG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L9.md"
+                }
+              ]
             }
           ]
         }
@@ -3081,6 +3229,3 @@
     }
   ]
 }
-
-
-
