@@ -88,6 +88,72 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/home_ec/L8.md"
                 }
               ]
+            },
+            {
+              "name": "GDCD",
+              "less_no": 12,
+              "link": [
+                {
+                  "name": "NGƯỜI LAO ĐỘNG QUANH EM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L1.md"
+                },
+                {
+                  "name": "EM BIẾT ƠN NGƯỜI LAO ĐỘNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L2.md"
+                },
+                {
+                  "name": "EM CẢM THÔNG, GIÚP ĐỠ NGƯỜI GẶP KHÓ KHĂN",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L3.md"
+                },
+                {
+                  "name": "EM YÊU LAO ĐỘNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L4.md"
+                },
+                {
+                  "name": "EM TÍCH CỰC THAM GIA LAO ĐỘNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L5.md"
+                },
+                {
+                  "name": "EM TÔN TRỌNG TÀI SẢN CỦA NGƯỜI KHÁC",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L6.md"
+                },
+                {
+                  "name": "EM BẢO VỆ CỦA CÔNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L7.md"
+                },
+                {
+                  "name": "EM THIẾT LẬP QUAN HỆ BẠN BÈ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L8.md"
+                },
+                {
+                  "name": "EM DUY TRÌ QUAN HỆ BẠN BÈ",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L9.md"
+                },
+                {
+                  "name": "EM QUÝ TRỌNG ĐỒNG TIỀN",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L10.md"
+                },
+                {
+                  "name": "QUYỀN TRẺ EM",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L11.md"
+                },
+                {
+                  "name": "BỔN PHẬN CỦA TRẺ EM",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L12.md"
+                }
+              ]
             }
           ]
         }
@@ -3315,4 +3381,5 @@
     }
   ]
 }
+
 
