@@ -11,17 +11,6 @@
           "name": "Chân trời sáng tạo",
           "subjects": [
             {
-              "name": "Đạo đức",
-              "less_no": 1,
-              "link": [
-                {
-                  "name": "NGUOI LAO DONG QUANH EM",
-                  "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/civics/L1.md"
-                }
-              ]
-            },
-            {
               "name": "Tin học",
               "less_no": 6,
               "link": [
@@ -90,68 +79,204 @@
               ]
             },
             {
-              "name": "GDCD",
+              "name": "Đạo đức",
               "less_no": 12,
               "link": [
                 {
                   "name": "NGƯỜI LAO ĐỘNG QUANH EM",
                   "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L1.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L1.md"
                 },
                 {
                   "name": "EM BIẾT ƠN NGƯỜI LAO ĐỘNG",
                   "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L2.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L2.md"
                 },
                 {
                   "name": "EM CẢM THÔNG, GIÚP ĐỠ NGƯỜI GẶP KHÓ KHĂN",
                   "ID": 3,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L3.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L3.md"
                 },
                 {
                   "name": "EM YÊU LAO ĐỘNG",
                   "ID": 4,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L4.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L4.md"
                 },
                 {
                   "name": "EM TÍCH CỰC THAM GIA LAO ĐỘNG",
                   "ID": 5,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L5.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L5.md"
                 },
                 {
                   "name": "EM TÔN TRỌNG TÀI SẢN CỦA NGƯỜI KHÁC",
                   "ID": 6,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L6.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L6.md"
                 },
                 {
                   "name": "EM BẢO VỆ CỦA CÔNG",
                   "ID": 7,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L7.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L7.md"
                 },
                 {
                   "name": "EM THIẾT LẬP QUAN HỆ BẠN BÈ",
                   "ID": 8,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L8.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L8.md"
                 },
                 {
                   "name": "EM DUY TRÌ QUAN HỆ BẠN BÈ",
                   "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L9.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L9.md"
                 },
                 {
                   "name": "EM QUÝ TRỌNG ĐỒNG TIỀN",
                   "ID": 10,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L10.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L10.md"
                 },
                 {
                   "name": "QUYỀN TRẺ EM",
                   "ID": 11,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L11.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L11.md"
                 },
                 {
                   "name": "BỔN PHẬN CỦA TRẺ EM",
                   "ID": 12,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/GDCD/L12.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/civics/L12.md"
+                }
+              ]
+            },
+            {
+              "name": "Khoa học tự nhiên",
+              "less_no": 26,
+              "link": [
+                {
+                  "name": "Một số tính chất và vai trò của nước",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L1.md"
+                },
+                {
+                  "name": "Sự chuyển thể của nước",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L2.md"
+                },
+                {
+                  "name": "Ô nhiễm và bảo vệ nguồn nước",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L3.md"
+                },
+                {
+                  "name": "Thành phần và tính chất của không khí",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L4.md"
+                },
+                {
+                  "name": "Gió, bão",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L5.md"
+                },
+                {
+                  "name": "Ô nhiễm không khí và bảo vệ môi trường không khí",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L6.md"
+                },
+                {
+                  "name": "Nguồn sáng và sự truyền ánh sáng",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/8.md"
+                },
+                {
+                  "name": "Ánh sáng với đời sống",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L9.md"
+                },
+                {
+                  "name": "Âm thanh",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L10.md"
+                },
+                {
+                  "name": "Âm thanh trong đời sống",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L11.md"
+                },
+                {
+                  "name": "Nhiệt độ và nhiệt kế",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L12.md"
+                },
+                {
+                  "name": "Sự truyền nhiệt và vật dẫn nhiệt",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L13.md"
+                },
+                {
+                  "name": "Thực vật cần gì để sống và phát triển?",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L15.md"
+                },
+                {
+                  "name": "Nhu cầu sống của động vật",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L16.md"
+                },
+                {
+                  "name": "Chăm sóc cây trồng và vật nuôi",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L17.md"
+                },
+                {
+                  "name": "Sự đa dạng của nấm",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L19.md"
+                },
+                {
+                  "name": "Nấm ăn và nấm men trong đời sống",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L20.md"
+                },
+                {
+                  "name": "Nấm có hại và cách bảo quản thực phẩm",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L21.md"
+                },
+                {
+                  "name": "Các nhóm chất dinh dưỡng có trong thức ăn",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L23.md"
+                },
+                {
+                  "name": "Giá trị dinh dưỡng có trong thức ăn",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L24.md"
+                },
+                {
+                  "name": "Ăn, uống khoa học để cơ thể khoẻ mạnh",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L25.md"
+                },
+                {
+                  "name": "Thực phẩm an toàn",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L26.md"
+                },
+                {
+                  "name": "Một số bệnh liên quan đến dinh dưỡng",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L27.md"
+                },
+                {
+                  "name": "Phòng tránh đuối nước",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L28.md"
+                },
+                {
+                  "name": "Chuỗi thức ăn trong tự nhiên",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L30.md"
+                },
+                {
+                  "name": "Vai trò của thực vật trong chuỗi thức ăn",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade4/CTST/science/L31.md"
                 }
               ]
             }
@@ -3381,5 +3506,6 @@
     }
   ]
 }
+
 
 
