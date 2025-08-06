@@ -3222,6 +3222,92 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/national_def/L9.md"
                 }
               ]
+            },
+            {
+              "name": "GDKTPL",
+              "less_no": 16,
+              "link": [
+                {
+                  "name": "TĂNG TRƯỞNG KINH TẾ VÀ PHÁT TRIỂN KINH TẾ",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L1.md"
+                },
+                {
+                  "name": "HỘI NHẬP KINH TẾ QUỐC TẾ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L2.md"
+                },
+                {
+                  "name": "BẢO HIỂM",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L3.md"
+                },
+                {
+                  "name": "AN SINH XÃ HỘI",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L4.md"
+                },
+                {
+                  "name": "LẬP KẾ HOẠCH KINH DOANH",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L5.md"
+                },
+                {
+                  "name": "TRÁCH NHIỆM XÃ HỘI CỦA DOANH NGHIỆP",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L6.md"
+                },
+                {
+                  "name": "QUẢN LÍ THU, CHI TRONG GIA ĐÌNH",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L7.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN VỀ KINH DOANH VÀ NỘP THUẾ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L8.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN VỀ SỞ HỮU TÀI SẢN VÀ TÔN TRỌNG TÀI SẢN CỦA NGƯỜI KHÁC",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L9.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN TRONG HÔN NHÂN VÀ GIA ĐÌNH",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L10.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN TRONG HỌC TẬP",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L11.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN TRONG BẢO VỆ, CHĂM SÓC SỨC KHOẺ VÀ ĐẢM BẢO AN SINH XÃ HỘI",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L12.md"
+                },
+                {
+                  "name": "QUYỀN VÀ NGHĨA VỤ CỦA CÔNG DÂN TRONG BẢO VỆ DI SẢN VĂN HOÁ, MÔI TRƯỜNG VÀ TÀI NGUYÊN THIÊN NHIÊN",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L13.md"
+                },
+                {
+                  "name": "KHÁI QUÁT CHUNG VỀ PHÁP LUẬT QUỐC TẾ",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L14.md"
+                },
+                {
+                  "name": "MỘT SỐ NỘI DUNG CƠ BẢN CỦA CÔNG PHÁP QUỐC TẾ VỀ DÂN CƯ, LÃNH THỔ, BIÊN GIỚI QUỐC GIA",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L15.md"
+                },
+                {
+                  "name": "MỘT SỐ NGUYÊN TẮC CƠ BẢN CỦA TỔ CHỨC THƯƠNG MẠI THẾ GIỚI VÀ HỢP ĐỒNG THƯƠNG MẠI QUỐC TẾ",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L16.md"
+                }
+              ]
             }
           ]
         }
@@ -3229,3 +3315,4 @@
     }
   ]
 }
+
