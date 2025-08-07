@@ -742,6 +742,142 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L12.md"
                 }
               ]
+            },
+            {
+              "name": "Lịch sử",
+              "less_no": 26,
+              "link": [
+                {
+                  "name": "VỊ TRÍ ĐỊA LÍ, LÃNH THỔ, ĐƠN VỊ HÀNH CHÍNH, QUỐC KÌ, QUỐC HUY, QUỐC CA",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L1.md"
+                },
+                {
+                  "name": "THIÊN NHIÊN VIỆT NAM",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L2.md"
+                },
+                {
+                  "name": "BIỂN, ĐẢO VIỆT NAM",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L3.md"
+                },
+                {
+                  "name": "DÂN CƯ VÀ DÂN TỘC Ở VIỆT NAM",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L4.md"
+                },
+                {
+                  "name": "NƯỚC VĂN LANG, ÂU LẠC",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L5.md"
+                },
+                {
+                  "name": "VƯƠNG QUỐC PHÙ NAM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L6.md"
+                },
+                {
+                  "name": "VƯƠNG QUỐC CHĂM-PA",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/7.md"
+                },
+                {
+                  "name": "ĐẤU TRANH GIÀNH ĐỘC LẬP THỜI KÌ BẮC THUỘC",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L8.md"
+                },
+                {
+                  "name": "TRIỀU LÝ VÀ VIỆC ĐỊNH ĐÔ Ở THĂNG LONG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L9.md"
+                },
+                {
+                  "name": "TRIỀU TRẦN VÀ KHÁNG CHIẾN CHỐNG MÔNG – NGUYÊN",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L10.md"
+                },
+                {
+                  "name": "KHỞI NGHĨA LAM SƠN VÀ TRIỀU HẬU LÊ",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L11.md"
+                },
+                {
+                  "name": "TRIỀU NGUYỄN",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L12.md"
+                },
+                {
+                  "name": "CÁCH MẠNG THÁNG TÁM NĂM 1945",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L13.md"
+                },
+                {
+                  "name": "CHIẾN DỊCH ĐIỆN BIÊN PHỦ NĂM 1954",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L14.md"
+                },
+                {
+                  "name": "CHIẾN DỊCH HỒ CHÍ MINH NĂM 1975",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L15.md"
+                },
+                {
+                  "name": "ĐẤT NƯỚC ĐỔI MỚI",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L16.md"
+                },
+                {
+                  "name": "NƯỚC CỘNG HOÀ NHÂN DÂN TRUNG HOA",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L17.md"
+                },
+                {
+                  "name": "NƯỚC CỘNG HOÀ DÂN CHỦ NHÂN DÂN LÀO",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L18.md"
+                },
+                {
+                  "name": "VƯƠNG QUỐC CAM-PU-CHIA",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L19.md"
+                },
+                {
+                  "name": "HIỆP HỘI CÁC QUỐC GIA ĐÔNG NAM Á (ASEAN)",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L20.md"
+                },
+                {
+                  "name": "CÁC CHÂU LỤC VÀ ĐẠI DƯƠNG TRÊN THẾ GIỚI",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L21.md"
+                },
+                {
+                  "name": "DÂN SỐ VÀ CÁC CHỦNG TỘC TRÊN THẾ GIỚI",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L22.md"
+                },
+                {
+                  "name": "VĂN MINH AI CẬP",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L23.md"
+                },
+                {
+                  "name": "VĂN MINH HY LẠP",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L24.md"
+                },
+                {
+                  "name": "XÂY DỰNG THẾ GIỚI XANH – SẠCH – ĐẸP",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L25.md"
+                },
+                {
+                  "name": "XÂY DỰNG THẾ GIỚI HOÀ BÌNH",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/history/L26.md"
+                }
+              ]
             }
           ]
         }
@@ -3924,6 +4060,7 @@
     }
   ]
 }
+
 
 
 
