@@ -676,6 +676,72 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/home_ec/L6.md"
                 }
               ]
+            },
+            {
+              "name": "GDCD",
+              "less_no": 12,
+              "link": [
+                {
+                  "name": "NGƯỜI CÓ CÔNG VỚI QUÊ HƯƠNG, ĐẤT NƯỚC",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L1.md"
+                },
+                {
+                  "name": "EM BIẾT ƠN NGƯỜI CÓ CÔNG VỚI QUÊ HƯƠNG, ĐẤT NƯỚC",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L2.md"
+                },
+                {
+                  "name": "EM TÔN TRỌNG SỰ KHÁC BIỆT CỦA NGƯỜI KHÁC",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L3.md"
+                },
+                {
+                  "name": "EM NHẬN BIẾT KHÓ KHĂN TRONG HỌC TẬP VÀ CUỘC SỐNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L4.md"
+                },
+                {
+                  "name": "EM VƯỢT QUA KHÓ KHĂN TRONG HỌC TẬP VÀ CUỘC SỐNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L5.md"
+                },
+                {
+                  "name": "EM BẢO VỆ CÁI ĐÚNG, CÁI TỐT",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L6.md"
+                },
+                {
+                  "name": "MÔI TRƯỜNG SỐNG QUANH EM",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L7.md"
+                },
+                {
+                  "name": "EM BẢO VỆ MÔI TRƯỜNG",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L8.md"
+                },
+                {
+                  "name": "EM LẬP KẾ HOẠCH CÁ NHÂN",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L9.md"
+                },
+                {
+                  "name": "EM NHẬN DIỆN BIỂU HIỆN XÂM HẠI",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L10.md"
+                },
+                {
+                  "name": "EM CHỦ ĐỘNG PHÒNG, TRÁNH XÂM HẠI",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L11.md"
+                },
+                {
+                  "name": "Quyền và nghĩa vụ của công dân trong gia đình",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/GDCD/L12.md"
+                }
+              ]
             }
           ]
         }
@@ -3858,6 +3924,7 @@
     }
   ]
 }
+
 
 
 
