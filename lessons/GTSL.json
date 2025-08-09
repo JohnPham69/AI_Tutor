@@ -4501,6 +4501,122 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/economics_and_law/L16.md"
                 }
               ]
+            },
+            {
+              "name": "Sinh học",
+              "less_no": 22,
+              "link": [
+                {
+                  "name": "GENE VÀ CƠ CHẾ TRUYỀN THÔNG TIN DI TRUYỀN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L1.md"
+                },
+                {
+                  "name": "ĐIỀU HOÀ BIỂU HIỆN GENE",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L3.md"
+                },
+                {
+                  "name": "HỆ GENE, ĐỘT BIẾN GENE VÀ CÔNG NGHỆ GENE",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L4.md"
+                },
+                {
+                  "name": "NHIỄM SẮC THỂ VÀ ĐỘT BIẾN NHIỄM SẮC THỂ",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L5.md"
+                },
+                {
+                  "name": "DI TRUYỀN HỌC MENDEL VÀ MỞ RỘNG THUYẾT MENDEL",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L7.md"
+                },
+                {
+                  "name": "CÁC QUY LUẬT DI TRUYỀN CỦA MORGAN VÀ DI TRUYỀN GIỚI TÍNH",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L8.md"
+                },
+                {
+                  "name": "CÁC QUY LUẬT DI TRUYỀN CỦA MORGAN VÀ DI TRUYỀN GIỚI TÍNH",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L9.md"
+                },
+                {
+                  "name": "TƯƠNG TÁC GIỮA KIỂU GENE VỚI MÔI TRƯỜNG VÀ THÀNH TỰU CHỌN GIỐNG",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L10.md"
+                },
+                {
+                  "name": "THÀNH TỰU CHỌN, TẠO GIỐNG BẰNG PHƯƠNG PHÁP LAI HỮU TÍNH",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L12.md"
+                },
+                {
+                  "name": "DI TRUYỀN QUẦN THỂ",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L13.md"
+                },
+                {
+                  "name": "DI TRUYỀN HỌC NGƯỜI",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L14.md"
+                },
+                {
+                  "name": "CÁC BẰNG CHỨNG TIẾN HOÁ",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L15.md"
+                },
+                {
+                  "name": "QUAN NIỆM CỦA DARWIN VỀ CHỌN LỌC TỰ NHIÊN VÀ HÌNH THÀNH LOÀI",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L16.md"
+                },
+                {
+                  "name": "THUYẾT TIẾN HOÁ TỔNG HỢP HIỆN ĐẠI",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L17.md"
+                },
+                {
+                  "name": "SỰ PHÁT SINH SỰ SỐNG",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L18.md"
+                },
+                {
+                  "name": "SỰ PHÁT TRIỂN SỰ SỐNG",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L19.md"
+                },
+                {
+                  "name": "MÔI TRƯỜNG VÀ CÁC NHÂN TỐ SINH THÁI",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L20.md"
+                },
+                {
+                  "name": "QUẦN THỂ SINH VẬT",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L21.md"
+                },
+                {
+                  "name": "QUẦN XÃ SINH VẬT",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L23.md"
+                },
+                {
+                  "name": "HỆ SINH THÁI",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L25.md"
+                },
+                {
+                  "name": "SINH THÁI HỌC PHỤC HỒI VÀ BẢO TỒN",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L27.md"
+                },
+                {
+                  "name": "PHÁT TRIỂN BỀN VỮNG",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L28.md"
+                }
+              ]
             }
           ]
         }
@@ -4508,12 +4624,3 @@
     }
   ]
 }
-
-
-
-
-
-
-
-
-
