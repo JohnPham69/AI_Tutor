@@ -51,9 +51,9 @@
               "less_no": 1,
               "link": [
                 {
-                  "name": "PHEP CONG CAC SO TU NHIEN",
-                  "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L40.md"
+                  "name": "SỐ CHẴN, SỐ LẺ",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L4.md"
                 }
               ]
             },
@@ -4624,3 +4624,4 @@
     }
   ]
 }
+
