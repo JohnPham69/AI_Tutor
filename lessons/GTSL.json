@@ -47,13 +47,249 @@
               ]
             },
             {
-              "name": "Toán",
-              "less_no": 1,
+              "name": "Toán, tập 1",
+              "less_no": 22,
               "link": [
                 {
                   "name": "SỐ CHẴN, SỐ LẺ",
                   "ID": 4,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L4.md"
+                },
+                {
+                  "name": "BÀI TOÁN LIÊN QUAN ĐẾN RÚT VỀ ĐƠN VỊ",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L6.md"
+                },
+                {
+                  "name": "BÀI TOÁN LIÊN QUAN ĐẾN RÚT VỀ ĐƠN VỊ (tiếp theo)",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L7.md"
+                },
+                {
+                  "name": "BÀI TOÁN GIẢI BẰNG BA BƯỚC TÍNH",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L8.md"
+                },
+                {
+                  "name": "BIỂU THỨC CÓ CHỨA CHỮ",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L10.md"
+                },
+                {
+                  "name": "BIỂU THỨC CÓ CHỨA CHỮ",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L11.md"
+                },
+                {
+                  "name": "BIỂU THỨC CÓ CHỨA CHỮ (tiếp theo)",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L12.md"
+                },
+                {
+                  "name": "TÍNH CHẤT GIAO HOÁN, TÍNH CHẤT KẾT HỢP CỦA PHÉP CỘNG",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L13.md"
+                },
+                {
+                  "name": "TÍNH CHẤT GIAO HOÁN, TÍNH CHẤT KẾT HỢP CỦA PHÉP NHÂN",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L14.md"
+                },
+                {
+                  "name": "DÃY SỐ LIỆU",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L16.md"
+                },
+                {
+                  "name": "SỐ LẦN LẶP LẠI CỦA MỘT SỰ KIỆN",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L18.md"
+                },
+                {
+                  "name": "TÌM SỐ TRUNG BÌNH CỘNG",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L19.md"
+                },
+                {
+                  "name": "ĐỀ-XI-MÉT VUÔNG",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L20.md"
+                },
+                {
+                  "name": "MÉT VUÔNG",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L21.md"
+                },
+                {
+                  "name": "CÁC SỐ CÓ SÁU CHỮ SỐ – HÀNG VÀ LỚP",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L24.md"
+                },
+                {
+                  "name": "TRIỆU – LỚP TRIỆU",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L25.md"
+                },
+                {
+                  "name": "ĐỌC, VIẾT CÁC SỐ TỰ NHIÊN TRONG HỆ THẬP PHÂN",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L26.md"
+                },
+                {
+                  "name": "SO SÁNH VÀ XẾP THỨ TỰ CÁC SỐ TỰ NHIÊN",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L27.md"
+                },
+                {
+                  "name": "DÃY SỐ TỰ NHIÊN",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L28.md"
+                },
+                {
+                  "name": "GIÂY",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L34.md"
+                },
+                {
+                  "name": "THẾ KỈ",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L35.md"
+                },
+                {
+                  "name": "YẾN, TẠ, TẤN",
+                  "ID": 36,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L36.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán, tập 2",
+              "less_no": 25,
+              "link": [
+                {
+                  "name": "PHÉP CỘNG CÁC SỐ TỰ NHIÊN",
+                  "ID": 40,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L40.md"
+                },
+                {
+                  "name": "PHÉP TRỪ CÁC SỐ TỰ NHIÊN",
+                  "ID": 41,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L41.md"
+                },
+                {
+                  "name": "TÌM HAI SỐ KHI BIẾT TỔNG VÀ HIỆU CỦA HAI SỐ ĐÓ",
+                  "ID": 42,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L42.md"
+                },
+                {
+                  "name": "NHÂN VỚI SỐ CÓ MỘT CHỮ SỐ",
+                  "ID": 44,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L44.md"
+                },
+                {
+                  "name": "NHÂN VỚI 10, 100, 1000,... CHIA CHO 10, 100, 1000,...",
+                  "ID": 45,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L45.md"
+                },
+                {
+                  "name": "NHÂN CÁC SỐ CÓ TẬN CÙNG LÀ CHỮ SỐ 0",
+                  "ID": 46,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L46.md"
+                },
+                {
+                  "name": "NHÂN VỚI SỐ CÓ HAI CHỮ SỐ",
+                  "ID": 47,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L47.md"
+                },
+                {
+                  "name": "CHIA CHO SỐ CÓ MỘT CHỮ SỐ",
+                  "ID": 49,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L49.md"
+                },
+                {
+                  "name": "CHIA HAI SỐ CÓ TẬN CÙNG LÀ CHỮ SỐ 0",
+                  "ID": 50,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L50.md"
+                },
+                {
+                  "name": "ƯỚC LƯỢNG THƯƠNG TRONG PHÉP CHIA",
+                  "ID": 51,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L51.md"
+                },
+                {
+                  "name": "CHIA CHO SỐ CÓ HAI CHỮ SỐ",
+                  "ID": 52,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L52.md"
+                },
+                {
+                  "name": "MI-LI-MÉT VUÔNG",
+                  "ID": 57,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L57.md"
+                },
+                {
+                  "name": "PHÂN SỐ",
+                  "ID": 60,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L60.md"
+                },
+                {
+                  "name": "PHÂN SỐ VÀ PHÉP CHIA SỐ TỰ NHIÊN",
+                  "ID": 61,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L61.md"
+                },
+                {
+                  "name": "PHÂN SỐ BẰNG NHAU",
+                  "ID": 62,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L62.md"
+                },
+                {
+                  "name": "RÚT GỌN PHÂN SỐ",
+                  "ID": 63,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L63.md"
+                },
+                {
+                  "name": "QUY ĐỒNG MẪU SỐ CÁC PHÂN SỐ",
+                  "ID": 65,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L65.md"
+                },
+                {
+                  "name": "SO SÁNH HAI PHÂN SỐ",
+                  "ID": 66,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L66.md"
+                },
+                {
+                  "name": "CỘNG HAI PHÂN SỐ CÙNG MẪU SỐ",
+                  "ID": 68,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L68.md"
+                },
+                {
+                  "name": "CỘNG HAI PHÂN SỐ KHÁC MẪU SỐ",
+                  "ID": 69,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L69.md"
+                },
+                {
+                  "name": "TRỪ HAI PHÂN SỐ CÙNG MẪU SỐ",
+                  "ID": 71,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L71.md"
+                },
+                {
+                  "name": "TRỪ HAI PHÂN SỐ KHÁC MẪU SỐ",
+                  "ID": 72,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L72.md"
+                },
+                {
+                  "name": "PHÉP NHÂN PHÂN SỐ",
+                  "ID": 74,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L74.md"
+                },
+                {
+                  "name": "PHÉP CHIA PHÂN SỐ",
+                  "ID": 75,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L75.md"
+                },
+                {
+                  "name": "TÌM PHÂN SỐ CỦA MỘT SỐ",
+                  "ID": 76,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade4/CTST/math/L76.md"
                 }
               ]
             },
@@ -4624,4 +4860,5 @@
     }
   ]
 }
+
 
