@@ -1438,7 +1438,7 @@
               ]
             },
             {
-              "name": "Lịch sử",
+              "name": "Khoa học tự nhiên",
               "less_no": 25,
               "link": [
                 {
@@ -1560,6 +1560,363 @@
                   "name": "Tác động của con người đến môi trường",
                   "ID": 29,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/science/L29.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTN, bản 1",
+              "less_no": 34,
+              "link": [
+                {
+                  "name": "TUẦN 1",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L1.md"
+                },
+                {
+                  "name": "TUẦN 2",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L2.md"
+                },
+                {
+                  "name": "TUẦN 3",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L3.md"
+                },
+                {
+                  "name": "TUẦN 4",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L4.md"
+                },
+                {
+                  "name": "TUẦN 5",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L5.md"
+                },
+                {
+                  "name": "TUẦN 6",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L6.md"
+                },
+                {
+                  "name": "TUẦN 7",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/7.md"
+                },
+                {
+                  "name": "TUẦN 8",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L8.md"
+                },
+                {
+                  "name": "TUẦN 9",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L9.md"
+                },
+                {
+                  "name": "TUẦN 10",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L10.md"
+                },
+                {
+                  "name": "TUẦN 11",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L11.md"
+                },
+                {
+                  "name": "TUẦN 12",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L12.md"
+                },
+                {
+                  "name": "TUẦN 13",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L13.md"
+                },
+                {
+                  "name": "TUẦN 14",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L14.md"
+                },
+                {
+                  "name": "TUẦN 15",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L15.md"
+                },
+                {
+                  "name": "TUẦN 16",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L16.md"
+                },
+                {
+                  "name": "TUẦN 17",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L17.md"
+                },
+                {
+                  "name": "TUẦN 18",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L18.md"
+                },
+                {
+                  "name": "TUẦN 19",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L19.md"
+                },
+                {
+                  "name": "TUẦN 20",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L20.md"
+                },
+                {
+                  "name": "TUẦN 21",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L21.md"
+                },
+                {
+                  "name": "TUẦN 22",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L22.md"
+                },
+                {
+                  "name": "TUẦN 23",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L23.md"
+                },
+                {
+                  "name": "TUẦN 24",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L24.md"
+                },
+                {
+                  "name": "TUẦN 25",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L25.md"
+                },
+                {
+                  "name": "TUẦN 26",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L26.md"
+                },
+                {
+                  "name": "TUẦN 27",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L27.md"
+                },
+                {
+                  "name": "TUẦN 28",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L28.md"
+                },
+                {
+                  "name": "TUẦN 29",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L29.md"
+                },
+                {
+                  "name": "TUẦN 30",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L30.md"
+                },
+                {
+                  "name": "TUẦN 31",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L31.md"
+                },
+                {
+                  "name": "TUẦN 32",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L32.md"
+                },
+                {
+                  "name": "TUẦN 33",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L33.md"
+                },
+                {
+                  "name": "TUẦN 34",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn/L34.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTN, bản 2",
+              "less_no": 35,
+              "link": [
+                {
+                  "name": "TUẦN 1",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L1.md"
+                },
+                {
+                  "name": "TUẦN 2",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L2.md"
+                },
+                {
+                  "name": "TUẦN 3",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L3.md"
+                },
+                {
+                  "name": "TUẦN 4",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L4.md"
+                },
+                {
+                  "name": "TUẦN 5",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L5.md"
+                },
+                {
+                  "name": "TUẦN 6",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L6.md"
+                },
+                {
+                  "name": "TUẦN 7",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/7.md"
+                },
+                {
+                  "name": "TUẦN 8",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L8.md"
+                },
+                {
+                  "name": "TUẦN 9",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L9.md"
+                },
+                {
+                  "name": "TUẦN 10",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L10.md"
+                },
+                {
+                  "name": "TUẦN 11",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L11.md"
+                },
+                {
+                  "name": "TUẦN 12",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L12.md"
+                },
+                {
+                  "name": "TUẦN 13",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L13.md"
+                },
+                {
+                  "name": "TUẦN 14",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L14.md"
+                },
+                {
+                  "name": "TUẦN 15",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L15.md"
+                },
+                {
+                  "name": "TUẦN 16",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L16.md"
+                },
+                {
+                  "name": "TUẦN 17",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L17.md"
+                },
+                {
+                  "name": "TUẦN 18",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L18.md"
+                },
+                {
+                  "name": "TUẦN 19",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L19.md"
+                },
+                {
+                  "name": "TUẦN 20",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L20.md"
+                },
+                {
+                  "name": "TUẦN 21",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L21.md"
+                },
+                {
+                  "name": "TUẦN 22",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L22.md"
+                },
+                {
+                  "name": "TUẦN 23",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L23.md"
+                },
+                {
+                  "name": "TUẦN 24",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L24.md"
+                },
+                {
+                  "name": "TUẦN 25",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L25.md"
+                },
+                {
+                  "name": "TUẦN 26",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L26.md"
+                },
+                {
+                  "name": "TUẦN 27",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L27.md"
+                },
+                {
+                  "name": "TUẦN 28",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L28.md"
+                },
+                {
+                  "name": "TUẦN 29",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L29.md"
+                },
+                {
+                  "name": "TUẦN 30",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L30.md"
+                },
+                {
+                  "name": "TUẦN 31",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L31.md"
+                },
+                {
+                  "name": "TUẦN 32",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L32.md"
+                },
+                {
+                  "name": "TUẦN 33",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L33.md"
+                },
+                {
+                  "name": "TUẦN 34",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L34.md"
+                },
+                {
+                  "name": "TUẦN 35",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L35.md"
                 }
               ]
             }
@@ -4860,6 +5217,7 @@
     }
   ]
 }
+
 
 
 
