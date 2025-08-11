@@ -1919,6 +1919,228 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/hdtn2/L35.md"
                 }
               ]
+            },
+            {
+              "name": "Toán, tập 1",
+              "less_no": 25,
+              "link": [
+                {
+                  "name": "PHÂN SỐ THẬP PHÂN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L4.md"
+                },
+                {
+                  "name": "TỈ SỐ",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L5.md"
+                },
+                {
+                  "name": "TỈ SỐ CỦA SỐ LẦN LẶP LẠI MỘT SỰ KIỆN SO VỚI TỔNG SỐ LẦN THỰC HIỆN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L6.md"
+                },
+                {
+                  "name": "BÀI TOÁN GIẢI BẰNG BỐN BƯỚC TÍNH",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L9.md"
+                },
+                {
+                  "name": "HÉC-TA",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L13.md"
+                },
+                {
+                  "name": "KI-LÔ-MÉT VUÔNG",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L14.md"
+                },
+                {
+                  "name": "TỈ LỆ BẢN ĐỒ",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L15.md"
+                },
+                {
+                  "name": "SỐ THẬP PHÂN",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L18.md"
+                },
+                {
+                  "name": "HÀNG CỦA SỐ THẬP PHÂN ĐỌC, VIẾT SỐ THẬP PHÂN",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L19.md"
+                },
+                {
+                  "name": " SỐ THẬP PHÂN BẰNG NHAU",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L20.md"
+                },
+                {
+                  "name": "SO SÁNH HAI SỐ THẬP PHÂN",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L21.md"
+                },
+                {
+                  "name": "LÀM TRÒN SỐ THẬP PHÂN",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L22.md"
+                },
+                {
+                  "name": "VIẾT CÁC SỐ ĐO ĐỘ DÀI DƯỚI DẠNG SỐ THẬP PHÂN",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L24.md"
+                },
+                {
+                  "name": "VIẾT CÁC SỐ ĐO KHỐI LƯỢNG DƯỚI DẠNG SỐ THẬP PHÂN",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L25.md"
+                },
+                {
+                  "name": "VIẾT CÁC SỐ ĐO DIỆN TÍCH DƯỚI DẠNG SỐ THẬP PHÂN",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L26.md"
+                },
+                {
+                  "name": "CỘNG HAI SỐ THẬP PHÂN",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L28.md"
+                },
+                {
+                  "name": "TRỪ HAI SỐ THẬP PHÂN",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L29.md"
+                },
+                {
+                  "name": "NHÂN MỘT SỐ THẬP PHÂN VỚI MỘT SỐ TỰ NHIÊN",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L31.md"
+                },
+                {
+                  "name": "NHÂN HAI SỐ THẬP PHÂN",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L32.md"
+                },
+                {
+                  "name": "NHÂN MỘT SỐ THẬP PHÂN VỚI 10; 100; 1000; ... NHÂN MỘT SỐ THẬP PHÂN VỚI 0,1; 0,01; 0,001; ...",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L33.md"
+                },
+                {
+                  "name": "CHIA MỘT SỐ THẬP PHÂN CHO MỘT SỐ TỰ NHIÊN",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L35.md"
+                },
+                {
+                  "name": "CHIA MỘT SỐ TỰ NHIÊN CHO MỘT SỐ TỰ NHIÊN MÀ THƯƠNG LÀ MỘT SỐ THẬP PHÂN",
+                  "ID": 36,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L36.md"
+                },
+                {
+                  "name": "CHIA MỘT SỐ THẬP PHÂN CHO 10; 100; 1000; ... CHIA MỘT SỐ THẬP PHÂN CHO 0,1; 0,01; 0,001; ...",
+                  "ID": 37,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L37.md"
+                },
+                {
+                  "name": "CHIA MỘT SỐ TỰ NHIÊN CHO MỘT SỐ THẬP PHÂN",
+                  "ID": 39,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L39.md"
+                },
+                {
+                  "name": "CHIA MỘT SỐ THẬP PHÂN CHO MỘT SỐ THẬP PHÂN",
+                  "ID": 40,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L40.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán, tập 2",
+              "less_no": 25,
+              "link": [
+                {
+                  "name": "TỈ SỐ PHẦN TRĂM",
+                  "ID": 56,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L56.md"
+                },
+                {
+                  "name": "TÍNH TỈ SỐ PHẦN TRĂM CỦA HAI SỐ",
+                  "ID": 57,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L57.md"
+                },
+                {
+                  "name": "TÌM GIÁ TRỊ PHẦN TRĂM CỦA MỘT SỐ",
+                  "ID": 58,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L58.md"
+                },
+                {
+                  "name": "VIẾT CÁC SỐ LIỆU DƯỚI DẠNG TỈ SỐ PHẦN TRĂM",
+                  "ID": 61,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L61.md"
+                },
+                {
+                  "name": "XĂNG-TI-MÉT KHỐI",
+                  "ID": 70,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L70.md"
+                },
+                {
+                  "name": "ĐỀ-XI-MÉT KHỐI",
+                  "ID": 71,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L71.md"
+                },
+                {
+                  "name": "MÉT KHỐI",
+                  "ID": 72,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L72.md"
+                },
+                {
+                  "name": "THỂ TÍCH HÌNH HỘP CHỮ NHẬT",
+                  "ID": 73,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L73.md"
+                },
+                {
+                  "name": "THỂ TÍCH HÌNH LẬP PHƯƠNG",
+                  "ID": 74,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L74.md"
+                },
+                {
+                  "name": "CÁC ĐƠN VỊ ĐO THỜI GIAN",
+                  "ID": 77,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L77.md"
+                },
+                {
+                  "name": "CỘNG SỐ ĐO THỜI GIAN",
+                  "ID": 78,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L78.md"
+                },
+                {
+                  "name": "TRỪ SỐ ĐO THỜI GIAN",
+                  "ID": 79,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L79.md"
+                },
+                {
+                  "name": "NHÂN SỐ ĐO THỜI GIAN",
+                  "ID": 80,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L80.md"
+                },
+                {
+                  "name": "CHIA SỐ ĐO THỜI GIAN",
+                  "ID": 81,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L81.md"
+                },
+                {
+                  "name": "VẬN TỐC",
+                  "ID": 83,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L83.md"
+                },
+                {
+                  "name": "QUÃNG ĐƯỜNG",
+                  "ID": 84,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L84.md"
+                },
+                {
+                  "name": "THỜI GIAN",
+                  "ID": 85,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L85.md"
+                }
+              ]
             }
           ]
         }
@@ -5217,6 +5439,7 @@
     }
   ]
 }
+
 
 
 
