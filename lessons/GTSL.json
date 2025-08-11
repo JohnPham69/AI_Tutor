@@ -2985,27 +2985,27 @@
               "less_no": 5,
               "link": [
                 {
-                  "name": "TIẾNG NÓI CỦA VẠN VẬT",
+                  "name": "LẮNG NGHE LỊCH SỬ NƯỚC MÌNH",
                   "ID": 1,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L1.md"
                 },
                 {
-                  "name": "BÀI HỌC CUỘC SỐNG",
+                  "name": "MIỀN CỔ TÍCH",
                   "ID": 2,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L2.md"
                 },
                 {
-                  "name": "NHỮNG GÓC NHÌN VĂN CHƯƠNG",
+                  "name": "VẺ ĐẸP QUÊ HƯƠNG",
                   "ID": 3,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L3.md"
                 },
                 {
-                  "name": "QUÀ TẶNG CỦA THIÊN NHIÊN",
+                  "name": "NHỮNG TRẢI NGHIỆM TRONG ĐỜI",
                   "ID": 4,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L4.md"
                 },
                 {
-                  "name": "TỪNG BƯỚC HOÀN THIỆN BẢN THÂN",
+                  "name": "TRÒ CHUYỆN CÙNG THIÊN NHIÊN",
                   "ID": 5,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L5.md"
                 }
@@ -3013,32 +3013,204 @@
             },
             {
               "name": "Văn tập 2",
-              "less_no": 5,
+              "less_no": 6,
               "link": [
                 {
-                  "name": "HÀNH TRÌNH TRI THỨC",
+                  "name": "ĐIỂM TỰA TINH THẦN",
                   "ID": 6,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L6.md"
                 },
                 {
-                  "name": "TRI TUỆ DÂN GIAN",
+                  "name": "GIA ĐÌNH THƯƠNG YÊU",
                   "ID": 7,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L7.md"
                 },
                 {
-                  "name": "NÉT ĐẸP VĂN HOÁ VIỆT",
+                  "name": "NHỮNG GÓC NHÌN CUỘC SỐNG",
                   "ID": 8,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L8.md"
                 },
                 {
-                  "name": "TRONG THẾ GIỚI VIỄN TƯỞNG",
+                  "name": "NUÔI DƯỠNG TÂM HỒN",
                   "ID": 9,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L9.md"
                 },
                 {
-                  "name": "LẮNG NGHE TRÁI TIM MÌNH",
+                  "name": "MẸ THIÊN NHIÊN",
                   "ID": 10,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L10.md"
+                },
+                {
+                  "name": "BẠN SẼ GIẢI QUYẾT VIỆC NÀY NHƯ THẾ NÀO?",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/literature/L11.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán tập 1",
+              "less_no": 18,
+              "link": [
+                {
+                  "name": "Tập hợp. Phần tử của tập hợp",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L1.md"
+                },
+                {
+                  "name": "Tập hợp số tự nhiên. Ghi số tự nhiên",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L2.md"
+                },
+                {
+                  "name": "Các phép tính trong tập hợp số tự nhiên",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L3.md"
+                },
+                {
+                  "name": "Luỹ thừa với số mũ tự nhiên",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L4.md"
+                },
+                {
+                  "name": "Thứ tự thực hiện các phép tính",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L5.md"
+                },
+                {
+                  "name": "Chia hết và chia có dư. Tính chất chia hết của một tổng",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L6.md"
+                },
+                {
+                  "name": "Dấu hiệu chia hết cho 2, cho 5",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L7.md"
+                },
+                {
+                  "name": "Dấu hiệu chia hết cho 3, cho 9",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L8.md"
+                },
+                {
+                  "name": "Ước và bội",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L9.md"
+                },
+                {
+                  "name": "Dấu hiệu chia hết cho 3, cho 9",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L10.md"
+                },
+                {
+                  "name": "Ước chung. Ước chung lớn nhất",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L12.md"
+                },
+                {
+                  "name": "Bội chung. Bội chung nhỏ nhất",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L13.md"
+                },
+                {
+                  "name": "Số nguyên âm và tập hợp các số nguyên",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L14.md"
+                },
+                {
+                  "name": "Thứ tự trong tập hợp số nguyên",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L15.md"
+                },
+                {
+                  "name": "Phép cộng và phép trừ hai số nguyên",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L16.md"
+                },
+                {
+                  "name": "Phép nhân và phép chia hết hai số nguyên",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L17.md"
+                },
+                {
+                  "name": "Thu thập và phân loại dữ liệu",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L18.md"
+                },
+                {
+                  "name": "Biểu diễn dữ liệu trên bảng",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L19.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán tập 2",
+              "less_no": 13,
+              "link": [
+                {
+                  "name": "Phân số với tử số và mẫu số là số nguyên",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L20.md"
+                },
+                {
+                  "name": "Tính chất cơ bản của phân số",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L21.md"
+                },
+                {
+                  "name": "So sánh phân số",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L22.md"
+                },
+                {
+                  "name": "Phép cộng và phép trừ phân số",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L23.md"
+                },
+                {
+                  "name": "Phép nhân và phép chia phân số",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L24.md"
+                },
+                {
+                  "name": "Hỗn số",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L25.md"
+                },
+                {
+                  "name": "Số thập phân",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L26.md"
+                },
+                {
+                  "name": "Các phép tính với số thập phân",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L10.md"
+                },
+                {
+                  "name": "Làm tròn số thập phân và ước lượng kết quả",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L11.md"
+                },
+                {
+                  "name": "Tỉ số và tỉ số phần trăm",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L12.md"
+                },
+                {
+                  "name": "Bài toán về tỉ số phần trăm",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L13.md"
+                },
+                {
+                  "name": "Phép thử nghiệm – Sự kiện",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L27.md"
+                },
+                {
+                  "name": "Xác suất thử nghiệm",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CTST/math/L28.md"
                 }
               ]
             }
@@ -6377,6 +6549,7 @@
     }
   ]
 }
+
 
 
 
