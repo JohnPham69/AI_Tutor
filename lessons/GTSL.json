@@ -2464,6 +2464,67 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L62.md"
                 }
               ]
+            },
+            {
+              "name": "Tin học",
+              "less_no": 11,
+              "link": [
+                {
+                  "name": "MÁY TÍNH CÓ THỂ GIÚP EM LÀM NHỮNG VIỆC GÌ?",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L1.md"
+                },
+                {
+                  "name": "TÌM THÔNG TIN TRÊN WEBSITE",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L2.md"
+                },
+                {
+                  "name": "THÔNG TIN TRONG GIẢI QUYẾT VẤN ĐỀ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L3.md"
+                },
+                {
+                  "name": "TỔ CHỨC, LƯU TRỮ VÀ TÌM TỆP, THƯ MỤC TRONG MÁY TÍNH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L4.md"
+                },
+                {
+                  "name": "BẢN QUYỀN NỘI DUNG THÔNG TIN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L5.md"
+                },
+                {
+                  "name": "CHỈNH SỬA VĂN BẢN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L6.md"
+                },
+                {
+                  "name": "ĐỊNH DẠNG KÍ TỰ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L7.md"
+                },
+                {
+                  "name": "CẤU TRÚC TUẦN TỰ",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L9.md"
+                },
+                {
+                  "name": "CẤU TRÚC RẼ NHÁNH",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L10.md"
+                },
+                {
+                  "name": "CẤU TRÚC LẶP",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L11.md"
+                },
+                {
+                  "name": "VIẾT KỊCH BẢN CHƯƠNG TRÌNH MÁY TÍNH",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/tech/L14.md"
+                }
+              ]
             }
           ]
         }
@@ -5762,6 +5823,7 @@
     }
   ]
 }
+
 
 
 
