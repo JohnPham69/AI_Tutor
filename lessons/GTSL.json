@@ -4343,6 +4343,52 @@
               ]
             },
             {
+              "name": "HDTNHN, bản 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "RÈN LUYỆN MỘT SỐ NÉT TÍNH CÁCH CÁ NHÂN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L1.md"
+                },
+                {
+                  "name": "THỂ HIỆN TRÁCH NHIỆM CỦA BẢN THÂN",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L2.md"
+                },
+                {
+                  "name": "XÂY DỰNG VÀ GIỮ GÌN CÁC MỐI QUAN HỆ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L3.md"
+                },
+                {
+                  "name": "KINH DOANH VÀ TIẾT KIỆM",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L4.md"
+                },
+                {
+                  "name": "BẢO TỒN CẢNH QUAN VÀ PHÁT TRIỂN CỘNG ĐỒNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L5.md"
+                },
+                {
+                  "name": "ĐỂ PHÒNG THIÊN TAI VÀ GIẢM NHẸ RỦI RO",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L6.md"
+                },
+                {
+                  "name": "TÌM HIỂU NGHỀ PHỔ BIẾN TRONG XÃ HỘI HIỆN ĐẠI",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L7.md"
+                },
+                {
+                  "name": "TÌM HIỂU HỨNG THÚ NGHỀ NGHIỆP VÀ ĐỊNH HƯỚNG HỌC TẬP, RÈN LUYỆN",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
+            },
+            {
               "name": "Văn tập 1",
               "less_no": 5,
               "link": [
@@ -6549,6 +6595,7 @@
     }
   ]
 }
+
 
 
 
