@@ -2141,6 +2141,329 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade5/CTST/math/L85.md"
                 }
               ]
+            },
+            {
+              "name": "Tiếng việt, tập 1",
+              "less_no": 34,
+              "link": [
+                {
+                  "name": "Chiều dưới chân núi",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L1.md"
+                },
+                {
+                  "name": "Quà tặng mùa hè",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L2.md"
+                },
+                {
+                  "name": "Tiếng gà trưa",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L3.md"
+                },
+                {
+                  "name": "Rét ngọt",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L4.md"
+                },
+                {
+                  "name": "Quà sinh nhật",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L5.md"
+                },
+                {
+                  "name": "Tiếng vườn",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L6.md"
+                },
+                {
+                  "name": "Chớm thu",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L7.md"
+                },
+                {
+                  "name": "Ban mai",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L8.md"
+                },
+                {
+                  "name": "Trạng nguyên nhỏ tuổi",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L9.md"
+                },
+                {
+                  "name": "Thư gửi các học sinh",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L10.md"
+                },
+                {
+                  "name": "Nay em mười tuổi",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L11.md"
+                },
+                {
+                  "name": "Cậu bé say mê toán học",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L12.md"
+                },
+                {
+                  "name": "Lớp học trên đường",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L13.md"
+                },
+                {
+                  "name": "Luật Trẻ em",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L14.md"
+                },
+                {
+                  "name": "Bức tranh đồng quê",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L15.md"
+                },
+                {
+                  "name": "Lễ ra mắt Hội Nhi đồng Cứu quốc",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L16.md"
+                },
+                {
+                  "name": "Tết nhớ thương",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L17.md"
+                },
+                {
+                  "name": "Mặn mòi vị muối Bạc Liêu",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L18.md"
+                },
+                {
+                  "name": "Nụ cười mang tên mùa xuân",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L19.md"
+                },
+                {
+                  "name": "Mùa vừng",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L20.md"
+                },
+                {
+                  "name": "Trước ngày Giáng sinh",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L21.md"
+                },
+                {
+                  "name": "Buổi sáng ở Thành phố Hồ Chí Minh",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L22.md"
+                },
+                {
+                  "name": "Về ngôi nhà đang xây",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L23.md"
+                },
+                {
+                  "name": "Hãy lắng nghe",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L24.md"
+                },
+                {
+                  "name": "Tiếng rao đêm",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L25.md"
+                },
+                {
+                  "name": "Một ngày ở Đê Ba",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L26.md"
+                },
+                {
+                  "name": "Ca dao về lễ hội",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L27.md"
+                },
+                {
+                  "name": "Ngày xuân Phố Cáo",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L28.md"
+                },
+                {
+                  "name": "Những lá thư",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L29.md"
+                },
+                {
+                  "name": "Ngôi nhà chung của buôn làng",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L30.md"
+                },
+                {
+                  "name": "Dáng hình ngọn gió",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L31.md"
+                },
+                {
+                  "name": "Từ những cánh đồng xanh",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L32.md"
+                }
+              ]
+            },
+            ,
+            {
+              "name": "Tiếng việt, tập 2",
+              "less_no": 32,
+              "link": [
+                {
+                  "name": "Điều kì diệu dưới những gốc anh đào",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L33.md"
+                },
+                {
+                  "name": "Giờ Trái Đất",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L34.md"
+                },
+                {
+                  "name": "Mùa xuân em đi trồng cây",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L35.md"
+                },
+                {
+                  "name": "Rừng xuân",
+                  "ID": 36,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L36.md"
+                },
+                {
+                  "name": "Bầy chim mùa xuân",
+                  "ID": 37,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L37.md"
+                },
+                {
+                  "name": "Thiên đường của các loài động vật hoang dã",
+                  "ID": 38,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L38.md"
+                },
+                {
+                  "name": "Lộc vừng mùa xuân",
+                  "ID": 39,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L39.md"
+                },
+                {
+                  "name": "Dưới những tán xanh",
+                  "ID": 40,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L40.md"
+                },
+                {
+                  "name": "Sự tích con Rồng cháu Tiên",
+                  "ID": 41,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L41.md"
+                },
+                {
+                  "name": "Những con mắt của biển",
+                  "ID": 42,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L42.md"
+                },
+                {
+                  "name": "Ngàn lời sử xanh",
+                  "ID": 43,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L43.md"
+                },
+                {
+                  "name": "Vịnh Hạ Long",
+                  "ID": 44,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L44.md"
+                },
+                {
+                  "name": "Ông Trạng Nồi",
+                  "ID": 45,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L45.md"
+                },
+                {
+                  "name": "Một bản hùng ca",
+                  "ID": 46,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L46.md"
+                },
+                {
+                  "name": "Việt Nam",
+                  "ID": 47,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L47.md"
+                },
+                {
+                  "name": "Tranh làng Hồ",
+                  "ID": 48,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L48.md"
+                },
+                {
+                  "name": "Vị đại dương trong xanh",
+                  "ID": 49,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L49.md"
+                },
+                {
+                  "name": "Thành phố Vĩ hoà bình",
+                  "ID": 50,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L50.md"
+                },
+                {
+                  "name": "Bài ca Trái Đất",
+                  "ID": 51,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L51.md"
+                },
+                {
+                  "name": "Miền đất xanh",
+                  "ID": 52,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L52.md"
+                },
+                {
+                  "name": "Những con hạc giấy",
+                  "ID": 53,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L53.md"
+                },
+                {
+                  "name": "Lễ hội đèn lồng nổi",
+                  "ID": 54,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L54.md"
+                },
+                {
+                  "name": "Theo chân Bác",
+                  "ID": 55,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L55.md"
+                },
+                {
+                  "name": "Sự sụp đổ của chế độ a-pác-thai",
+                  "ID": 56,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L56.md"
+                },
+                {
+                  "name": "Lời hứa",
+                  "ID": 57,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L57.md"
+                },
+                {
+                  "name": "Chiến chiện bay lên",
+                  "ID": 58,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L58.md"
+                },
+                {
+                  "name": "Thơ viết cho ngày mai",
+                  "ID": 59,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L59.md"
+                },
+                {
+                  "name": "Bài ca về mặt trời",
+                  "ID": 60,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L60.md"
+                },
+                {
+                  "name": "Bên ngoài Trái Đất",
+                  "ID": 61,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L61.md"
+                },
+                {
+                  "name": "Vào hạ",
+                  "ID": 62,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade5/CTST/literature/L62.md"
+                }
+              ]
             }
           ]
         }
@@ -5439,6 +5762,7 @@
     }
   ]
 }
+
 
 
 
