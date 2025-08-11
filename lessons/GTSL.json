@@ -4891,42 +4891,88 @@
                 {
                   "name": "PHƯƠNG TRÌNH QUY VỀ PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN",
                   "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L1.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L1.md"
                 },
                 {
                   "name": "PHƯƠNG TRÌNH BẬC NHẤT HAI ẨN VÀ HỆ HAI PHƯƠNG TRÌNH BẬC NHẤT HAI ẨN",
                   "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L2.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L2.md"
                 },
                 {
                   "name": "BẤT ĐẲNG THỨC",
                   "ID": 4,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L4.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L4.md"
                 },
                 {
                   "name": "BẤT PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN",
                   "ID": 5,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L5.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L5.md"
                 },
                 {
                   "name": "CĂN BẬC HAI",
                   "ID": 6,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L6.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L6.md"
                 },
                 {
                   "name": "CĂN BẬC BA",
                   "ID": 7,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L7.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L7.md"
                 },
                 {
                   "name": "TÍNH CHẤT CỦA PHÉP KHAI PHƯƠNG",
                   "ID": 8,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L8.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L8.md"
                 },
                 {
                   "name": "BIẾN ĐỔI ĐƠN GIẢN BIỂU THỨC CHỨA CĂN THỨC BẬC HAI",
                   "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math/L9.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_1/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán tập 1",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "HÀM SỐ VÀ ĐỒ THỊ CỦA HÀM SỐ y = ax² (a ≠ 0)",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L1.md"
+                },
+                {
+                  "name": "PHƯƠNG TRÌNH BẬC HAI MỘT ẨN",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L2.md"
+                },
+                {
+                  "name": "ĐỊNH LÍ VIÈTE",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L3.md"
+                },
+                {
+                  "name": "BẢNG TẦN SỐ VÀ BIỂU ĐỒ TẦN SỐ",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L4.md"
+                },
+                {
+                  "name": "BẢNG TẦN SỐ TƯƠNG ĐỐI VÀ BIỂU ĐỒ TẦN SỐ TƯƠNG ĐỐI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L5.md"
+                },
+                {
+                  "name": "BIỂU DIỄN SỐ LIỆU GHÉP NHÓM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L6.md"
+                },
+                {
+                  "name": "KHÔNG GIAN MẪU VÀ BIẾN CỐ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L7.md"
+                },
+                {
+                  "name": "XÁC SUẤT CỦA BIẾN CỐ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/math_2/L8.md"
                 }
               ]
             },
@@ -6595,6 +6641,7 @@
     }
   ]
 }
+
 
 
 
