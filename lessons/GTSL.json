@@ -3175,6 +3175,57 @@
               ]
             },
             {
+              "name": "Toán tập 2",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "TỈ LỆ THỨC – DÃY TỈ SỐ BẰNG NHAU",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L23.md"
+                },
+                {
+                  "name": "ĐẠI LƯỢNG TỈ LỆ THUẬN",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L24.md"
+                },
+                {
+                  "name": "ĐẠI LƯỢNG TỈ LỆ NGHỊCH",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L25.md"
+                },
+                {
+                  "name": "BIỂU THỨC SỐ, BIỂU THỨC ĐẠI SỐ",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L27.md"
+                },
+                {
+                  "name": "ĐA THỨC MỘT BIẾN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L28.md"
+                },
+                {
+                  "name": "PHÉP CỘNG VÀ PHÉP TRỪ ĐA THỨC MỘT BIẾN",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L29.md"
+                },
+                {
+                  "name": "PHÉP NHÂN VÀ PHÉP CHIA ĐA THỨC MỘT BIẾN",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L30.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI BIẾN CỐ NGẪU NHIÊN",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L42.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI XÁC SUẤT CỦA BIẾN CỐ NGẪU NHIÊN",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CTST/math/L43.md"
+                }
+              ]
+            },
+            {
               "name": "GDCD",
               "less_no": 12,
               "link": [
@@ -5822,6 +5873,7 @@
     }
   ]
 }
+
 
 
 
