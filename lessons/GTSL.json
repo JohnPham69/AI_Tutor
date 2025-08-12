@@ -4931,7 +4931,7 @@
               ]
             },
             {
-              "name": "Toán tập 1",
+              "name": "Toán tập 2",
               "less_no": 8,
               "link": [
                 {
@@ -6740,6 +6740,73 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L20.md"
                 }
               ]
+            },
+            {
+              "name": "Toán tập 1",
+              "less_no": 6,
+              "link": [
+                {
+                  "name": "Tính đơn điệu và cực trị của hàm số",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L1.md"
+                },
+                {
+                  "name": "Giá trị lớn nhất, giá trị nhỏ nhất của hàm số",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L2.md"
+                },
+                {
+                  "name": "Đường tiệm cận của đồ thị hàm số",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L3.md"
+                },
+                {
+                  "name": "Khảo sát và vẽ đồ thị một số hàm số cơ bản",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L4.md"
+                },
+                {
+                  "name": "Khoảng biến thiên và khoảng tứ phân vị của mẫu số liệu ghép nhóm",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L8.md"
+                },
+                {
+                  "name": "Phương sai và độ lệch chuẩn của mẫu số liệu ghép nhóm",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_1/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán tập 2",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "Nguyên hàm",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_2/L1.md"
+                },
+                {
+                  "name": "Tích phân",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_2/L2.md"
+                },
+                {
+                  "name": "Ứng dụng hình học của tích phân",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_2/L3.md"
+                },
+                {
+                  "name": "Xác suất có điều kiện",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_2/L7.md"
+                },
+                {
+                  "name": "Công thức xác suất toàn phần và công thức Bayes",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/math_2/L8.md"
+                }
+              ]
             }
           ]
         }
@@ -6747,3 +6814,4 @@
     }
   ]
 }
+
