@@ -6634,6 +6634,112 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/biology/L28.md"
                 }
               ]
+            },
+            {
+              "name": "Hóa học",
+              "less_no": 19,
+              "link": [
+                {
+                  "name": "ESTER – LIPID",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L1.md"
+                },
+                {
+                  "name": "XÀ PHÒNG VÀ CHẤT GIẶT RỬA",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L2.md"
+                },
+                {
+                  "name": "GLUCOSE VÀ FRUCTOSE",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L3.md"
+                },
+                {
+                  "name": "SACCHAROSE VÀ MALTOSE",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L4.md"
+                },
+                {
+                  "name": "TINH BỘT VÀ CELLULOSE",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L5.md"
+                },
+                {
+                  "name": "AMINE",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L6.md"
+                },
+                {
+                  "name": "AMINO ACID VÀ PEPTIDE",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L7.md"
+                },
+                {
+                  "name": "PROTEIN VÀ ENZYME",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L8.md"
+                },
+                {
+                  "name": "ĐẠI CƯƠNG VỀ POLYMER",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L9.md"
+                },
+                {
+                  "name": "CHẤT DẺO VÀ VẬT LIỆU COMPOSITE",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L10.md"
+                },
+                {
+                  "name": "TƠ – CAO SU – KEO DÁN TỔNG HỢP",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L11.md"
+                },
+                {
+                  "name": "THẾ ĐIỆN CỰC VÀ NGUỒN ĐIỆN HOÁ HỌC",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L12.md"
+                },
+                {
+                  "name": "ĐIỆN PHÂN",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L13.md"
+                },
+                {
+                  "name": "ĐẶC ĐIỂM CẤU TẠO VÀ LIÊN KẾT KIM LOẠI. TÍNH CHẤT KIM LOẠI",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L14.md"
+                },
+                {
+                  "name": "CÁC PHƯƠNG PHÁP TÁCH KIM LOẠI",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L15.md"
+                },
+                {
+                  "name": "HỢP KIM – SỰ ĂN MÒN KIM LOẠI",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L16.md"
+                },
+                {
+                  "name": "NGUYÊN TỐ NHÓM IA",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L17.md"
+                },
+                {
+                  "name": "NGUYÊN TỐ NHÓM IIA",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L18.md"
+                },
+                {
+                  "name": "ĐẠI CƯƠNG VỀ KIM LOẠI CHUYỂN TIẾP DÃY THỨ NHẤT",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L19.md"
+                },
+                {
+                  "name": "SƠ LƯỢC VỀ PHỨC CHẤT VÀ SỰ HÌNH THÀNH PHỨC CHẤT CỦA ION KIM LOẠI CHUYỂN TIẾP TRONG DUNG DỊCH",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/chemistry/L20.md"
+                }
+              ]
             }
           ]
         }
@@ -6641,16 +6747,3 @@
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
