@@ -4813,127 +4813,6 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/science/L51.md"
                 }
               ]
-            },
-            {
-              "name": "Lịch sử",
-              "less_no": 21,
-              "link": [
-                {
-                  "name": "Các cuộc cách mạng tư sản ở châu Âu và Bắc Mỹ",
-                  "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L1.md"
-                },
-                {
-                  "name": "Cách mạng công nghiệp",
-                  "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L2.md"
-                },
-                {
-                  "name": "Tình hình Đông Nam Á từ nửa sau thế kỉ XVI đến thế kỉ XIX",
-                  "ID": 3,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L3.md"
-                },
-                {
-                  "name": "Xung đột Nam – Bắc Triều và Trịnh – Nguyễn",
-                  "ID": 4,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L4.md"
-                },
-                {
-                  "name": "Quá trình khai phá vùng đất phía Nam từ thế kỉ XVI đến thế kỉ XVIII",
-                  "ID": 5,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L5.md"
-                },
-                {
-                  "name": "Kinh tế, văn hoá và tôn giáo ở Đại Việt trong các thế kỉ XVI – XVIII",
-                  "ID": 6,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L6.md"
-                },
-                {
-                  "name": "Kinh tế, văn hoá và tôn giáo ở Đại Việt trong các thế kỉ XVII",
-                  "ID": 7,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L7.md"
-                },
-                {
-                  "name": "Phong trào Tây Sơn",
-                  "ID": 8,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L8.md"
-                },
-                {
-                  "name": "Các nước Anh, Pháp, Đức, Mĩ chuyển sang giai đoạn chủ nghĩa đế quốc",
-                  "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L9.md"
-                },
-                {
-                  "name": "Công xã Pa-ri (năm 1871)",
-                  "ID": 10,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L10.md"
-                },
-                {
-                  "name": "Phong trào công nhân và sự ra đời của chủ nghĩa Mác",
-                  "ID": 11,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L11.md"
-                },
-                {
-                  "name": "Chiến tranh thế giới thứ nhất [1914 – 1918]",
-                  "ID": 12,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L12.md"
-                },
-                {
-                  "name": "Cách mạng tháng Mười Nga năm 1917",
-                  "ID": 13,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L13.md"
-                },
-                {
-                  "name": "Sự phát triển của khoa học, kĩ thuật, văn học, nghệ thuật trong các thế kỉ XVIII – XIX",
-                  "ID": 14,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L14.md"
-                },
-                {
-                  "name": "Trung Quốc",
-                  "ID": 15,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L15.md"
-                },
-                {
-                  "name": "Nhật Bản",
-                  "ID": 16,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L16.md"
-                },
-                {
-                  "name": "Ấn Độ",
-                  "ID": 17,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L17.md"
-                },
-                {
-                  "name": "Đông Nam Á",
-                  "ID": 18,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L18.md"
-                },
-                {
-                  "name": "Việt Nam nửa đầu thế kỉ XIX",
-                  "ID": 19,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L19.md"
-                },
-                {
-                  "name": "Cuộc kháng chiến chống thực dân Pháp xâm lược của nhân dân Việt Nam (1858 – 1884)",
-                  "ID": 20,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L20.md"
-                },
-                {
-                  "name": "Phong trào chống Pháp của nhân dân Việt Nam trong những năm cuối thế kỉ XIX",
-                  "ID": 21,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L21.md"
-                },
-                {
-                  "name": "Trào lưu cải cách ở Việt Nam nửa cuối thế kỉ XIX",
-                  "ID": 22,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L22.md"
-                },
-                {
-                  "name": "Việt Nam đầu thế kỉ XX",
-                  "ID": 23,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade8/CTST/history/L23.md"
-                }
-              ]
             }
           ]
         }
@@ -5318,6 +5197,132 @@
                   "name": "ĐỊNH HƯỚNG CHO BẢN THÂN SAU TRUNG HỌC CƠ SỞ",
                   "ID": 8,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/HDTNHN_B2/L8.md"
+                }
+              ]
+            },
+            {
+              "name": "Lịch sử",
+              "less_no": 23,
+              "link": [
+                {
+                  "name": "NƯỚC NGA VÀ LIÊN XÔ TỪ NĂM 1918 ĐẾN NĂM 1945",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L1.md"
+                },
+                {
+                  "name": "CHÂU ÂU VÀ NƯỚC MỸ TỪ NĂM 1918 ĐẾN NĂM 1945",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L2.md"
+                },
+                {
+                  "name": "CHÂU Á TỪ NĂM 1918 ĐẾN NĂM 1945",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L3.md"
+                },
+                {
+                  "name": "CHIẾN TRANH THẾ GIỚI THỨ HAI (1939 – 1945)",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L4.md"
+                },
+                {
+                  "name": "PHONG TRÀO DÂN TỘC DÂN CHỦ NHỮNG NĂM 1918 – 1930",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L5.md"
+                },
+                {
+                  "name": "HOẠT ĐỘNG CỦA NGUYỄN ÁI QUỐC VÀ SỰ THÀNH LẬP ĐẢNG CỘNG SẢN VIỆT NAM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L6.md"
+                },
+                {
+                  "name": "PHONG TRÀO CÁCH MẠNG VIỆT NAM THỜI KÌ 1930 – 1939",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L7.md"
+                },
+                {
+                  "name": "CÁCH MẠNG THÁNG TÁM NĂM 1945",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L8.md"
+                },
+                {
+                  "name": "CHIẾN TRANH LẠNH (1947 – 1989)",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L9.md"
+                },
+                {
+                  "name": "LIÊN XÔ VÀ CÁC NƯỚC ĐÔNG ÂU TỪ NĂM 1945 ĐẾN NĂM 1991",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L10.md"
+                },
+                {
+                  "name": "NƯỚC MỸ VÀ CÁC NƯỚC TÂY ÂU TỪ NĂM 1945 ĐẾN NĂM 1991",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L11.md"
+                },
+                {
+                  "name": "MỸ LA-TINH TỪ NĂM 1945 ĐẾN NĂM 1991",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L12.md"
+                },
+                {
+                  "name": "MỘT SỐ NƯỚC Ở CHÂU Á TỪ NĂM 1945 ĐẾN NĂM 1991",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L13.md"
+                },
+                {
+                  "name": "XÂY DỰNG VÀ BẢO VỆ CHÍNH QUYỀN NƯỚC VIỆT NAM DÂN CHỦ CỘNG HOÀ (TỪ THÁNG 9 – 1945 ĐẾN THÁNG 12 – 1946)",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L14.md"
+                },
+                {
+                  "name": "NHỮNG NĂM ĐẦU VIỆT NAM KHÁNG CHIẾN CHỐNG THỰC DÂN PHÁP XÂM LƯỢC (1946 – 1950)",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L15.md"
+                },
+                {
+                  "name": "CUỘC KHÁNG CHIẾN CHỐNG THỰC DÂN PHÁP KẾT THÚC THẮNG LỢI (1951 – 1954)",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L16.md"
+                },
+                {
+                  "name": "VIỆT NAM TỪ NĂM 1954 ĐẾN NĂM 1965",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L17.md"
+                },
+                {
+                  "name": "VIỆT NAM TỪ NĂM 1965 ĐẾN NĂM 1975",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L18.md"
+                },
+                {
+                  "name": "VIỆT NAM TỪ NĂM 1976 ĐẾN NĂM 1991",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L19.md"
+                },
+                {
+                  "name": "TRẬT TỰ THẾ GIỚI MỚI TỪ NĂM 1991 ĐẾN NAY",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L20.md"
+                },
+                {
+                  "name": "LIÊN BANG NGA VÀ NƯỚC MỸ TỪ NĂM 1991 ĐẾN NAY",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L21.md"
+                },
+                {
+                  "name": "CHÂU Á TỪ NĂM 1991 ĐẾN NAY",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L22.md"
+                },
+                {
+                  "name": "CÔNG CUỘC ĐỔI MỚI TỪ NĂM 1991 ĐẾN NAY",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L23.md"
+                },
+                {
+                  "name": "CÁCH MẠNG KHOA HỌC, KĨ THUẬT VÀ XU THẾ TOÀN CẦU HOÁ",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/history/L24.md"
                 }
               ]
             }
@@ -7215,6 +7220,7 @@
     }
   ]
 }
+
 
 
 
