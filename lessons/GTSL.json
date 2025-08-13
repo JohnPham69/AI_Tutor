@@ -5048,58 +5048,64 @@
               ]
             },
             {
-              "name": "Ngữ văn",
-              "less_no": 10,
+              "name": "Ngữ văn tập 1",
+              "less_no": 5,
               "link": [
                 {
                   "name": "THƯƠNG NHỚ QUÊ HƯƠNG",
                   "ID": 1,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L1.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L1.md"
                 },
                 {
                   "name": "GIÁ TRỊ CỦA VĂN CHƯƠNG",
                   "ID": 2,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L2.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L2.md"
                 },
                 {
                   "name": "NHỮNG DI TÍCH LỊCH SỬ VÀ DANH THẮNG",
                   "ID": 3,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L3.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L3.md"
                 },
                 {
                   "name": "CON NGƯỜI TRONG THẾ GIỚI KÌ ẢO",
                   "ID": 4,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L4.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L4.md"
                 },
                 {
                   "name": "KHÁT VỌNG CÔNG LÝ",
                   "ID": 5,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L5.md"
-                },
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L5.md"
+                }
+              ]
+            },
+            {
+              "name": "Ngữ văn tập 2",
+              "less_no": 5,
+              "link": [
                 {
                   "name": "NHỮNG VẤN ĐỀ TOÀN CẦU",
                   "ID": 6,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L6.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L6.md"
                 },
                 {
                   "name": "HÀNH TRÌNH KHÁM PHÁ SỰ THẬT",
                   "ID": 7,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L7.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L7.md"
                 },
                 {
                   "name": "NHỮNG CUNG BẬC TÌNH CẢM",
                   "ID": 8,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L8.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L8.md"
                 },
                 {
                   "name": "NHỮNG BÀI HỌC TỪ TRẢI NGHIỆM ĐAU THƯƠNG",
                   "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L9.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L9.md"
                 },
                 {
                   "name": "TIẾNG VỌNG NHỮNG NGÀY QUA",
                   "ID": 10,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/Literature/L10.md"
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade9/CTST/literature/L10.md"
                 }
               ]
             },
@@ -7487,6 +7493,7 @@
     }
   ]
 }
+
 
 
 
