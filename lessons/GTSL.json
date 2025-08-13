@@ -5749,8 +5749,8 @@
               ]
             },
             {
-              "name": "Ngữ văn",
-              "less_no": 9,
+              "name": "Ngữ văn tập 1",
+              "less_no": 5,
               "link": [
                 {
                   "name": "THONG DIEP TU THIEN NHIEN (TUY BUT, TAN VAN)",
@@ -5776,7 +5776,13 @@
                   "name": "BAN KHOAN TIM LE SONG (BI KICH)",
                   "ID": 5,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CTST/Literature/L5.md"
-                },
+                }
+              ]
+            },
+            {
+              "name": "Ngữ văn tập 2",
+              "less_no": 4,
+              "link": [
                 {
                   "name": "SONG VOI BIEN RUNG BAO LA (TRUYEN NGAN)",
                   "ID": 6,
@@ -7088,5 +7094,6 @@
     }
   ]
 }
+
 
 
