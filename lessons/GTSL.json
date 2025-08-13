@@ -6883,6 +6883,87 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade12/CTST/physics/L18.md"
                 }
               ]
+            },
+            {
+              "name": "Tin học",
+              "less_no": 11,
+              "link": [
+                {
+                  "name": "GIỚI THIỆU TRÍ TUỆ NHÂN TẠO",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L1.md"
+                },
+                {
+                  "name": "TÌM THÔNG TIN TRÊN WEBSITE",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L2.md"
+                },
+                {
+                  "name": "THIẾT BỊ VÀ GIAO THỨC MẠNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L3.md"
+                },
+                {
+                  "name": "VAI TRÒ CỦA CÁC THIẾT BỊ MẠNG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L6.md"
+                },
+                {
+                  "name": "ĐƯỜNG TRUYỀN HỮU TUYẾN VÀ VÔ TUYẾN",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L7.md"
+                },
+                {
+                  "name": "THIẾT KẾ MẠNG NỘ BỘ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L8.md"
+                },
+                {
+                  "name": "GIAO TIẾP TRONG KHÔNG GIAN MẠNG",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L10.md"
+                },
+                {
+                  "name": "GÌN GIỮ TÍNH NHÂN VĂN TRONG KHÔNG GIAN MẠNG",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L11.md"
+                },
+                {
+                  "name": "HỌC MÁY",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L25.md"
+                },
+                {
+                  "name": "KHOA HỌC DỮ LIỆU",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L26.md"
+                },
+                {
+                  "name": "MÁY TÍNH, THUẬT TOÁN VÀ KHOA HỌC DỮ LIỆU",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L27.md"
+                },
+                {
+                  "name": "KĨ THUẬT MÔ PHỎNG",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L29.md"
+                },
+                {
+                  "name": "NHÓM NGHỀ DỊCH VỤ THUỘC NGÀNH CÔNG NGHỆ THÔNG TIN",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L31.md"
+                },
+                {
+                  "name": "NHÓM NGHỀ QUẢN TRỊ THUỘC NGÀNH CÔNG NGHỆ THÔNG TIN",
+                  "ID": 32,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L32.md"
+                },
+                {
+                  "name": "MỘT SỐ NGHỀ ỨNG DỤNG TIN HỌC VÀ MỘT SỐ NGÀNH THUỘC LĨNH VỰC CÔNG NGHỆ THÔNG TIN",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade12/CTST/tech/L33.md"
+                }
+              ]
             }
           ]
         }
@@ -6890,5 +6971,6 @@
     }
   ]
 }
+
 
 
