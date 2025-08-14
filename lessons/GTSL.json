@@ -5612,7 +5612,881 @@
         },
         {
           "name": "Chân trời sáng tạo",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Địa lý",
+              "less_no": 31,
+              "link": [
+                {
+                  "name": "TRÁI ĐẤT, THUYẾT KIẾN TẠO MẢNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L4.md"
+                },
+                {
+                  "name": "HỆ QUẢ ĐỊA LÍ CÁC CHUYỂN ĐỘNG CỦA TRÁI ĐẤT",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L5.md"
+                },
+                {
+                  "name": "THẠCH QUYỂN, NỘI LỰC",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L6.md"
+                },
+                {
+                  "name": "NGOẠI LỰC",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L7.md"
+                },
+                {
+                  "name": "KHÍ QUYỂN, SỰ PHÂN BỐ NHIỆT ĐỘ KHÔNG KHÍ TRÊN TRÁI ĐẤT",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L8.md"
+                },
+                {
+                  "name": "KHÍ ÁP VÀ GIÓ",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L9.md"
+                },
+                {
+                  "name": "MƯA",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L10.md"
+                },
+                {
+                  "name": "THUỶ QUYỂN, NƯỚC TRÊN LỤC ĐỊA",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L12.md"
+                },
+                {
+                  "name": "NƯỚC BIỂN VÀ ĐẠI DƯƠNG",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L13.md"
+                },
+                {
+                  "name": "ĐẤT",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L14.md"
+                },
+                {
+                  "name": "SINH QUYỂN, CÁC NHÂN TỐ ẢNH HƯỞNG ĐẾN SỰ PHÁT TRIỂN VÀ PHÂN BỐ CỦA SINH VẬT",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L15.md"
+                },
+                {
+                  "name": "VỎ ĐỊA LÍ, QUY LUẬT THỐNG NHẤT VÀ HOÀN CHỈNH CỦA VỎ ĐỊA LÍ",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L17.md"
+                },
+                {
+                  "name": "QUY LUẬT ĐỊA ĐỚI VÀ QUY LUẬT PHI ĐỊA ĐỚI",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L18.md"
+                },
+                {
+                  "name": "DÂN SỐ VÀ SỰ PHÁT TRIỂN DÂN SỐ THẾ GIỚI",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L19.md"
+                },
+                {
+                  "name": "CƠ CẤU DÂN SỐ",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L20.md"
+                },
+                {
+                  "name": "PHÂN BỐ DÂN CƯ VÀ ĐÔ THỊ HOÁ",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L21.md"
+                },
+                {
+                  "name": "NGUỒN LỰC PHÁT TRIỂN KINH TẾ",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L23.md"
+                },
+                {
+                  "name": "CƠ CẤU NỀN KINH TẾ, MỘT SỐ TIÊU CHÍ ĐÁNH GIÁ SỰ PHÁT TRIỂN KINH TẾ",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L24.md"
+                },
+                {
+                  "name": "VAI TRÒ, ĐẶC ĐIỂM, CÁC NHÂN TỐ ẢNH HƯỞNG TỚI SỰ PHÁT TRIỂN VÀ PHÂN BỐ NÔNG NGHIỆP, LÂM NGHIỆP, THUỶ SẢN",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L25.md"
+                },
+                {
+                  "name": "ĐỊA LÍ NGÀNH NÔNG NGHIỆP, LÂM NGHIỆP, THUỶ SẢN",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L26.md"
+                },
+                {
+                  "name": "TỔ CHỨC LÃNH THỔ NÔNG NGHIỆP, VẤN ĐỀ VÀ ĐỊNH HƯỚNG PHÁT TRIỂN NÔNG NGHIỆP",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L27.md"
+                },
+                {
+                  "name": "CƠ CẤU, VAI TRÒ VÀ ĐẶC ĐIỂM CÔNG NGHIỆP, CÁC NHÂN TỐ ẢNH HƯỞNG TỚI PHÁT TRIỂN VÀ PHÂN BỐ CÔNG NGHIỆP",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L29.md"
+                },
+                {
+                  "name": "ĐỊA LÍ CÁC NGÀNH CÔNG NGHIỆP",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L30.md"
+                },
+                {
+                  "name": "TỔ CHỨC LÃNH THỔ NÔNG NGHIỆP, TÁC ĐỘNG CỦA CÔNG NGHIỆP TỚI MÔI TRƯỜNG VÀ ĐỊNH HƯỚNG PHÁT TRIỂN NGÀNH CÔNG NGHIỆP",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L31.md"
+                },
+                {
+                  "name": "CƠ CẤU, VAI TRÒ, ĐẶC ĐIỂM VÀ CÁC NHÂN TỐ ẢNH HƯỞNG ĐẾN SỰ PHÁT TRIỂN, PHÂN BỐ DỊCH VỤ",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L33.md"
+                },
+                {
+                  "name": "ĐỊA LÍ NGÀNH GIAO THÔNG VẬN TẢI",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L34.md"
+                },
+                {
+                  "name": "ĐỊA LÍ NGÀNH BƯU CHÍNH VIỄN THÔNG",
+                  "ID": 35,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L35.md"
+                },
+                {
+                  "name": "ĐỊA LÍ NGÀNH THƯƠNG MẠI",
+                  "ID": 36,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L36.md"
+                },
+                {
+                  "name": "ĐỊA LÍ NGÀNH DU LỊCH VÀ TÀI CHÍNH – NGÂN HÀNG",
+                  "ID": 37,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L37.md"
+                },
+                {
+                  "name": "MÔI TRƯỜNG VÀ TÀI NGUYÊN THIÊN NHIÊN",
+                  "ID": 39,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L39.md"
+                },
+                {
+                  "name": "PHÁT TRIỂN BỀN VỮNG, TĂNG TRƯỞNG XANH",
+                  "ID": 40,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/geography/L40.md"
+                }
+              ]
+            },
+            {
+              "name": "Lịch sử",
+              "less_no": 16,
+              "link": [
+                {
+                  "name": "KHÁI QUÁT LỊCH SỬ VĂN MINH THẾ GIỚI CỔ – TRUNG ĐẠI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L5.md"
+                },
+                {
+                  "name": "VĂN MINH AI CẬP CỔ ĐẠI",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L6.md"
+                },
+                {
+                  "name": "VĂN MINH TRUNG HOA CỔ – TRUNG ĐẠI",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L7.md"
+                },
+                {
+                  "name": "VĂN MINH ẤN ĐỘ CỔ – TRUNG ĐẠI",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L8.md"
+                },
+                {
+                  "name": "VĂN MINH HY LẠP – LA MÃ CỔ ĐẠI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L9.md"
+                },
+                {
+                  "name": "VĂN MINH TÂY ÂU THỜI PHỤC HƯNG",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L10.md"
+                },
+                {
+                  "name": "CÁC CUỘC CÁCH MẠNG CÔNG NGHIỆP THỜI KÌ CẬN ĐẠI",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L11.md"
+                },
+                {
+                  "name": "CÁC CUỘC CÁCH MẠNG CÔNG NGHIỆP THỜI KÌ HIỆN ĐẠI",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L12.md"
+                },
+                {
+                  "name": "CƠ SỞ HÌNH THÀNH VĂN MINH ĐÔNG NAM Á CỔ – TRUNG ĐẠI",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L13.md"
+                },
+                {
+                  "name": "CƠ SỞ HÌNH THÀNH VĂN MINH ĐÔNG NAM Á CỔ – TRUNG ĐẠI",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L14.md"
+                },
+                {
+                  "name": "VĂN MINH VĂN LANG – ÂU LẠC",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L15.md"
+                },
+                {
+                  "name": "VĂN MINH CHĂM-PA",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L16.md"
+                },
+                {
+                  "name": "VĂN MINH PHÙ NAM",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L17.md"
+                },
+                {
+                  "name": "VĂN MINH ĐẠI VIỆT",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L18.md"
+                },
+                {
+                  "name": "CÁC DÂN TỘC TRÊN ĐẤT NƯỚC VIỆT NAM",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L19.md"
+                },
+                {
+                  "name": "KHỐI ĐẠI ĐOÀN KẾT DÂN TỘC VIỆT NAM",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/history/L20.md"
+                }
+              ]
+            },
+            {
+              "name": "Sinh học",
+              "less_no": 10,
+              "link": [
+                {
+                  "name": "KHÁI QUÁT VỀ TẾ BÀO",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L4.md"
+                },
+                {
+                  "name": "CÁC NGUYÊN TỐ HOÁ HỌC VÀ NƯỚC",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L5.md"
+                },
+                {
+                  "name": "CÁC PHÂN TỬ SINH HỌC TRONG TẾ BÀO",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L6.md"
+                },
+                {
+                  "name": "TẾ BÀO NHÂN SƠ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L8.md"
+                },
+                {
+                  "name": "TẾ BÀO NHÂN THỰC",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L9.md"
+                },
+                {
+                  "name": "VẬN CHUYỂN CÁC CHẤT QUA MÀNG SINH CHẤT",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L11.md"
+                },
+                {
+                  "name": "CHUYỂN HOÁ VẬT CHẤT VÀ NĂNG LƯỢNG TRONG TẾ BÀO",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L13.md"
+                },
+                {
+                  "name": "TỔNG HỢP CÁC CHẤT VÀ TÍCH LUỸ NĂNG LƯỢNG",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L15.md"
+                },
+                {
+                  "name": "PHÂN GIẢI CÁC CHẤT VÀ GIẢI PHÓNG NĂNG LƯỢNG",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L16.md"
+                },
+                {
+                  "name": "THÔNG TIN GIỮA CÁC TẾ BÀO",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/biology/L17.md"
+                }
+              ]
+            },
+            {
+              "name": "GDQP",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "LỊCH SỬ, TRUYỀN THỐNG CỦA LỰC LƯỢNG VŨ TRANG NHÂN DÂN VIỆT NAM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L1.md"
+                },
+                {
+                  "name": "NỘI DUNG CƠ BẢN MỘT SỐ LUẬT VỀ QUỐC PHÒNG VÀ AN NINH VIỆT NAM",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L2.md"
+                },
+                {
+                  "name": "MA TUÝ, TÁC HẠI CỦA MA TUÝ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L3.md"
+                },
+                {
+                  "name": "PHÒNG, CHỐNG VI PHẠM PHÁP LUẬT VỀ TRẬT TỰ AN TOÀN GIAO THÔNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L4.md"
+                },
+                {
+                  "name": "BẢO VỆ AN NINH QUỐC GIA VÀ BẢO ĐẢM TRẬT TỰ, AN TOÀN XÃ HỘI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L5.md"
+                },
+                {
+                  "name": "MỘT SỐ HIỂU BIẾT VỀ AN NINH MẠNG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L6.md"
+                },
+                {
+                  "name": "THƯỜNG THỨC PHÒNG TRÁNH MỘT SỐ LOẠI BOM, MÌN, ĐẠN, VŨ KHÍ HOÁ HỌC, VŨ KHÍ SINH HỌC, VŨ KHÍ CÔNG NGHỆ CAO, THIÊN TAI, DỊCH BỆNH VÀ CHÁY NỔ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L7.md"
+                },
+                {
+                  "name": "MỘT SỐ NỘI DUNG ĐIỀU LỆNH QUÂN LÍ BỘ ĐỘI VÀ ĐIỀU LỆNH CÔNG AN NHÂN DÂN",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L8.md"
+                },
+                {
+                  "name": "ĐỘI NGŨ TIỂU ĐỘI",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/gdqpan/L10.md"
+                }
+              ]
+            },
+            {
+              "name": "Hóa học",
+              "less_no": 17,
+              "link": [
+                {
+                  "name": "THÀNH PHẦN CỦA NGUYÊN TỬ",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L2.md"
+                },
+                {
+                  "name": "NGUYÊN TỐ HOÁ HỌC",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L3.md"
+                },
+                {
+                  "name": "CẤU TRÚC LỚP VỎ ELECTRON CỦA NGUYÊN TỬ",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L4.md"
+                },
+                {
+                  "name": "CẤU TẠO BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HOÁ HỌC",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L5.md"
+                },
+                {
+                  "name": "XU HƯỚNG BIẾN ĐỔI MỘT SỐ TÍNH CHẤT CỦA NGUYÊN TỬ CÁC NGUYÊN TỐ, THÀNH PHẦN VÀ MỘT SỐ TÍNH CHẤT CỦA HỢP CHẤT TRONG MỘT CHU KÌ VÀ NHÓM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L6.md"
+                },
+                {
+                  "name": "ĐỊNH LUẬT TUẦN HOÀN – Ý NGHĨA CỦA BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HOÁ HỌC",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L7.md"
+                },
+                {
+                  "name": "QUY TẮC OCTET",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L8.md"
+                },
+                {
+                  "name": "LIÊN KẾT ION",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L9.md"
+                },
+                {
+                  "name": "LIÊN KẾT CỘNG HOÁ TRỊ",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L10.md"
+                },
+                {
+                  "name": "LIÊN KẾT HYDROGEN VÀ TƯƠNG TÁC VAN DER WAALS",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L11.md"
+                },
+                {
+                  "name": "PHẢN ỨNG OXI HOÁ – KHỬ VÀ ỨNG DỤNG TRONG CUỘC SỐNG",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L12.md"
+                },
+                {
+                  "name": "ENTHALPY TẠO THÀNH VÀ BIẾN THIÊN ENTHALPY CỦA PHẢN ỨNG HOÁ HỌC",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L13.md"
+                },
+                {
+                  "name": "TÍNH BIẾN THIÊN ENTHALPY CỦA PHẢN ỨNG HOÁ HỌC",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L14.md"
+                },
+                {
+                  "name": "PHƯƠNG TRÌNH TỐC ĐỘ PHẢN ỨNG VÀ HẰNG SỐ TỐC ĐỘ PHẢN ỨNG",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L15.md"
+                },
+                {
+                  "name": "CÁC YẾU TỐ ẢNH HƯỞNG ĐẾN TỐC ĐỘ PHẢN ỨNG HÓA HỌC",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L16.md"
+                },
+                {
+                  "name": "TÍNH CHẤT VẬT LÍ VÀ HÓA HỌC CÁC ĐƠN CHẤT NHÓM VIIA",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L17.md"
+                },
+                {
+                  "name": "HYDROGEN HALIDE VÀ MỘT SỐ PHẢN ỨNG CỦA ION HALIDE",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/chemistry/L18.md"
+                }
+              ]
+            },
+            {
+              "name": "Ngữ văn tập 1",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "TẠO LẬP THẾ GIỚI",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L1.md"
+                },
+                {
+                  "name": "SỐNG CÙNG KÍ ỨC CỦA CỘNG ĐỒNG",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L2.md"
+                },
+                {
+                  "name": "GIAO CẢM VỚI THIÊN NHIÊN",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L3.md"
+                },
+                {
+                  "name": "NHỮNG DI SẢN VĂN HOÁ",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L4.md"
+                },
+                {
+                  "name": "NGHỆ THUẬT TRUYỆN THÔNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L5.md"
+                }
+              ]
+            },
+            {
+              "name": "Ngữ văn tập 2",
+              "less_no": 4,
+              "link": [
+                {
+                  "name": "NÂNG NIU KỈ NIỆM",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L6.md"
+                },
+                {
+                  "name": "ANH HÙNG VÀ NGHỆ SĨ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L7.md"
+                },
+                {
+                  "name": "ĐẤT NƯỚC VÀ CON NGƯỜI",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L8.md"
+                },
+                {
+                  "name": "KHÁT VỌNG ĐỘC LẬP VÀ TỰ DO",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/literature/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "Vật lí",
+              "less_no": 6,
+              "link": [
+                {
+                  "name": "CHUYỂN ĐỘNG THẲNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L4.md"
+                },
+                {
+                  "name": "CHUYỂN ĐỘNG TỔNG HỢP",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L5.md"
+                },
+                {
+                  "name": "GIA TỐC – CHUYỂN ĐỘNG THẲNG BIẾN ĐỔI ĐỀU",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L7.md"
+                },
+                {
+                  "name": "BA ĐỊNH LUẬT NEWTON VỀ CHUYỂN ĐỘNG",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L10.md"
+                },
+                {
+                  "name": "MỘT SỐ LỰC TRONG THỰC TIỄN",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L11.md"
+                },
+                {
+                  "name": "CHUYỂN ĐỘNG CỦA VẬT TRONG CHẤT LƯU",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L12.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTNHN, bản 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "Thể hiện phẩm chất tốt đẹp của người học sinh",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L1.md"
+                },
+                {
+                  "name": "Xây dựng quan điểm sống",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L2.md"
+                },
+                {
+                  "name": "Giữ gìn truyền thống nhà trường",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L3.md"
+                },
+                {
+                  "name": "Thực hiện trách nhiệm với gia đình",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L4.md"
+                },
+                {
+                  "name": "Xây dựng kế hoạch tài chính cá nhân và phát triển kinh tế gia đình",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L5.md"
+                },
+                {
+                  "name": "Vận động cộng đồng cùng tham gia các hoạt động xã hội",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L6.md"
+                },
+                {
+                  "name": "Tìm hiểu hoạt động sản xuất, kinh doanh, dịch vụ của địa phương",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L7.md"
+                },
+                {
+                  "name": "Định hướng học tập và rèn luyện theo nhóm nghề lựa chọn",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L8.md"
+                },
+                {
+                  "name": "Bảo vệ cảnh quan thiên nhiên và môi trường tự nhiên",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "HDTNHN, bản 2",
+              "less_no": 8,
+              "link": [
+                {
+                  "name": "THỂ HIỆN VÀ PHÁT TRIỂN BẢN THÂN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L1.md"
+                },
+                {
+                  "name": "THỰC HIỆN TRÁCH NHIỆM TRONG GIA ĐÌNH",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L2.md"
+                },
+                {
+                  "name": "THỰC HIỆN NHIỆM VỤ CỦA NGƯỜI HỌC SINH TRONG NHÀ TRƯỜNG",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L3.md"
+                },
+                {
+                  "name": "XÂY DỰNG KẾ HOẠCH TÀI CHÍNH CÁ NHÂN VÀ THAM GIA PHÁT TRIỂN KINH TẾ GIA ĐÌNH",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L4.md"
+                },
+                {
+                  "name": "THAM GIA HOẠT ĐỘNG CỘNG ĐỒNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L5.md"
+                },
+                {
+                  "name": "BẢO VỆ MÔI TRƯỜNG VÀ CẢNH QUAN THIÊN NHIÊN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L6.md"
+                },
+                {
+                  "name": "TÌM HIỂU HOẠT ĐỘNG SẢN XUẤT, KINH DOANH, DỊCH VỤ Ở ĐỊA PHƯƠNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L7.md"
+                },
+                {
+                  "name": "RÈN LUYỆN BẢN THÂN THEO ĐỊNH HƯỚNG NGHỀ NGHIỆP",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/hdtn2/L8.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán, tập 1",
+              "less_no": 9,
+              "link": [
+                {
+                  "name": "Mệnh đề",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L1.md"
+                },
+                {
+                  "name": "Tập hợp",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L2.md"
+                },
+                {
+                  "name": "Các phép toán trên tập hợp",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L3.md"
+                },
+                {
+                  "name": "Bất phương trình bậc nhất hai ẩn",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L4.md"
+                },
+                {
+                  "name": "Hệ bất phương trình bậc nhất hai ẩn",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L5.md"
+                },
+                {
+                  "name": "Hàm số và đồ thị",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L6.md"
+                },
+                {
+                  "name": "Hàm số bậc hai",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L7.md"
+                },
+                {
+                  "name": "Số gần đúng và sai số",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L8.md"
+                },
+                {
+                  "name": "Các số đặc trưng đo xu thế trung tâm của mẫu số liệu",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L9.md"
+                }
+              ]
+            },
+            {
+              "name": "Toán, tập 2",
+              "less_no": 6,
+              "link": [
+                {
+                  "name": "Dấu của tam thức bậc hai",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L10.md"
+                },
+                {
+                  "name": "Giải bất phương trình bậc hai một ẩn",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L11.md"
+                },
+                {
+                  "name": "Phương trình quy về phương trình bậc hai",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L12.md"
+                },
+                {
+                  "name": "Quy tắc cộng và quy tắc nhân",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L13.md"
+                },
+                {
+                  "name": "Hoán vị, chỉnh hợp và tổ hợp",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L14.md"
+                },
+                {
+                  "name": "Nhị thức Newton",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CTST/math/L15.md"
+                }
+              ]
+            },
+            {
+              "name": "Tin học",
+              "less_no": 5,
+              "link": [
+                {
+                  "name": "THÔNG TIN VÀ XỬ LÍ THÔNG TIN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L1.md"
+                },
+                {
+                  "name": "VAI TRÒ CỦA THIẾT BỊ THÔNG MINH VÀ TIN HỌC ĐỐI VỚI XÃ HỘI",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L2.md"
+                },
+                {
+                  "name": "MỘT SỐ KIỂU DỮ LIỆU VÀ DỮ LIỆU VĂN BẢN",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L3.md"
+                },
+                {
+                  "name": "HỆ NHỊ PHÂN VÀ DỮ LIỆU SỐ NGUYÊN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L4.md"
+                },
+                {
+                  "name": "DỮ LIỆU LÔGIC",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L5.md"
+                },
+                {
+                  "name": "DỮ LIỆU ÂM THANH VÀ HÌNH ẢNH",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L6.md"
+                },
+                {
+                  "name": "THỰC HÀNH SỬ DỤNG THIẾT BỊ SỐ THÔNG DỤNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L7.md"
+                },
+                {
+                  "name": "MẠNG MÁY TÍNH TRONG CUỘC SỐNG HIỆN ĐẠI",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L8.md"
+                },
+                {
+                  "name": "AN TOÀN TRÊN KHÔNG GIAN MẠNG",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L9.md"
+                },
+                {
+                  "name": "ỨNG XỬ TRÊN MÔI TRƯỜNG SỐ, NGHĨA VỤ TÔN TRỌNG BẢN QUYỀN",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L11.md"
+                },
+                {
+                  "name": "PHẦN MỀM THIẾT KẾ ĐỒ HOẠ",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L12.md"
+                },
+                {
+                  "name": "LÀM VIỆC VỚI ĐỐI TƯỢNG ĐƯỜNG VÀ VĂN BẢN",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L14.md"
+                },
+                {
+                  "name": "NGÔN NGỮ LẬP TRÌNH BẬC CAO VÀ PYTHON",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L16.md"
+                },
+                {
+                  "name": "BIẾN VÀ LỆNH GÁN",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L17.md"
+                },
+                {
+                  "name": "CÁC LỆNH VÀO RA ĐƠN GIẢN",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L18.md"
+                },
+                {
+                  "name": "CÂU LỆNH RẼ NHÁNH IF",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L19.md"
+                },
+                {
+                  "name": "CÂU LỆNH RẼ NHÁNH IF",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L20.md"
+                },
+                {
+                  "name": "CÂU LỆNH LẶP WHILE",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L21.md"
+                },
+                {
+                  "name": "KIỂU DỮ LIỆU DANH SÁCH",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L22.md"
+                },
+                {
+                  "name": "MỘT SỐ LỆNH LÀM VIỆC VỚI DỮ LIỆU DANH SÁCH",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L23.md"
+                },
+                {
+                  "name": "XÂU KÍ TỰ",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L24.md"
+                },
+                {
+                  "name": "MỘT SỐ LỆNH LÀM VIỆC VỚI XÂU KÍ TỰ",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L25.md"
+                },
+                {
+                  "name": "HÀM TRONG PYTHON",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L26.md"
+                },
+                {
+                  "name": "THAM SỐ CỦA HÀM",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L27.md"
+                },
+                {
+                  "name": "PHẠM VI CỦA BIẾN",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L28.md"
+                },
+                {
+                  "name": "NHẬN BIẾT LỖI CHƯƠNG TRÌNH",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L29.md"
+                },
+                {
+                  "name": "KIỂM THỬ VÀ GỠ LỖI CHƯƠNG TRÌNH",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L30.md"
+                },
+                {
+                  "name": "NGHỀ THIẾT KẾ ĐỒ HOẠ MÁY TÍNH",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L33.md"
+                },
+                {
+                  "name": "NGHỀ PHÁT TRIỂN PHẦN MỀM",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/tech/L34.md"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -7493,6 +8367,7 @@
     }
   ]
 }
+
 
 
 
