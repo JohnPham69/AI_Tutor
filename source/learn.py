@@ -25,16 +25,14 @@ if "messages" in st.session_state:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-starting_mess = _("Shall we start?")
-start_api_miss = _("API Key Missing Error Config")
-if not st.session_state.get('user_api'):
-    st.session_state.messages = []
-    st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
-else:
-    st.session_state.messages = []
-    st.session_state['first_mess_set'] = False
-    st.session_state.messages.append({"role": "assistant", "content": starting_mess})
-
+# Set initial message only if chat is empty
+if not st.session_state.messages:
+    starting_mess = _("Shall we start?")
+    start_api_miss = _("API Key Missing Error Config")
+    if not st.session_state.get('user_api'):
+        st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
+    else:
+        st.session_state.messages.append({"role": "assistant", "content": starting_mess})
 
 # Accept chat input and file
 prompt = st.chat_input(
@@ -91,6 +89,7 @@ if prompt:
     if prompt.get("text", "").strip() == "/x":
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
+        follow_up = []
         st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
