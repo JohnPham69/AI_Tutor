@@ -6148,6 +6148,61 @@
                   "name": "CHUYỂN ĐỘNG CỦA VẬT TRONG CHẤT LƯU",
                   "ID": 12,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L12.md"
+                },
+                {
+                  "name": "TỔNG HỢP LỰC – PHÂN TÍCH LỰC",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L13.md"
+                },
+                {
+                  "name": "MOMENT LỰC. ĐIỀU KIỆN CÂN BẰNG CỦA VẬT",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L14.md"
+                },
+                {
+                  "name": "NĂNG LƯỢNG VÀ CÔNG",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L15.md"
+                },
+                {
+                  "name": "CÔNG SUẤT – HIỆU SUẤT",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L16.md"
+                },
+                {
+                  "name": "ĐỘNG NĂNG VÀ THẾ NĂNG. ĐỊNH LUẬT BẢO TOÀN CƠ NĂNG",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L17.md"
+                },
+                {
+                  "name": "ĐỘNG LƯỢNG VÀ ĐỊNH LUẬT BẢO TOÀN ĐỘNG LƯỢNG",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L18.md"
+                },
+                {
+                  "name": "CÁC LOẠI VA CHẠM",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L19.md"
+                },
+                {
+                  "name": "ĐỘNG HỌC CỦA CHUYỂN ĐỘNG TRÒN",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L20.md"
+                },
+                {
+                  "name": "ĐỘNG LỰC HỌC CỦA CHUYỂN ĐỘNG TRÒN. LỰC HƯỚNG TÂM",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L21.md"
+                },
+                {
+                  "name": "BIẾN DẠNG CỦA VẬT RẮN. ĐẶC TÍNH CỦA LÒ XO",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L22.md"
+                },
+                {
+                  "name": "ĐỊNH LUẬT HOOKE",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CTST/physics/L23.md"
                 }
               ]
             },
@@ -8367,6 +8422,7 @@
     }
   ]
 }
+
 
 
 
