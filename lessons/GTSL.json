@@ -5184,7 +5184,44 @@
       "textbook_set": [
         {
           "name": "Cánh diều",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Tin học",
+              "less_no": 6,
+              "link": [
+                {
+                  "name": "BỘ XỬ LÍ THÔNG TIN Ở QUANH TA",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L1.md"
+                },
+                {
+                  "name": "KHẢ NĂNG VÀ ỨNG DỤNG THỰC TẾ CỦA MÁY TÍNH",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L2.md"
+                },
+                {
+                  "name": "MỘT SỐ ĐẶC ĐIỂM QUAN TRỌNG CỦA THÔNG TIN TRONG GIẢI QUYẾT VẤN ĐỀ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L3.md"
+                },
+                {
+                  "name": "CHẤT LƯỢNG THÔNG TIN KHI TÌM KIẾM, TIẾP NHẬN VÀ TRAO ĐỔI THÔNG TIN",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L4.md"
+                },
+                {
+                  "name": "TÁC ĐỘNG TIÊU CỰC CỦA CÔNG NGHỆ KĨ THUẬT SỐ",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L7.md"
+                },
+                {
+                  "name": "KHÍA CẠNH PHÁP LÝ, ĐẠO ĐỨC, VĂN HOÁ CỦA VIỆC TRAO ĐỔI THÔNG TIN QUA MẠNG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/L8.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Chân trời sáng tạo",
@@ -8788,6 +8825,7 @@
     }
   ]
 }
+
 
 
 
