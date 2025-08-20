@@ -3350,7 +3350,114 @@
       "textbook_set": [
         {
           "name": "Cánh diều",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Tin học",
+              "less_no": 20,
+              "link": [
+                {
+                  "name": "THIẾT BỊ VÀO – RA CƠ BẢN CHO MÁY TÍNH CÁ NHÂN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L1.md"
+                },
+                {
+                  "name": "CÁC THIẾT BỊ VÀO – RA",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L2.md"
+                },
+                {
+                  "name": "MỘT SỐ CHỨC NĂNG CỦA HỆ ĐIỀU HÀNH",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L3.md"
+                },
+                {
+                  "name": "GIỚI THIỆU MẠNG XÃ HỘI",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L4.md"
+                },
+                {
+                  "name": "TRAO ĐỔI THÔNG TIN TRÊN MẠNG XÃ HỘI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L5.md"
+                },
+                {
+                  "name": "ỨNG XỬ CÓ VĂN HOÁ KHI GIAO TIẾP QUA MẠNG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L6.md"
+                },
+                {
+                  "name": "ỨNG XỬ TRÁNH RỦI RO TRÊN MẠNG",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L7.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI TRANG TÍNH",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L8.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI TRANG TÍNH (tiếp theo)",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L9.md"
+                },
+                {
+                  "name": "ĐỊNH DẠNG HIỂN THỊ DỮ LIỆU SỐ",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L10.md"
+                },
+                {
+                  "name": "ĐỊNH DẠNG SỐ TIỀN VÀ NGÀY THÁNG",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L11.md"
+                },
+                {
+                  "name": "CÔNG THỨC TÍNH TOÁN DÙNG ĐỊA CHỈ CÁC Ô DỮ LIỆU",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L12.md"
+                },
+                {
+                  "name": "SỬ DỤNG MỘT SỐ HÀM CÓ SẴN",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L13.md"
+                },
+                {
+                  "name": "ĐỊNH DẠNG TRANG TÍNH VÀ IN",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L14.md"
+                },
+                {
+                  "name": "TẠO BÀI TRÌNH CHIẾU",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L15.md"
+                },
+                {
+                  "name": "THÊM HIỆU ỨNG CHO TRANG CHIẾU",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L16.md"
+                },
+                {
+                  "name": "TÌM KIẾM TUẦN TỰ",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L17.md"
+                },
+                {
+                  "name": "TÌM KIẾM NHỊ PHÂN",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L18.md"
+                },
+                {
+                  "name": "SẮP XẾP CHỌN",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L19.md"
+                },
+                {
+                  "name": "SẮP XẾP NỔI BỌT",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade7/CD/L20.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Chân trời sáng tạo",
@@ -8554,6 +8661,7 @@
     }
   ]
 }
+
 
 
 
