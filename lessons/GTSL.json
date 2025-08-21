@@ -6081,7 +6081,109 @@
       "textbook_set": [
         {
           "name": "Cánh diều",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Tin học",
+              "less_no": 21,
+              "link": [
+                {
+                  "name": "DỮ LIỆU, THÔNG TIN VÀ XỬ LÍ THÔNG TIN",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L1.md"
+                },
+                {
+                  "name": "SỰ ƯU VIỆT CỦA MÁY TÍNH VÀ NHỮNG THÀNH TỰU CỦA TIN HỌC",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L2.md"
+                },
+                {
+                  "name": "TIN HỌC TRONG PHÁT TRIỂN KINH TẾ – XÃ HỘI",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L4.md"
+                },
+                {
+                  "name": "MẠNG MÁY TÍNH VỚI CUỘC SỐNG",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L5.md"
+                },
+                {
+                  "name": "ĐIỆN TOÁN ĐÁM MÂY VÀ INTERNET VẠN VẬT",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L6.md"
+                },
+                {
+                  "name": "TUÂN THỦ PHÁP LUẬT TRONG MÔI TRƯỜNG SỐ",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L8.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI NGÔN NGỮ LẬP TRÌNH BẬC CAO",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L10.md"
+                },
+                {
+                  "name": "BIẾN, PHÉP GÁN VÀ BIỂU THỨC SỐ HỌC",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L11.md"
+                },
+                {
+                  "name": "CÁC KIỂU DỮ LIỆU SỐ VÀ CÂU LỆNH VÀO – RA ĐƠN GIẢN",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L13.md"
+                },
+                {
+                  "name": "CÂU LỆNH RẼ NHÁNH",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L15.md"
+                },
+                {
+                  "name": "CÂU LỆNH LẶP",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L17.md"
+                },
+                {
+                  "name": "CHƯƠNG TRÌNH CON VÀ THƯ VIỆN CÁC CHƯƠNG TRÌNH CON CÓ SẴN",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L19.md"
+                },
+                {
+                  "name": "KIỂU DỮ LIỆU XÂU KÍ TỰ - XỬ LÍ XÂU KÍ TỰ",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L21.md"
+                },
+                {
+                  "name": "KIỂU DỮ LIỆU DANH SÁCH - XỬ LÍ DANH SÁCH",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L23.md"
+                },
+                {
+                  "name": "KIỂM THỬ VÀ GỠ LỖI CHƯƠNG TRÌNH",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L25.md"
+                },
+                {
+                  "name": "LẬP TRÌNH GIẢI QUYẾT BÀI TOÁN TRÊN MÁY TÍNH",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L27.md"
+                },
+                {
+                  "name": "NHÓM NGHỀ THIẾT KẾ VÀ LẬP TRÌNH",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L29.md"
+                },
+                {
+                  "name": "HỆ NHỊ PHÂN VÀ ỨNG DỤNG",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L31.md"
+                },
+                {
+                  "name": "KIỂU DỮ LIỆU XÂU KÍ TỰ - XỬ LÍ XÂU KÍ TỰ",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade10/CD/tech/L33.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Chân trời sáng tạo",
@@ -8900,6 +9002,7 @@
     }
   ]
 }
+
 
 
 
