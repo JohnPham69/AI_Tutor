@@ -2580,11 +2580,6 @@
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L8.md"
                 },
                 {
-                  "name": "THỰC HÀNH VỀ MẠNG MÁY TÍNH",
-                  "ID": 9,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L9.md"
-                },
-                {
                   "name": "THÔNG TIN TRÊN WEB",
                   "ID": 10,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L10.md"
@@ -2601,63 +2596,63 @@
                 },
                 {
                   "name": "GIỚI THIỆU THƯ ĐIỆN TỬ",
-                  "ID": 13,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L13.md"
-                },
-                {
-                  "name": "MẶT TRÁI CỦA INTERNET",
                   "ID": 14,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L14.md"
                 },
                 {
-                  "name": "SỰ AN TOÀN VÀ HỢP PHÁP KHI SỬ DỤNG THÔNG TIN",
-                  "ID": 15,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L15.md"
-                },
-                {
-                  "name": "TÌM KIẾM VÀ THAY THẾ TRONG SOẠN THẢO VĂN BẢN",
+                  "name": "MẶT TRÁI CỦA INTERNET",
                   "ID": 16,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L16.md"
                 },
                 {
-                  "name": "TRÌNH BÀY TRANG, ĐỊNH DẠNG VÀ IN VĂN BẢN",
+                  "name": "SỰ AN TOÀN VÀ HỢP PHÁP KHI SỬ DỤNG THÔNG TIN",
                   "ID": 17,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L17.md"
                 },
                 {
-                  "name": "TRÌNH BÀY THÔNG TIN Ở DẠNG BẢNG",
-                  "ID": 18,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L18.md"
-                },
-                {
-                  "name": "SƠ ĐỒ TƯ DUY",
+                  "name": "TÌM KIẾM VÀ THAY THẾ TRONG SOẠN THẢO VĂN BẢN",
                   "ID": 19,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L19.md"
                 },
                 {
-                  "name": "DỰ ÁN NHỎ: LỢI ÍCH CỦA SƠ ĐỒ TƯ DUY",
+                  "name": "TRÌNH BÀY TRANG, ĐỊNH DẠNG VÀ IN VĂN BẢN",
                   "ID": 20,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L20.md"
                 },
                 {
-                  "name": "KHÁI NIỆM THUẬT TOÁN",
-                  "ID": 21,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L21.md"
-                },
-                {
-                  "name": "MÔ TẢ THUẬT TOÁN CẤU TRÚC TUẦN TỰ TRONG THUẬT TOÁN",
+                  "name": "TRÌNH BÀY THÔNG TIN Ở DẠNG BẢNG",
                   "ID": 22,
                   "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L22.md"
                 },
                 {
+                  "name": "SƠ ĐỒ TƯ DUY",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L24.md"
+                },
+                {
+                  "name": "DỰ ÁN NHỎ: LỢI ÍCH CỦA SƠ ĐỒ TƯ DUY",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L26.md"
+                },
+                {
+                  "name": "KHÁI NIỆM THUẬT TOÁNY",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L27.md"
+                },
+                {
+                  "name": "MÔ TẢ THUẬT TOÁN CẤU TRÚC TUẦN TỰ TRONG THUẬT TOÁN",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L28.md"
+                },
+                {
                   "name": "CẤU TRÚC RẼ NHÁNH TRONG THUẬT TOÁN",
-                  "ID": 23,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L23.md"
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L29.md"
                 },
                 {
                   "name": "CẤU TRÚC LẶP TRONG THUẬT TOÁN",
-                  "ID": 24,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L24.md"
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade6/CD/tech/L30.md"
                 }
               ]
             }
@@ -9002,6 +8997,7 @@
     }
   ]
 }
+
 
 
 
