@@ -5226,73 +5226,73 @@
                 },
                 {
                   "name": "SỬ DỤNG BÀI TRÌNH CHIẾU TRONG TRAO ĐỔI THÔNG TIN",
-                  "ID": 8,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L8.md"
-                },
-                {
-                  "name": "SỬ DỤNG SƠ ĐỒ TƯ DUY TRÌNH BÀY THÔNG TIN TRONG TRAO ĐỔI VÀ HỢP TÁC",
                   "ID": 9,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L9.md"
                 },
                 {
-                  "name": "XÁC THỰC DỮ LIỆU NHẬP VÀO BẢNG TÍNH",
+                  "name": "SỬ DỤNG SƠ ĐỒ TƯ DUY TRÌNH BÀY THÔNG TIN TRONG TRAO ĐỔI VÀ HỢP TÁC",
                   "ID": 10,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L10.md"
                 },
                 {
-                  "name": "HÀM ĐIỀU KIỆN IF",
-                  "ID": 11,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L11.md"
-                },
-                {
-                  "name": "HÀM ĐIỀU KIỆN IF (tiếp theo)",
+                  "name": "XÁC THỰC DỮ LIỆU NHẬP VÀO BẢNG TÍNH",
                   "ID": 12,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L12.md"
                 },
                 {
-                  "name": "MỘT SỐ HÀM THỐNG KÊ CÓ ĐIỀU KIỆN",
+                  "name": "HÀM ĐIỀU KIỆN IF",
                   "ID": 13,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L13.md"
                 },
                 {
-                  "name": "GIỚI THIỆU PHẦN MỀM LÀM VIDEO",
+                  "name": "HÀM ĐIỀU KIỆN IF (tiếp theo)",
                   "ID": 14,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L14.md"
                 },
                 {
-                  "name": "BIÊN TẬP HÌNH ẢNH",
+                  "name": "MỘT SỐ HÀM THỐNG KÊ CÓ ĐIỀU KIỆN",
                   "ID": 15,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L15.md"
                 },
                 {
-                  "name": "BIÊN TẬP ÂM THANH",
-                  "ID": 16,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L16.md"
-                },
-                {
-                  "name": "BIÊN TẬP ĐOẠN VIDEO TRONG BẢNG PHÂN CẢNH",
+                  "name": "GIỚI THIỆU PHẦN MỀM LÀM VIDEO",
                   "ID": 17,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L17.md"
                 },
                 {
-                  "name": "THÊM TIÊU ĐỀ, PHỤ ĐỀ CHO VIDEO",
-                  "ID": 18,
-                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L18.md"
-                },
-                {
-                  "name": "CÁC BƯỚC GIẢI BÀI TOÁN BẰNG MÁY TÍNH",
+                  "name": "BIÊN TẬP HÌNH ẢNH",
                   "ID": 19,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L19.md"
                 },
                 {
-                  "name": "NHÓM NGHỀ PHÂN TÍCH VÀ PHÁT TRIỂN PHẦN MỀM VÀ CÁC ỨNG DỤNG",
+                  "name": "BIÊN TẬP ÂM THANH",
                   "ID": 20,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L20.md"
                 },
                 {
-                  "name": "NHÓM NGHỀ ĐA PHƯƠNG TIỆN VÀ NHÓM NGHỀ VẬN HÀNH HỆ THỐNG THÔNG TIN",
+                  "name": "BIÊN TẬP ĐOẠN VIDEO TRONG BẢNG PHÂN CẢNH",
                   "ID": 21,
                   "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L21.md"
+                },
+                {
+                  "name": "THÊM TIÊU ĐỀ, PHỤ ĐỀ CHO VIDEO",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L24.md"
+                },
+                {
+                  "name": "CÁC BƯỚC GIẢI BÀI TOÁN BẰNG MÁY TÍNH",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L26.md"
+                },
+                {
+                  "name": "NHÓM NGHỀ PHÂN TÍCH VÀ PHÁT TRIỂN PHẦN MỀM VÀ CÁC ỨNG DỤNG",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L30.md"
+                },
+                {
+                  "name": "NHÓM NGHỀ ĐA PHƯƠNG TIỆN VÀ NHÓM NGHỀ VẬN HÀNH HỆ THỐNG THÔNG TIN",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade9/CD/tech/L31.md"
                 }
               ]
             }
@@ -9002,6 +9002,7 @@
     }
   ]
 }
+
 
 
 
