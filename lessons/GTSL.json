@@ -6179,64 +6179,70 @@
               ]
             },
             {
-              "name": "LỊCH SỬ, TRUYỀN THỐNG CỦA LỰC LƯỢNG VŨ TRANG NHÂN DÂN VIỆT NAM",
-              "ID": 1,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L1.md"
-            },
-            {
-              "name": "NỘI DUNG CƠ BẢN MỘT SỐ LUẬT VỀ QUỐC PHÒNG VÀ AN NINH VIỆT NAM",
-              "ID": 2,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L2.md"
-            },
-            {
-              "name": "MA TUÝ, TÁC HẠI CỦA MA TUÝ",
-              "ID": 3,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L3.md"
-            },
-            {
-              "name": "PHÒNG, CHỐNG VI PHẠM PHÁP LUẬT VỀ TRẬT TỰ AN TOÀN GIAO THÔNG",
-              "ID": 4,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L4.md"
-            },
-            {
-              "name": "BẢO VỆ AN NINH QUỐC GIA VÀ BẢO ĐẢM TRẬT TỰ, AN TOÀN XÃ HỘI",
-              "ID": 5,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L5.md"
-            },
-            {
-              "name": "MỘT SỐ HIỂU BIẾT VỀ AN NINH MẠNG",
-              "ID": 6,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L6.md"
-            },
-            {
-              "name": "MỘT SỐ NỘI DUNG ĐIỀU LỆNH QUÂN LÍ BỘ ĐỘI VÀ ĐIỀU LỆNH CÔNG AN NHÂN DÂN",
-              "ID": 7,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L7.md"
-            },
-            {
-              "name": "ĐỘI NGŨ TỪNG NGƯỜI KHÔNG CÓ SÚNG",
-              "ID": 8,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L8.md"
-            },
-            {
-              "name": "ĐỘI NGŨ TIỂU ĐỘI",
-              "ID": 9,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L9.md"
-            },
-            {
-              "name": "CÁC TƯ THẾ, ĐỘNG TÁC VẬN ĐỘNG TRONG CHIẾN ĐẤU",
-              "ID": 10,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L10.md"
-            },
-            {
-              "name": "THƯỜNG THỨC PHÒNG TRÁNH MỘT SỐ LOẠI BOM, MÌN, ĐẠN, VŨ KHÍ HOÁ HỌC, VŨ KHÍ SINH HỌC VÀ VŨ KHÍ CÔNG NGHỆ CAO, THIÊN TAI, DỊCH BỆNH VÀ CHÁY NỔ",
-              "ID": 11,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L11.md"
-            },
-            {
-              "name": "KĨ THUẬT CẤP CỨU VÀ CHUYỂN THƯƠNG",
-              "ID": 12,
-              "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L12.md"
+              "name": "GDQP",
+              "less_no": 12,
+              "link": [
+                {
+                  "name": "LỊCH SỬ, TRUYỀN THỐNG CỦA LỰC LƯỢNG VŨ TRANG NHÂN DÂN VIỆT NAM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L1.md"
+                },
+                {
+                  "name": "NỘI DUNG CƠ BẢN MỘT SỐ LUẬT VỀ QUỐC PHÒNG VÀ AN NINH VIỆT NAM",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L2.md"
+                },
+                {
+                  "name": "MA TUÝ, TÁC HẠI CỦA MA TUÝ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L3.md"
+                },
+                {
+                  "name": "PHÒNG, CHỐNG VI PHẠM PHÁP LUẬT VỀ TRẬT TỰ AN TOÀN GIAO THÔNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L4.md"
+                },
+                {
+                  "name": "BẢO VỆ AN NINH QUỐC GIA VÀ BẢO ĐẢM TRẬT TỰ, AN TOÀN XÃ HỘI",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L5.md"
+                },
+                {
+                  "name": "MỘT SỐ HIỂU BIẾT VỀ AN NINH MẠNG",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L6.md"
+                },
+                {
+                  "name": "MỘT SỐ NỘI DUNG ĐIỀU LỆNH QUÂN LÍ BỘ ĐỘI VÀ ĐIỀU LỆNH CÔNG AN NHÂN DÂN",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L7.md"
+                },
+                {
+                  "name": "ĐỘI NGŨ TỪNG NGƯỜI KHÔNG CÓ SÚNG",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L8.md"
+                },
+                {
+                  "name": "ĐỘI NGŨ TIỂU ĐỘI",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L9.md"
+                },
+                {
+                  "name": "CÁC TƯ THẾ, ĐỘNG TÁC VẬN ĐỘNG TRONG CHIẾN ĐẤU",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L10.md"
+                },
+                {
+                  "name": "THƯỜNG THỨC PHÒNG TRÁNH MỘT SỐ LOẠI BOM, MÌN, ĐẠN, VŨ KHÍ HOÁ HỌC, VŨ KHÍ SINH HỌC VÀ VŨ KHÍ CÔNG NGHỆ CAO, THIÊN TAI, DỊCH BỆNH VÀ CHÁY NỔ",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L11.md"
+                },
+                {
+                  "name": "KĨ THUẬT CẤP CỨU VÀ CHUYỂN THƯƠNG",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade10/CD/gdqpan/L12.md"
+                }
+              ]
             }
           ]
         },
@@ -7185,7 +7191,215 @@
       "textbook_set": [
         {
           "name": "Cánh diều",
-          "subjects": []
+          "subjects": [
+            {
+              "name": "Tin học",
+              "less_no": 21,
+              "link": [
+                {
+                  "name": "BÊN TRONG MÁY TÍNH",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L1.md"
+                },
+                {
+                  "name": "KHÁM PHÁ THẾ GIỚI THIẾT BỊ SỐ THÔNG MINH",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L2.md"
+                },
+                {
+                  "name": "KHÁI QUÁT VỀ HỆ ĐIỀU HÀNH",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L3.md"
+                },
+                {
+                  "name": "PHẦN MỀM ỨNG DỤNG VÀ DỊCH VỤ PHẦN MỀM",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L5.md"
+                },
+                {
+                  "name": "LƯU TRỮ TRỰC TUYẾN",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L6.md"
+                },
+                {
+                  "name": "PHÒNG TRÁNH LỪA ĐẢO VÀ ỨNG XỬ VĂN HOÁ TRÊN MẠNG",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L10.md"
+                },
+                {
+                  "name": "BÀI TOÁN QUẢN LÝ VÀ CƠ SỞ DỮ LIỆU",
+                  "ID": 11,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L11.md"
+                },
+                {
+                  "name": "BẢNG VÀ KHOÁ CHÍNH TRONG CƠ SỞ DỮ LIỆU QUAN HỆ",
+                  "ID": 12,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L12.md"
+                },
+                {
+                  "name": "QUAN HỆ GIỮA CÁC BẢNG VÀ KHOÁ NGOÀI TRONG CƠ SỞ DỮ LIỆU QUAN HỆ",
+                  "ID": 13,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L13.md"
+                },
+                {
+                  "name": "CÁC BIỂU MẪU CHO XEM VÀ CẬP NHẬT DỮ LIỆU",
+                  "ID": 14,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L14.md"
+                },
+                {
+                  "name": "TRUY VẤN TRONG CƠ SỞ DỮ LIỆU QUAN HỆ",
+                  "ID": 15,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L15.md"
+                },
+                {
+                  "name": "TRUY VẤN TRONG CƠ SỞ DỮ LIỆU QUAN HỆ (tiếp theo)",
+                  "ID": 16,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L16.md"
+                },
+                {
+                  "name": "CÁC LOẠI KIẾN TRÚC CỦA HỆ CƠ SỞ DỮ LIỆU",
+                  "ID": 17,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L17.md"
+                },
+                {
+                  "name": "BẢO VỆ SỰ AN TOÀN CỦA HỆ CSDL VÀ BẢO MẬT THÔNG TIN TRONG CSDL",
+                  "ID": 18,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L18.md"
+                },
+                {
+                  "name": "NGHỀ QUẢN TRỊ CƠ SỞ DỮ LIỆU",
+                  "ID": 19,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L19.md"
+                },
+                {
+                  "name": "MỘT SỐ THAO TÁC CHỈNH SỬA ẢNH VÀ HỖ TRỢ CHỈNH SỬA ẢNH",
+                  "ID": 20,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L20.md"
+                },
+                {
+                  "name": "TẨY XOÁ ẢNH",
+                  "ID": 21,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L21.md"
+                },
+                {
+                  "name": "TẠO ẢNH ĐỘNG",
+                  "ID": 22,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L22.md"
+                },
+                {
+                  "name": "GIỚI THIỆU PHẦN MỀM LÀM VIDEO",
+                  "ID": 23,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L23.md"
+                },
+                {
+                  "name": "CHỈNH SỬA VIDEO",
+                  "ID": 24,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L24.md"
+                },
+                {
+                  "name": "LÀM PHIM HOẠT HÌNH",
+                  "ID": 25,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L25.md"
+                },
+                {
+                  "name": "LÀM QUEN VỚI MICROSOFT ACCESS",
+                  "ID": 26,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L26.md"
+                },
+                {
+                  "name": "TẠO BẢNG TRONG CƠ SỞ DỮ LIỆU",
+                  "ID": 27,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L27.md"
+                },
+                {
+                  "name": "LIÊN KẾT CÁC BẢNG TRONG CƠ SỞ DỮ LIỆU",
+                  "ID": 28,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L28.md"
+                },
+                {
+                  "name": "TẠO VÀ SỬ DỤNG BIỂU MẪU",
+                  "ID": 29,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L29.md"
+                },
+                {
+                  "name": "THIẾT KẾ TRUY VẤN",
+                  "ID": 30,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L31.md"
+                },
+                {
+                  "name": "TẠO BÁO CÁO ĐƠN GIẢN",
+                  "ID": 31,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L30.md"
+                },
+                {
+                  "name": "CHỈNH SỬA CÁC THÀNH PHẦN GIAO DIỆN",
+                  "ID": 33,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L33.md"
+                },
+                {
+                  "name": "HOÀN TẤT ỨNG DỤNG",
+                  "ID": 34,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/AI_Tutor/refs/heads/main/lessons/grade11/CD/tech/L34.md"
+                }
+              ]
+            },
+            {
+              "name": "GDQP",
+              "less_no": 10,
+              "link": [
+                {
+                  "name": "BẢO VỆ CHỦ QUYỀN LÃNH THỔ, BIÊN GIỚI QUỐC GIA - NƯỚC CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+                  "ID": 1,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L1.md"
+                },
+                {
+                  "name": "LUẬT NGHĨA VỤ QUÂN SỰ VÀ TRÁCH NHIỆM CỦA HỌC SINH",
+                  "ID": 2,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L2.md"
+                },
+                {
+                  "name": "PHÒNG CHỐNG TỆ NẠN XÃ HỘI Ở VIỆT NAM TRONG THỜI KÌ HỘI NHẬP QUỐC TẾ",
+                  "ID": 3,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L3.md"
+                },
+                {
+                  "name": "MỘT SỐ VẤN ĐỀ VỀ VI PHẠM PHÁP LUẬT BẢO VỆ MÔI TRƯỜNG",
+                  "ID": 4,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L4.md"
+                },
+                {
+                  "name": "KIẾN THỨC PHỔ THÔNG VỀ PHÒNG KHÔNG NHÂN DÂN",
+                  "ID": 5,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L5.md"
+                },
+                {
+                  "name": "GIỚI THIỆU MỘT SỐ LOẠI SÚNG BỘ BINH, THUỐC NỔ, VẬT CẢN VÀ VŨ KHÍ TỰ TẠO",
+                  "ID": 6,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L6.md"
+                },
+                {
+                  "name": "PHÁP LUẬT VỀ QUẢN LÍ VŨ KHÍ, VẬT LIỆU NỔ, CÔNG CỤ HỖ TRỢ",
+                  "ID": 7,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L7.md"
+                },
+                {
+                  "name": "LỢI DỤNG ĐỊA HÌNH, ĐỊA VẬT",
+                  "ID": 8,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L8.md"
+                },
+                {
+                  "name": "NHÌN, NGHE, PHÁT HIỆN ĐỊCH, CHỈ MỤC TIÊU, TRUYỀN TIN LIÊN LẠC, BÁO CÁO",
+                  "ID": 9,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L9.md"
+                },
+                {
+                  "name": "KĨ THUẬT SỬ DỤNG LỰU ĐẠN",
+                  "ID": 10,
+                  "link": "https://raw.githubusercontent.com/JohnPham69/Quiz_Maker_AI/refs/heads/main/lessons/grade11/CD/gdqpvan/L10.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "Chân trời sáng tạo",
@@ -9057,4 +9271,5 @@
     }
   ]
 }
+
 
