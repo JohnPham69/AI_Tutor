@@ -1,5 +1,5 @@
 import streamlit as st
-#
+
 # Original TRANSLATIONS (merged from test.py)
 TRANSLATIONS = {
     "en": {
@@ -79,9 +79,6 @@ TRANSLATIONS = {
         "Select all lessons": "Select all lessons",
         "Learning with AI": "Learning",
         "Type your message here (/x to clear, attach TXT/PPTX/PDF/DOCX if needed)": "Type your message here (/x for new chat)",
-        "Rank by Total Attempted": "Total Questions Attempted",
-        "Rank by Correct answer": "Total Correct Answers",
-        "Lỗi cấu hình: Google Sheets credentials không được thiết lập trong Streamlit secrets.": "Configuration error: Google Sheets credentials were not established in Streamlit secrets",
     },
     "vi": {
         "No lesson": "Không chọn bài học",
@@ -172,7 +169,7 @@ TRANSLATIONS = {
         "Type of Question Prompt": "Loại câu hỏi?",
         "Multiple Choice": "Trắc nghiệm",
         "Long / Short Answer": "Trả lời dài / ngắn",
-        "Mixed": "Hỗn hợp",
+        "Mixed": "Trộn lẫn",
         "Learning with AI": "Hỏi bài",
         "Donation information:": "Thông tin ủng hộ:",
         "ACB (Asia Commercial Joint Stock Bank)": "ACB (Ngân hàng Thương mại Cổ phần Á Châu)",
@@ -193,17 +190,11 @@ TRANSLATIONS = {
         "A lesson is selected, but the subject is missing. Please check sidebar selections. The quiz may cover general knowledge topics.": "Một bài học đã được chọn, nhưng môn học bị thiếu. Vui lòng kiểm tra các lựa chọn ở thanh bên. Bài quiz có thể bao gồm các chủ đề kiến thức chung.",
         "How to": "API Key?",
         "FAQ - Frequently Asked Question": "FAQ - Câu hỏi thường gặp",
-        "Please enter your API key!!!": "Bạn cần nhập API key!!!", 
-        "AI is thinking...": "AI đang suy nghĩ...",
-        "Error in AddNewResult: 'gcp_service_account' not found in st.secrets.": "Lỗi trong AddNewResult: 'gcp_service_account' không thể tìm được trong st.secrets.",
-        "Funny": "Hài hước",
-        "Advance": "Nâng cao",
-        "Shall we start?": "Chúng ta bắt đầu nhé!!",
-        "Select Ranking Criteria": "Chọn phương thức xếp hạng",
-        "Rank by Correct answer": "Tổng số câu làm đúng",
-        "Rank by Total Attempted": "Tổng số câu đã làm",
-        'Only work in Learning and Tutor': "Chỉ xem được trong Học bài và Trả bài",
-        "No lessons selected or loaded yet.": "Chưa có chọn bài học"
+        "No lessons selected or loaded yet.": "Chưa chọn hoặc tải bài học nào.",
+        "Criteria: Correct answer, then total attempted": "Tiêu chí: Tổng số câu đúng, kế tiếp là tổng số câu đã làm",
+        "Correct Answer": "Số câu đúng",
+        "Total Attempted": "Số câu đã làm",
+        "Sort leaderboard by:": "Sắp xếp bảng xếp hạng theo:",
     }
 }
 
