@@ -251,11 +251,14 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             return evaluation_text
         else:
             print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
-            time.sleep(6)
+            if count_recursive_evaluate > 2:
+                return "CORRECT"
+            time.sleep(10)
             evaluate_user_answer_clarity(user_answer, correct_answer, question_context, user_api)
             count_recursive_evaluate += 1
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
