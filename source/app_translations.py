@@ -195,6 +195,8 @@ TRANSLATIONS = {
         "Correct Answer": "Số câu đúng",
         "Total Attempted": "Số câu đã làm",
         "Sort leaderboard by:": "Sắp xếp bảng xếp hạng theo:",
+        "Funny": "Hài hước",
+        "Advance": "Nâng cao",
     }
 }
 
@@ -210,4 +212,5 @@ def get_translator():
     current_lang = st.session_state.get('lang', 'vi') # Default to 'vi' if somehow not set
     def translate(key):
         return TRANSLATIONS.get(current_lang, {}).get(key, TRANSLATIONS.get("en", {}).get(key, key))
+
     return translate
