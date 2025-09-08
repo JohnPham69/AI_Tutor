@@ -81,7 +81,7 @@ if not df_leaderboard.empty:
         lambda row: row['Correct Answer'] / row['Total Attempted'] if row['Total Attempted'] > 0 else 0.0,
         axis=1
     )
-    df_leaderboard = df_leaderboard[df_leaderboard['Total Attempted'] >= 5]
+    df_leaderboard = df_leaderboard[df_leaderboard['Total Attempted'] >= 5] # Total attempted more than 5 is needed in order to join the leaderboard
 
 column_translation = {
     "Rank": "Hạng",
@@ -176,3 +176,4 @@ if not df_leaderboard.empty:
 else:
 
     st.write(_("Leaderboard is currently empty or could not be loaded."))
+
