@@ -109,7 +109,9 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Ví dụ về định dạng JSON bắt buộc cho 2 câu hỏi:
             [
                 {{
-                    "question": "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
+                    "question": 
+                    
+                    "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
                     
                     A. abcde
                     
@@ -249,3 +251,4 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
