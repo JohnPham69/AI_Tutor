@@ -6,6 +6,7 @@ import requests # Để lấy tài liệu bài học
 import streamlit as st
 import re
 import time
+import random
 
 count_recursive_evaluate = 0
 
@@ -269,13 +270,17 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         else:
             print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
             if count_recursive_evaluate > 2:
-                return "CORRECT"
+                integer_num = random.randint(1, 10)
+                if integer_num % 2 == 0 or integer_num % 3 == 0:
+                    return "CORRECT"
+                return "INCORRECT"
             time.sleep(10)
             evaluate_user_answer_clarity(user_answer, correct_answer, question_context, user_api)
             count_recursive_evaluate += 1
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
