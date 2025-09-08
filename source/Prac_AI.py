@@ -5,6 +5,10 @@ import json
 import requests # Để lấy tài liệu bài học
 import streamlit as st
 import re
+import time
+
+count_recursive_evaluate = 0
+
 #
 # Hàm phụ trợ để lấy tài liệu bài học (tương tự như trong StAI.py)
 # Điều này có thể được tái cấu trúc thành một module tiện ích chung sau này
@@ -247,8 +251,11 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             return evaluation_text
         else:
             print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
-            return "INCORRECT"
+            time.sleep(6)
+            evaluate_user_answer_clarity(user_answer, correct_answer, question_context, user_api)
+            count_recursive_evaluate += 1
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
