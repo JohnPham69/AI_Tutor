@@ -74,7 +74,6 @@ if st.session_state.quiz_step == QUIZ_STATE_INITIAL:
     st.rerun()
 
 # --- CONFIG STATE ---
-# --- CONFIG STATE ---
 elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     st.markdown(_("Configure Your Quiz"))
 
@@ -128,6 +127,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     lesson_text=lesson_text,  # ✅ now supported
                 )
                 controller.set('selected_subject_name', selected_subject_name)
+                st.session_state.selected_subject_name = selected_subject_name
 
             # Validate data and proceed
             if data and len(data) == num_q:
@@ -245,4 +245,5 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
