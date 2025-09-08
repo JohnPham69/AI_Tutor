@@ -81,7 +81,7 @@ if not df_leaderboard.empty:
         lambda row: row['Correct Answer'] / row['Total Attempted'] if row['Total Attempted'] > 0 else 0.0,
         axis=1
     )
-    df_leaderboard = df_leaderboard[df_leaderboard['Total Attempted'] >= 2]
+    df_leaderboard = df_leaderboard[df_leaderboard['Total Attempted'] >= 5]
 
 column_translation = {
     "Rank": "Hạng",
@@ -174,4 +174,5 @@ if not df_leaderboard.empty:
 
     st.dataframe(df_ranked, hide_index=True, use_container_width=True)
 else:
+
     st.write(_("Leaderboard is currently empty or could not be loaded."))
