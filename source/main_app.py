@@ -453,14 +453,12 @@ with st.sidebar:
         with col1:
             if btt(("😜\t") + _("Funny"), key='btt_ai_fun'):
                 st.session_state['ai_fun'] = not st.session_state['ai_fun']
-                controller.set('ai_fun', st.session_state['ai_fun'])
             # tone = st.checkbox(("😜\t") + _("Funny"), value=st.session_state['ai_fun'], on_change=save_ai, kwargs={'name': 'ai_fun'})
             st.page_link("learn.py", label=_("Learning with AI"), icon="🐻") # New page link with icon
             st.page_link("aitutor.py", label=_("Tutor AI"), icon="🐯")
         with col2:
             if btt(("🕵\t") + _("Advance"), key='btt_ai_level'):
                 st.session_state['ai_hard'] = not st.session_state['ai_hard']
-                controller.set('ai_hard', st.session_state['ai_hard'])
             # level = st.checkbox(("🕵\t") + _("Advance"), value=st.session_state['ai_hard'], on_change=save_ai, kwargs={'name': 'ai_hard'})      
             st.page_link("practice.py", label=_("Practice"), icon="🐼") # Page link with icon
             st.page_link("leaderboard.py", label=_("Leaderboard"), icon="🏆") # New page link with icon
