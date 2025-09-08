@@ -100,8 +100,8 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     
     
     # Always show quiz settings
-    num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
-    num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 30, value=10, step=1)
+    num_q = st.number_input(_("Number of Questions Prompt"), 1, 100, value=5, step=1)
+    num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 60, value=10, step=1)
     type_of_question = st.selectbox(_("Type of Question Prompt"),
                                     options=[_("Mixed"), _("Multiple Choice"), _("Long / Short Answer")],
                                     index=0)
@@ -251,6 +251,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
 
 
