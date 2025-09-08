@@ -102,8 +102,8 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
             QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi trắc nghiệm).
             Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG DÒNG, trước khi viết mỗi lựa chọn tính từ lựa chọn thứ nhất.
-            Ví dụ cho câu hỏi TRẮC NGHIỆM:
-            '
+            Ví dụ cho câu hỏi TRẮC NGHIỆM cần phải in ra màn hình:
+            ```
             Nội dung câu hỏi?
             
             A. Lựa chọn A
@@ -113,13 +113,25 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             C. Lựa chọn C
             
             D. Lựa chọn D
-            '
+            ```
+            luôn luôn bắt buộc phải tuân thủ 100% theo định dạng đã cho.
+            ```
+            Nội dung câu hỏi?
+            
+            A. Lựa chọn A
+            
+            B. Lựa chọn B
+            
+            C. Lựa chọn C
+            
+            D. Lựa chọn D
+            ```
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
-            Ví dụ về định dạng JSON bắt buộc cho 2 câu hỏi:
+            Ví dụ về định dạng code JSON bắt buộc cho 2 câu hỏi:
+            ```
             [
                 {{
                     "question": 
-                    
                     "Ví dụ câu hỏi trắc nghiệm 1 là gì?                    
                     
                     A. abcde
@@ -137,13 +149,13 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
                     "answer": "Đây là ví dụ câu trả lời 2."
                 }}
             ]
-
+            ```
             Hãy tạo {num_questions} câu hỏi và câu trả lời ngay bây giờ.
             """
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
-            temperature=0.7, # Tăng một chút để có sự đa dạng hơn trong câu hỏi
+            temperature=0.3, # Tăng một chút để có sự đa dạng hơn trong câu hỏi
             response_mime_type="application/json", # Yêu cầu AI trả về JSON trực tiếp
         )
 
@@ -264,6 +276,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
