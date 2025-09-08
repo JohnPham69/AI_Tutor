@@ -153,11 +153,11 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         st.markdown(_("Result Info").format(correct=num_correct_in_quiz, total=total_questions_in_quiz))
 
         # Save results
-        nick = controller.get('user_nickname')
-        school = controller.get('user_school')
-        class_name = controller.get('user_class')
-        student_id = controller.get('user_id')
-        subject_fin = controller.get('selected_subject_name')
+        nick = st.session_state.get('user_nickname')
+        school = st.session_state.get('user_school')
+        class_name = st.session_state.get('user_class')
+        student_id = st.session_state.get('user_id')
+        subject_fin = st.session_state.get('selected_subject_name')
 
         can_save = all([nick, school, class_name, student_id, subject_fin])
 
@@ -245,3 +245,4 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
