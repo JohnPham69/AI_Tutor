@@ -95,6 +95,9 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
     elif not raw_selected_lesson_ids_list and selected_subject_name:
         st.info(_("No specific lesson selected from the sidebar for subject '{subject_name}'. The quiz will cover general topics for this subject.").format(subject_name=selected_subject_name))
 
+    st.session_state.selected_subject_name = selected_subject_name
+    
+    
     # Always show quiz settings
     num_q = st.number_input(_("Number of Questions Prompt"), 1, 20, value=5, step=1)
     num_time = st.number_input(_("Time Limit Prompt (minutes)"), 1, 30, value=10, step=1)
@@ -126,8 +129,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     question_type=type_of_question,
                     lesson_text=lesson_text,  # ✅ now supported
                 )
-                controller.set('selected_subject_name', selected_subject_name)
-                st.session_state.selected_subject_name = selected_subject_name
+                
 
             # Validate data and proceed
             if data and len(data) == num_q:
@@ -245,5 +247,6 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
 
