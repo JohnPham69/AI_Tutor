@@ -120,7 +120,7 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                 lesson_text = None
                 if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
                     lesson_text = "\n\n".join(st.session_state.lesson_contents)
-                
+
                 # Later in the quiz generation call:
                 data = generate_quiz_data(
                     num_questions=num_q,
@@ -128,7 +128,8 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
                     subject_name=selected_subject_name,
                     lesson_id_str=raw_selected_lesson_ids_list[0] if raw_selected_lesson_ids_list else None,
                     question_type=type_of_question,
-                    lesson_text=lesson_text,  # ✅ now supported
+                    lesson_text=lesson_text, # ✅ now supported
+                    advance=st.session_state['ai_hard'],
                 )
                 
 
@@ -251,3 +252,4 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
