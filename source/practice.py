@@ -37,8 +37,6 @@ def ensure_session():
 
 ensure_session()
 
-st.session_state.selected_subject_name = st.session_state.get('sb_subject_tester')
-
 _ = get_translator()  # Initialize translator for this page
 controller = get_cookie_controller()  # Use the cached singleton instance
 st.title(_("Practice Quiz Title"))
@@ -164,7 +162,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
         student_id = st.session_state.get('user_id')
         subject_fin = (
             st.session_state.get('selected_subject_name')
-            or st.session_state.get('sb_subject_tester')  # fallback from sidebar
+            or st.session_state.get('user_sub')  # ← this is synced from Tester.py cookies
         )
 
         can_save = all([nick, school, class_name, student_id, subject_fin])
@@ -253,6 +251,7 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
 
 
