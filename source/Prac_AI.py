@@ -91,11 +91,11 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             advance_or_not = " nâng cao là những câu hỏi về kiến thức liên quan đến bài học nhưng không nằm trong tài liệu bài học."
         
         prompt_text = f"""
-            Bạn là một trợ lý AI chuyên tạo các câu hỏi chất lượng cao.
+            Bạn là một trợ lý AI chuyên tạo các câu hỏi loại TRẮC NGHIỆM, TRẢ LỜI DÀI / NGẮN chất lượng cao.
             Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi{advance_or_not}.
             Đối với các câu toán nâng cao, hãy tạo bài toán mà muốn giải phải áp dụng nhiều định lí khác nhau, đi qua nhiều bước để giải.
-            Đối với các môn học nâng cao ngoài toán, hãy tạo các câu hỏi khó như trên, câu trả lời cũng phải có ý gần giống nhau để làm lựa chọn trở nên khó nhằn.
-            Dạng của tất cả các câu hỏi phải dưới dạng {question_type}.
+            Đối với các môn học nâng cao ngoài toán, hãy tạo các câu hỏi TRẮC NGHIỆM khó như trên, câu trả lời cũng phải có ý trong câu hỏi TRẮC NGHIỆM gần giống nhau để làm lựa chọn trở nên khó nhằn.
+            Dạng của tất cả các câu hỏi phải dưới dạng {question_type} và chỉ được ở dưới dạng {question_type}. PHẢI VIẾT RỠ CÂU HỎI. NẾU LÀ TRẮC NGHIỆM, PHẢI CHO THẤY ĐƯỢC 4 PHƯƠNG ÁN LỰA CHỌN A, B, C, D.
             {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
             
             Đối với mỗi câu hỏi, hãy cho biết đây là câu hỏi gì, TRẮC NGHIỆM, hay trả lời dài / ngắn sau đó cung cấp nội dung câu hỏi và tiếp đến trả lời chính xác và ngắn gọn.
@@ -280,6 +280,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
