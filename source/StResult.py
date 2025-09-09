@@ -2,6 +2,7 @@ import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 #
+# Add nâng cao into bảng xếp hạng
 # Function to add or update a result in Google Sheets.
 # It checks for an existing entry with the same Student ID and Subject.
 # If found, it updates the scores. Otherwise, it adds a new row.
@@ -78,3 +79,4 @@ def AddNewResult(user_nickname: str, user_school: str, user_class: str, user_id:
         st.error(f"Lỗi khi lưu kết quả mới vào Google Sheets: {e}")
         print(f"Error in AddNewResult: {e}")
         return False
+
