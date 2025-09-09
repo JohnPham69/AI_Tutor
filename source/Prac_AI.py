@@ -92,6 +92,8 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo các câu hỏi loại TRẮC NGHIỆM, TRẢ LỜI DÀI / NGẮN chất lượng cao.
+            BẠN PHẢI TUYỆT ĐỐI TUÂN THEO CÁC VÍ DỤ VÀ CHỈ DẪN NHƯ BÊN DƯỚI:
+            
             Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi{advance_or_not}.
             Đối với các câu toán nâng cao, hãy tạo bài toán mà muốn giải phải áp dụng nhiều định lí khác nhau, đi qua nhiều bước để giải.
             Đối với các môn học nâng cao ngoài toán, hãy tạo các câu hỏi TRẮC NGHIỆM khó như trên, câu trả lời cũng phải có ý trong câu hỏi TRẮC NGHIỆM gần giống nhau để làm lựa chọn trở nên khó nhằn.
@@ -103,7 +105,8 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
             QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi TRẮC NGHIỆM).
             Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG DÒNG, trước khi viết mỗi lựa chọn tính từ lựa chọn thứ nhất.
-            Ví dụ cho câu hỏi TRẮC NGHIỆM cần phải in ra màn hình:
+            Ví dụ cho câu hỏi TRẮC NGHIỆM CÓ 4 PHƯƠNG ÁN LỰA CHỌN cần phải in ra màn hình:
+            BẠN PHẢI TUÂN THỦ ĐÚNG CHỈ DẪN VÍ DỤ:
             ```
             Nội dung câu hỏi TRẮC NGHIỆM?
             
@@ -127,6 +130,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             
             D. Lựa chọn D
             ```
+            BẠN PHẢI TUÂN THỦ KHẮT KHE:
             Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
             Ví dụ về định dạng code JSON bắt buộc cho 2 loại câu hỏi, TRẮC NGHIỆM 4 LỰA CHỌN A, B, C, D và TỰ LUẬN:
             ```
@@ -280,6 +284,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
