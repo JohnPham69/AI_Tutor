@@ -36,7 +36,8 @@ RAW_SHEET_COLUMNS = [
     "Subject",
     "School",
     "Class",
-    "Student ID"
+    "Student ID",
+    "Difficulty"
 ]
 
 all_values = sheet.get_all_values()
@@ -92,7 +93,8 @@ column_translation = {
     "School": "Trường",
     "Subject": "Môn học",
     "Class": "Lớp",
-    "Student ID": "Mã học sinh"
+    "Student ID": "Mã học sinh",
+    "Difficulty": "Độ khó"
 }
 
 lang = st.session_state.get("lang", "en")
@@ -159,21 +161,21 @@ if not df_leaderboard.empty:
         df_ranked = df_ranked.rename(columns=column_translation)
         desired_cols = [
             "Hạng", "Tên", "Số câu đúng", "Số câu đã làm", "Tỷ lệ đúng",
-            "Môn học", "Trường", "Lớp", "Mã học sinh"
+            "Môn học", "Trường", "Lớp", "Mã học sinh", "Độ khó"
         ]
     else:
         reverse_translation = {v: k for k, v in column_translation.items()}
         df_ranked = df_ranked.rename(columns=reverse_translation)
         desired_cols = [
             "Rank", "User Name", "Correct Answer", "Total Attempted", "Performance",
-            "Subject", "School", "Class", "Student ID"
+            "Subject", "School", "Class", "Student ID", "Difficulty"
         ]
+    
     existing_cols = [col for col in desired_cols if col in df_ranked.columns]
     other_cols = [col for col in df_ranked.columns if col not in existing_cols]
     df_ranked = df_ranked[existing_cols + other_cols]
 
     st.dataframe(df_ranked, hide_index=True, use_container_width=True)
+    
 else:
-
     st.write(_("Leaderboard is currently empty or could not be loaded."))
-
