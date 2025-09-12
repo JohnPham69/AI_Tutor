@@ -60,7 +60,7 @@ def AddNewResult(user_nickname: str, user_school: str, user_class: str, user_id:
                     updated_correct_a = existing_correct_a + current_quiz_correct
 
                     # Prepare the full updated row. Also update user info in case it changed.
-                    updated_row_data = [user_nickname, updated_total_q, updated_correct_a, subject_name, user_school, user_class, user_id]
+                    updated_row_data = [user_nickname, updated_total_q, updated_correct_a, subject_name, user_school, user_class, user_id, difficulty]
                     
                     row_to_update_idx = i + 1
                     # Update the row in the sheet. The range is from column A to G for the specific row.
@@ -71,7 +71,7 @@ def AddNewResult(user_nickname: str, user_school: str, user_class: str, user_id:
 
         if not match_found:
             # No match found, append a new row with the initial results
-            new_row_data = [user_nickname, current_quiz_questions, current_quiz_correct, subject_name, user_school, user_class, user_id]
+            new_row_data = [user_nickname, current_quiz_questions, current_quiz_correct, subject_name, user_school, user_class, user_id, difficulty]
             gs_sheet.append_row(new_row_data, value_input_option='USER_ENTERED')
         
         return True
@@ -79,5 +79,6 @@ def AddNewResult(user_nickname: str, user_school: str, user_class: str, user_id:
         st.error(f"Lỗi khi lưu kết quả mới vào Google Sheets: {e}")
         print(f"Error in AddNewResult: {e}")
         return False
+
 
 
