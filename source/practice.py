@@ -173,9 +173,14 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
             st.caption(_("Please fill in your Nickname, School, Class, and Student ID in the sidebar to save results."))
 
         col1, col2 = st.columns(2)
+        
+        harsh = _("Normal")
+        if st.session_state['ai_hard']:
+            harsh = _("Advance")
+        
         with col1:
             if st.button(_("Add to Leaderboards"), disabled=not can_save):
-                save_successful = AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin)
+                save_successful = AddNewResult(nick, school, class_name, student_id, total_questions_in_quiz, num_correct_in_quiz, subject_fin, harsh)
                 if save_successful:
                     st.success(_("Results saved."))
                     reset_quiz_state()
@@ -252,4 +257,5 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
