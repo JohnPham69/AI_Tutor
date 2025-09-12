@@ -197,6 +197,7 @@ TRANSLATIONS = {
         "Sort leaderboard by:": "Sắp xếp bảng xếp hạng theo:",
         "Funny": "Hài hước",
         "Advance": "Nâng cao",
+        "Normal": "Bình thường",
         "Shall we start?": "Bắt đầu nhé?"
     }
 }
@@ -215,4 +216,5 @@ def get_translator():
         return TRANSLATIONS.get(current_lang, {}).get(key, TRANSLATIONS.get("en", {}).get(key, key))
 
     return translate
+
 
