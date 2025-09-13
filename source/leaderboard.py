@@ -179,7 +179,7 @@ if not df_leaderboard.empty:
         df_ranked = df_ranked.rename(columns=column_translation)
         desired_cols = [
             "Hạng", "Tên", "Số câu đúng", "Số câu đã làm", "Tỷ lệ đúng",
-            "Môn học", "Trường", "Lớp", "Mã học sinh", "Độ khó"
+            "Môn học", "Độ khó", "Trường", "Lớp", "Mã học sinh"
         ]
     else:
         # Create a reverse translation for English column names to match original
@@ -189,7 +189,7 @@ if not df_leaderboard.empty:
 
         desired_cols = [
             "Rank", "User Name", "Correct Answer", "Total Attempted", "Performance",
-            "Subject", "School", "Class", "Student ID", "Difficulty"
+            "Subject", "Difficulty", "School", "Class", "Student ID"
         ]
 
     # Filter and reorder columns
@@ -202,3 +202,4 @@ if not df_leaderboard.empty:
 
 else:
     st.write(_("Leaderboard is currently empty or could not be loaded."))
+
