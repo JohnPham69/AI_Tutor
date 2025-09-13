@@ -133,6 +133,15 @@ sort_col = sort_options[sort_choice]
 
 def assign_ranks(df, sort_col):
     df = df.copy()
+
+    # Normalize difficulty column for bilingual case
+    df['Difficulty_norm'] = df['Difficulty'].apply(
+        lambda x: "Advance" if "Advance" in str(x) or "Nâng cao" in str(x) else "Normal"
+    )
+
+    # Assign priority for sorting (Advance first, then Normal)
+    df['Difficulty_priority'] = df['Difficulty_norm'].map({"Advance": 0, "Normal": 1})
+
     # Determine secondary and tertiary columns
     if sort_col == "Correct Answer":
         secondary_col = "Performance"
@@ -140,32 +149,35 @@ def assign_ranks(df, sort_col):
     else:
         secondary_col = "Performance"
         tertiary_col = "Correct Answer"
-    # Sort
+
+    # Sort with difficulty first
     df = df.sort_values(
-        by=[sort_col, secondary_col, tertiary_col, "User Name"],
-        ascending=[False, False, False, True],
+        by=["Difficulty_priority", sort_col, secondary_col, tertiary_col, "User Name"],
+        ascending=[True, False, False, False, True],
         kind="mergesort"
     ).reset_index(drop=True)
+
     # Assign competition-style ranks
     rank = 1
     prev = None
     ranks = []
     for idx, row in df.iterrows():
-        # Use a tuple for comparison to ensure consistent tie-breaking for ranks
-        curr = (row[sort_col], row[secondary_col], row[tertiary_col])
+        curr = (row['Difficulty_priority'], row[sort_col], row[secondary_col], row[tertiary_col])
         if prev is not None and curr != prev:
             rank = idx + 1
         ranks.append(rank)
         prev = curr
     df['Rank'] = ranks
+
     # Add medals to top 3 unique ranks only
     medals = ["🥇", "🥈", "🥉"]
     unique_ranks = sorted(set(ranks))
     for medal_rank, medal in zip(unique_ranks[:3], medals):
-        # Convert to string first if 'Rank' might be numeric
         df.loc[df['Rank'] == medal_rank, 'Rank'] = f"{medal} {medal_rank}"
-    df['Rank'] = df['Rank'].astype(str) # Ensure 'Rank' is string for display
+
+    df['Rank'] = df['Rank'].astype(str)
     return df
+
 
 # Streamlit's interactive dataframe
 st.subheader(_("Top Performers"))
@@ -202,4 +214,3 @@ if not df_leaderboard.empty:
 
 else:
     st.write(_("Leaderboard is currently empty or could not be loaded."))
-
