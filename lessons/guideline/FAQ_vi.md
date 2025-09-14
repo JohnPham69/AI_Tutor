@@ -38,7 +38,8 @@
 - Đăng ký / Đăng nhập với tài khoản Google của bạn
 
 ### Bước 2: Điều hướng đến nơi lấy
-- Nhìn lên phía góc trên phải màn hình chọn "Get API key"
+- Bên trái có mục Dashboard, mở mục Dashboard.
+- Chọn "API keys"
 - Bây giờ bạn đang ở trang [này](https://aistudio.google.com/apikey)
 
 ### Bước 3: Tạo API
