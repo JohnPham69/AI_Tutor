@@ -28,6 +28,7 @@ if "messages" in st.session_state:
 # Set initial message only if chat is empty
 if not st.session_state.messages:
     starting_mess = _("Shall we start?")
+    st.session_state["last_follow_up"] = []
     start_api_miss = _("API Key Missing Error Config")
     if not st.session_state.get('user_api'):
         st.session_state.messages.append({"role": "assistant", "content": start_api_miss})
@@ -158,3 +159,4 @@ if st.session_state.messages and len(follow_up) != 0:
                         st.markdown("Error: No response from AI.")
                         st.session_state["last_follow_up"] = []
             st.rerun()
+
