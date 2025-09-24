@@ -91,6 +91,7 @@ if prompt:
         st.session_state.messages = []
         st.session_state.uploaded_file_content = ""
         follow_up = []
+        st.session_state["last_follow_up"] = []  # <--- clear follow-ups properly
         st.rerun()
     elif prompt.get("text"):
         user_text = prompt["text"]
@@ -159,4 +160,5 @@ if st.session_state.messages and len(follow_up) != 0:
                         st.markdown("Error: No response from AI.")
                         st.session_state["last_follow_up"] = []
             st.rerun()
+
 
