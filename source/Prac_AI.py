@@ -137,27 +137,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             
             C. Lựa chọn C
             
-            D. Lựa chọn D
-
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D
+            D. Lựa chọn D        
 
             Nội dung câu hỏi TRẮC NGHIỆM?
             
@@ -181,6 +161,36 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             ```
             luôn luôn bắt buộc phải tuân thủ 100% theo định dạng đã cho.
             ```
+            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
+            
+            A. Lựa chọn A
+            
+            B. Lựa chọn B
+            
+            C. Lựa chọn C
+            
+            D. Lựa chọn D
+
+            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
+            
+            A. Lựa chọn A
+            
+            B. Lựa chọn B
+            
+            C. Lựa chọn C
+            
+            D. Lựa chọn D
+
+            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
+            
+            A. Lựa chọn A
+            
+            B. Lựa chọn B
+            
+            C. Lựa chọn C
+            
+            D. Lựa chọn D
+
             Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
             
             A. Lựa chọn A
@@ -345,6 +355,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
