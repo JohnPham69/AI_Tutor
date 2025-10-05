@@ -221,6 +221,52 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
                     "answer": "Đây là ví dụ câu trả lời A."
                 }},
                 {{
+                    "question": 
+                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
+                    
+                    A. abcde
+                    
+                    B. abcde
+                    
+                    C. abcde
+                    
+                    D. abcde
+                    ",
+                    "answer": "Đây là ví dụ câu trả lời A."
+                }},
+                {{
+                    "question": 
+                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
+                    
+                    A. abcde
+                    
+                    B. abcde
+                    
+                    C. abcde
+                    
+                    D. abcde
+                    ",
+                    "answer": "Đây là ví dụ câu trả lời A."
+                }},
+                {{
+                    "question": 
+                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
+                    
+                    A. abcde
+                    
+                    B. abcde
+                    
+                    C. abcde
+                    
+                    D. abcde
+                    ",
+                    "answer": "Đây là ví dụ câu trả lời A."
+                }},
+                {{
+                    "question": "Ví dụ câu hỏi tự luận, và KHÔNG LÀ TRẮC NGHIỆM là gì?",
+                    "answer": "Đây là ví dụ câu trả lời 2."
+                }},
+                {{
                     "question": "Ví dụ câu hỏi tự luận, và KHÔNG LÀ TRẮC NGHIỆM là gì?",
                     "answer": "Đây là ví dụ câu trả lời 2."
                 }}
@@ -355,6 +401,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
