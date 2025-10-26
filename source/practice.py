@@ -142,6 +142,53 @@ elif st.session_state.quiz_step == QUIZ_STATE_CONFIG:
             else:
                 st.error(_("Not Enough Questions Error"))
                 st.session_state.generated_quiz_data = []
+    
+    if st.button(_("Create Quiz and Download as .txt")):
+        user_api_key = st.session_state.get('user_api')
+        if not user_api_key:
+            st.error(_("API key not configured, please set it in the Config page."))
+        else:
+            with st.spinner(_("Creating Quiz Spinner")):
+                # Reuse lesson text if available
+                lesson_text = None
+                if "lesson_contents" in st.session_state and st.session_state.lesson_contents:
+                    lesson_text = "\n\n".join(st.session_state.lesson_contents)
+                
+                data = generate_quiz_data(
+                    num_questions=num_q,
+                    user_api=user_api_key,
+                    subject_name=selected_subject_name,
+                    lesson_id_str=raw_selected_lesson_ids_list[0] if raw_selected_lesson_ids_list else None,
+                    question_type=type_of_question,
+                    lesson_text=lesson_text,
+                )
+
+            if data and len(data) > 0:
+                # Build quiz text
+                quiz_lines = []
+                answer_lines = []
+
+                quiz_lines.append(f"{_('QUIZ')}\n{'='*40}\n")
+                for i, item in enumerate(data, start=1):
+                    quiz_lines.append(f"Q{i}: {item['question']}\n")
+                    quiz_lines.append("\n")
+                    answer_lines.append(f"{i}. {item['answer']}")
+
+                quiz_lines.append("\n" + "="*40 + "\n")
+                quiz_lines.append(_("ANSWERS") + "\n")
+                quiz_lines.extend(answer_lines)
+
+                quiz_text = "\n".join(quiz_lines)
+
+                # Create a downloadable .txt file
+                st.download_button(
+                    label=_("Download Quiz as TXT"),
+                    data=quiz_text.encode('utf-8'),
+                    file_name="quiz.txt",
+                    mime="text/plain",
+                )
+            else:
+                st.error(_("Not Enough Questions Error"))
 
 # --- QUESTIONING or FEEDBACK ---
 elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_FEEDBACK]:
@@ -257,5 +304,6 @@ elif st.session_state.quiz_step in [QUIZ_STATE_QUESTIONING, QUIZ_STATE_GRADING_F
                 if st.button(_("Exit Quiz Button"), key=f"exit_{idx}_fb"):
                     reset_quiz_state()
                     st.rerun()
+
 
 
