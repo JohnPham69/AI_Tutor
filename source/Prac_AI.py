@@ -401,16 +401,3 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
-
-
-
-
-
-
-
-
-
-
-
-
-
