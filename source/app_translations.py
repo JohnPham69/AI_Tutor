@@ -112,6 +112,7 @@ TRANSLATIONS = {
         "Practice Quiz Title": "Luyện tập",
         "Start New Practice Session": "### Bắt đầu một phiên luyện tập mới",
         "Start Quiz Button": "Tạo bài luyện tập",
+        "Create Quiz and Download as .txt": "Tạo Quiz và Tải về dưới dạng .txt",
         "Based on Sidebar Selection": "Dựa trên môn học và bài học đã chọn ở thanh bên (nếu có).",
         "Configure Your Quiz": "### Cấu hình Bài Quiz của Bạn",
         "Number of Questions Prompt": "Bạn muốn trả lời bao nhiêu câu?",
@@ -216,5 +217,6 @@ def get_translator():
         return TRANSLATIONS.get(current_lang, {}).get(key, TRANSLATIONS.get("en", {}).get(key, key))
 
     return translate
+
 
 
