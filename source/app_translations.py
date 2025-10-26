@@ -199,6 +199,7 @@ TRANSLATIONS = {
         "Funny": "Hài hước",
         "Advance": "Nâng cao",
         "Normal": "Bình thường",
+        "Create Quiz and Download as .txt": "Tạo Quiz và Tải về dưới dạng .txt", 
         "Shall we start?": "Bắt đầu nhé?"
     }
 }
@@ -217,6 +218,7 @@ def get_translator():
         return TRANSLATIONS.get(current_lang, {}).get(key, TRANSLATIONS.get("en", {}).get(key, key))
 
     return translate
+
 
 
 
