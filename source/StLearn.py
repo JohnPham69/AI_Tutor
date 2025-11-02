@@ -37,6 +37,95 @@ def trans(text, user_api, user_model=None):
         print(f"Error in translation: {e}")
         return "Error in translation"
 
+
+def afterStepOne_Learn(ai_text, user_api, user_model=None):
+    """
+    Đánh giá và chỉnh sửa phần ///Follow_up/// từ phản hồi gốc:
+    - Giữ nguyên phần trả lời chính.
+    - Kiểm tra từng câu hỏi follow-up: rõ ràng chưa, có liên quan không?
+    - Nếu cần, thay thế hoặc viết lại để gợi mở và thân thiện hơn.
+    """
+    try:
+        client = genai.Client(api_key=user_api)
+        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
+
+        prompt = f"""
+        Bạn là một chuyên gia sư phạm AI.
+
+        Văn bản sau chứa phần trả lời của AI và phần câu hỏi follow-up (phía sau ///Follow_up///).
+
+        Nhiệm vụ:
+        1. Giữ nguyên phần trả lời chính (phía trước ///Follow_up///).
+        2. Đọc và đánh giá các câu hỏi follow-up.
+        3. Nếu câu hỏi nào không rõ ràng, không tự nhiên, hoặc không mang tính gợi mở học tập, hãy chỉnh sửa hoặc thay thế.
+        4. Câu hỏi mới nên khuyến khích người học suy nghĩ, tìm hiểu thêm hoặc tương tác lại.
+        5. Trả lại kết quả theo đúng định dạng ban đầu:
+           <phần trả lời chính>
+           ///Follow_up///
+           - câu hỏi 1
+           - câu hỏi 2
+           - câu hỏi 3
+
+        Văn bản đầu vào:
+        {ai_text}
+        """
+
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
+        config = types.GenerateContentConfig(
+            temperature=0.8,
+            response_mime_type="text/plain",
+        )
+
+        ans = ""
+        for chunk in client.models.generate_content_stream(
+            model=model_to_use, contents=contents, config=config
+        ):
+            ans += chunk.text
+        return ans.strip()
+    except Exception as e:
+        print(f"Error in afterStepOne_Learn: {e}")
+        return ai_text
+
+
+def afterStepTwo_Learn(ai_text, user_api, user_model=None):
+    """
+    (Tùy chọn bước 3)
+    Chuẩn hóa văn phong, ngữ pháp và ngôn ngữ.
+    Nếu session_state.lang == 'en', tự động dịch sang tiếng Anh.
+    """
+    try:
+        client = genai.Client(api_key=user_api)
+        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
+
+        prompt = f"""
+        Chuẩn hóa văn bản sau để đạt phong cách học thuật, rõ ràng và tự nhiên.
+        Giữ nguyên cấu trúc ///Follow_up/// và danh sách câu hỏi.
+        Không thêm lời giải thích.
+
+        Văn bản đầu vào:
+        {ai_text}
+        """
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
+        config = types.GenerateContentConfig(
+            temperature=0.3,
+            response_mime_type="text/plain",
+        )
+        ans = ""
+        for chunk in client.models.generate_content_stream(
+            model=model_to_use, contents=contents, config=config
+        ):
+            ans += chunk.text
+
+        if st.session_state.lang == "en":
+            return trans(ans, user_api, user_model)
+        return ans.strip()
+    except Exception as e:
+        print(f"Error in afterStepTwo_Learn: {e}")
+        return ai_text
+
+
+
+
 def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
         if not user_api:
@@ -202,5 +291,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
