@@ -66,6 +66,96 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
+def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "gemini-2.5-flash"):
+    """
+    Nhận đầu ra từ Step 1 (generate_quiz_data).
+    Dùng prompt thứ hai để đánh giá và chỉnh sửa chất lượng câu hỏi.
+    - Đảm bảo mỗi câu hỏi rõ ràng, không lặp.
+    - Câu hỏi có độ khó đa dạng (dễ, trung bình, khó).
+    - Câu trả lời chính xác, ngắn gọn, không mơ hồ.
+    """
+    try:
+        client = genai.Client(api_key=user_api)
+        prompt = f"""
+        Bạn là một chuyên gia biên soạn câu hỏi trắc nghiệm.
+
+        Dưới đây là danh sách các câu hỏi (và đáp án) được sinh ra từ AI:
+
+        {json.dumps(raw_quiz_json, ensure_ascii=False, indent=2)}
+
+        Nhiệm vụ:
+        1. Đánh giá từng câu hỏi: nếu thấy mơ hồ, trùng lặp, hoặc không đúng trọng tâm, hãy chỉnh lại.
+        2. Phân loại độ khó: dễ, trung bình, khó (bổ sung nhãn nếu cần).
+        3. Giữ nguyên định dạng JSON gốc, không thêm văn bản ngoài.
+        4. Mỗi phần tử gồm: "question", "answer", và (tùy chọn) "level": "easy"/"medium"/"hard".
+
+        Trả về mảng JSON hoàn chỉnh.
+        """
+
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
+        config = types.GenerateContentConfig(
+            temperature=0.7,
+            response_mime_type="application/json",
+        )
+
+        refined_json = ""
+        for chunk in client.models.generate_content_stream(
+            model=user_model,
+            contents=contents,
+            config=config,
+        ):
+            refined_json += chunk.text
+
+        json_start, json_end = refined_json.find("["), refined_json.rfind("]")
+        if json_start != -1 and json_end != -1:
+            refined_json = refined_json[json_start:json_end+1]
+        return json.loads(refined_json)
+    except Exception as e:
+        print(f"Error in refine_quiz_quality: {e}")
+        return raw_quiz_json
+
+
+def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "gemini-2.5-flash"):
+    """
+    Bước 3: Cân bằng toàn bộ bộ câu hỏi — tránh lặp chủ đề, bảo đảm độ khó phân bố hợp lý.
+    """
+    try:
+        client = genai.Client(api_key=user_api)
+        prompt = f"""
+        Bạn là một chuyên gia kiểm định đề thi.
+        Dưới đây là bộ câu hỏi đã qua tinh chỉnh:
+        {json.dumps(refined_quiz_json, ensure_ascii=False, indent=2)}
+
+        Nhiệm vụ:
+        1. Loại bỏ các câu trùng nội dung.
+        2. Đảm bảo có đủ 3 cấp độ: dễ, trung bình, khó (nếu có nhãn).
+        3. Nếu chưa có nhãn độ khó, hãy tự phân bổ.
+        4. Giữ nguyên định dạng JSON đầu ra.
+        """
+
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
+        config = types.GenerateContentConfig(
+            temperature=0.6,
+            response_mime_type="application/json",
+        )
+
+        ans = ""
+        for chunk in client.models.generate_content_stream(
+            model=user_model, contents=contents, config=config
+        ):
+            ans += chunk.text
+
+        json_start, json_end = ans.find("["), ans.rfind("]")
+        if json_start != -1 and json_end != -1:
+            ans = ans[json_start:json_end+1]
+        return json.loads(ans)
+    except Exception as e:
+        print(f"Error in balance_quiz_set: {e}")
+        return refined_quiz_json
+
+
+
+
 def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None,
                        lesson_id_str: str = None, question_type: str = None, lesson_text: str = None, advance: bool = False):
     """
@@ -313,6 +403,11 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
 
         try:
             quiz_data_list = json.loads(json_str_fixed)
+            # --- Step 2: refine quiz quality ---
+            quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
+            
+            # --- Step 3: balance quiz set (optional) ---
+            quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
         except Exception as e:
             print("JSON decode error:", e)
             print("json_str_fixed was:", json_str_fixed)
@@ -401,3 +496,4 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
