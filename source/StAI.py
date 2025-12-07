@@ -78,6 +78,7 @@ def afterStepOne(plan_text, user_api, user_model=None):
     ):
         ans += chunk.text
     if st.session_state.lang == "en":
+        time.sleep(5)
         return trans(ans, user_api, user_model)  # Translate to English if needed
     return ans.replace("\n", "\n\n")
 
@@ -249,4 +250,5 @@ def genRes(
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
