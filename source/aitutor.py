@@ -48,7 +48,7 @@ if "first_mess_set" not in st.session_state:
     st.session_state.first_mess_set = False
 
 if not st.session_state.first_mess_set:
-    welcome = _("Chào! Tôi đã sẵn sàng. Gõ câu hỏi của bạn để bắt đầu.")  # hoặc bất kỳ text welcome tĩnh nào
+    welcome = _("Chào! Tôi đã sẵn sàng. Bạn sẵn sàng chưa?")  # hoặc bất kỳ text welcome tĩnh nào
     st.session_state.messages.append({"role": "assistant", "content": welcome})
     st.session_state.first_mess_set = True
 
@@ -114,4 +114,5 @@ if prompt:
                     st.session_state.messages.append({"role": "assistant", "content": ai_response})
                 else:
                     st.markdown("Error: No response from AI.")
+
 
