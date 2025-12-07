@@ -404,9 +404,11 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         try:
             quiz_data_list = json.loads(json_str_fixed)
             # --- Step 2: refine quiz quality ---
+            time.sleep(5)
             quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
             
             # --- Step 3: balance quiz set (optional) ---
+            time.sleep(5)
             quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
         except Exception as e:
             print("JSON decode error:", e)
@@ -496,4 +498,5 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
