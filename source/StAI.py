@@ -4,7 +4,6 @@
 import requests
 import json # Added for parsing JSON
 from google import genai
-import time 
 import streamlit as st
 from google.genai import types
 DEFAULT_MODEL_NAME = "gemini-2.5-flash"
@@ -78,7 +77,6 @@ def afterStepOne(plan_text, user_api, user_model=None):
     ):
         ans += chunk.text
     if st.session_state.lang == "en":
-        time.sleep(5)
         return trans(ans, user_api, user_model)  # Translate to English if needed
     return ans.replace("\n", "\n\n")
 
@@ -243,12 +241,12 @@ def genRes(
             step_one_output_text += chunk.text
         
         # Pass the output of the first LLM call to afterStepOne for potential refinement
-        time.sleep(5)
         intermediate_result = afterStepOne(step_one_output_text, user_api, active_model_name)
         return intermediate_result
 
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
