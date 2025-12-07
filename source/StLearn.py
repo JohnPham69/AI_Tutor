@@ -118,6 +118,7 @@ def afterStepTwo_Learn(ai_text, user_api, user_model=None):
             ans += chunk.text
 
         if st.session_state.lang == "en":
+            time.sleep(5)
             return trans(ans, user_api, user_model)
         return ans.strip()
     except Exception as e:
@@ -271,6 +272,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
 
