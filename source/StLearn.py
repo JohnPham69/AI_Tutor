@@ -3,6 +3,7 @@
 #
 import requests
 from google import genai
+import time
 from google.genai import types
 import streamlit as st
 
@@ -261,6 +262,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             step_one_output_text += chunk.text
         
         # --- STEP 2: refine follow-up ---
+        time.sleep(5)
         refined_text = afterStepOne_Learn(step_one_output_text, user_api, user_model)
                 
         return refined_text
@@ -269,6 +271,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
 
