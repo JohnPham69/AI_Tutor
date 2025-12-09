@@ -66,7 +66,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "gemini-2.5-flash"):
+def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "gemma-3-27b"):
     """
     Nhận đầu ra từ Step 1 (generate_quiz_data).
     Dùng prompt thứ hai để đánh giá và chỉnh sửa chất lượng câu hỏi.
@@ -115,7 +115,7 @@ def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "g
         return raw_quiz_json
 
 
-def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "gemini-2.5-flash"):
+def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "gemma-3-27b"):
     """
     Bước 3: Cân bằng toàn bộ bộ câu hỏi — tránh lặp chủ đề, bảo đảm độ khó phân bố hợp lý.
     """
@@ -168,7 +168,7 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
 
     try:
         client = genai.Client(api_key=user_api)
-        model_name = "gemini-2.5-flash"
+        model_name = "gemma-3-27b"
 
         # Use pre-fetched lesson_text if available
         lesson_material = lesson_text if lesson_text else ""
@@ -438,7 +438,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
         return "ERROR"
     try:
         client = genai.Client(api_key=user_api)
-        model_name = "gemini-2.5-flash"
+        model_name = "gemma-3-27b"
 
         prompt_text = f"""
             Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
@@ -496,6 +496,7 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
+
 
 
 
