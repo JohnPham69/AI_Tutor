@@ -213,6 +213,10 @@ with st.sidebar:
                 set_language_and_trigger_rerun_flag('vi')
             elif vi == 1:
                 set_language_and_trigger_rerun_flag('en')
+
+    with st.expander(r"$\textsf{\large " + "" + _("Update") + "}$"):
+        st.info("Due the updates in Google's API policies, the AI Tutor will be using the AI model `gemma-3-27b` for convenience before switch to others.", icon=None, width="stretch")
+    
     with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
         def grade_changed_callback():
