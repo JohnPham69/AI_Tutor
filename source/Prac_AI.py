@@ -431,66 +431,80 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     """
     Đánh giá câu trả lời của người dùng so với đáp án đúng, xem xét sự khác biệt về từ ngữ.
     Trả về "CORRECT", "INCORRECT", hoặc "ERROR" nếu có lỗi.
+    Tối đa 3 lần thử kết nối lại.
     """
-    global count_recursive_evaluate
     
     if not user_api:
         print("Lỗi: API key không được cung cấp cho evaluate_user_answer_clarity.")
         return "ERROR"
-    try:
-        client = genai.Client(api_key=user_api)
-        model_name = "gemma-3-27b-it"
-
-        prompt_text = f"""
-            Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
-            Nhiệm vụ của bạn là so sánh "Câu trả lời của người dùng" với "Câu trả lời đúng" trong bối cảnh của "Câu hỏi" được đưa ra.
-            Hãy xác định xem "Câu trả lời của người dùng" có về cơ bản là đúng hay không, ngay cả khi cách diễn đạt, từ đồng nghĩa, hoặc cấu trúc câu có chút khác biệt so với "Câu trả lời đúng".
-
-            Ví dụ:
-            Câu hỏi: "Thủ đô của Pháp là gì?"
-            Câu trả lời đúng: "Paris"
-            Câu trả lời của người dùng: "Là Paris đó bạn" -> Kết quả nên là CORRECT
-            Câu trả lời của người dùng: "Paris chính là thủ đô" -> Kết quả nên là CORRECT
-            Câu trả lời của người dùng: "Berlin" -> Kết quả nên là INCORRECT
-
-            Chỉ trả lời bằng một từ duy nhất: "CORRECT" nếu câu trả lời của người dùng về cơ bản là đúng, hoặc "INCORRECT" nếu không.
-            Không cung cấp bất kỳ giải thích nào, chỉ một từ duy nhất.
-
-            Câu hỏi: '{question_context}'
-            Câu trả lời đúng: '{correct_answer}'
-            Câu trả lời của người dùng: '{user_answer}'
-
-            Đánh giá của bạn (CORRECT hoặc INCORRECT):
-            """
         
-        # Check session state safely
-        if 'ai_hard' in st.session_state and st.session_state['ai_hard']:
-            prompt_text = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + prompt_text
+    MAX_RETRIES = 3
+    
+    for attempt in range(MAX_RETRIES):
+        try:
+            client = genai.Client(api_key=user_api)
+            model_name = "gemma-3-27b-it"
+
+            prompt_text = f"""
+                Bạn là một chuyên gia AI trong việc đánh giá câu trả lời, có khả năng hiểu ngữ nghĩa.
+                Nhiệm vụ của bạn là so sánh "Câu trả lời của người dùng" với "Câu trả lời đúng" trong bối cảnh của "Câu hỏi" được đưa ra.
+                Hãy xác định xem "Câu trả lời của người dùng" có về cơ bản là đúng hay không, ngay cả khi cách diễn đạt, từ đồng nghĩa, hoặc cấu trúc câu có chút khác biệt so với "Câu trả lời đúng".
+
+                Ví dụ:
+                Câu hỏi: "Thủ đô của Pháp là gì?"
+                Câu trả lời đúng: "Paris"
+                Câu trả lời của người dùng: "Là Paris đó bạn" -> Kết quả nên là CORRECT
+                Câu trả lời của người dùng: "Paris chính là thủ đô" -> Kết quả nên là CORRECT
+                Câu trả lời của người dùng: "Berlin" -> Kết quả nên là INCORRECT
+
+                Chỉ trả lời bằng một từ duy nhất: "CORRECT" nếu câu trả lời của người dùng về cơ bản là đúng, hoặc "INCORRECT" nếu không.
+                Không cung cấp bất kỳ giải thích nào, chỉ một từ duy nhất.
+
+                Câu hỏi: '{question_context}'
+                Câu trả lời đúng: '{correct_answer}'
+                Câu trả lời của người dùng: '{user_answer}'
+
+                Đánh giá của bạn (CORRECT hoặc INCORRECT):
+                """
             
-        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
-        
-        config = types.GenerateContentConfig( # Đổi tên để nhất quán
-            temperature=0.1, # Cần sự nhất quán cao
-            response_mime_type="text/plain",
-        )
-        
-        # FIX: Non-streaming call
-        response = client.models.generate_content(
-            model=model_name,
-            contents=contents,
-            config=config,
-        )
-        evaluation_text = response.text.strip().upper() if response.text else "ERROR"
-        print("AI grading response:", repr(evaluation_text))  # <-- Add this line
-
-        if evaluation_text in ["CORRECT", "INCORRECT"]:
-            count_recursive_evaluate = 0 # Reset counter on success
-            return evaluation_text
-        else:
-            print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
-            # Simplified fallback logic to avoid infinite recursion
-            return "INCORRECT" 
+            # Check session state safely
+            if 'ai_hard' in st.session_state and st.session_state['ai_hard']:
+                prompt_text = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + prompt_text
+                
+            contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
             
-    except Exception as e:
-        print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
-        return "ERROR"
+            config = types.GenerateContentConfig( 
+                temperature=0.1, 
+                response_mime_type="text/plain",
+            )
+            
+            # FIX: Non-streaming call (đã có từ lần trước)
+            response = client.models.generate_content(
+                model=model_name,
+                contents=contents,
+                config=config,
+            )
+            evaluation_text = response.text.strip().upper() if response.text else ""
+            print(f"AI grading response (Attempt {attempt + 1}):", repr(evaluation_text)) 
+
+            # Kiểm tra phản hồi có hợp lệ không
+            if evaluation_text in ["CORRECT", "INCORRECT"]:
+                # Thành công, trả về ngay lập tức
+                return evaluation_text
+            else:
+                # Phản hồi không mong đợi từ AI
+                print(f"Phản hồi không mong đợi từ AI khi đánh giá (Attempt {attempt + 1}): {evaluation_text}. Thử lại...")
+
+        except Exception as e:
+            # Xử lý lỗi kết nối hoặc API
+            print(f"Lỗi kết nối hoặc API trong evaluate_user_answer_clarity (Attempt {attempt + 1}): {e}. Thử lại...")
+        
+        # Nếu không phải là lần thử cuối cùng, chờ trước khi thử lại
+        if attempt < MAX_RETRIES - 1:
+            wait_time = 5 # Đợi 5 giây
+            print(f"Đang chờ {wait_time} giây trước khi thử lại...")
+            time.sleep(wait_time)
+        
+    # Nếu vòng lặp kết thúc mà không thành công (3 lần thất bại)
+    print("Đánh giá thất bại sau 3 lần thử. Trả về mặc định 'INCORRECT'.")
+    return "INCORRECT"
