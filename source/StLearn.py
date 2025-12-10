@@ -6,8 +6,9 @@ from google import genai
 from google.genai import types
 import streamlit as st
 
-DEFAULT_MODEL_NAME = "gemini-2.0-flash"
-DEFAULT_MODEL_FLASH_LATEST = "gemini-2.0-flash"
+# UPDATED: Added "-it" (Instruction Tuned). Base models often fail with chat prompts.
+DEFAULT_MODEL_NAME = "gemma-3-27b-it"
+DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
 
 def trans(text, user_api, user_model=None):
     try:
@@ -29,21 +30,20 @@ def trans(text, user_api, user_model=None):
             temperature=0.1,
             response_mime_type="text/plain",
         )
-        ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
+        
+        # FIX: Switched to non-streaming generate_content
+        response = client.models.generate_content(
             model=model_to_use, contents=contents, config=generate_content_config
-        ))
-        return ans.strip()
+        )
+        return response.text.strip() if response.text else ""
     except Exception as e:
         print(f"Error in translation: {e}")
-        return "Error in translation"
+        return f"Error in translation: {e}"
 
 
 def afterStepOne_Learn(ai_text, user_api, user_model=None):
     """
-    Đánh giá và chỉnh sửa phần ///Follow_up/// từ phản hồi gốc:
-    - Giữ nguyên phần trả lời chính.
-    - Kiểm tra từng câu hỏi follow-up: rõ ràng chưa, có liên quan không?
-    - Nếu cần, thay thế hoặc viết lại để gợi mở và thân thiện hơn.
+    Đánh giá và chỉnh sửa phần ///Follow_up/// từ phản hồi gốc
     """
     try:
         client = genai.Client(api_key=user_api)
@@ -76,12 +76,11 @@ def afterStepOne_Learn(ai_text, user_api, user_model=None):
             response_mime_type="text/plain",
         )
 
-        ans = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Switched to non-streaming generate_content
+        response = client.models.generate_content(
             model=model_to_use, contents=contents, config=config
-        ):
-            ans += chunk.text
-        return ans.strip()
+        )
+        return response.text.strip() if response.text else ai_text
     except Exception as e:
         print(f"Error in afterStepOne_Learn: {e}")
         return ai_text
@@ -91,7 +90,6 @@ def afterStepTwo_Learn(ai_text, user_api, user_model=None):
     """
     (Tùy chọn bước 3)
     Chuẩn hóa văn phong, ngữ pháp và ngôn ngữ.
-    Nếu session_state.lang == 'en', tự động dịch sang tiếng Anh.
     """
     try:
         client = genai.Client(api_key=user_api)
@@ -110,26 +108,27 @@ def afterStepTwo_Learn(ai_text, user_api, user_model=None):
             temperature=0.3,
             response_mime_type="text/plain",
         )
-        ans = ""
-        for chunk in client.models.generate_content_stream(
+        
+        # FIX: Switched to non-streaming generate_content
+        response = client.models.generate_content(
             model=model_to_use, contents=contents, config=config
-        ):
-            ans += chunk.text
+        )
+        ans = response.text.strip() if response.text else ""
 
         if st.session_state.lang == "en":
             return trans(ans, user_api, user_model)
-        return ans.strip()
+        return ans
     except Exception as e:
         print(f"Error in afterStepTwo_Learn: {e}")
         return ai_text
-
-
 
 
 def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None, uploaded_file_text: str = None, translator=None):
     try:
         if not user_api:
             return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        
+        # Default to the updated -it model if user_model is blank
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
 
@@ -191,13 +190,11 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             Lưu ý: Chỉ sử dụng đúng định dạng trên, không trả về bất kỳ thông tin nào khác.
         """
         
-        if st.session_state['ai_fun']:
+        if st.session_state.get('ai_fun', False):
             step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. \n\n" + step_1_prompt_vi 
         else:
             step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật nghiêm khắc, chỉnh chu, chuyên nghiệp. \n\n" + step_1_prompt_vi 
-        # Construct the full prompt for the LLM, combining contexts and user query
         
-        # Detect language of the user input
         active_step_1_prompt = step_1_prompt_vi
         
         prompt_elements = []
@@ -228,7 +225,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
 
         contents_for_step1 = []
 
-        # Convert chat history (excluding the current user prompt which is now part of current_user_message_for_step1)
         if chat_history:
             relevant_history = chat_history[-20:-1]
             for message in relevant_history:
@@ -238,7 +234,6 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
                 elif role == "user":
                     pass
                 else:
-                    print(f"Skipping message with unsupported role: {role}")
                     continue
                 if message.get("content"):
                     contents_for_step1.append(
@@ -251,35 +246,22 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
             response_mime_type="text/plain",
         )
 
-        # --- STEP 1 ---
-        step_one_output_text = ""
-        for chunk in client.models.generate_content_stream(
+        # --- STEP 1: Non-streaming ---
+        # FIX: Replaced streaming loop with direct generate_content call
+        response_step1 = client.models.generate_content(
             model=active_model_name,
             contents=contents_for_step1,
             config=generate_content_config,
-        ):
-            step_one_output_text += chunk.text
+        )
+        step_one_output_text = response_step1.text if response_step1.text else ""
         
         # --- STEP 2: refine follow-up ---
-        refined_text = afterStepOne_Learn(step_one_output_text, user_api, user_model)
+        refined_text = afterStepOne_Learn(step_one_output_text, user_api, active_model_name)
                 
         return refined_text
 
 
     except Exception as e:
         print(f"Error in genRes: {e}")
-        return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        # Return the actual error to help debugging instead of generic message
+        return f"An error occurred: {str(e)}"
