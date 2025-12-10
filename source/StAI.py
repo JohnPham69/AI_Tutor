@@ -6,8 +6,8 @@ import json # Added for parsing JSON
 from google import genai
 import streamlit as st
 from google.genai import types
-DEFAULT_MODEL_NAME = "gemma-3-27b"
-DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b"
+DEFAULT_MODEL_NAME = "gemini-2.5-flash-lite"
+DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash-lite"
 
 def trans(text, user_api, user_model=None):
     try:
@@ -247,6 +247,7 @@ def genRes(
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
 
