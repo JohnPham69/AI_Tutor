@@ -98,13 +98,13 @@ def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "g
             response_mime_type="application/json",
         )
 
-        refined_json = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Non-streaming call
+        response = client.models.generate_content(
             model=user_model,
             contents=contents,
             config=config,
-        ):
-            refined_json += chunk.text
+        )
+        refined_json = response.text if response.text else ""
 
         json_start, json_end = refined_json.find("["), refined_json.rfind("]")
         if json_start != -1 and json_end != -1:
@@ -128,7 +128,7 @@ def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "
 
         Nhiệm vụ:
         1. Loại bỏ các câu trùng nội dung.
-        2. Đảm bảo có đủ 3 cấp độ: dễ, trung bình, khó (nếu có nhãn).
+        2. Đảm bảo có đủ 3 cấp độ: dễ, trung bình, khó (nếu có nhãn độ khó).
         3. Nếu chưa có nhãn độ khó, hãy tự phân bổ.
         4. Giữ nguyên định dạng JSON đầu ra.
         """
@@ -139,11 +139,11 @@ def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "
             response_mime_type="application/json",
         )
 
-        ans = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Non-streaming call
+        response = client.models.generate_content(
             model=user_model, contents=contents, config=config
-        ):
-            ans += chunk.text
+        )
+        ans = response.text if response.text else ""
 
         json_start, json_end = ans.find("["), ans.rfind("]")
         if json_start != -1 and json_end != -1:
@@ -371,14 +371,13 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             response_mime_type="application/json", # Yêu cầu AI trả về JSON trực tiếp
         )
 
-        ans = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Non-streaming call
+        response = client.models.generate_content(
             model=model_name,
             contents=contents,
             config=config,
-        ):
-            if chunk.text:
-                ans += chunk.text
+        )
+        ans = response.text if response.text else ""
         
         # AI có thể trả về JSON được bao bọc trong markdown hoặc văn bản khác.
         # Chúng ta cần trích xuất chuỗi JSON thô một cách an toàn.
@@ -433,6 +432,8 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     Đánh giá câu trả lời của người dùng so với đáp án đúng, xem xét sự khác biệt về từ ngữ.
     Trả về "CORRECT", "INCORRECT", hoặc "ERROR" nếu có lỗi.
     """
+    global count_recursive_evaluate
+    
     if not user_api:
         print("Lỗi: API key không được cung cấp cho evaluate_user_answer_clarity.")
         return "ERROR"
@@ -461,8 +462,11 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
 
             Đánh giá của bạn (CORRECT hoặc INCORRECT):
             """
-        if st.session_state['ai_hard']:
+        
+        # Check session state safely
+        if 'ai_hard' in st.session_state and st.session_state['ai_hard']:
             prompt_text = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + prompt_text
+            
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
         config = types.GenerateContentConfig( # Đổi tên để nhất quán
@@ -470,35 +474,23 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
             response_mime_type="text/plain",
         )
         
-        ans_stream = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Non-streaming call
+        response = client.models.generate_content(
             model=model_name,
             contents=contents,
             config=config,
-        ):
-            if chunk.text:
-                ans_stream += chunk.text
-        evaluation_text = ans_stream.strip().upper()
+        )
+        evaluation_text = response.text.strip().upper() if response.text else "ERROR"
         print("AI grading response:", repr(evaluation_text))  # <-- Add this line
 
         if evaluation_text in ["CORRECT", "INCORRECT"]:
+            count_recursive_evaluate = 0 # Reset counter on success
             return evaluation_text
         else:
             print(f"Phản hồi không mong đợi từ AI khi đánh giá: {evaluation_text}")
-            if count_recursive_evaluate > 2:
-                integer_num = random.randint(1, 10)
-                if integer_num % 2 == 0 or integer_num % 3 == 0:
-                    return "CORRECT"
-                return "INCORRECT"
-            time.sleep(10)
-            evaluate_user_answer_clarity(user_answer, correct_answer, question_context, user_api)
-            count_recursive_evaluate += 1
+            # Simplified fallback logic to avoid infinite recursion
+            return "INCORRECT" 
+            
     except Exception as e:
         print(f"Lỗi trong evaluate_user_answer_clarity: {e}")
         return "ERROR"
-
-
-
-
-
-
