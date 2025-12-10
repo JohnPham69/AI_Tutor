@@ -215,7 +215,7 @@ with st.sidebar:
                 set_language_and_trigger_rerun_flag('en')
 
     with st.expander(r"$\textsf{\large " + ("❕\t") + _("Update") + "}$"):
-        st.info(_("Due the updates in Google's API policies, the AI Tutor will be using the AI model `gemma-3-27b-it` as the default model for convenience before switching to others. If errors pop up, try putting `gemma-3-27b-it` in "), icon=None, width="stretch")
+        st.info(_("Due the updates in Google's API policies, the AI Tutor will be using the AI model `gemma-3-27b-it` as the default model for convenience before switching to others. If errors pop up, try putting `gemma-3-27b-it` in the model name box."), icon=None, width="stretch")
     
     with st.expander(r"$\textsf{\large " + ("📚\t") +  _("Adjust Context") + "}$"): #Can change Large into Huge and footnotesize
         # --- Callbacks and flags for sidebar selectboxes to manage cascading updates ---
