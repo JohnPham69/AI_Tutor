@@ -144,7 +144,7 @@ def genRes(
             LƯU Ý CỰC KỲ QUAN TRỌNG: Bạn sẽ lịch sự từ chối trả lời bất kỳ câu hỏi nào không liên quan trực tiếp đến nội dung bài học đã được cung cấp. Nếu người dùng hỏi ngoài lề, hãy trả lời bằng một câu như: "Xin lỗi, tôi chỉ có thể thảo luận về các chủ đề trong bài học của chúng ta."
             
             ƯU TIÊN HÀNH ĐỘNG:
-            1.  LUÔN LUÔN HỎI NGƯỜI DÙNG TRƯỚC. Khi người dùng sẵn sàng, hoặc bắt đầu, bạn PHẢI HỎI NGAY LẬP TỨC.
+            1.  LUÔN LUÔN HỎI NGƯỜI DÙNG TRƯỚC. Khi người dùng bắt đầu cuộc trò chuyện (sử dụng từ ngữ tương đương với "sẵn sàng"; "bắt đầu"; "oke"; "được"; "chúng ta bắt đầu thôi"), bạn PHẢI HỎI NGAY LẬP TỨC.
             2.  NẾU người dùng trả lời một câu hỏi bạn đã đặt trước đó:
                 a.  Đánh giá câu trả lời, cho người dùng biết họ ĐÚNG hay SAI hay CÓ TRẢ LỜI NHƯNG CHƯA ĐỦ hay HOÀN TOÀN QUÊN / KHÔNG BIẾT.
                 b.  Cung cấp phản hồi:
@@ -261,4 +261,5 @@ def genRes(
         print(f"Error in genRes: {e}")
         # Return the actual error to help debugging instead of generic message
         return f"An error occurred: {str(e)}"
+
 
