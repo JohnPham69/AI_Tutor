@@ -2,12 +2,13 @@
 # pip install google-genai
 #
 import requests
-import json # Added for parsing JSON
 from google import genai
 import streamlit as st
 from google.genai import types
-DEFAULT_MODEL_NAME = "gemini-2.5-flash-lite"
-DEFAULT_MODEL_FLASH_LATEST = "gemini-2.5-flash-lite"
+
+# UPDATED: Added "-it" for instruction-tuned model.
+DEFAULT_MODEL_NAME = "gemma-3-27b-it"
+DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
 
 def trans(text, user_api, user_model=None):
     try:
@@ -25,60 +26,68 @@ def trans(text, user_api, user_model=None):
             temperature=0.1,
             response_mime_type="text/plain",
         )
-        ans = "".join(chunk.text for chunk in client.models.generate_content_stream(
+        
+        # FIX: Switched to non-streaming generate_content
+        response = client.models.generate_content(
             model=model_to_use, contents=contents, config=generate_content_config
-        ))
-        return ans.strip()
+        )
+        return response.text.strip() if response.text else ""
     except Exception as e:
         print(f"Error in detect_language: {e}")
         return "Error in translation"
 
 def afterStepOne(plan_text, user_api, user_model=None):
-    client = genai.Client( # type: ignore
-        api_key=user_api,  # Replace with your actual API key or environment variable
-    )
-    model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
-    
-    # Construct the prompt/content for after step one
-    prompt_for_after_step_one = """
-        Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
-        Nhiệm vụ của bạn là:
-        1. Chỉ được phép sử dụng từ ngữ thích hợp với độ tuổi ở lớp {selected_grade}.
-        2. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
-        3. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
-        4. Nếu câu hỏi tốt, hãy giữ nguyên nó.
-        5. Nếu câu hỏi chưa tốt (ví dụ: không rõ ràng, quá khó, quá dễ, không liên quan chặt chẽ đến ngữ cảnh bài học tiềm năng), hãy chỉnh sửa hoặc thay thế bằng một câu hỏi tốt hơn.
-        6. Trả về kết quả là sự kết hợp của [Phần phản hồi gốc (nếu có)] + [Câu hỏi (giữ nguyên hoặc đã cải thiện)].
+    try:
+        client = genai.Client( # type: ignore
+            api_key=user_api,  # Replace with your actual API key or environment variable
+        )
+        model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
+        
+        # Construct the prompt/content for after step one
+        prompt_for_after_step_one = """
+            Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
+            Nhiệm vụ của bạn là:
+            1. Chỉ được phép sử dụng từ ngữ thích hợp với độ tuổi ở lớp {selected_grade}.
+            2. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
+            3. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
+            4. Nếu câu hỏi tốt, hãy giữ nguyên nó.
+            5. Nếu câu hỏi chưa tốt (ví dụ: không rõ ràng, quá khó, quá dễ, không liên quan chặt chẽ đến ngữ cảnh bài học tiềm năng), hãy chỉnh sửa hoặc thay thế bằng một câu hỏi tốt hơn.
+            6. Trả về kết quả là sự kết hợp của [Phần phản hồi gốc (nếu có)] + [Câu hỏi (giữ nguyên hoặc đã cải thiện)].
 
-        Ví dụ:
-        - Đầu vào: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
-        - Nếu "Mặt trời màu gì?" là câu hỏi tốt, bạn trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
-        - Nếu "Mặt trời màu gì?" cần cải thiện, bạn có thể trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Hãy mô tả các lớp chính của Mặt Trời?"
+            Ví dụ:
+            - Đầu vào: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
+            - Nếu "Mặt trời màu gì?" là câu hỏi tốt, bạn trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Mặt trời màu gì?"
+            - Nếu "Mặt trời màu gì?" cần cải thiện, bạn có thể trả về: "Đúng rồi! Câu trả lời rất hay. Câu hỏi tiếp theo: Hãy mô tả các lớp chính của Mặt Trời?"
 
-        Toàn bộ đầu ra của bạn phải có giọng điệu thân thiện, dí dỏm.
-        KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc của bạn. Chỉ trả về chuỗi văn bản cuối cùng.
-        """
-    # Combine the instruction prompt with the text to be evaluated
-    full_prompt_for_step_two = f"{prompt_for_after_step_one}\n\nHere is the text to evaluate:\n{plan_text}"
-    contents = [
-        types.Content(role="user", parts=[types.Part.from_text(text=full_prompt_for_step_two)]) # type: ignore
-    ]
+            Toàn bộ đầu ra của bạn phải có giọng điệu thân thiện, dí dỏm.
+            KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc của bạn. Chỉ trả về chuỗi văn bản cuối cùng.
+            """
+        # Combine the instruction prompt with the text to be evaluated
+        full_prompt_for_step_two = f"{prompt_for_after_step_one}\n\nHere is the text to evaluate:\n{plan_text}"
+        contents = [
+            types.Content(role="user", parts=[types.Part.from_text(text=full_prompt_for_step_two)]) # type: ignore
+        ]
 
-    generate_content_config = types.GenerateContentConfig(
-        temperature=1,
-        top_p=0.95,
-        response_mime_type="text/plain",
-    )
-    ans=""
-    for chunk in client.models.generate_content_stream(
-        model=model_to_use,
-        contents=contents,
-        config=generate_content_config,
-    ):
-        ans += chunk.text
-    if st.session_state.lang == "en":
-        return trans(ans, user_api, user_model)  # Translate to English if needed
-    return ans.replace("\n", "\n\n")
+        generate_content_config = types.GenerateContentConfig(
+            temperature=1,
+            top_p=0.95,
+            response_mime_type="text/plain",
+        )
+        
+        # FIX: Switched to non-streaming generate_content
+        response = client.models.generate_content(
+            model=model_to_use,
+            contents=contents,
+            config=generate_content_config,
+        )
+        ans = response.text if response.text else ""
+        
+        if st.session_state.lang == "en":
+            return trans(ans, user_api, user_model)  # Translate to English if needed
+        return ans.replace("\n", "\n\n")
+    except Exception as e:
+        print(f"Error in afterStepOne: {e}")
+        return plan_text
 
 
 def genRes(
@@ -91,6 +100,8 @@ def genRes(
     try:
         if not user_api:
             return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        
+        # Default to the updated -it model if user_model is blank
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
 
@@ -139,8 +150,8 @@ def genRes(
             4.  NẾU người dùng trả lời một câu hỏi bạn đã đặt trước đó:
                 a.  Đánh giá câu trả lời.
                 b.  Cung cấp phản hồi:
-                    *   Nếu đúng: Ghi nhận ("Chính xác!", "Đúng rồi!").
-                    *   Nếu sai hoặc chưa đầy đủ:
+                    * Nếu đúng: Ghi nhận ("Chính xác!", "Đúng rồi!").
+                    * Nếu sai hoặc chưa đầy đủ:
                         i.  Nêu rõ câu trả lời đúng.
                         ii. Giải thích TẠI SAO câu trả lời của người dùng sai/chưa đủ (nếu họ đã trả lời).
                         iii.Giải thích CHI TIẾT TẠI SAO câu trả lời đúng là đúng, dựa vào kiến thức từ bài học. Giải thích phải rõ ràng, cụ thể, không chung chung.
@@ -232,13 +243,13 @@ def genRes(
             response_mime_type="text/plain",
         )
         
-        step_one_output_text = ""
-        for chunk in client.models.generate_content_stream(
+        # FIX: Switched to non-streaming generate_content
+        response_step1 = client.models.generate_content(
             model=active_model_name,
             contents=contents_for_step1,
             config=generate_content_config,
-        ):
-            step_one_output_text += chunk.text
+        )
+        step_one_output_text = response_step1.text if response_step1.text else ""
         
         # Pass the output of the first LLM call to afterStepOne for potential refinement
         intermediate_result = afterStepOne(step_one_output_text, user_api, active_model_name)
@@ -246,9 +257,5 @@ def genRes(
 
     except Exception as e:
         print(f"Error in genRes: {e}")
-        return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
-
-
-
-
-
+        # Return the actual error to help debugging instead of generic message
+        return f"An error occurred: {str(e)}"
