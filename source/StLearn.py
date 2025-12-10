@@ -6,8 +6,8 @@ from google import genai
 from google.genai import types
 import streamlit as st
 
-DEFAULT_MODEL_NAME = "gemma-3-27b"
-DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b"
+DEFAULT_MODEL_NAME = "gemma-2-9b-it"
+DEFAULT_MODEL_FLASH_LATEST = "gemma-2-9b-it"
 
 def trans(text, user_api, user_model=None):
     try:
@@ -269,6 +269,7 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
     except Exception as e:
         print(f"Error in genRes: {e}")
         return translator("An error occurred while processing your request.") if translator else "An error occurred while processing your request."
+
 
 
 
