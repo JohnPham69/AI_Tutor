@@ -202,93 +202,32 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Nội dung câu hỏi TRẮC NGHIỆM?
             
             A. Lựa chọn A
-            
+            ***
             B. Lựa chọn B
-            
+            ***
             C. Lựa chọn C
-            
+            ***
             D. Lựa chọn D
 
             Nội dung câu hỏi TRẮC NGHIỆM?
             
             A. Lựa chọn A
-            
+            ***
             B. Lựa chọn B
-            
+            ***
             C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D        
-
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
+            ***
             D. Lựa chọn D
             ```
-            luôn luôn bắt buộc phải tuân thủ 100% theo định dạng đã cho.
             ```
             Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
             
             A. Lựa chọn A
-            
+            ***
             B. Lựa chọn B
-            
+            ***
             C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
-            D. Lựa chọn D
-
-            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            
-            B. Lựa chọn B
-            
-            C. Lựa chọn C
-            
+            ***
             D. Lựa chọn D
             ```
             BẠN PHẢI TUÂN THỦ KHẮT KHE:
@@ -296,34 +235,6 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             Ví dụ về định dạng code JSON bắt buộc cho 2 loại câu hỏi, TRẮC NGHIỆM 4 LỰA CHỌN A, B, C, D và TỰ LUẬN:
             ```
             [
-                {{
-                    "question": 
-                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
-                    
-                    A. abcde
-                    
-                    B. abcde
-                    
-                    C. abcde
-                    
-                    D. abcde
-                    ",
-                    "answer": "Đây là ví dụ câu trả lời A."
-                }},
-                {{
-                    "question": 
-                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
-                    
-                    A. abcde
-                    
-                    B. abcde
-                    
-                    C. abcde
-                    
-                    D. abcde
-                    ",
-                    "answer": "Đây là ví dụ câu trả lời A."
-                }},
                 {{
                     "question": 
                     "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
@@ -508,3 +419,4 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     # Nếu vòng lặp kết thúc mà không thành công (3 lần thất bại)
     print("Đánh giá thất bại sau 3 lần thử. Trả về mặc định 'INCORRECT'.")
     return "INCORRECT"
+
