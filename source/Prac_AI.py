@@ -12,7 +12,8 @@ count_recursive_evaluate = 0
 
 #
 # Hàm phụ trợ để lấy tài liệu bài học (tương tự như trong StAI.py)
-# Điều này có thể được tái cấu trúc thành một module tiện ích chung sau này
+# ... (Hàm _fetch_lesson_content giữ nguyên) ...
+
 def _fetch_lesson_content(subject_name, lesson_id_str):
     
     # Lấy nội dung bài học từ một URL JSON chính và sau đó từ link .md cụ thể.
@@ -66,10 +67,7 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
-# CHÚ Ý: Hai hàm này (refine_quiz_quality và balance_quiz_set) vẫn được giữ nguyên
-# nhưng sẽ không được gọi trong generate_quiz_data do mô hình không thể xuất JSON
-# đáng tin cậy. Nếu muốn sử dụng lại, cần chuyển đổi đầu ra của generate_quiz_data
-# thành JSON và sửa các hàm này để không dựa vào API của mô hình nữa.
+# ... (Hàm refine_quiz_quality và balance_quiz_set giữ nguyên) ...
 
 def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "gemma-3-27b-it"):
     """
@@ -198,16 +196,24 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             2. Mỗi câu hỏi phải được bắt đầu bằng chuỗi **[START_QUESTION]** và kết thúc bằng chuỗi **[END_QUESTION]**.
             3. Mỗi câu trả lời phải được bắt đầu bằng chuỗi **[START_ANSWER]** và kết thúc bằng chuỗi **[END_ANSWER]**.
             4. Toàn bộ nội dung trả về phải được bao bọc trong **[START_QUIZ_DATA]** và **[END_QUIZ_DATA]**.
-            5. Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài các cặp [QUESTION]/[ANSWER] này.
+            5. **QUAN TRỌNG VỚI TRẮC NGHIỆM:** Giữa Câu hỏi và lựa chọn A, và giữa các lựa chọn A, B, C, D **PHẢI CÓ MỘT DÒNG TRỐNG HOÀN TOÀN** để đảm bảo hiển thị đúng trong Markdown (tổng cộng 9 dòng cho 4 lựa chọn và Câu hỏi).
+            6. Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài các cặp [QUESTION]/[ANSWER] này.
             
-            Ví dụ cho 2 cặp Q/A:
+            Ví dụ cho 2 cặp Q/A (CHÚ Ý CÁC DÒNG TRỐNG):
             [START_QUIZ_DATA]
             [START_QUESTION]
             Đây là câu hỏi TRẮC NGHIỆM thứ nhất?
             
+            
             A. Lựa chọn A
+            
+            
             B. Lựa chọn B
+            
+            
             C. Lựa chọn C
+            
+            
             D. Lựa chọn D
             [END_QUESTION]
             [START_ANSWER]
@@ -298,10 +304,10 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         
         # CHÚ Ý: Đã tạm thời vô hiệu hóa các bước JSON sau do mô hình không đáng tin cậy.
         # # --- Step 2: refine quiz quality ---
-        # quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
+        # # quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
             
         # # --- Step 3: balance quiz set (optional) ---
-        # quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
+        # # quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
 
         if isinstance(quiz_data_list, list) and all(isinstance(item, dict) and "question" in item and "answer" in item for item in quiz_data_list):
             return quiz_data_list[:num_questions]
