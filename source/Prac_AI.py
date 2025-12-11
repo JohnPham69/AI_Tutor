@@ -66,6 +66,11 @@ def _fetch_lesson_content(subject_name, lesson_id_str):
         print(f"Lỗi không mong muốn khi lấy nội dung bài học (QuizGenerator): {e}")
         return ""
 
+# CHÚ Ý: Hai hàm này (refine_quiz_quality và balance_quiz_set) vẫn được giữ nguyên
+# nhưng sẽ không được gọi trong generate_quiz_data do mô hình không thể xuất JSON
+# đáng tin cậy. Nếu muốn sử dụng lại, cần chuyển đổi đầu ra của generate_quiz_data
+# thành JSON và sửa các hàm này để không dựa vào API của mô hình nữa.
+
 def refine_quiz_quality(raw_quiz_json: list, user_api: str, user_model: str = "gemma-3-27b-it"):
     """
     Nhận đầu ra từ Step 1 (generate_quiz_data).
@@ -154,8 +159,6 @@ def balance_quiz_set(refined_quiz_json: list, user_api: str, user_model: str = "
         return refined_quiz_json
 
 
-
-
 def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = None,
                        lesson_id_str: str = None, question_type: str = None, lesson_text: str = None, advance: bool = False):
     """
@@ -180,109 +183,57 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         if advance:
             advance_or_not = " nâng cao là những câu hỏi về kiến thức liên quan đến bài học nhưng không nằm trong tài liệu bài học."
         
+        # --- PROMPT MỚI, SỬ DỤNG DELIMITER THAY VÌ JSON ---
         prompt_text = f"""
             Bạn là một trợ lý AI chuyên tạo các câu hỏi loại TRẮC NGHIỆM, TRẢ LỜI DÀI / NGẮN chất lượng cao.
-            BẠN PHẢI TUYỆT ĐỐI TUÂN THEO CÁC VÍ DỤ VÀ CHỈ DẪN NHƯ BÊN DƯỚI:
             
-            Nhiệm vụ của bạn là tạo ra chính xác {num_questions} câu hỏi {advance_or_not}.
+            Nhiệm vụ của bạn là tạo ra chính xác {num_questions} cặp Câu hỏi và Câu trả lời {advance_or_not}.
             Đối với các câu toán nâng cao, hãy tạo bài toán mà muốn giải phải áp dụng nhiều định lí khác nhau, đi qua nhiều bước để giải.
             Đối với các môn học nâng cao ngoài toán, hãy tạo các câu hỏi TRẮC NGHIỆM khó như trên, câu trả lời cũng phải có ý trong câu hỏi TRẮC NGHIỆM gần giống nhau để làm lựa chọn trở nên khó nhằn.
-            Dạng của tất cả các câu hỏi phải dưới dạng {question_type} và chỉ được ở dưới dạng {question_type}. PHẢI VIẾT RỠ CÂU HỎI. NẾU LÀ TRẮC NGHIỆM, PHẢI CHO THẤY ĐƯỢC 4 PHƯƠNG ÁN LỰA CHỌN A, B, C, D.
+            Dạng của tất cả các câu hỏi phải dưới dạng {question_type} và chỉ được ở dưới dạng {question_type}. PHẢI VIẾT RÕ RÀNG CÂU HỎI. NẾU LÀ TRẮC NGHIỆM, PHẢI CHO THẤY ĐƯỢC 4 PHƯƠNG ÁN LỰA CHỌN A, B, C, D.
             {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
             
-            Đối với mỗi câu hỏi, hãy cho biết đây là câu hỏi gì, TRẮC NGHIỆM, hay trả lời dài / ngắn sau đó cung cấp nội dung câu hỏi và tiếp đến trả lời chính xác và ngắn gọn.
-            Bạn PHẢI trả về kết quả dưới dạng một mảng JSON hợp lệ. Mỗi phần tử trong mảng là một đối tượng JSON với hai khóa: "question" (string) và "answer" (string).
-            QUAN TRỌNG: Đối với câu hỏi dạng trả lời dài / ngắn, câu hỏi của bạn phải là câu hỏi mở (open - ended questions) theo nguyên tắc 5W1H
-            QUAN TRỌNG: Nếu nội dung của trường "question" hoặc "answer" có nhiều dòng (ví dụ như trong câu hỏi TRẮC NGHIỆM).
-            Có nghĩa, đối với dạng TRẮC NGHIỆM, bạn PHẢI XUỐNG DÒNG, trước khi viết mỗi lựa chọn tính từ lựa chọn thứ nhất.
-            Ví dụ cho câu hỏi TRẮC NGHIỆM CÓ 4 PHƯƠNG ÁN LỰA CHỌN cần phải in ra màn hình:
+            QUY TẮC ĐỊNH DẠNG ĐẦU RA (CỰC KỲ QUAN TRỌNG VÀ PHẢI TUÂN THỦ 100%):
+            1. Bạn phải tạo ra một danh sách chứa chính xác {num_questions} cặp Câu hỏi và Câu trả lời.
+            2. Mỗi câu hỏi phải được bắt đầu bằng chuỗi **[START_QUESTION]** và kết thúc bằng chuỗi **[END_QUESTION]**.
+            3. Mỗi câu trả lời phải được bắt đầu bằng chuỗi **[START_ANSWER]** và kết thúc bằng chuỗi **[END_ANSWER]**.
+            4. Toàn bộ nội dung trả về phải được bao bọc trong **[START_QUIZ_DATA]** và **[END_QUIZ_DATA]**.
+            5. Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài các cặp [QUESTION]/[ANSWER] này.
             
-            BẠN PHẢI TUÂN THỦ ĐÚNG CHỈ DẪN VÍ DỤ:
-            ```
-            Nội dung câu hỏi TRẮC NGHIỆM?
+            Ví dụ cho 2 cặp Q/A:
+            [START_QUIZ_DATA]
+            [START_QUESTION]
+            Đây là câu hỏi TRẮC NGHIỆM thứ nhất?
             
             A. Lựa chọn A
-            ***
             B. Lựa chọn B
-            ***
             C. Lựa chọn C
-            ***
             D. Lựa chọn D
+            [END_QUESTION]
+            [START_ANSWER]
+            Đây là đáp án chính xác là C.
+            [END_ANSWER]
 
-            Nội dung câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            ***
-            B. Lựa chọn B
-            ***
-            C. Lựa chọn C
-            ***
-            D. Lựa chọn D
-            ```
-            ```
-            Nội dung câu hỏi là câu hỏi TRẮC NGHIỆM?
-            
-            A. Lựa chọn A
-            ***
-            B. Lựa chọn B
-            ***
-            C. Lựa chọn C
-            ***
-            D. Lựa chọn D
-            ```
-            BẠN PHẢI TUÂN THỦ KHẮT KHE:
-            Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài mảng JSON.
-            Ví dụ về định dạng code JSON bắt buộc cho 2 loại câu hỏi, TRẮC NGHIỆM 4 LỰA CHỌN A, B, C, D và TỰ LUẬN:
-            ```
-            [
-                {{
-                    "question": 
-                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
-                    
-                    A. abcde
-                    
-                    B. abcde
-                    
-                    C. abcde
-                    
-                    D. abcde
-                    ",
-                    "answer": "Đây là ví dụ câu trả lời A."
-                }},
-                {{
-                    "question": 
-                    "Ví dụ câu hỏi là câu hỏi TRẮC NGHIỆM, đây là câu hỏi TRẮC NGHIỆM thứ nhất là gì?                    
-                    
-                    A. abcde
-                    
-                    B. abcde
-                    
-                    C. abcde
-                    
-                    D. abcde
-                    ",
-                    "answer": "Đây là ví dụ câu trả lời A."
-                }},
-                {{
-                    "question": "Ví dụ câu hỏi tự luận, và KHÔNG LÀ TRẮC NGHIỆM là gì?",
-                    "answer": "Đây là ví dụ câu trả lời 2."
-                }},
-                {{
-                    "question": "Ví dụ câu hỏi tự luận, và KHÔNG LÀ TRẮC NGHIỆM là gì?",
-                    "answer": "Đây là ví dụ câu trả lời 2."
-                }}
-            ]
-            ```
+            [START_QUESTION]
+            Đây là câu hỏi TỰ LUẬN mở thứ hai? (Tại sao, làm thế nào,...)
+            [END_QUESTION]
+            [START_ANSWER]
+            Đây là câu trả lời chi tiết cho câu hỏi tự luận.
+            [END_ANSWER]
+            [END_QUIZ_DATA]
+
             Hãy tạo {num_questions} câu hỏi và câu trả lời ngay bây giờ.
             """
+        # --- KẾT THÚC PROMPT MỚI ---
+
         contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt_text)])]
         
-        config = types.GenerateContentConfig( # Đổi tên để nhất quán
-            temperature=0.2, # Tăng một chút để có sự đa dạng hơn trong câu hỏi
-            response_mime_type="application/json", # Yêu cầu AI trả về JSON trực tiếp
+        config = types.GenerateContentConfig( 
+            temperature=0.2, 
+            response_mime_type="text/plain", # Yêu cầu văn bản thuần túy
         )
 
-        # FIX: Non-streaming call
+        # FIX: Non-streaming call (đã có từ lần trước)
         response = client.models.generate_content(
             model=model_name,
             contents=contents,
@@ -290,50 +241,74 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
         )
         ans = response.text if response.text else ""
         
-        # AI có thể trả về JSON được bao bọc trong markdown hoặc văn bản khác.
-        # Chúng ta cần trích xuất chuỗi JSON thô một cách an toàn.
-        json_str = ans
-        json_start = ans.find('[')
-        json_end = ans.rfind(']')
-        
-        if json_start != -1 and json_end != -1 and json_start < json_end:
-            json_str = ans[json_start:json_end+1]
-
         print("AI raw response:", ans)
-        print("Extracted JSON string:", json_str)
+        
+        # --- LOGIC PHÂN TÍCH MỚI DỰA TRÊN DELIMITER ---
+        quiz_data_list = []
+        
+        # 1. Trích xuất nội dung giữa các phân cách chính
+        start_tag = "[START_QUIZ_DATA]"
+        end_tag = "[END_QUIZ_DATA]"
+        
+        if start_tag in ans and end_tag in ans:
+            start_index = ans.find(start_tag) + len(start_tag)
+            end_index = ans.rfind(end_tag)
+            raw_quiz_content = ans[start_index:end_index].strip()
+        else:
+            raw_quiz_content = ans.strip() # Fallback nếu tag bị thiếu
+            print("Warning: START_QUIZ_DATA hoặc END_QUIZ_DATA không tìm thấy. Thử phân tích nội dung thô.")
+        
+        # 2. Tách thành các khối Q/A riêng lẻ
+        question_blocks = raw_quiz_content.split("[START_QUESTION]")
+        
+        for block in question_blocks:
+            block = block.strip()
+            if not block:
+                continue
 
-        # Fix: Escape unescaped newlines inside string values for JSON parsing
-        def escape_newlines_in_json_strings(s):
-            # This regex finds newlines inside double-quoted strings and replaces them with \n
-            def replacer(match):
-                return match.group(0).replace('\n', '\\n')
-            return re.sub(r'\"(.*?)(?<!\\)\"', replacer, s, flags=re.DOTALL)
+            try:
+                # Tìm nội dung Câu hỏi
+                q_end = block.find("[END_QUESTION]")
+                if q_end == -1:
+                    print("Error: Thiếu [END_QUESTION] trong khối.")
+                    continue
+                question = block[:q_end].strip()
 
-        json_str_fixed = escape_newlines_in_json_strings(json_str)
+                # Tìm nội dung Câu trả lời
+                a_start = block.find("[START_ANSWER]", q_end)
+                a_end = block.find("[END_ANSWER]", a_start)
+                
+                if a_start != -1 and a_end != -1:
+                    answer = block[a_start + len("[START_ANSWER]") : a_end].strip()
+                else:
+                    print("Error: Thiếu [START_ANSWER] hoặc [END_ANSWER] trong khối.")
+                    continue
+                    
+                # Làm sạch và thêm vào danh sách
+                if question and answer:
+                    quiz_data_list.append({
+                        "question": question,
+                        "answer": answer
+                    })
 
-        try:
-            quiz_data_list = json.loads(json_str_fixed)
-            # --- Step 2: refine quiz quality ---
-            quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
+            except Exception as e:
+                print(f"Error parsing quiz block: {e}")
+                
+        # --- KẾT THÚC LOGIC PHÂN TÍCH MỚI ---
+        
+        # CHÚ Ý: Đã tạm thời vô hiệu hóa các bước JSON sau do mô hình không đáng tin cậy.
+        # # --- Step 2: refine quiz quality ---
+        # quiz_data_list = refine_quiz_quality(quiz_data_list, user_api)
             
-            # --- Step 3: balance quiz set (optional) ---
-            quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
-        except Exception as e:
-            print("JSON decode error:", e)
-            print("json_str_fixed was:", json_str_fixed)
-            return None
+        # # --- Step 3: balance quiz set (optional) ---
+        # quiz_data_list = balance_quiz_set(quiz_data_list, user_api)
 
         if isinstance(quiz_data_list, list) and all(isinstance(item, dict) and "question" in item and "answer" in item for item in quiz_data_list):
             return quiz_data_list[:num_questions]
         else:
-            print(f"Lỗi: AI không trả về định dạng JSON như mong đợi. Dữ liệu nhận được: {json_str_fixed}")
+            print(f"Lỗi: Không thể phân tích dữ liệu câu hỏi từ phản hồi của AI. Dữ liệu nhận được: {ans}")
             return None
 
-    except json.JSONDecodeError as json_err:
-        print(f"Lỗi giải mã JSON từ AI: {json_err}")
-        response_text = json_str if 'json_str' in locals() else (ans if 'ans' in locals() else 'Không có phản hồi')
-        print(f"Phản hồi nhận được từ AI (đã cố gắng xử lý): {response_text}")
-        return None
     except Exception as e:
         print(f"Lỗi trong generate_quiz_data: {e}")
         return None
@@ -419,4 +394,3 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     # Nếu vòng lặp kết thúc mà không thành công (3 lần thất bại)
     print("Đánh giá thất bại sau 3 lần thử. Trả về mặc định 'INCORRECT'.")
     return "INCORRECT"
-
