@@ -172,10 +172,6 @@ def genRes(
             
             [Phản hồi về câu trả lời của người dùng]. [Câu hỏi mới từ bài học]?
 
-            Nếu người dùng đặt câu hỏi hoặc yêu cầu, định dạng sẽ là:
-            
-            [Câu trả lời/Giải thích/Tóm tắt cho yêu cầu của người dùng]. Bạn có muốn tôi hỏi một câu về bài học không? (Hoặc một câu hỏi phù hợp khác để tiếp tục).
-
             Các dạng câu hỏi:
             - Trắc nghiệm: Khi ra câu hỏi dạng trắc nghiệm, bạn phải liệt kê đầy đủ các phương án lựa chọn, và phải cách dòng trước khi viết các lựa chọn để dễ đọc
             - Điền chỗ trống có gợi ý: Bạn phải cho gợi ý các từ dùng để điền vào ô trống bạn tạo ra, không được để các từ gợi ý theo thứ tự của ô trống,
@@ -263,6 +259,7 @@ def genRes(
         print(f"Error in genRes: {e}")
         # Return the actual error to help debugging instead of generic message
         return f"An error occurred: {str(e)}"
+
 
 
 
