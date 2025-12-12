@@ -98,7 +98,44 @@ def genRes(
     import streamlit as st  # Đảm bảo đã cài đặt streamlit
 
     try:
-        # ... (Giữ nguyên phần kiểm tra API, lấy model, fetch lesson material)
+        if not user_api:
+            return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+        
+        # FIX: Khởi tạo biến để tránh lỗi "name not defined"
+        lesson_material_combined_content = "" 
+        
+        # Default to the updated -it model if user_model is blank
+        active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
+        original_user_text_input = text_input
+
+        # Fetch lesson material for multiple lessons
+        lesson_material_fetched_parts = []
+        lesson_ids_for_prompt_display = []
+
+        if selected_lesson_data_list and isinstance(selected_lesson_data_list, list):
+            for lesson_data in selected_lesson_data_list:
+                if not lesson_data or not isinstance(lesson_data, dict) or not lesson_data.get('url'):
+                    print(f"Warning: Invalid lesson_data entry in genRes: {lesson_data}")
+                    continue
+
+                lesson_url = lesson_data['url']
+                lesson_id = lesson_data.get('id', 'UnknownID')
+                lesson_name = lesson_data.get('name', f'Lesson {lesson_id}')
+
+                try:
+                    lesson_response = requests.get(lesson_url)
+                    lesson_response.raise_for_status()
+                    lesson_content = lesson_response.text
+                    lesson_material_fetched_parts.append(f"Content for Lesson '{lesson_name}' (ID {lesson_id}):\n{lesson_content}")
+                    lesson_ids_for_prompt_display.append(f"{lesson_name} (ID {lesson_id})")
+                except requests.exceptions.RequestException as req_err:
+                    print(f"Warning: Failed to fetch lesson content from {lesson_url} (ID {lesson_id}, Name: {lesson_name}) in genRes: {req_err}")
+                except Exception as e:
+                    print(f"Warning: An unexpected error occurred while fetching/processing content for lesson ID {lesson_id} (Name: {lesson_name}, URL: {lesson_url}) in genRes: {e}")
+
+        
+        if lesson_material_fetched_parts:
+            lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
         # Lấy ngôn ngữ từ session_state
         lang = st.session_state.lang
@@ -152,7 +189,7 @@ def genRes(
             -   Nếu không có tài liệu bài học nào được cung cấp trong ngữ cảnh hiện tại, hãy thông báo cho người dùng rằng bạn cần tài liệu để tiếp tục hoặc chỉ có thể trả lời các câu hỏi chung chung (nếu được phép).
             
             """.replace("{subject}", selected_subject_name if selected_subject_name else "học").replace("{grade}", selected_grade if selected_grade else "phổ thông")
-        
+
         # Nếu là tiếng Anh, thêm yêu cầu dịch ra tiếng Anh
         if st.session_state['ai_hard']:
             step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + step_1_prompt_vi
@@ -231,9 +268,3 @@ def genRes(
         print(f"Error in genRes: {e}")
         # Return the actual error to help debugging instead of generic message
         return f"An error occurred: {str(e)}"
-
-
-
-
-
-
