@@ -131,7 +131,7 @@ def genRes(
             
             NHIỆM VỤ THEO THỨ TỰ:
             1. ĐÁNH GIÁ: Nếu tin nhắn của người dùng là câu trả lời cho câu hỏi trước đó của bạn, hãy đánh giá Đúng/Sai/Chưa đủ ngay lập tức.
-            2. GIẢI THÍCH: Cung cấp đáp án đúng và giải thích ngắn gọn dựa trên bài học.
+            2. GIẢI THÍCH: Nếu đáp án sai BẮT BUỘC PHẢI cung cấp đáp án đúng và giải thích ngắn gọn dựa trên bài học.
             3. ĐẶT CÂU HỎI MỚI: Đặt một câu hỏi ôn tập tiếp theo.
                - LƯU Ý: Câu hỏi mới PHẢI khác hoàn toàn nội dung người dùng vừa trả lời. Không hỏi lại những gì họ đã biết.
             
@@ -174,3 +174,4 @@ def genRes(
 
     except Exception as e:
         return f"Lỗi: {str(e)}"
+
