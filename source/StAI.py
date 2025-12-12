@@ -10,6 +10,7 @@ from google.genai import types
 DEFAULT_MODEL_NAME = "gemma-3-27b-it"
 DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
 
+# Giữ nguyên hàm trans
 def trans(text, user_api, user_model=None):
     try:
         client = genai.Client(api_key=user_api) # type: ignore
@@ -36,6 +37,7 @@ def trans(text, user_api, user_model=None):
         print(f"Error in detect_language: {e}")
         return "Error in translation"
 
+# Giữ nguyên hàm afterStepOne
 def afterStepOne(plan_text, user_api, user_model=None):
     try:
         client = genai.Client( # type: ignore
@@ -44,10 +46,11 @@ def afterStepOne(plan_text, user_api, user_model=None):
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
         
         # Construct the prompt/content for after step one
+        # Lưu ý: {selected_grade} bị xóa khỏi prompt này vì nó không được truyền vào hàm afterStepOne trong code hiện tại
         prompt_for_after_step_one = """
             Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
             Nhiệm vụ của bạn là:
-            1. Chỉ được phép sử dụng từ ngữ thích hợp với độ tuổi ở lớp {selected_grade}.
+            1. Chỉ được phép sử dụng từ ngữ thích hợp với cấp độ học sinh phổ thông.
             2. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
             3. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
             4. Nếu câu hỏi tốt, hãy giữ nguyên nó.
@@ -82,14 +85,14 @@ def afterStepOne(plan_text, user_api, user_model=None):
         )
         ans = response.text if response.text else ""
         
-        if st.session_state.lang == "en":
+        if st.session_state.get('lang') == "en":
             return trans(ans, user_api, user_model)  # Translate to English if needed
         return ans.replace("\n", "\n\n")
     except Exception as e:
         print(f"Error in afterStepOne: {e}")
         return plan_text
 
-
+# HÀM genRes ĐÃ SỬA ĐỔI
 def genRes(
     text_input, chat_history, user_api, user_model=None,
     selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None,
@@ -101,14 +104,17 @@ def genRes(
         if not user_api:
             return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
         
-        # FIX: Khởi tạo biến để tránh lỗi "name not defined"
-        lesson_material_combined_content = "" 
-        
-        # Default to the updated -it model if user_model is blank
+        # --- Khởi tạo và Thiết lập Biến ---
+        lesson_material_combined_content = "" # FIX: Khởi tạo biến để tránh lỗi "name not defined"
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
+        uploaded_file_text = uploaded_file_text or ""
+        
+        # --- Kiểm tra Trạng thái Hội thoại (Để chặn lời chào lặp lại) ---
+        # Nếu history có hơn 1 tin nhắn (ngoài tin nhắn hệ thống), tức là đang trong quá trình học
+        is_continuing = len(chat_history) > 1
 
-        # Fetch lesson material for multiple lessons
+        # --- Fetch lesson material ---
         lesson_material_fetched_parts = []
         lesson_ids_for_prompt_display = []
 
@@ -133,74 +139,48 @@ def genRes(
                 except Exception as e:
                     print(f"Warning: An unexpected error occurred while fetching/processing content for lesson ID {lesson_id} (Name: {lesson_name}, URL: {lesson_url}) in genRes: {e}")
 
-        
         if lesson_material_fetched_parts:
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
         # Lấy ngôn ngữ từ session_state
-        lang = st.session_state.lang
+        lang = st.session_state.get('lang', 'vi') # Dùng .get để tránh lỗi nếu lang chưa được set
 
-        # Prompt tiếng Việt (ĐÃ CẬP NHẬT để CỦNG CỐ logic ĐÁNH GIÁ CÂU TRẢ LỜI)
-        step_1_prompt_vi = """
-            Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{subject}' cho khối lớp '{grade}'.
-            Vai trò của bạn là tương tác với người dùng và chỉ trả lời các câu hỏi dựa trên nội dung bài học được cung cấp.
-            LƯU Ý CỰC KỲ QUAN TRỌNG: Bạn sẽ lịch sự từ chối trả lời bất kỳ câu hỏi nào không liên quan trực tiếp đến nội dung bài học đã được cung cấp. Nếu người dùng hỏi ngoài lề, hãy trả lời bằng một câu như: "Xin lỗi, tôi chỉ có thể thảo luận về các chủ đề trong bài học của chúng ta."
-            Luôn mở đầu bằng câu hỏi liên quan tới bài học, bạn không cần sự cho phép của người dùng, bạn phải đánh giá phản hồi cho biết đúng hay sai và hỏi câu mới ngay. Không thực hiện việc sử dụng "Để bắt đầu, bạn có muốn tôi hỏi bạn một câu hỏi về bài học không? Bạn hãy cho tôi biết bạn muốn học về chủ đề gì nhé?". Chúng ta phải có một câu hỏi liên quan trực tiếp và không cần sự cho phép của người dùng.
+        # --- Prompt tiếng Việt (ĐÃ CẬP NHẬT CẤU TRÚC VÀ LOGIC) ---
+        step_1_prompt_vi = f"""
+            Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
             
+            QUY TẮC BẮT BUỘC VỀ VĂN PHONG VÀ BỐ CỤC:
+            1. KHÔNG LẶP LẠI LỜI CHÀO: {"Do cuộc hội thoại đã bắt đầu, TUYỆT ĐỐI KHÔNG DÙNG LỜI CHÀO LẶP LẠI (Chào bạn!, Tuyệt vời!). HÃY ĐI THẲNG VÀO ĐÁNH GIÁ CÂU TRẢ LỜI HOẶC ĐẶT CÂU HỎI MỚI." if is_continuing else "Hãy chào hỏi thân thiện một lần duy nhất khi bắt đầu."}
+            2. CẤU TRÚC PHẢN HỒI: PHẢI trả lời/đánh giá câu trả lời của người dùng và đặt câu hỏi mới trong cùng một phản hồi. 
+            3. Định dạng phản hồi cuối cùng (BẮT BUỘC):
+               [Phần phản hồi đánh giá và giải thích]. [Câu hỏi ôn tập mới]?
+
             ƯU TIÊN HÀNH ĐỘNG:
-            1.  XÁC ĐỊNH NGỮ CẢNH HÀNH ĐỘNG:
-                -   Nếu tin nhắn cuối cùng của bạn là một **CÂU HỎI** và tin nhắn hiện tại của người dùng là một **CÂU TRẢ LỜI** (không phải là câu hỏi mới hoặc yêu cầu hành động khác): **HÃY THỰC HIỆN BƯỚC 2.**
-                -   Nếu người dùng đang **BẮT ĐẦU** cuộc trò chuyện (từ ngữ tương đương với "sẵn sàng"; "bắt đầu"; "oke"; "được"; "chúng ta bắt đầu thôi") HOẶC người dùng **ĐỒNG Ý TIẾP TỤC BÀI TẬP**: **HÃY THỰC HIỆN BƯỚC 5 (ĐẶT CÂU HỎI).**
-                -   Nếu người dùng đặt **CÂU HỎI TRỰC TIẾP** (ví dụ: "Cái gì là X?", "Giải thích Y?"): **HÃY THỰC HIỆN BƯỚC 4.**
-                -   Nếu người dùng yêu cầu **TÓM TẮT/GIẢI THÍCH** một phần bài học: **HÃY THỰC HIỆN BƯỚC 4.**
-
-            2.  XỬ LÝ KHI NGƯỜI DÙNG TRẢ LỜI CÂU HỎI CỦA BẠN (CẦN ĐÁNH GIÁ VÀ PHẢN HỒI):
-                a.  **ĐÁNH GIÁ BẮT BUỘC**: PHẢI đánh giá câu trả lời của người dùng. Cho biết họ ĐÚNG hay SAI hay CÓ TRẢ LỜI NHƯNG CHƯA ĐỦ hay HOÀN TOÀN QUÊN / KHÔNG BIẾT.
-                b.  **PHẢN HỒI BẮT BUỘC**: PHẢI cung cấp phản hồi chi tiết:
-                    * Nếu **ĐÚNG**: Ghi nhận ("Chính xác!", "Đúng rồi!"), có thể bổ sung thêm một chút thông tin liên quan nếu cần.
-                    * Nếu **SAI** hoặc **CHƯA ĐỦ**:
-                        i.  Nêu rõ câu trả lời ĐÚNG và ĐỦ.
-                        ii. Giải thích TẠI SAO câu trả lời của người dùng sai/chưa đủ (nếu họ đã trả lời).
-                        iii.Giải thích CHI TIẾT TẠI SAO câu trả lời đúng là đúng, dựa vào kiến thức từ bài học. Giải thích phải rõ ràng, cụ thể, không chung chung.
-                        iv. PHẢI làm phong phú giải thích bằng cách tích hợp thông tin từ ít nhất một nguồn đáng tin cậy bên ngoài bổ sung NẾU CÓ THỂ và có liên quan. Trích dẫn rõ ràng nguồn bên ngoài này (ví dụ: "Để đọc thêm, bạn có thể tham khảo [Tên trang web/URL]" hoặc "Nguồn: [Tên sách/Bài báo của Tác giả]"). Nếu không tìm được nguồn ngoài phù hợp hoặc không cần thiết, hãy tập trung giải thích thật kỹ bằng kiến thức từ bài học.
-                c.  **ĐẶT CÂU HỎI MỚI BẮT BUỘC**: Sau khi phản hồi, HÃY ĐẶT một câu hỏi ôn tập MỚI từ bài học.
-
-            3.  ĐỊNH DẠNG PHẢN HỒI KHI ĐÁNH GIÁ CÂU TRẢ LỜI CỦA NGƯỜI DÙNG:
-                
-                [Phản hồi đánh giá (ví dụ: "Chính xác!", "Chưa đủ, câu trả lời đúng là...")]. [Câu hỏi ôn tập mới từ bài học]?
-
-            4.  XỬ LÝ CÂU HỎI/YÊU CẦU TRỰC TIẾP TỪ NGƯỜI DÙNG:
-                -   HÃY TRẢ LỜI câu hỏi đó một cách chi tiết, dựa trên tài liệu bài học được cung cấp.
-                -   Sau khi trả lời, hãy hỏi xem người dùng có muốn tiếp tục với một câu hỏi ôn tập từ bài học không.
-
-            5.  ĐẶT CÂU HỎI BÀI TẬP:
-                -   ĐẶT một câu hỏi ôn tập DỰA TRÊN NỘI DUNG BÀI HỌC ĐÃ CUNG CẤP.
-                -   Câu hỏi có thể đa dạng (trắc nghiệm, điền khuyết, tự luận ngắn) nhưng phải kiểm tra hiểu biết về bài học.
-                -   Trắc nghiệm: Khi ra câu hỏi dạng trắc nghiệm, bạn phải liệt kê đầy đủ các phương án lựa chọn, và phải cách dòng trước khi viết các lựa chọn để dễ đọc.
-                -   Điền chỗ trống có gợi ý: Bạn phải cho gợi ý các từ dùng để điền vào ô trống bạn tạo ra, không được để các từ gợi ý theo thứ tự của ô trống.
-                -   Điền chỗ trống không gợi ý: Bạn chỉ để nội dung và ô trống cần điền, không cho biết thêm gợi ý.
-                -   Trả lời dài / ngắn: Bạn chỉ cần đặt câu hỏi (mở / đóng) dựa trên nội dung bài học.
-
+            A. NẾU người dùng trả lời một câu hỏi bạn đã đặt trước đó (Đây là trường hợp xảy ra khi có lịch sử trò chuyện):
+                1. ĐÁNH GIÁ NGAY LẬP TỨC: PHẢI đánh giá câu trả lời của người dùng (Đúng/Sai/Chưa đủ).
+                2. PHẢN HỒI VÀ GIẢI THÍCH CHI TIẾT: Cung cấp câu trả lời chính xác, giải thích tại sao câu trả lời của người dùng đúng hoặc sai, DỰA TRÊN TÀI LIỆU BÀI HỌC.
+                3. NGĂN CHẶN LẶP LẠI: Sau khi đánh giá, PHẢI ĐẶT một câu hỏi ôn tập MỚI, KHÔNG ĐƯỢC PHÉP LẶP LẠI (NGUYÊN VĂN HAY TÁI BẢN) thông tin hoặc ý tưởng người dùng vừa trả lời.
             
+            B. NẾU người dùng bắt đầu cuộc trò chuyện hoặc yêu cầu bắt đầu: HÃY ĐẶT một câu hỏi ôn tập ĐẦU TIÊN từ bài học.
+            C. NẾU người dùng đặt câu hỏi trực tiếp: Trả lời chi tiết dựa trên tài liệu bài học, sau đó hỏi xem người dùng có muốn tiếp tục ôn tập không.
+
             QUAN TRỌNG CHUNG:
-            -   TẤT CẢ các câu hỏi bạn đặt PHẢI BÁM SÁT và DỰA TRỰC TIẾP VÀO NỘI DUNG BÀI HỌC đã được cung cấp trong ngữ cảnh. Không hỏi những câu ngoài lề hoặc kiến thức phổ thông không có trong bài.
-            -   Khi giải thích, hãy tích hợp thông tin từ bài học một cách tự nhiên. Không nói "theo tài liệu bài học..." mà hãy trình bày như đó là kiến thức của bạn.
+            -   TẤT CẢ các câu hỏi bạn đặt PHẢI BÁM SÁT và DỰA TRỰC TIẾP VÀO NỘI DUNG BÀI HỌC đã được cung cấp.
             -   Mỗi lần chỉ đặt một câu hỏi.
-            -   Nếu không có tài liệu bài học nào được cung cấp trong ngữ cảnh hiện tại, hãy thông báo cho người dùng rằng bạn cần tài liệu để tiếp tục hoặc chỉ có thể trả lời các câu hỏi chung chung (nếu được phép).
             
             """.replace("{subject}", selected_subject_name if selected_subject_name else "học").replace("{grade}", selected_grade if selected_grade else "phổ thông")
 
-        # Nếu là tiếng Anh, thêm yêu cầu dịch ra tiếng Anh
-        if st.session_state['ai_hard']:
-            step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học." + step_1_prompt_vi
-        if st.session_state['ai_fun']:
-            step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời." + step_1_prompt_vi
+        # --- Logic cho ai_hard, ai_fun và lang translation (Giữ nguyên) ---
+        if st.session_state.get('ai_hard'):
+            step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học. " + step_1_prompt_vi
+        if st.session_state.get('ai_fun'):
+            step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. " + step_1_prompt_vi
+        
+        active_step_1_prompt = step_1_prompt_vi
         if lang == "en":
             active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
-        else:
-            active_step_1_prompt = step_1_prompt_vi
 
-        # Construct the full prompt for the LLM, combining contexts and user query
+        # --- Construct the full prompt for the LLM (Giữ nguyên) ---
         prompt_elements = []
         if uploaded_file_text:
             prompt_elements.append(
@@ -223,23 +203,22 @@ def genRes(
 
         current_user_message_for_step1 = "\n\n".join(prompt_elements)
 
+        # --- Client Setup and Chat History (Giữ nguyên) ---
         client = genai.Client( # type: ignore
-            api_key=user_api,  # Replace with your actual API key or environment variable
+            api_key=user_api,
         )
         
         contents_for_step1 = []
 
-        # Convert chat history (excluding the current user prompt which is now part of current_user_message_for_step1)
         if chat_history:
-            relevant_history = chat_history[-20:-1] # Get up to 19 previous messages
+            relevant_history = chat_history[-20:-1] 
             for message in relevant_history: 
                 role = message["role"]
                 if role == "assistant":
-                    role = "model"  # Convert OpenAI-style role to Gemini-compatible
+                    role = "model"
                 elif role == "user":
-                    pass  # OK
+                    pass
                 else:
-                    print(f"Skipping message with unsupported role: {role}")
                     continue
                 if message.get("content"):
                     contents_for_step1.append(
@@ -248,7 +227,7 @@ def genRes(
         contents_for_step1.append(types.Content(role="user", parts=[types.Part.from_text(text=current_user_message_for_step1)])) # type: ignore
 
         generate_content_config = types.GenerateContentConfig(
-            temperature=1,
+            temperature=0.8, # Điều chỉnh nhiệt độ để AI bám sát chỉ thị hơn
             response_mime_type="text/plain",
         )
         
