@@ -98,152 +98,79 @@ def genRes(
     selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None,
     uploaded_file_text: str = None, translator=None
 ):
-    import streamlit as st  # Đảm bảo đã cài đặt streamlit
+    import streamlit as st 
 
     try:
         if not user_api:
-            return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
+            return translator("API key not configured...") if translator else "API key not configured..."
         
-        # --- Khởi tạo và Thiết lập Biến ---
-        lesson_material_combined_content = "" # FIX: Khởi tạo biến để tránh lỗi "name not defined"
+        lesson_material_combined_content = "" # Sửa lỗi NameError
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
-        original_user_text_input = text_input
-        uploaded_file_text = uploaded_file_text or ""
         
-        # --- Kiểm tra Trạng thái Hội thoại (Để chặn lời chào lặp lại) ---
-        # Nếu history có hơn 1 tin nhắn (ngoài tin nhắn hệ thống), tức là đang trong quá trình học
+        # 1. FETCH DỮ LIỆU BÀI HỌC (Giữ nguyên logic của bạn)
+        lesson_material_fetched_parts = []
+        if selected_lesson_data_list:
+            for lesson_data in selected_lesson_data_list:
+                try:
+                    res = requests.get(lesson_data['url'])
+                    lesson_material_fetched_parts.append(f"Bài: {lesson_data.get('name')}\n{res.text}")
+                except: continue
+        if lesson_material_fetched_parts:
+            lesson_material_combined_content = "\n\n---\n\n".join(lesson_material_fetched_parts)
+
+        # 2. XÁC ĐỊNH TRẠNG THÁI HỘI THOẠI (Ngăn AI chào lại)
+        # Nếu đã có trao đổi trước đó (history > 1), AI không được chào mừng nữa
         is_continuing = len(chat_history) > 1
 
-        # --- Fetch lesson material ---
-        lesson_material_fetched_parts = []
-        lesson_ids_for_prompt_display = []
-
-        if selected_lesson_data_list and isinstance(selected_lesson_data_list, list):
-            for lesson_data in selected_lesson_data_list:
-                if not lesson_data or not isinstance(lesson_data, dict) or not lesson_data.get('url'):
-                    print(f"Warning: Invalid lesson_data entry in genRes: {lesson_data}")
-                    continue
-
-                lesson_url = lesson_data['url']
-                lesson_id = lesson_data.get('id', 'UnknownID')
-                lesson_name = lesson_data.get('name', f'Lesson {lesson_id}')
-
-                try:
-                    lesson_response = requests.get(lesson_url)
-                    lesson_response.raise_for_status()
-                    lesson_content = lesson_response.text
-                    lesson_material_fetched_parts.append(f"Content for Lesson '{lesson_name}' (ID {lesson_id}):\n{lesson_content}")
-                    lesson_ids_for_prompt_display.append(f"{lesson_name} (ID {lesson_id})")
-                except requests.exceptions.RequestException as req_err:
-                    print(f"Warning: Failed to fetch lesson content from {lesson_url} (ID {lesson_id}, Name: {lesson_name}) in genRes: {req_err}")
-                except Exception as e:
-                    print(f"Warning: An unexpected error occurred while fetching/processing content for lesson ID {lesson_id} (Name: {lesson_name}, URL: {lesson_url}) in genRes: {e}")
-
-        if lesson_material_fetched_parts:
-            lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
-
-        # Lấy ngôn ngữ từ session_state
-        lang = st.session_state.get('lang', 'vi') # Dùng .get để tránh lỗi nếu lang chưa được set
-
-        # --- Prompt tiếng Việt (ĐÃ CẬP NHẬT CẤU TRÚC VÀ LOGIC) ---
+        # 3. PROMPT TỐI ƯU HÓA (Dựa trên sự ổn định của StLearn)
         step_1_prompt_vi = f"""
-            Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
+            Bạn là AI Gia Sư Kiểm Tra kiến thức môn '{selected_subject_name}' lớp {selected_grade}.
             
-            QUY TẮC BẮT BUỘC VỀ VĂN PHONG VÀ BỐ CỤC:
-            1. KHÔNG LẶP LẠI LỜI CHÀO: {"Do cuộc hội thoại đã bắt đầu, TUYỆT ĐỐI KHÔNG DÙNG LỜI CHÀO LẶP LẠI (Chào bạn!, Tuyệt vời!). HÃY ĐI THẲNG VÀO ĐÁNH GIÁ CÂU TRẢ LỜI HOẶC ĐẶT CÂU HỎI MỚI." if is_continuing else "Hãy chào hỏi thân thiện một lần duy nhất khi bắt đầu."}
-            2. CẤU TRÚC PHẢN HỒI: PHẢI trả lời/đánh giá câu trả lời của người dùng và đặt câu hỏi mới trong cùng một phản hồi. 
-            3. Định dạng phản hồi cuối cùng (BẮT BUỘC):
-               [Phần phản hồi đánh giá và giải thích]. [Câu hỏi ôn tập mới]?
-
-            ƯU TIÊN HÀNH ĐỘNG:
-            A. NẾU người dùng trả lời một câu hỏi bạn đã đặt trước đó (Đây là trường hợp xảy ra khi có lịch sử trò chuyện):
-                1. ĐÁNH GIÁ NGAY LẬP TỨC: PHẢI đánh giá câu trả lời của người dùng (Đúng/Sai/Chưa đủ).
-                2. PHẢN HỒI VÀ GIẢI THÍCH CHI TIẾT: Cung cấp câu trả lời chính xác, giải thích tại sao câu trả lời của người dùng đúng hoặc sai, DỰA TRÊN TÀI LIỆU BÀI HỌC.
-                3. NGĂN CHẶN LẶP LẠI: Sau khi đánh giá, PHẢI ĐẶT một câu hỏi ôn tập MỚI, KHÔNG ĐƯỢC PHÉP LẶP LẠI (NGUYÊN VĂN HAY TÁI BẢN) thông tin hoặc ý tưởng người dùng vừa trả lời.
+            QUY TẮC VỀ TRẠNG THÁI:
+            - {"TUYỆT ĐỐI KHÔNG CHÀO HỎI (Chào bạn, bắt đầu nhé...) vì cuộc hội thoại đã diễn ra. Đi thẳng vào đánh giá." if is_continuing else "Chào hỏi thân thiện và đặt câu hỏi đầu tiên."}
             
-            B. NẾU người dùng bắt đầu cuộc trò chuyện hoặc yêu cầu bắt đầu: HÃY ĐẶT một câu hỏi ôn tập ĐẦU TIÊN từ bài học.
-            C. NẾU người dùng đặt câu hỏi trực tiếp: Trả lời chi tiết dựa trên tài liệu bài học, sau đó hỏi xem người dùng có muốn tiếp tục ôn tập không.
-
-            QUAN TRỌNG CHUNG:
-            -   TẤT CẢ các câu hỏi bạn đặt PHẢI BÁM SÁT và DỰA TRỰC TIẾP VÀO NỘI DUNG BÀI HỌC đã được cung cấp.
-            -   Mỗi lần chỉ đặt một câu hỏi.
+            NHIỆM VỤ THEO THỨ TỰ:
+            1. ĐÁNH GIÁ: Nếu tin nhắn của người dùng là câu trả lời cho câu hỏi trước đó của bạn, hãy đánh giá Đúng/Sai/Chưa đủ ngay lập tức.
+            2. GIẢI THÍCH: Cung cấp đáp án đúng và giải thích ngắn gọn dựa trên bài học.
+            3. ĐẶT CÂU HỎI MỚI: Đặt một câu hỏi ôn tập tiếp theo.
+               - LƯU Ý: Câu hỏi mới PHẢI khác hoàn toàn nội dung người dùng vừa trả lời. Không hỏi lại những gì họ đã biết.
             
-            """.replace("{subject}", selected_subject_name if selected_subject_name else "học").replace("{grade}", selected_grade if selected_grade else "phổ thông")
+            ĐỊNH DẠNG PHẢN HỒI (BẮT BUỘC):
+            [Đánh giá & Giải thích kiến thức cũ]. [Câu hỏi ôn tập mới]?
+            """
 
-        # --- Logic cho ai_hard, ai_fun và lang translation (Giữ nguyên) ---
-        if st.session_state.get('ai_hard'):
-            step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học. " + step_1_prompt_vi
-        if st.session_state.get('ai_fun'):
-            step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. " + step_1_prompt_vi
+        # Thêm các tùy chọn Hard/Fun từ session_state
+        if st.session_state.get('ai_hard'): step_1_prompt_vi = "Độ khó cao. " + step_1_prompt_vi
+        if st.session_state.get('ai_fun'): step_1_prompt_vi = "Hài hước, dí dỏm. " + step_1_prompt_vi
+
+        # 4. XÂY DỰNG NỘI DUNG GỬI AI
+        prompt_elements = [
+            f"BÀI HỌC CONTEXT:\n{lesson_material_combined_content}",
+            f"FILE UPLOADED:\n{uploaded_file_text}",
+            f"USER MESSAGE: {text_input}",
+            f"INSTRUCTIONS: {step_1_prompt_vi}"
+        ]
         
-        active_step_1_prompt = step_1_prompt_vi
-        if lang == "en":
-            active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
-
-        # --- Construct the full prompt for the LLM (Giữ nguyên) ---
-        prompt_elements = []
-        if uploaded_file_text:
-            prompt_elements.append(
-                f"CONTEXT FROM UPLOADED FILE(S):\n"
-                f"------------------------------------\n"
-                f"{uploaded_file_text}\n"
-                f"------------------------------------"
-            )
-
-        if lesson_material_combined_content:
-            lessons_display_str = ", ".join(lesson_ids_for_prompt_display) if lesson_ids_for_prompt_display else "N/A"
-            prompt_elements.append(
-                f"CONTEXT FROM LESSON MATERIAL ({selected_subject_name} - Lessons: {lessons_display_str}):\n"
-                f"------------------------------------\n"
-                f"{lesson_material_combined_content}\n"
-                f"------------------------------------"
-            )
-        prompt_elements.append(f"USER QUERY: {original_user_text_input}")
-        prompt_elements.append(f"INSTRUCTIONS:\n{active_step_1_prompt}")
-
-        current_user_message_for_step1 = "\n\n".join(prompt_elements)
-
-        # --- Client Setup and Chat History (Giữ nguyên) ---
-        client = genai.Client( # type: ignore
-            api_key=user_api,
-        )
-        
-        contents_for_step1 = []
-
+        # 5. XỬ LÝ LỊCH SỬ VÀ GỌI MODEL
+        client = genai.Client(api_key=user_api)
+        contents = []
         if chat_history:
-            relevant_history = chat_history[-20:-1] 
-            for message in relevant_history: 
-                role = message["role"]
-                if role == "assistant":
-                    role = "model"
-                elif role == "user":
-                    pass
-                else:
-                    continue
-                if message.get("content"):
-                    contents_for_step1.append(
-                        types.Content(role=role, parts=[types.Part.from_text(text=message["content"])]) # type: ignore
-                    )
-        contents_for_step1.append(types.Content(role="user", parts=[types.Part.from_text(text=current_user_message_for_step1)])) # type: ignore
+            for msg in chat_history[-15:]: # Lấy 15 tin nhắn gần nhất để giữ context
+                role = "model" if msg["role"] == "assistant" else "user"
+                contents.append(types.Content(role=role, parts=[types.Part.from_text(text=msg["content"])]))
+        
+        contents.append(types.Content(role="user", parts=[types.Part.from_text(text="\n\n".join(prompt_elements))]))
 
-        generate_content_config = types.GenerateContentConfig(
-            temperature=0.8, # Điều chỉnh nhiệt độ để AI bám sát chỉ thị hơn
-            response_mime_type="text/plain",
-        )
-        
-        # FIX: Switched to non-streaming generate_content
-        response_step1 = client.models.generate_content(
+        response = client.models.generate_content(
             model=active_model_name,
-            contents=contents_for_step1,
-            config=generate_content_config,
+            contents=contents,
+            config=types.GenerateContentConfig(temperature=0.8) # Giảm nhẹ độ sáng tạo để bám sát prompt
         )
-        step_one_output_text = response_step1.text if response_step1.text else ""
         
-        # Pass the output of the first LLM call to afterStepOne for potential refinement
-        intermediate_result = afterStepOne(step_one_output_text, user_api, active_model_name)
-        return intermediate_result
+        output = response.text if response.text else ""
+        
+        # 6. HẬU XỬ LÝ (afterStepOne để lọc lại câu hỏi)
+        return afterStepOne(output, user_api, active_model_name)
 
     except Exception as e:
-        print(f"Error in genRes: {e}")
-        # Return the actual error to help debugging instead of generic message
-        return f"An error occurred: {str(e)}"
+        return f"Lỗi: {str(e)}"
