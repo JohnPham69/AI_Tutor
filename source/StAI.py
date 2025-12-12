@@ -5,15 +5,14 @@ import requests
 from google import genai
 import streamlit as st
 from google.genai import types
+import re # Thêm import re để sử dụng Regex
 
 # UPDATED: Added "-it" for instruction-tuned model.
 DEFAULT_MODEL_NAME = "gemma-3-27b-it"
 DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
 
-# Giữ nguyên hàm trans và afterStepOne (vì các lỗi chính nằm ở genRes và prompt)
-
+# Giữ nguyên hàm trans
 def trans(text, user_api, user_model=None):
-    # ... (giữ nguyên hàm trans)
     try:
         client = genai.Client(api_key=user_api) # type: ignore
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
@@ -30,7 +29,6 @@ def trans(text, user_api, user_model=None):
             response_mime_type="text/plain",
         )
         
-        # FIX: Switched to non-streaming generate_content
         response = client.models.generate_content(
             model=model_to_use, contents=contents, config=generate_content_config
         )
@@ -40,14 +38,21 @@ def trans(text, user_api, user_model=None):
         return "Error in translation"
 
 def afterStepOne(plan_text, user_api, user_model=None):
+    # SỬA LỖI: Cần trích xuất và loại bỏ [CÂU HỎI GỐC: ...] trước khi gửi đi và trước khi áp dụng afterStepOne
+    
+    # 1. Trích xuất câu hỏi gốc (để loại bỏ nó sau)
+    question_match = re.search(r"\[CÂU HỎI GỐC: (.*?)\]", plan_text, re.DOTALL)
+    
+    # 2. Loại bỏ câu hỏi gốc khỏi văn bản
+    text_for_refinement = re.sub(r"\[CÂU HỎI GỐC: .*?\]", "", plan_text, flags=re.DOTALL).strip()
+    
     try:
         client = genai.Client( # type: ignore
-            api_key=user_api,  # Replace with your actual API key or environment variable
+            api_key=user_api,  
         )
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
         
         # Construct the prompt/content for after step one
-        # LƯU Ý: Biến {selected_grade} cần được truyền vào hoặc loại bỏ khỏi prompt này nếu không có
         prompt_for_after_step_one = """
             Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
             Nhiệm vụ của bạn là:
@@ -67,7 +72,7 @@ def afterStepOne(plan_text, user_api, user_model=None):
             KHÔNG thêm bất kỳ lời giải thích nào về quá trình làm việc của bạn. Chỉ trả về chuỗi văn bản cuối cùng.
             """
         # Combine the instruction prompt with the text to be evaluated
-        full_prompt_for_step_two = f"{prompt_for_after_step_one}\n\nHere is the text to evaluate:\n{plan_text}"
+        full_prompt_for_step_two = f"{prompt_for_after_step_one}\n\nHere is the text to evaluate:\n{text_for_refinement}"
         contents = [
             types.Content(role="user", parts=[types.Part.from_text(text=full_prompt_for_step_two)]) # type: ignore
         ]
@@ -78,7 +83,6 @@ def afterStepOne(plan_text, user_api, user_model=None):
             response_mime_type="text/plain",
         )
         
-        # FIX: Switched to non-streaming generate_content
         response = client.models.generate_content(
             model=model_to_use,
             contents=contents,
@@ -86,17 +90,11 @@ def afterStepOne(plan_text, user_api, user_model=None):
         )
         ans = response.text if response.text else ""
         
-        # FIX: st.session_state không tồn tại trong hàm này, cần loại bỏ hoặc truyền vào
-        # if st.session_state.lang == "en": 
-        #     return trans(ans, user_api, user_model)  
-        # return ans.replace("\n", "\n\n")
-
-        # Giả định ngôn ngữ mặc định là tiếng Việt
+        # KHÔNG DỊCH TRONG AFTERSTEPONE (Logic dịch được xử lý ở cuối genRes)
         return ans.replace("\n", "\n\n")
-
     except Exception as e:
         print(f"Error in afterStepOne: {e}")
-        return plan_text
+        return text_for_refinement
 
 
 def genRes(
@@ -104,28 +102,23 @@ def genRes(
     selected_grade=None, selected_subject_name=None, selected_lesson_data_list=None,
     uploaded_file_text: str = None, translator=None
 ):
-    import streamlit as st  # Đảm bảo đã cài đặt streamlit
+    import streamlit as st  
 
     try:
         if not user_api:
             return translator("API key not configured, please set it in the Config page.") if translator else "API key not configured, please set it in the Config page."
         
-        # --- Khởi tạo và Thiết lập Biến ---
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
         uploaded_file_text = uploaded_file_text or ""
-        
-        # --- Kiểm tra Trạng thái Hội thoại (Để chặn lời chào lặp lại) ---
         is_continuing = len(chat_history) > 1 
 
-        # --- Fetch lesson material (Giữ nguyên logic) ---
         lesson_material_fetched_parts = []
         lesson_ids_for_prompt_display = []
-        # ... (logic fetch bài học giữ nguyên) ...
         if selected_lesson_data_list and isinstance(selected_lesson_data_list, list):
             for lesson_data in selected_lesson_data_list:
+                # ... (logic fetch bài học giữ nguyên) ...
                 if not lesson_data or not isinstance(lesson_data, dict) or not lesson_data.get('url'):
-                    print(f"Warning: Invalid lesson_data entry in genRes: {lesson_data}")
                     continue
 
                 lesson_url = lesson_data['url']
@@ -147,28 +140,41 @@ def genRes(
         if lesson_material_fetched_parts:
             lesson_material_combined_content = "\n\n--- SEPARATOR BETWEEN LESSONS ---\n\n".join(lesson_material_fetched_parts)
 
-        # Lấy ngôn ngữ từ session_state
-        lang = st.session_state.lang
+        lang = st.session_state.get('lang', 'vi') 
 
-        # --- SỬA PROMPT TẬP TRUNG VÀO XỬ LÝ LỖI KHÔNG BIẾT VÀ CHẶN LỜI CHÀO ---
+        # --- TÌM CÂU HỎI GỐC GẦN NHẤT TỪ LỊCH SỬ CHAT ---
+        last_question = ""
+        # Duyệt ngược lịch sử chat (không bao gồm tin nhắn hiện tại)
+        for message in reversed(chat_history[:-1]):
+            if message["role"] == "assistant" and message.get("content"):
+                # Tìm cú pháp [CÂU HỎI GỐC: ...]
+                match = re.search(r"\[CÂU HỎI GỐC: (.*?)\]", message["content"], re.DOTALL)
+                if match:
+                    last_question = match.group(1).strip()
+                    break # Lấy câu hỏi gần nhất và dừng
+
+        # --- SỬA PROMPT TẬP TRUNG VÀO CÂU HỎI GỐC VÀ CẤU TRÚC ĐẦU RA ---
         step_1_prompt_vi = f"""
             Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
+
+            LƯU Ý VỀ CÂU HỎI GỐC TRƯỚC ĐÓ: "{last_question}"
             
             QUY TẮC BẮT BUỘC VỀ VĂN PHONG VÀ BỐ CỤC:
             1. TRẠNG THÁI HỘI THOẠI: {"Do cuộc hội thoại đã diễn ra, TUYỆT ĐỐI KHÔNG DÙNG LỜI CHÀO LẶP LẠI (Chào bạn!, Tuyệt vời!). HÃY ĐI THẲNG VÀO ĐÁNH GIÁ CÂU TRẢ LỜI HOẶC ĐẶT CÂU HỎI MỚI." if is_continuing else "Hãy chào hỏi thân thiện một lần duy nhất và đặt câu hỏi đầu tiên."}
             2. ĐỊNH DẠNG: BẮT BUỘC PHẢI sử dụng định dạng Markdown (ví dụ: **chữ đậm**, *danh sách*, trích dẫn) để trình bày rõ ràng.
-            3. CẤU TRÚC PHẢN HỒI (BẮT BUỘC): PHẢI trả lời/đánh giá câu trả lời của người dùng và đặt câu hỏi mới trong cùng một phản hồi. 
-               Định dạng cuối cùng: **[Phần phản hồi đánh giá và giải thích]. [Câu hỏi ôn tập mới]?**
+            3. CẤU TRÚC PHẢN HỒI (CỰC KỲ BẮT BUỘC): PHẢI trả lời/đánh giá câu trả lời của người dùng và đặt câu hỏi mới trong cùng một phản hồi.
+               Định dạng cuối cùng: **[Phần phản hồi đánh giá và giải thích]. [Câu hỏi ôn tập mới]? [CÂU HỎI GỐC: Nội dung câu hỏi ôn tập mới]**
+               (Lưu ý: Luôn luôn kết thúc bằng cú pháp **[CÂU HỎI GỐC: Nội dung câu hỏi ôn tập mới]** để hệ thống theo dõi. Phần này sẽ bị xóa khỏi phản hồi cuối cùng gửi đến người dùng.)
             4. TỪ CHỐI NGOÀI LỀ: Lịch sự từ chối trả lời bất kỳ câu hỏi nào không liên quan trực tiếp đến bài học.
-            
+
             ƯU TIÊN HÀNH ĐỘNG:
-            A. NẾU người dùng trả lời câu hỏi trước đó (bao gồm các câu trả lời như "Tôi không biết", "Quên mất"):
+            A. NẾU người dùng trả lời câu hỏi trước đó (hoặc nói "Tôi không biết/Quên mất"):
                 1. ĐÁNH GIÁ NGAY LẬP TỨC: PHẢI đánh giá câu trả lời (ĐÚNG / SAI / CHƯA ĐỦ / KHÔNG BIẾT).
-                2. PHẢN HỒI VÀ GIẢI THÍCH (BẮT BUỘC): Cung cấp câu trả lời **HOÀN CHỈNH VÀ CHÍNH XÁC** cho câu hỏi vừa rồi. 
-                   * Nếu người dùng trả lời **SAI / CHƯA ĐỦ / KHÔNG BIẾT/ QUÊN**, bạn PHẢI CUNG CẤP KIẾN THỨC BỊ THIẾU/SAI đó một cách chi tiết, dựa trên bài học. KHÔNG ĐƯỢC CHUYỂN NGAY SANG CÂU HỎI MỚI MÀ CHƯA GIẢI THÍCH.
-                   * Giải thích phải rõ ràng, cụ thể, không chung chung.
-                   * Sử dụng kiến thức từ bài học (CONTEXT) là ưu tiên số 1.
-                3. NGĂN CHẶN LẶP LẠI: Sau khi phản hồi, PHẢI ĐẶT một câu hỏi ôn tập MỚI, KHÔNG ĐƯỢC PHÉP LẶP LẠI (NGUYÊN VĂN HAY TÁI BẢN) thông tin người dùng vừa trả lời.
+                2. PHẢN HỒI VÀ GIẢI THÍCH (BẮT BUỘC): 
+                   * KHÔNG ĐƯỢC PHÉP THAY ĐỔI CÂU HỎI GỐC TRƯỚC ĐÓ ("{last_question}") DƯỚI BẤT KỲ HÌNH THỨC NÀO.
+                   * Nếu người dùng trả lời **SAI / CHƯA ĐỦ / KHÔNG BIẾT/ QUÊN**, bạn **BẮT BUỘC** phải **CUNG CẤP CÂU TRẢ LỜI HOÀN CHỈNH VÀ CHÍNH XÁC** cho **CÂU HỎI GỐC TRƯỚC ĐÓ** ("{last_question}").
+                   * Giải thích phải chi tiết, dựa trên kiến thức từ tài liệu BÀI HỌC.
+                3. NGĂN CHẶN LẶP LẠI: Sau khi phản hồi và cung cấp kiến thức, PHẢI ĐẶT một câu hỏi ôn tập MỚI, KHÔNG ĐƯỢC PHÉP LẶP LẠI (NGUYÊN VĂN HAY TÁI BẢN) thông tin người dùng vừa được học.
             
             B. NẾU người dùng bắt đầu cuộc trò chuyện: ĐẶT câu hỏi ôn tập ĐẦU TIÊN.
 
@@ -190,21 +196,11 @@ def genRes(
         # Construct the full prompt for the LLM
         prompt_elements = []
         if uploaded_file_text:
-            prompt_elements.append(
-                f"CONTEXT FROM UPLOADED FILE(S):\n"
-                f"------------------------------------\n"
-                f"{uploaded_file_text}\n"
-                f"------------------------------------"
-            )
-
+            prompt_elements.append(f"CONTEXT FROM UPLOADED FILE(S):\n{uploaded_file_text}")
         if lesson_material_combined_content:
             lessons_display_str = ", ".join(lesson_ids_for_prompt_display) if lesson_ids_for_prompt_display else "N/A"
-            prompt_elements.append(
-                f"CONTEXT FROM LESSON MATERIAL ({selected_subject_name} - Lessons: {lessons_display_str}):\n"
-                f"------------------------------------\n"
-                f"{lesson_material_combined_content}\n"
-                f"------------------------------------"
-            )
+            prompt_elements.append(f"CONTEXT FROM LESSON MATERIAL ({selected_subject_name} - Lessons: {lessons_display_str}):\n{lesson_material_combined_content}")
+            
         prompt_elements.append(f"USER QUERY: {original_user_text_input}")
         prompt_elements.append(f"INSTRUCTIONS:\n{active_step_1_prompt}")
 
@@ -215,10 +211,7 @@ def genRes(
         contents_for_step1 = []
 
         if chat_history:
-            # SỬA LỖI CẮT LỊCH SỬ: Lấy 20 tin nhắn gần nhất, loại bỏ tin nhắn cuối cùng (tin nhắn hiện tại của người dùng).
-            # Dùng chat_history[-21:-1] hoặc chat_history[:-1][-20:]
-            
-            # Tôi chọn chat_history[:-1] để lấy TẤT CẢ lịch sử cũ (trừ tin nhắn hiện tại) và chỉ giới hạn 20 tin gần nhất
+            # Lấy 20 tin nhắn gần nhất (trừ tin nhắn hiện tại của người dùng)
             relevant_history = chat_history[:-1][-20:] 
             
             for message in relevant_history: 
@@ -251,6 +244,11 @@ def genRes(
         
         # Pass the output of the first LLM call to afterStepOne for potential refinement
         intermediate_result = afterStepOne(step_one_output_text, user_api, active_model_name)
+        
+        # Nếu là tiếng Anh, dịch toàn bộ kết quả cuối cùng
+        if lang == "en":
+            return trans(intermediate_result, user_api, active_model_name)
+            
         return intermediate_result
 
     except Exception as e:
