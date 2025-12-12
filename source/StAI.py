@@ -10,6 +10,7 @@ from google.genai import types
 DEFAULT_MODEL_NAME = "gemma-3-27b-it"
 DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
 
+# Giữ nguyên hàm trans
 def trans(text, user_api, user_model=None):
     try:
         client = genai.Client(api_key=user_api) # type: ignore
@@ -36,21 +37,19 @@ def trans(text, user_api, user_model=None):
         print(f"Error in detect_language: {e}")
         return "Error in translation"
 
+# Giữ nguyên hàm afterStepOne
 def afterStepOne(plan_text, user_api, user_model=None):
-    """
-    Hàm này được dùng để đánh giá lại câu hỏi của AI, đảm bảo nó rõ ràng và phù hợp.
-    """
     try:
         client = genai.Client( # type: ignore
-            api_key=user_api,
+            api_key=user_api,  # Replace with your actual API key or environment variable
         )
         model_to_use = user_model if user_model else DEFAULT_MODEL_FLASH_LATEST
         
-        # FIX: Sửa lại prompt của afterStepOne để tránh lỗi biến {selected_grade} chưa được định nghĩa
+        # Construct the prompt/content for after step one
         prompt_for_after_step_one = """
             Đoạn văn bản đầu vào chứa phản hồi của AI cho người dùng và một câu hỏi ôn tập.
             Nhiệm vụ của bạn là:
-            1. Chỉ được phép sử dụng từ ngữ thích hợp với cấp độ học sinh phổ thông.
+            1. Chỉ được phép sử dụng từ ngữ thích hợp với độ tuổi ở lớp {selected_grade}.
             2. Giữ nguyên phần phản hồi ở đầu đoạn văn bản (nếu có). KHÔNG thay đổi nội dung của phần phản hồi này.
             3. Xem xét phần CÂU HỎI ở cuối đoạn văn bản. Đánh giá xem đó có phải là một câu hỏi tốt, rõ ràng, và phù hợp không.
             4. Nếu câu hỏi tốt, hãy giữ nguyên nó.
@@ -85,7 +84,7 @@ def afterStepOne(plan_text, user_api, user_model=None):
         )
         ans = response.text if response.text else ""
         
-        if st.session_state.get('lang') == "en": # FIX: Dùng .get để truy cập session_state an toàn
+        if st.session_state.lang == "en":
             return trans(ans, user_api, user_model)  # Translate to English if needed
         return ans.replace("\n", "\n\n")
     except Exception as e:
@@ -108,9 +107,11 @@ def genRes(
         lesson_material_combined_content = ""
         active_model_name = user_model if user_model and user_model.strip() else DEFAULT_MODEL_NAME
         original_user_text_input = text_input
+        uploaded_file_text = uploaded_file_text or ""
         
         # --- Kiểm tra Trạng thái Hội thoại (Để chặn lời chào lặp lại) ---
-        is_continuing = len(chat_history) > 1
+        # Nếu history có tin nhắn khác tin nhắn hệ thống, tức là đang trong quá trình học
+        is_continuing = len(chat_history) > 1 
 
         # --- Fetch lesson material (Giữ nguyên logic này) ---
         lesson_material_fetched_parts = []
@@ -136,40 +137,39 @@ def genRes(
         # Lấy ngôn ngữ từ session_state
         lang = st.session_state.get('lang', 'vi') 
 
-        # --- Prompt tiếng Việt (ĐÃ CẬP NHẬT theo yêu cầu 90/10 và Markdown) ---
+        # --- Prompt tiếng Việt (ĐÃ CẬP NHẬT để giải quyết lỗi lặp lại/mất lịch sử) ---
         step_1_prompt_vi = f"""
             Bạn là một AI Gia Sư Thông Thái, chuyên gia về môn '{selected_subject_name if selected_subject_name else "học"}' cho khối lớp '{selected_grade if selected_grade else "phổ thông"}'.
             
             QUY TẮC BẮT BUỘC VỀ VĂN PHONG VÀ BỐ CỤC:
-            1. KHÔNG LẶP LẠI LỜI CHÀO: {"Do cuộc hội thoại đã bắt đầu, TUYỆT ĐỐI KHÔNG DÙNG LỜI CHÀO LẶP LẠI (Chào bạn!, Tuyệt vời!). HÃY ĐI THẲNG VÀO ĐÁNH GIÁ CÂU TRẢ LỜI HOẶC ĐẶT CÂU HỎI MỚI." if is_continuing else "Hãy chào hỏi thân thiện một lần duy nhất khi bắt đầu."}
+            1. TRẠNG THÁI HỘI THOẠI: {"Do cuộc hội thoại đã diễn ra, TUYỆT ĐỐI KHÔNG DÙNG LỜI CHÀO LẶP LẠI (Chào bạn!, Tuyệt vời!). HÃY ĐI THẲNG VÀO ĐÁNH GIÁ CÂU TRẢ LỜI HOẶC ĐẶT CÂU HỎI MỚI." if is_continuing else "Hãy chào hỏi thân thiện một lần duy nhất và đặt câu hỏi đầu tiên."}
             2. ĐỊNH DẠNG: BẮT BUỘC PHẢI sử dụng định dạng Markdown (ví dụ: **chữ đậm**, *chữ nghiêng*, danh sách, code block, trích dẫn) để trình bày rõ ràng.
             3. CẤU TRÚC PHẢN HỒI (BẮT BUỘC): PHẢI trả lời/đánh giá câu trả lời của người dùng và đặt câu hỏi mới trong cùng một phản hồi. 
                Định dạng cuối cùng: **[Phần phản hồi đánh giá và giải thích]. [Câu hỏi ôn tập mới]?**
+            4. TỪ CHỐI NGOÀI LỀ: Lịch sự từ chối trả lời bất kỳ câu hỏi nào không liên quan trực tiếp đến bài học.
 
             ƯU TIÊN HÀNH ĐỘNG:
-            A. NẾU người dùng trả lời một câu hỏi bạn đã đặt trước đó:
-                1. ĐÁNH GIÁ BẮT BUỘC: PHẢI đánh giá câu trả lời của người dùng (Đúng/Sai/Chưa đủ).
-                2. PHẢN HỒI: Cung cấp câu trả lời chính xác, giải thích TẠI SAO (dựa trên bài học).
-                3. NGĂN CHẶN LẶP LẠI: Câu hỏi ôn tập MỚI PHẢI khác hoàn toàn nội dung người dùng vừa trả lời.
-            
-            B. NẾU người dùng bắt đầu/yêu cầu bắt đầu: ĐẶT câu hỏi ôn tập ĐẦU TIÊN.
-            C. NẾU người dùng đặt câu hỏi trực tiếp: Trả lời chi tiết dựa trên tài liệu bài học, sau đó hỏi xem người dùng có muốn tiếp tục ôn tập không.
+            A. NẾU người dùng trả lời câu hỏi trước đó:
+                1. ĐÁNH GIÁ NGAY LẬP TỨC: PHẢI đánh giá câu trả lời (ĐÚNG hay SAI hay CHƯA ĐỦ).
+                2. PHẢN HỒI VÀ GIẢI THÍCH: Cung cấp câu trả lời chính xác, giải thích TẠI SAO (dựa trên tài liệu BÀI HỌC).
+                3. NGĂN CHẶN LẶP LẠI: Sau khi đánh giá, PHẢI ĐẶT một câu hỏi ôn tập MỚI, KHÔNG ĐƯỢC PHÉP LẶP LẠI (NGUYÊN VĂN HAY TÁI BẢN) thông tin người dùng vừa trả lời.
+            B. NẾU người dùng bắt đầu cuộc trò chuyện: ĐẶT câu hỏi ôn tập ĐẦU TIÊN từ bài học.
+            C. NẾU người dùng đặt câu hỏi trực tiếp: Trả lời chi tiết (dựa trên bài học), sau đó đặt câu hỏi ôn tập tiếp theo.
 
-            QUAN TRỌNG VỀ PHẠM VI KIẾN THỨC (QUY TẮC 90/10):
-            -   **90% CÂU HỎI PHẢI BÁM SÁT** và DỰA TRỰC TIẾP VÀO NỘI DUNG BÀI HỌC đã được cung cấp.
-            -   **10% CÂU HỎI CÓ THỂ MỞ RỘNG**, nhưng bắt buộc phải liên quan chặt chẽ đến chủ đề trong bài học.
-            
+            QUAN TRỌNG VỀ PHẠM VI KIẾN THỨC (90/10):
+            -   **90% CÂU HỎI PHẢI BÁM SÁT** và DỰA TRỰC TIẾP VÀO NỘI DUNG BÀI HỌC.
+            -   **10% CÂU HỎI CÓ THỂ MỞ RỘNG**, nhưng bắt buộc phải liên quan chặt chẽ đến chủ đề.
             """
 
-        # Thêm tùy chọn
+        # Thêm tùy chọn Hard/Fun
         if st.session_state.get('ai_hard'):
             step_1_prompt_vi = "Bạn được phép mở rộng câu hỏi ra khỏi phạm vi bài học, nhưng phải liên quan tới bài học. " + step_1_prompt_vi
         if st.session_state.get('ai_fun'):
             step_1_prompt_vi = "Tính cách của bạn khi trả lời phải thật hài hước, dí dỏm, chêm những câu đùa, chơi chữ trong phần trả lời. " + step_1_prompt_vi
+        
+        active_step_1_prompt = step_1_prompt_vi
         if lang == "en":
             active_step_1_prompt = step_1_prompt_vi + "\n\nKết quả trả về phải được dịch ra tiếng anh."
-        else:
-            active_step_1_prompt = step_1_prompt_vi
 
         # Construct the full prompt for the LLM
         prompt_elements = []
@@ -184,16 +184,22 @@ def genRes(
 
         current_user_message_for_step1 = "\n\n".join(prompt_elements)
 
+        # --- Client Setup and Chat History ---
         client = genai.Client(api_key=user_api)
         contents_for_step1 = []
 
-        # FIX: ÁP DỤNG LÝ DO LẤY LỊCH SỬ chat_history[20:-1]
         if chat_history:
-            relevant_history = chat_history[20:-1] # Lấy lịch sử theo yêu cầu của người dùng
+            # SỬA LỖI CẮT LỊCH SỬ: Dùng chat_history[20:-1] theo yêu cầu, mặc dù đây là cách cắt có thể gây mất tin nhắn đầu tiên.
+            # Lưu ý: Cắt [20:-1] sẽ bỏ qua 20 tin nhắn đầu tiên VÀ tin nhắn cuối cùng (tin nhắn hiện tại của người dùng).
+            relevant_history = chat_history[20:-1] 
+            
+            # Nếu lịch sử ít hơn 21 tin nhắn, relevant_history sẽ là danh sách rỗng, gây mất toàn bộ context.
+            # Cần kiểm tra lại logic này, nhưng tôi làm theo yêu cầu [20:-1] của bạn.
+            
             for message in relevant_history: 
                 role = message["role"]
                 if role == "assistant":
-                    role = "model"
+                    role = "model" 
                 elif role == "user":
                     pass
                 else:
@@ -202,10 +208,12 @@ def genRes(
                     contents_for_step1.append(
                         types.Content(role=role, parts=[types.Part.from_text(text=message["content"])]) # type: ignore
                     )
+
+        # Thêm tin nhắn hiện tại của người dùng (kèm prompt và context)
         contents_for_step1.append(types.Content(role="user", parts=[types.Part.from_text(text=current_user_message_for_step1)])) # type: ignore
 
         generate_content_config = types.GenerateContentConfig(
-            temperature=0.8, # Giảm nhiệt độ để AI bám sát prompt hơn
+            temperature=0.7, # Giảm nhiệt độ để AI tuân thủ nghiêm ngặt các chỉ thị
             response_mime_type="text/plain",
         )
         
