@@ -192,27 +192,24 @@ def generate_quiz_data(num_questions: int, user_api: str, subject_name: str = No
             {'Dựa trên tài liệu bài học sau đây:\n---BEGIN LESSON MATERIAL---\n' + lesson_material + '\n---END LESSON MATERIAL---\n' if lesson_material else f'Chủ đề chung là "{subject_name if subject_name else "kiến thức phổ thông"}".'}
             
             QUY TẮC ĐỊNH DẠNG ĐẦU RA (CỰC KỲ QUAN TRỌNG VÀ PHẢI TUÂN THỦ 100%):
-            1. Bạn phải tạo ra một danh sách chứa chính xác {num_questions} cặp Câu hỏi và Câu trả lời.
-            2. Mỗi câu hỏi phải được bắt đầu bằng chuỗi **[START_QUESTION]** và kết thúc bằng chuỗi **[END_QUESTION]**.
-            3. Mỗi câu trả lời phải được bắt đầu bằng chuỗi **[START_ANSWER]** và kết thúc bằng chuỗi **[END_ANSWER]**.
-            4. Toàn bộ nội dung trả về phải được bao bọc trong **[START_QUIZ_DATA]** và **[END_QUIZ_DATA]**.
-            5. **QUAN TRỌNG VỚI TRẮC NGHIỆM:** Giữa Câu hỏi và lựa chọn A, và giữa các lựa chọn A, B, C, D **PHẢI CÓ MỘT DÒNG TRỐNG HOÀN TOÀN** để đảm bảo hiển thị đúng trong Markdown (tổng cộng 9 dòng cho 4 lựa chọn và Câu hỏi).
-            6. Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài các cặp [QUESTION]/[ANSWER] này.
+            1. Toàn bộ bài học phải có mặt trong câu hỏi, mỗi phần trong bài đều phải được đề cập tới dưới dạng câu hỏi bởi ít nhất 1 câu hỏi.
+            2. Bạn phải tạo ra một danh sách chứa chính xác {num_questions} cặp Câu hỏi và Câu trả lời.
+            3. Mỗi câu hỏi phải được bắt đầu bằng chuỗi **[START_QUESTION]** và kết thúc bằng chuỗi **[END_QUESTION]**.
+            4. Mỗi câu trả lời phải được bắt đầu bằng chuỗi **[START_ANSWER]** và kết thúc bằng chuỗi **[END_ANSWER]**.
+            5. Toàn bộ nội dung trả về phải được bao bọc trong **[START_QUIZ_DATA]** và **[END_QUIZ_DATA]**.
+            6. **QUAN TRỌNG VỚI TRẮC NGHIỆM:** Giữa Câu hỏi và lựa chọn A, và giữa các lựa chọn A, B, C, D **PHẢI CÓ MỘT DÒNG TRỐNG HOÀN TOÀN** để đảm bảo hiển thị đúng trong Markdown (tổng cộng 9 dòng cho 4 lựa chọn và Câu hỏi).
+            7. Không thêm bất kỳ văn bản, giải thích, hay định dạng markdown nào khác ngoài các cặp [QUESTION]/[ANSWER] này.
             
             Ví dụ cho 2 cặp Q/A (CHÚ Ý CÁC DÒNG TRỐNG):
             [START_QUIZ_DATA]
             [START_QUESTION]
             Đây là câu hỏi TRẮC NGHIỆM thứ nhất?
             
-            
             A. Lựa chọn A
-            
-            
+        
             B. Lựa chọn B
             
-            
             C. Lựa chọn C
-            
             
             D. Lựa chọn D
             [END_QUESTION]
@@ -400,3 +397,4 @@ def evaluate_user_answer_clarity(user_answer: str, correct_answer: str, question
     # Nếu vòng lặp kết thúc mà không thành công (3 lần thất bại)
     print("Đánh giá thất bại sau 3 lần thử. Trả về mặc định 'INCORRECT'.")
     return "INCORRECT"
+
