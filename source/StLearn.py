@@ -6,6 +6,33 @@ from google import genai
 from google.genai import types
 import streamlit as st
 
+# Waiting to be implemented
+from openai import OpenAI
+import json
+# Kiwi model, better than current Google
+Kiwi_client = OpenAI(
+  base_url="https://integrate.api.nvidia.com/v1",
+  api_key="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"
+)
+
+completion = client.chat.completions.create(
+  model="moonshotai/kimi-k2-thinking",
+  messages=[{"role":"user","content":""}],
+  temperature=1,
+  top_p=0.9,
+  max_tokens=16384,
+  stream=True
+)
+
+for chunk in completion:
+  reasoning = getattr(chunk.choices[0].delta, "reasoning_content", None)
+  if reasoning:
+    print(reasoning, end="")
+  if chunk.choices[0].delta.content:
+    print(chunk.choices[0].delta.content, end="")
+# End of Kiwi.
+
+
 # UPDATED: Added "-it" (Instruction Tuned). Base models often fail with chat prompts.
 DEFAULT_MODEL_NAME = "gemma-3-27b-it"
 DEFAULT_MODEL_FLASH_LATEST = "gemma-3-27b-it"
@@ -265,3 +292,4 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         print(f"Error in genRes: {e}")
         # Return the actual error to help debugging instead of generic message
         return f"An error occurred: {str(e)}"
+
