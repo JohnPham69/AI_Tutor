@@ -15,7 +15,7 @@ Kiwi_client = OpenAI(
   api_key="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"
 )
 
-completion = client.chat.completions.create(
+completion = Kiwi_client.chat.completions.create(
   model="moonshotai/kimi-k2-thinking",
   messages=[{"role":"user","content":""}],
   temperature=1,
@@ -292,4 +292,5 @@ def genRes(text_input, chat_history, user_api, user_model=None, selected_grade=N
         print(f"Error in genRes: {e}")
         # Return the actual error to help debugging instead of generic message
         return f"An error occurred: {str(e)}"
+
 
