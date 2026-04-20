@@ -25,12 +25,20 @@ completion = Kiwi_client.chat.completions.create(
 )
 
 for chunk in completion:
-  reasoning = getattr(chunk.choices[0].delta, "reasoning_content", None)
-  if reasoning:
-    print(reasoning, end="")
-  if chunk.choices[0].delta.content:
-    print(chunk.choices[0].delta.content, end="")
-# End of Kiwi.
+    # Check if choices exists and has at least one element
+    if not hasattr(chunk, 'choices') or not chunk.choices:
+        continue
+        
+    delta = chunk.choices[0].delta
+    
+    # Safely get reasoning content
+    reasoning = getattr(delta, "reasoning_content", None)
+    if reasoning:
+        print(reasoning, end="")
+        
+    # Safely get standard content
+    if hasattr(delta, "content") and delta.content:
+        print(delta.content, end="")
 
 
 # UPDATED: Added "-it" (Instruction Tuned). Base models often fail with chat prompts.
